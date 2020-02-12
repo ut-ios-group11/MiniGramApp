@@ -10,12 +10,12 @@
 		F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB67E23F455D9005AD08D /* AppDelegate.swift */; };
 		F3EBB68123F455D9005AD08D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB68023F455D9005AD08D /* SceneDelegate.swift */; };
 		F3EBB68323F455D9005AD08D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB68223F455D9005AD08D /* ViewController.swift */; };
-		F3EBB68623F455D9005AD08D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB68423F455D9005AD08D /* Main.storyboard */; };
+		F3EBB68623F455D9005AD08D /* SignedIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB68423F455D9005AD08D /* SignedIn.storyboard */; };
 		F3EBB68823F455DB005AD08D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB68723F455DB005AD08D /* Assets.xcassets */; };
 		F3EBB68B23F455DB005AD08D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB68923F455DB005AD08D /* LaunchScreen.storyboard */; };
 		F3EBB69323F45AB1005AD08D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB69223F45AB1005AD08D /* GoogleService-Info.plist */; };
 		F3EBB69623F45B62005AD08D /* FireAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB69523F45B62005AD08D /* FireAuth.swift */; };
-		F3EBB69823F45C8A005AD08D /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB69723F45C8A005AD08D /* Auth.storyboard */; };
+		F3EBB69823F45C8A005AD08D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB69723F45C8A005AD08D /* Main.storyboard */; };
 		F3EBB69B23F45CCB005AD08D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB69A23F45CCB005AD08D /* Database.swift */; };
 		F3EBB69E23F4AC6A005AD08D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB69D23F4AC6A005AD08D /* UserData.swift */; };
 		F3EBB6A023F4AD52005AD08D /* Fire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB69F23F4AD52005AD08D /* Fire.swift */; };
@@ -23,6 +23,8 @@
 		F3EBB6A523F4AECA005AD08D /* FireCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB6A423F4AECA005AD08D /* FireCollections.swift */; };
 		F3EBB6A723F4AF31005AD08D /* FireObjectProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB6A623F4AF31005AD08D /* FireObjectProtocols.swift */; };
 		F3EBB6A923F4AFEA005AD08D /* DatabaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB6A823F4AFEA005AD08D /* DatabaseUser.swift */; };
+		F3EBB6AE23F4B518005AD08D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB6AD23F4B518005AD08D /* LoginViewController.swift */; };
+		F3EBB6B023F4B7A9005AD08D /* SimpleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB6AF23F4B7A9005AD08D /* SimpleExtensions.swift */; };
 		FE27EC0B5071CE5D7FC04BD0 /* Pods_MiniGramApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2F16D68D88CA03AE187A1C /* Pods_MiniGramApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,13 +36,13 @@
 		F3EBB67E23F455D9005AD08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EBB68023F455D9005AD08D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F3EBB68223F455D9005AD08D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F3EBB68523F455D9005AD08D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F3EBB68523F455D9005AD08D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignedIn.storyboard; sourceTree = "<group>"; };
 		F3EBB68723F455DB005AD08D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3EBB68A23F455DB005AD08D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3EBB68C23F455DB005AD08D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3EBB69223F45AB1005AD08D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3EBB69523F45B62005AD08D /* FireAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAuth.swift; sourceTree = "<group>"; };
-		F3EBB69723F45C8A005AD08D /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		F3EBB69723F45C8A005AD08D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F3EBB69A23F45CCB005AD08D /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		F3EBB69D23F4AC6A005AD08D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		F3EBB69F23F4AD52005AD08D /* Fire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fire.swift; sourceTree = "<group>"; };
@@ -48,6 +50,8 @@
 		F3EBB6A423F4AECA005AD08D /* FireCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireCollections.swift; sourceTree = "<group>"; };
 		F3EBB6A623F4AF31005AD08D /* FireObjectProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireObjectProtocols.swift; sourceTree = "<group>"; };
 		F3EBB6A823F4AFEA005AD08D /* DatabaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseUser.swift; sourceTree = "<group>"; };
+		F3EBB6AD23F4B518005AD08D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F3EBB6AF23F4B7A9005AD08D /* SimpleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 		F3EBB67D23F455D9005AD08D /* MiniGram */ = {
 			isa = PBXGroup;
 			children = (
+				F3EBB6AA23F4B4DF005AD08D /* LoginRegistration */,
 				F3EBB6A123F4ADAE005AD08D /* ErrorLogging */,
 				F3EBB69C23F4AC58005AD08D /* User */,
 				F3EBB69923F45CBE005AD08D /* Database */,
@@ -108,11 +113,12 @@
 				F3EBB67E23F455D9005AD08D /* AppDelegate.swift */,
 				F3EBB68023F455D9005AD08D /* SceneDelegate.swift */,
 				F3EBB68223F455D9005AD08D /* ViewController.swift */,
-				F3EBB69723F45C8A005AD08D /* Auth.storyboard */,
-				F3EBB68423F455D9005AD08D /* Main.storyboard */,
+				F3EBB69723F45C8A005AD08D /* Main.storyboard */,
+				F3EBB68423F455D9005AD08D /* SignedIn.storyboard */,
 				F3EBB68723F455DB005AD08D /* Assets.xcassets */,
 				F3EBB68923F455DB005AD08D /* LaunchScreen.storyboard */,
 				F3EBB68C23F455DB005AD08D /* Info.plist */,
+				F3EBB6AF23F4B7A9005AD08D /* SimpleExtensions.swift */,
 			);
 			path = MiniGram;
 			sourceTree = "<group>";
@@ -151,6 +157,14 @@
 				F3EBB6A223F4ADC0005AD08D /* LogManager.swift */,
 			);
 			path = ErrorLogging;
+			sourceTree = "<group>";
+		};
+		F3EBB6AA23F4B4DF005AD08D /* LoginRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				F3EBB6AD23F4B518005AD08D /* LoginViewController.swift */,
+			);
+			path = LoginRegistration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,9 +229,9 @@
 			files = (
 				F3EBB68B23F455DB005AD08D /* LaunchScreen.storyboard in Resources */,
 				F3EBB69323F45AB1005AD08D /* GoogleService-Info.plist in Resources */,
-				F3EBB69823F45C8A005AD08D /* Auth.storyboard in Resources */,
+				F3EBB69823F45C8A005AD08D /* Main.storyboard in Resources */,
 				F3EBB68823F455DB005AD08D /* Assets.xcassets in Resources */,
-				F3EBB68623F455D9005AD08D /* Main.storyboard in Resources */,
+				F3EBB68623F455D9005AD08D /* SignedIn.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,9 +284,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3EBB6AE23F4B518005AD08D /* LoginViewController.swift in Sources */,
 				F3EBB6A523F4AECA005AD08D /* FireCollections.swift in Sources */,
 				F3EBB6A323F4ADC0005AD08D /* LogManager.swift in Sources */,
 				F3EBB69E23F4AC6A005AD08D /* UserData.swift in Sources */,
+				F3EBB6B023F4B7A9005AD08D /* SimpleExtensions.swift in Sources */,
 				F3EBB68323F455D9005AD08D /* ViewController.swift in Sources */,
 				F3EBB69623F45B62005AD08D /* FireAuth.swift in Sources */,
 				F3EBB6A023F4AD52005AD08D /* Fire.swift in Sources */,
@@ -287,12 +303,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F3EBB68423F455D9005AD08D /* Main.storyboard */ = {
+		F3EBB68423F455D9005AD08D /* SignedIn.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F3EBB68523F455D9005AD08D /* Base */,
 			);
-			name = Main.storyboard;
+			name = SignedIn.storyboard;
 			sourceTree = "<group>";
 		};
 		F3EBB68923F455DB005AD08D /* LaunchScreen.storyboard */ = {
