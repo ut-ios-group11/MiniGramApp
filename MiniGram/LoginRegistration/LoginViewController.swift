@@ -31,7 +31,11 @@ class LoginViewController: UIViewController {
             self.loginOutputLabel.text = "Login Error"
         }, onComplete: {
             LogManager.logInfo("Login Succesful")
-            self.loginOutputLabel.text = "Login Success"
+            if let name = UserData.shared.getDatabaseUser()?.name {
+                self.loginOutputLabel.text = "\(name) was logged in"
+            } else {
+                self.loginOutputLabel.text = "NO NAME was logged in"
+            }
         })
     }
     

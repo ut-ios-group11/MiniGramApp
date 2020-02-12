@@ -30,6 +30,10 @@ class UserData {
         databaseUser = nil
     }
     
+    public func getDatabaseUser() -> DatabaseUser? {
+        return self.databaseUser
+    }
+    
     public func signOut(onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         FireAuth.shared.signOut(onError: onError) {
             self.clearAllData()
