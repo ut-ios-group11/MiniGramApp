@@ -24,7 +24,7 @@
 		5D2F16D68D88CA03AE187A1C /* Pods_MiniGramApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniGramApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		829AE59FCFCA65749BA5B4D5 /* Pods-MiniGramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.release.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.release.xcconfig"; sourceTree = "<group>"; };
 		B181299490F710A9B799608C /* Pods-MiniGramApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.debug.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.debug.xcconfig"; sourceTree = "<group>"; };
-		F3EBB67B23F455D9005AD08D /* MiniGramApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniGramApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3EBB67B23F455D9005AD08D /* MiniGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EBB67E23F455D9005AD08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EBB68023F455D9005AD08D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F3EBB68223F455D9005AD08D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		F3EBB67223F455D9005AD08D = {
 			isa = PBXGroup;
 			children = (
-				F3EBB67D23F455D9005AD08D /* MiniGramApp */,
+				F3EBB67D23F455D9005AD08D /* MiniGram */,
 				F3EBB67C23F455D9005AD08D /* Products */,
 				756D203D2E26936542ECD11B /* Pods */,
 				CD497841C21BC0BC788B139D /* Frameworks */,
@@ -80,12 +80,12 @@
 		F3EBB67C23F455D9005AD08D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F3EBB67B23F455D9005AD08D /* MiniGramApp.app */,
+				F3EBB67B23F455D9005AD08D /* MiniGram.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F3EBB67D23F455D9005AD08D /* MiniGramApp */ = {
+		F3EBB67D23F455D9005AD08D /* MiniGram */ = {
 			isa = PBXGroup;
 			children = (
 				F3EBB69923F45CBE005AD08D /* Database */,
@@ -100,7 +100,7 @@
 				F3EBB68923F455DB005AD08D /* LaunchScreen.storyboard */,
 				F3EBB68C23F455DB005AD08D /* Info.plist */,
 			);
-			path = MiniGramApp;
+			path = MiniGram;
 			sourceTree = "<group>";
 		};
 		F3EBB69423F45B0B005AD08D /* Firestore */ = {
@@ -122,9 +122,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F3EBB67A23F455D9005AD08D /* MiniGramApp */ = {
+		F3EBB67A23F455D9005AD08D /* MiniGram */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F3EBB68F23F455DB005AD08D /* Build configuration list for PBXNativeTarget "MiniGramApp" */;
+			buildConfigurationList = F3EBB68F23F455DB005AD08D /* Build configuration list for PBXNativeTarget "MiniGram" */;
 			buildPhases = (
 				B610DA2C0B3662A40FE1E05B /* [CP] Check Pods Manifest.lock */,
 				F3EBB67723F455D9005AD08D /* Sources */,
@@ -136,9 +136,9 @@
 			);
 			dependencies = (
 			);
-			name = MiniGramApp;
+			name = MiniGram;
 			productName = MiniGramApp;
-			productReference = F3EBB67B23F455D9005AD08D /* MiniGramApp.app */;
+			productReference = F3EBB67B23F455D9005AD08D /* MiniGram.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -156,7 +156,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F3EBB67623F455D9005AD08D /* Build configuration list for PBXProject "MiniGramApp" */;
+			buildConfigurationList = F3EBB67623F455D9005AD08D /* Build configuration list for PBXProject "MiniGram" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -169,7 +169,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F3EBB67A23F455D9005AD08D /* MiniGramApp */,
+				F3EBB67A23F455D9005AD08D /* MiniGram */,
 			);
 		};
 /* End PBXProject section */
@@ -387,13 +387,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92T5YVZA7N;
-				INFOPLIST_FILE = MiniGramApp/Info.plist;
+				INFOPLIST_FILE = MiniGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = KeeganBlack.MiniGramApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MiniGram;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -406,13 +406,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92T5YVZA7N;
-				INFOPLIST_FILE = MiniGramApp/Info.plist;
+				INFOPLIST_FILE = MiniGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = KeeganBlack.MiniGramApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MiniGram;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -421,7 +421,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F3EBB67623F455D9005AD08D /* Build configuration list for PBXProject "MiniGramApp" */ = {
+		F3EBB67623F455D9005AD08D /* Build configuration list for PBXProject "MiniGram" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3EBB68D23F455DB005AD08D /* Debug */,
@@ -430,7 +430,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F3EBB68F23F455DB005AD08D /* Build configuration list for PBXNativeTarget "MiniGramApp" */ = {
+		F3EBB68F23F455DB005AD08D /* Build configuration list for PBXNativeTarget "MiniGram" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3EBB69023F455DB005AD08D /* Debug */,

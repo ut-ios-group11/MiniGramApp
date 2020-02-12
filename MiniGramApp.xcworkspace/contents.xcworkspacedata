@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:MiniGramApp.xcodeproj">
+      location = "group:/Users/keeganblack/Documents/GitHub/MiniGramApp/MiniGram.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
