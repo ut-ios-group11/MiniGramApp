@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_MiniGramAppVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_MiniGramAppVersionString[];
+FOUNDATION_EXPORT double Pods_MiniGramVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_MiniGramVersionString[];
 

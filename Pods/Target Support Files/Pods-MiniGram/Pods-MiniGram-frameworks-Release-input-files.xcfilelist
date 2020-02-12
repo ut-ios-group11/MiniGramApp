@@ -1,4 +1,4 @@
-${PODS_ROOT}/Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp-frameworks.sh
+${PODS_ROOT}/Target Support Files/Pods-MiniGram/Pods-MiniGram-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework
 ${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework
 ${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework

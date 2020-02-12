@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FA091962F7C291141693562 /* Pods_MiniGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD41BE0269872D6E705F4CB /* Pods_MiniGram.framework */; };
 		F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB67E23F455D9005AD08D /* AppDelegate.swift */; };
 		F3EBB68123F455D9005AD08D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB68023F455D9005AD08D /* SceneDelegate.swift */; };
 		F3EBB68323F455D9005AD08D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB68223F455D9005AD08D /* ViewController.swift */; };
@@ -25,13 +26,14 @@
 		F3EBB6A923F4AFEA005AD08D /* DatabaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB6A823F4AFEA005AD08D /* DatabaseUser.swift */; };
 		F3EBB6AE23F4B518005AD08D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB6AD23F4B518005AD08D /* LoginViewController.swift */; };
 		F3EBB6B023F4B7A9005AD08D /* SimpleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB6AF23F4B7A9005AD08D /* SimpleExtensions.swift */; };
-		FE27EC0B5071CE5D7FC04BD0 /* Pods_MiniGramApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2F16D68D88CA03AE187A1C /* Pods_MiniGramApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5D2F16D68D88CA03AE187A1C /* Pods_MiniGramApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniGramApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75364A4969C99C1C2A5B074B /* Pods-MiniGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGram.debug.xcconfig"; path = "Target Support Files/Pods-MiniGram/Pods-MiniGram.debug.xcconfig"; sourceTree = "<group>"; };
 		829AE59FCFCA65749BA5B4D5 /* Pods-MiniGramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.release.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.release.xcconfig"; sourceTree = "<group>"; };
 		B181299490F710A9B799608C /* Pods-MiniGramApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.debug.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.debug.xcconfig"; sourceTree = "<group>"; };
+		CDD41BE0269872D6E705F4CB /* Pods_MiniGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1995FBFF8CE42EBCF284E4B /* Pods-MiniGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGram.release.xcconfig"; path = "Target Support Files/Pods-MiniGram/Pods-MiniGram.release.xcconfig"; sourceTree = "<group>"; };
 		F3EBB67B23F455D9005AD08D /* MiniGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EBB67E23F455D9005AD08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EBB68023F455D9005AD08D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE27EC0B5071CE5D7FC04BD0 /* Pods_MiniGramApp.framework in Frameworks */,
+				0FA091962F7C291141693562 /* Pods_MiniGram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +73,8 @@
 			children = (
 				B181299490F710A9B799608C /* Pods-MiniGramApp.debug.xcconfig */,
 				829AE59FCFCA65749BA5B4D5 /* Pods-MiniGramApp.release.xcconfig */,
+				75364A4969C99C1C2A5B074B /* Pods-MiniGram.debug.xcconfig */,
+				E1995FBFF8CE42EBCF284E4B /* Pods-MiniGram.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -78,7 +82,7 @@
 		CD497841C21BC0BC788B139D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5D2F16D68D88CA03AE187A1C /* Pods_MiniGramApp.framework */,
+				CDD41BE0269872D6E705F4CB /* Pods_MiniGram.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -253,7 +257,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MiniGramApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MiniGram-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -266,15 +270,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MiniGram/Pods-MiniGram-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MiniGram/Pods-MiniGram-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MiniGram/Pods-MiniGram-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -438,7 +442,7 @@
 		};
 		F3EBB69023F455DB005AD08D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B181299490F710A9B799608C /* Pods-MiniGramApp.debug.xcconfig */;
+			baseConfigurationReference = 75364A4969C99C1C2A5B074B /* Pods-MiniGram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -457,7 +461,7 @@
 		};
 		F3EBB69123F455DB005AD08D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 829AE59FCFCA65749BA5B4D5 /* Pods-MiniGramApp.release.xcconfig */;
+			baseConfigurationReference = E1995FBFF8CE42EBCF284E4B /* Pods-MiniGram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
