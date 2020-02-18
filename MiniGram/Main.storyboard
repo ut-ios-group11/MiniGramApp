@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="ybi-iM-qgK">
-                                <rect key="frame" x="20" y="94" width="374" height="449.5"/>
+                                <rect key="frame" x="20" y="94" width="374" height="529.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xb1-oG-9Ve">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -74,8 +74,15 @@
                                             <action selector="loginClick:" destination="qI3-yB-yV3" eventType="touchUpInside" id="Yjj-9N-DxB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlj-Qe-oni">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mek-xf-Qac">
                                         <rect key="frame" x="0.0" y="349" width="374" height="30"/>
+                                        <state key="normal" title="Create Account"/>
+                                        <connections>
+                                            <segue destination="kXM-sb-BMd" kind="show" id="i4z-0d-oho"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlj-Qe-oni">
+                                        <rect key="frame" x="0.0" y="429" width="374" height="30"/>
                                         <state key="normal" title="SKIP">
                                             <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -84,7 +91,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login Output" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yr-V7-4Ng">
-                                        <rect key="frame" x="0.0" y="429" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="509" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -106,7 +113,6 @@
                         <outlet property="emailTextField" destination="T5J-Zv-aVh" id="LsP-JN-hVG"/>
                         <outlet property="loginOutputLabel" destination="7Yr-V7-4Ng" id="CbY-hA-f2q"/>
                         <outlet property="passwordTextField" destination="eQb-Hn-hZc" id="R86-2R-Fx4"/>
-                        <segue destination="kXM-sb-BMd" kind="show" identifier=" " id="t4q-2a-sdy"/>
                         <segue destination="KPf-cG-Ukv" kind="show" identifier="toSignedIn" id="i3u-Nb-REd"/>
                     </connections>
                 </viewController>
@@ -206,7 +212,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="t4q-2a-sdy"/>
         <segue reference="jyc-jM-4C6"/>
     </inferredMetricsTieBreakers>
 </document>
