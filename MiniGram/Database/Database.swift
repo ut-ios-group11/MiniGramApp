@@ -32,6 +32,16 @@ class Database {
      */
     
     // MARK: - Create Methods
+    func createUser(email: String, password: String, username: String, firstName: String, lastName: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        FireAuth.shared.createUser(email: email, password: password, onError: onError) { (user) in
+            let uid = user.uid
+            let data = ["Username": username, "First Name": firstName, "Last Name": lastName]
+            let reference = Firestore.firestore().collection(FireCollection.Users.rawValue)
+            Fire.shared.create(at: reference, withID: uid, data: data, onError: onError, onComplete: onComplete)
+        }
+        
+        
+    }
     
     // MARK: - Update Methods
     

@@ -42,5 +42,9 @@ class LoginViewController: UIViewController {
     @IBAction func skipClick(_ sender: Any) {
         performSegue(withIdentifier: "toSignedIn", sender: self)
     }
-
+    
+    @IBAction func createAccountClick(_ sender: Any) {
+        performSegue(withIdentifier: "toCreateAccount", sender: self)
+    }
+    
 }
