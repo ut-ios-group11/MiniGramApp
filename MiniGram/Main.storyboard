@@ -131,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="274" y="726"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Account View Controller-->
         <scene sceneID="DOY-fo-Jc4">
             <objects>
-                <viewController id="kXM-sb-BMd" sceneMemberID="viewController">
+                <viewController id="kXM-sb-BMd" customClass="CreateAccountViewController" customModule="MiniGram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pyp-Oa-73F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -206,7 +206,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFr-Cw-BVX">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter an email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFr-Cw-BVX">
                                                 <rect key="frame" x="0.0" y="179.5" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -234,6 +234,7 @@
                                         <rect key="frame" x="0.0" y="518" width="374" height="30"/>
                                         <state key="normal" title="Submit"/>
                                         <connections>
+                                            <action selector="submitPressed:" destination="kXM-sb-BMd" eventType="touchUpInside" id="vHC-lI-cmJ"/>
                                             <segue destination="qI3-yB-yV3" kind="show" id="jyc-jM-4C6"/>
                                         </connections>
                                     </button>
@@ -250,6 +251,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="B7Y-8E-szb"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="yFr-Cw-BVX" id="pg4-cu-LU3"/>
+                        <outlet property="firstNameTextField" destination="0QL-R3-G0J" id="Zve-zu-oSG"/>
+                        <outlet property="lastNameTextField" destination="UZH-wa-P4N" id="h4p-OG-GAf"/>
+                        <outlet property="passwordTextField" destination="hks-7B-neF" id="lUX-zs-2pm"/>
+                        <outlet property="statusLabel" destination="c5R-XE-xS4" id="CGO-9V-ucD"/>
+                        <outlet property="usernameTextField" destination="Vca-dg-Gnb" id="kPC-UJ-GgD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJa-Jc-OOV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -257,7 +266,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="h0j-zZ-ysS"/>
         <segue reference="jyc-jM-4C6"/>
     </inferredMetricsTieBreakers>
 </document>
