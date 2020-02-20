@@ -63,7 +63,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQb-Hn-hZc">
                                                 <rect key="frame" x="0.0" y="105" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -220,7 +220,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hks-7B-neF">
                                                 <rect key="frame" x="0.0" y="254" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -235,14 +235,23 @@
                                         <state key="normal" title="Submit"/>
                                         <connections>
                                             <action selector="submitPressed:" destination="kXM-sb-BMd" eventType="touchUpInside" id="vHC-lI-cmJ"/>
-                                            <segue destination="qI3-yB-yV3" kind="show" id="jyc-jM-4C6"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="vZk-vN-naK">
+                                <rect key="frame" x="187" y="433" width="40" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="40n-9S-VL3"/>
+                                    <constraint firstAttribute="height" constant="40" id="oOl-EC-MiV"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="vZk-vN-naK" firstAttribute="centerY" secondItem="PZK-Kk-Bwf" secondAttribute="centerY" id="3no-tq-jfu"/>
+                            <constraint firstItem="vZk-vN-naK" firstAttribute="centerX" secondItem="PZK-Kk-Bwf" secondAttribute="centerX" id="Zm7-tH-xRu"/>
                             <constraint firstItem="PZK-Kk-Bwf" firstAttribute="trailing" secondItem="kOn-Zt-grC" secondAttribute="trailing" constant="20" id="cK5-86-2zW"/>
                             <constraint firstItem="kOn-Zt-grC" firstAttribute="leading" secondItem="PZK-Kk-Bwf" secondAttribute="leading" constant="20" id="uzK-FO-R2l"/>
                             <constraint firstItem="kOn-Zt-grC" firstAttribute="top" secondItem="PZK-Kk-Bwf" secondAttribute="top" constant="50" id="wz8-xh-0Ng"/>
@@ -256,8 +265,11 @@
                         <outlet property="firstNameTextField" destination="0QL-R3-G0J" id="Zve-zu-oSG"/>
                         <outlet property="lastNameTextField" destination="UZH-wa-P4N" id="h4p-OG-GAf"/>
                         <outlet property="passwordTextField" destination="hks-7B-neF" id="lUX-zs-2pm"/>
+                        <outlet property="spinner" destination="vZk-vN-naK" id="nMu-bz-9JO"/>
                         <outlet property="statusLabel" destination="c5R-XE-xS4" id="CGO-9V-ucD"/>
+                        <outlet property="submitButton" destination="Y4N-X3-PpV" id="ZjU-xm-iNO"/>
                         <outlet property="usernameTextField" destination="Vca-dg-Gnb" id="kPC-UJ-GgD"/>
+                        <segue destination="KPf-cG-Ukv" kind="show" identifier="toSignedIn" id="wW0-dr-xnI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJa-Jc-OOV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -266,6 +278,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jyc-jM-4C6"/>
+        <segue reference="i3u-Nb-REd"/>
     </inferredMetricsTieBreakers>
 </document>

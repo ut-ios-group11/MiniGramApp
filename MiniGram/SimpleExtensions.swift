@@ -20,3 +20,10 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+extension UIView {
+    func roundCorners(_ size: CGFloat) {
+        self.layer.cornerRadius = size
+        self.layer.masksToBounds = true
+    }
+}
