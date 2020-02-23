@@ -98,11 +98,21 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dji-1n-uNe">
+                                <rect key="frame" x="187" y="433" width="40" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7du-WH-R9Z"/>
+                                    <constraint firstAttribute="width" constant="40" id="mLZ-yi-74j"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="xbS-1t-1rq" firstAttribute="trailing" secondItem="ybi-iM-qgK" secondAttribute="trailing" constant="20" id="c5B-Dg-fy1"/>
+                            <constraint firstItem="dji-1n-uNe" firstAttribute="centerX" secondItem="xbS-1t-1rq" secondAttribute="centerX" id="eYV-n5-dFg"/>
                             <constraint firstItem="ybi-iM-qgK" firstAttribute="top" secondItem="xbS-1t-1rq" secondAttribute="top" constant="50" id="fjO-YA-TFd"/>
+                            <constraint firstItem="dji-1n-uNe" firstAttribute="centerY" secondItem="xbS-1t-1rq" secondAttribute="centerY" id="gVn-Qz-0hM"/>
                             <constraint firstItem="ybi-iM-qgK" firstAttribute="leading" secondItem="xbS-1t-1rq" secondAttribute="leading" constant="20" id="t65-Jj-bcd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xbS-1t-1rq"/>
@@ -110,9 +120,12 @@
                     <navigationItem key="navigationItem" id="tG9-pf-aRL"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="createAccountButton" destination="ALw-bT-de1" id="b5j-KV-4pt"/>
                         <outlet property="emailTextField" destination="T5J-Zv-aVh" id="LsP-JN-hVG"/>
+                        <outlet property="loginButton" destination="Y3R-wA-Se9" id="EKu-On-Uoe"/>
                         <outlet property="loginOutputLabel" destination="7Yr-V7-4Ng" id="CbY-hA-f2q"/>
                         <outlet property="passwordTextField" destination="eQb-Hn-hZc" id="R86-2R-Fx4"/>
+                        <outlet property="spinner" destination="dji-1n-uNe" id="Kuq-lQ-zO4"/>
                         <segue destination="KPf-cG-Ukv" kind="show" identifier="toSignedIn" id="i3u-Nb-REd"/>
                         <segue destination="kXM-sb-BMd" kind="show" identifier="toCreateAccount" id="h0j-zZ-ysS"/>
                     </connections>
