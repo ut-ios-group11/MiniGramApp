@@ -27,3 +27,7 @@ DerivedData/
 
 ## Gcc Patch
 /*.gcno
+
+## Pods
+Pods/*.xcodeproj/xcuserdata/
+Pods/*.xcodeproj/project.xcworkspace/xcuserdata/
