@@ -17,6 +17,7 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
@@ -50,6 +51,10 @@ class CreateAccountViewController: UIViewController {
         
     }
     
+    @IBAction func cancelPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func disableUserInteraction(_ bool: Bool) {
         let userInteraction = !bool
         firstNameTextField.isUserInteractionEnabled = userInteraction
@@ -58,6 +63,7 @@ class CreateAccountViewController: UIViewController {
         emailTextField.isUserInteractionEnabled = userInteraction
         passwordTextField.isUserInteractionEnabled = userInteraction
         submitButton.isUserInteractionEnabled = userInteraction
+        cancelButton.isUserInteractionEnabled = userInteraction
         
         if bool {
             spinner.startAnimating()
