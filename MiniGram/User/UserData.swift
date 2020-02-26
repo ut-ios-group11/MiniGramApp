@@ -20,7 +20,7 @@ class UserData {
     
     // Only Use Private Variables
     private var user: User?
-    private var databaseUser: DatabaseUser?
+    private var databaseUser: GenericUser?
     
     private init () {
     }
@@ -30,7 +30,7 @@ class UserData {
         databaseUser = nil
     }
     
-    public func getDatabaseUser() -> DatabaseUser? {
+    public func getDatabaseUser() -> GenericUser? {
         return self.databaseUser
     }
     
@@ -68,7 +68,7 @@ class UserData {
     
     private func readUser(id: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         let query = Firestore.firestore().collection(FireCollection.Users.rawValue).document(id)
-        Fire.shared.read(at: query, returning: DatabaseUser.self, onError: onError, onComplete: { (databaseUser) in
+        Fire.shared.read(at: query, returning: GenericUser.self, onError: onError, onComplete: { (databaseUser) in
             guard let databaseUser = databaseUser else {
                 onError(UserDataError.couldNotLoadUser)
                 return
