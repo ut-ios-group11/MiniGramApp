@@ -11,32 +11,51 @@ import UIKit
 class ExploreViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBarTextField: UITextField!
+    
+    // MARK: Constants
     let collectionViewXInset: CGFloat = 10
+    
+    var explorePosts = [GenericPost]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBarTextField.delegate = self
+        collectionViewSetUp()
+        
+        explorePosts = UserData.shared.explorePosts
+        
+        collectionView.reloadData()
+    }
+    
+    func collectionViewSetUp() {
+        // Setting Delegates
         collectionView.dataSource = self
         collectionView.delegate = self
-        // Do any additional setup after loading the view.
         
-        
+        // Setting the layout
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: collectionViewXInset, bottom: 0, right: collectionViewXInset)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         collectionView!.collectionViewLayout = layout
-        
-        collectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+}
+
+// MARK: Search Bar Text Field Delegate
+
+extension ExploreViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        searchBarTextField.endEditing(true)
+        performSegue(withIdentifier: "toSearch", sender: self)
     }
 }
+
+// MARK: Collection View Flow Layout
 
 extension ExploreViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -47,16 +66,18 @@ extension ExploreViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: Collection View DataSource
+
 extension ExploreViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return UserData.shared.explorePosts.count
+        return explorePosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pictureCell", for: indexPath) as? ExploreCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.imageView.image = UserData.shared.explorePosts[indexPath.item].image
+        cell.imageView.image = explorePosts[indexPath.item].image
         return cell
     }
 }

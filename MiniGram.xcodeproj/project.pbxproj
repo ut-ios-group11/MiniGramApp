@@ -21,6 +21,7 @@
 		F354DDBA240742B000370C04 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDB9240742B000370C04 /* ExploreViewController.swift */; };
 		F354DDBC240742B900370C04 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDBB240742B900370C04 /* HomeViewController.swift */; };
 		F354DDBE2407A87600370C04 /* ExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDBD2407A87600370C04 /* ExploreCollectionViewCell.swift */; };
+		F354DDC02408564E00370C04 /* ExploreSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDBF2408564E00370C04 /* ExploreSearchViewController.swift */; };
 		F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB67E23F455D9005AD08D /* AppDelegate.swift */; };
 		F3EBB68123F455D9005AD08D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB68023F455D9005AD08D /* SceneDelegate.swift */; };
 		F3EBB68623F455D9005AD08D /* SignedIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB68423F455D9005AD08D /* SignedIn.storyboard */; };
@@ -58,6 +59,7 @@
 		F354DDB9240742B000370C04 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		F354DDBB240742B900370C04 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F354DDBD2407A87600370C04 /* ExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCollectionViewCell.swift; sourceTree = "<group>"; };
+		F354DDBF2408564E00370C04 /* ExploreSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSearchViewController.swift; sourceTree = "<group>"; };
 		F3EBB67B23F455D9005AD08D /* MiniGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EBB67E23F455D9005AD08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EBB68023F455D9005AD08D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				F354DDB9240742B000370C04 /* ExploreViewController.swift */,
+				F354DDBF2408564E00370C04 /* ExploreSearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				F3EBB6A023F4AD52005AD08D /* Fire.swift in Sources */,
 				F354DDB62407429900370C04 /* AddViewController.swift in Sources */,
 				F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */,
+				F354DDC02408564E00370C04 /* ExploreSearchViewController.swift in Sources */,
 				F3EBB69B23F45CCB005AD08D /* Database.swift in Sources */,
 				F354DDBA240742B000370C04 /* ExploreViewController.swift in Sources */,
 				F3EBB68123F455D9005AD08D /* SceneDelegate.swift in Sources */,
