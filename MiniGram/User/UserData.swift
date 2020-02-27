@@ -86,11 +86,9 @@ class UserData {
     // MARK: TEST DATA
     private func createTestData() {
         // Explore Posts
-        let post = GenericPost(id: "0", userId: "1", likes: 5, date: Timestamp(), image: nil)
         for i in 0...10 {
-            post.id = "\(i)"
-            post.image = UIImage(named: "minature\(i%2)")
-            explorePosts.append(post)
+            let newPost = GenericPost(id: "\(i)", userId: "\(i)", likes: Int.random(in: 0 ..< 20), date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
+            explorePosts.append(newPost)
         }
     }
     
