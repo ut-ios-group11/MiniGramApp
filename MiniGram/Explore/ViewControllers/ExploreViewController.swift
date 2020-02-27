@@ -29,14 +29,14 @@ class ExploreViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return UserData.shared.posts?.count ?? 0
+        return UserData.shared.explorePosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pictureCell", for: indexPath) as? ExploreCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.imageView.image = UserData.shared.posts?[indexPath.row].image
+        cell.imageView.image = UserData.shared.explorePosts[indexPath.row].image
         return cell
     }
     
