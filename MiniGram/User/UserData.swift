@@ -22,16 +22,11 @@ class UserData {
     private var user: User?
     private var databaseUser: GenericUser?
     
-    // Sameple Data
-    public var posts:[GenericPost]?
+    public var explorePosts = [GenericPost]()
     
     private init () {
-        posts = [GenericPost]()
-        let post = GenericPost(id: "0", userId: "1", likes: 5, date: Timestamp())
-        for i in 0...10 {
-            post.id = "\(i)"
-            posts?.append(post)
-        }
+        //For Testing Only
+        createTestData()
     }
     
     private func clearAllData() {
@@ -85,6 +80,18 @@ class UserData {
             self.databaseUser = databaseUser
             onComplete()
         })
+    }
+    
+    
+    // MARK: TEST DATA
+    private func createTestData() {
+        // Explore Posts
+        let post = GenericPost(id: "0", userId: "1", likes: 5, date: Timestamp(), image: nil)
+        for i in 0...10 {
+            post.id = "\(i)"
+            post.image = UIImage(named: "minature\(i%2)")
+            explorePosts.append(post)
+        }
     }
     
 }

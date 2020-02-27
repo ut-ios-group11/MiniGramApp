@@ -14,7 +14,23 @@
                     <view key="view" contentMode="scaleToFill" id="RhR-eZ-6m7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1S-Yc-W9I">
+                                <rect key="frame" x="162" y="409" width="90" height="39"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOutClick:" destination="3hh-7Z-GVF" eventType="touchUpInside" id="CbE-7L-C2R"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="C1S-Yc-W9I" firstAttribute="centerY" secondItem="OHD-xc-5o3" secondAttribute="centerY" id="jTG-Kw-6Nl"/>
+                            <constraint firstItem="C1S-Yc-W9I" firstAttribute="centerX" secondItem="OHD-xc-5o3" secondAttribute="centerX" id="z6O-cL-UpN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OHD-xc-5o3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="jnU-wL-AHp"/>

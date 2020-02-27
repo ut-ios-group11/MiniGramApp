@@ -16,6 +16,15 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func signOutClick(_ sender: Any) {
+        UserData.shared.signOut(onError: { (error) in
+            LogManager.logError(error)
+            self.navigationController?.popToRootViewController(animated: true)
+        }) {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+    }
+    
 
     /*
     // MARK: - Navigation

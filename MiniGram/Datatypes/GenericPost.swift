@@ -24,13 +24,13 @@ class GenericPost: FireInitable {
         date = doc.get("date") as? Timestamp ?? Timestamp()
     }
     
-    init (id: String, userId:String, likes:Int, date: Timestamp) {
+    init (id: String, userId:String, likes:Int, date: Timestamp, image: UIImage?) {
         self.id = id
         self.userId = userId
         self.likes = likes
         self.date = date
-        
-        self.image = UIImage(named: "TempImage")
+
+        self.image = image
     }
     
 }
