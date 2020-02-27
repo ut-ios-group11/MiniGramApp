@@ -20,6 +20,7 @@
 		F354DDB8240742A700370C04 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDB7240742A700370C04 /* ProfileViewController.swift */; };
 		F354DDBA240742B000370C04 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDB9240742B000370C04 /* ExploreViewController.swift */; };
 		F354DDBC240742B900370C04 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDBB240742B900370C04 /* HomeViewController.swift */; };
+		F354DDBE2407A87600370C04 /* ExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDBD2407A87600370C04 /* ExploreCollectionViewCell.swift */; };
 		F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB67E23F455D9005AD08D /* AppDelegate.swift */; };
 		F3EBB68123F455D9005AD08D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB68023F455D9005AD08D /* SceneDelegate.swift */; };
 		F3EBB68623F455D9005AD08D /* SignedIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB68423F455D9005AD08D /* SignedIn.storyboard */; };
@@ -56,6 +57,7 @@
 		F354DDB7240742A700370C04 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F354DDB9240742B000370C04 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		F354DDBB240742B900370C04 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F354DDBD2407A87600370C04 /* ExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3EBB67B23F455D9005AD08D /* MiniGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EBB67E23F455D9005AD08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EBB68023F455D9005AD08D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				F354DDB324073FA700370C04 /* ViewControllers */,
 				F354DDAD24073F8B00370C04 /* Explore.storyboard */,
+				F354DDBD2407A87600370C04 /* ExploreCollectionViewCell.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F354DDBE2407A87600370C04 /* ExploreCollectionViewCell.swift in Sources */,
 				341E671523FC8B61008EADA7 /* CreateAccountViewController.swift in Sources */,
 				F3EBB6AE23F4B518005AD08D /* LoginViewController.swift in Sources */,
 				F354DDBC240742B900370C04 /* HomeViewController.swift in Sources */,

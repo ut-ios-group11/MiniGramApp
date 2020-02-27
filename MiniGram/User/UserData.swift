@@ -22,7 +22,16 @@ class UserData {
     private var user: User?
     private var databaseUser: GenericUser?
     
+    // Sameple Data
+    public var posts:[GenericPost]?
+    
     private init () {
+        posts = [GenericPost]()
+        let post = GenericPost(id: "0", userId: "1", likes: 5, date: Timestamp())
+        for i in 0...10 {
+            post.id = "\(i)"
+            posts?.append(post)
+        }
     }
     
     private func clearAllData() {
