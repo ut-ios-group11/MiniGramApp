@@ -8,9 +8,7 @@
 
 import UIKit
 
-class ExploreViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    
+class ExploreViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -18,16 +16,23 @@ class ExploreViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.reloadData()
         // Do any additional setup after loading the view.
     }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let screenSize = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let cellSquareSize: CGFloat = screenWidth / 2.0
-        return CGSize(width: cellSquareSize, height: cellSquareSize);
+}
+
+extension ExploreViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let numberOfColumns: CGFloat = 2
+        let width = collectionView.frame.size.width
+        let xInsets: CGFloat = 10
+        let cellSpacing: CGFloat = 5
+        
+        return CGSize(width: (width / numberOfColumns) - (xInsets + cellSpacing), height: (width / numberOfColumns) - (xInsets + cellSpacing))
     }
-    
+}
+
+extension ExploreViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return UserData.shared.explorePosts.count
     }
@@ -36,19 +41,7 @@ class ExploreViewController: UIViewController, UICollectionViewDelegate, UIColle
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pictureCell", for: indexPath) as? ExploreCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.imageView.image = UserData.shared.explorePosts[indexPath.row].image
+        cell.imageView.image = UserData.shared.explorePosts[indexPath.item].image
         return cell
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
