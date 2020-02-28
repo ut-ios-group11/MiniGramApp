@@ -14,11 +14,19 @@ class GenericUser: FireInitable {
     var id: String
     var name: String?
     var followers: [String]?
+    var image: UIImage?
     
     required init(doc: DocumentSnapshot) {
         id = doc.documentID
         name = doc.get("name") as? String
         followers = doc.get("followers") as? [String]
+    }
+    
+    init(id: String, name: String, followers: [String]?, image: UIImage?) {
+        self.id = id
+        self.name = name
+        self.followers = followers
+        self.image = image
     }
     
 }

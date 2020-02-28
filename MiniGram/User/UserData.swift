@@ -22,7 +22,9 @@ class UserData {
     private var user: User?
     private var databaseUser: GenericUser?
     
+    // Only For Alpha
     public var explorePosts = [GenericPost]()
+    public var exploreUsers = [GenericUser]()
     
     private init () {
         //For Testing Only
@@ -89,6 +91,12 @@ class UserData {
         for i in 0...10 {
             let newPost = GenericPost(id: "\(i)", userId: "\(i)", likes: Int.random(in: 0 ..< 20), date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
             explorePosts.append(newPost)
+        }
+        
+        // Explore Users
+        for i in 0...10 {
+            let newUser = GenericUser(id: "\(i)", name: "User\(i)", followers: nil, image: UIImage(systemName: "person.circle.fill"))
+            exploreUsers.append(newUser)
         }
     }
     

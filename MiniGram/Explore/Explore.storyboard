@@ -106,7 +106,7 @@
                     <connections>
                         <outlet property="collectionView" destination="hiR-DQ-IeA" id="6AV-0G-YuY"/>
                         <outlet property="searchBarTextField" destination="gxl-s9-5E5" id="GZr-Z8-eMV"/>
-                        <segue destination="4Iw-xE-cC2" kind="show" identifier="toSearch" id="Bwz-gw-qCR"/>
+                        <segue destination="4Iw-xE-cC2" kind="show" identifier="toSearch" animates="NO" id="Bwz-gw-qCR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uzz-DY-l6e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -164,13 +164,44 @@
                                         <rect key="frame" x="0.0" y="62" width="414" height="707"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="AAb-1z-dDX">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" rowHeight="88" id="AAb-1z-dDX" customClass="ExploreSearchTableViewCell" customModule="MiniGram" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="88"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AAb-1z-dDX" id="3dW-aC-EBy">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cce-XG-dgi">
+                                                            <rect key="frame" x="16" y="16" width="382" height="56"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iMP-pd-J3l">
+                                                                    <rect key="frame" x="0.0" y="0.5" width="60" height="55"/>
+                                                                    <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="60" id="VYv-V5-ssv"/>
+                                                                        <constraint firstAttribute="height" constant="60" id="dXp-VV-joS"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzM-r6-fa1">
+                                                                    <rect key="frame" x="80" y="18" width="302" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="cce-XG-dgi" firstAttribute="leading" secondItem="3dW-aC-EBy" secondAttribute="leading" constant="16" id="FSB-ln-aLw"/>
+                                                        <constraint firstAttribute="bottom" secondItem="cce-XG-dgi" secondAttribute="bottom" constant="16" id="UYT-dg-Vi7"/>
+                                                        <constraint firstItem="cce-XG-dgi" firstAttribute="top" secondItem="3dW-aC-EBy" secondAttribute="top" constant="16" id="Zmp-Kl-aje"/>
+                                                        <constraint firstAttribute="trailing" secondItem="cce-XG-dgi" secondAttribute="trailing" constant="16" id="jOJ-Co-NzU"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="nameLabel" destination="VzM-r6-fa1" id="zGH-pS-z43"/>
+                                                    <outlet property="profileImage" destination="iMP-pd-J3l" id="540-Dy-UPd"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -190,6 +221,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="searchTextField" destination="G4b-pV-6C4" id="pk5-G6-goE"/>
+                        <outlet property="tableView" destination="6Kg-kX-2An" id="S1M-It-JX9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmi-QR-sT3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -219,5 +251,6 @@
     <resources>
         <image name="globe" catalog="system" width="64" height="60"/>
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>
+        <image name="person.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>
