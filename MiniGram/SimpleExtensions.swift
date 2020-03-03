@@ -26,4 +26,11 @@ extension UIView {
         self.layer.cornerRadius = size
         self.layer.masksToBounds = true
     }
+    
+    func round() {
+        // Only works for squares
+        let size = self.layer.frame.width
+        self.layer.cornerRadius = size/2
+        self.layer.masksToBounds = true
+    }
 }

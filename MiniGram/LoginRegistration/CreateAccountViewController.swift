@@ -10,33 +10,46 @@ import UIKit
 
 class CreateAccountViewController: UIViewController {
     
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    @IBOutlet weak var createAccountErrorView: UIView!
+    @IBOutlet weak var createAccountErrorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         spinner.hidesWhenStopped = true
         hideKeyboardWhenTappedAround()
         spinner.roundCorners(4)
+        hideError()
         // Do any additional setup after loading the view.
+    }
+    
+    func showError(error: String) {
+        createAccountErrorLabel.text = error
+        createAccountErrorView.isHidden = false
+    }
+    
+    func hideError() {
+        createAccountErrorView.isHidden = true
+        createAccountErrorLabel.text = ""
     }
 
     @IBAction func submitPressed(_ sender: Any) {
-        guard !usernameTextField.text!.isEmpty || !emailTextField.text!.isEmpty || !passwordTextField.text!.isEmpty || !firstNameTextField.text!.isEmpty || !lastNameTextField.text!.isEmpty else {
-            statusLabel.text = "Ensure all fields are filled out."
+        guard !usernameTextField.text!.isEmpty && !emailTextField.text!.isEmpty && !passwordTextField.text!.isEmpty && !nameTextField.text!.isEmpty else {
+            showError(error: "Fill Out All Fields")
             return
         }
         disableUserInteraction(true)
-        Database.shared.createUser(email: emailTextField.text!, password: passwordTextField.text!, username: usernameTextField.text!, firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, onError: { (error) in
-            LogManager.logError("Create User Field not filled out")
+        Database.shared.createUser(email: emailTextField.text!, password: passwordTextField.text!, username: usernameTextField.text!, name: nameTextField.text!, onError: { (error) in
+            LogManager.logError(error)
+            self.showError(error: "Error Creating User")
             self.disableUserInteraction(false)
         }) {
             UserData.shared.tryAutoSignIn(onError: { (error) in
@@ -57,8 +70,7 @@ class CreateAccountViewController: UIViewController {
     
     func disableUserInteraction(_ bool: Bool) {
         let userInteraction = !bool
-        firstNameTextField.isUserInteractionEnabled = userInteraction
-        lastNameTextField.isUserInteractionEnabled = userInteraction
+        nameTextField.isUserInteractionEnabled = userInteraction
         usernameTextField.isUserInteractionEnabled = userInteraction
         emailTextField.isUserInteractionEnabled = userInteraction
         passwordTextField.isUserInteractionEnabled = userInteraction
@@ -70,6 +82,10 @@ class CreateAccountViewController: UIViewController {
         } else {
             spinner.stopAnimating()
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        hideError()
     }
 
 }

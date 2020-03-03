@@ -13,36 +13,57 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var loginOutputLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var createAccountButton: UIButton!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    @IBOutlet weak var loginErrorView: UIView!
+    @IBOutlet weak var loginErrorLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         spinner.hidesWhenStopped = true
         spinner.roundCorners(4)
+        loginButton.roundCorners(4)
+        loginErrorView.roundCorners(4)
+        hideError()
+    }
+    
+    func showError(error: String) {
+        loginErrorLabel.text = error
+        loginErrorView.isHidden = false
+    }
+    
+    func hideError() {
+        loginErrorView.isHidden = true
+        loginErrorLabel.text = ""
     }
     
     @IBAction func loginClick(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text else {
-            LogManager.logError("No Email/Password")
+            showError(error: "No Email/Password")
+            return
+        }
+        
+        guard !email.isEmpty else {
+            showError(error: "Please Type Email")
+            return
+        }
+        
+        guard !password.isEmpty else {
+            showError(error: "Please Type Password")
             return
         }
         
         disableInteraction(true)
         UserData.shared.signIn(email: email, password: password, onError: { (error) in
             LogManager.logError(error)
-            self.loginOutputLabel.text = "Login Error"
+            self.showError(error: "Incorrect Email/Password")
             self.disableInteraction(false)
         }, onComplete: {
             LogManager.logInfo("Login Succesful")
-            if let name = UserData.shared.getDatabaseUser()?.name {
-                self.loginOutputLabel.text = "\(name) was logged in"
-            } else {
-                self.loginOutputLabel.text = "NO NAME was logged in"
-            }
+            self.performSegue(withIdentifier: "toSignedIn", sender: self)
             self.disableInteraction(false)
         })
     }
@@ -68,6 +89,10 @@ class LoginViewController: UIViewController {
     
     @IBAction func createAccountClick(_ sender: Any) {
         performSegue(withIdentifier: "toCreateAccount", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        hideError()
     }
     
 }

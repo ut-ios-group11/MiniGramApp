@@ -89,7 +89,7 @@ class UserData {
     private func createTestData() {
         // Explore Posts
         for i in 0...10 {
-            let newPost = GenericPost(id: "\(i)", userId: "\(i)", likes: Int.random(in: 0 ..< 20), date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
+            let newPost = GenericPost(id: "\(i)", userId: "\(i)", likes: Int.random(in: 0 ..< 20), desc: "lorem ipsum something something something. #something", date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
             explorePosts.append(newPost)
         }
         
