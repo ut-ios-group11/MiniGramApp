@@ -88,6 +88,9 @@ class UserData {
         // Explore Posts
         for i in 0...10 {
             let newPost = GenericPost(id: "\(i)", userId: "\(i)", likes: Int.random(in: 0 ..< 20), desc: "lorem ipsum something something something. #something", date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
+            for j in 0...2 {
+                newPost.addComment(id: "\(j)", userId: "\(i)", msg: "this is a comment. Specifically comment number \(j) created by user \(i)")
+            }
             explorePosts.append(newPost)
         }
     }
