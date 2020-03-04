@@ -23,6 +23,8 @@ class UserData {
     private var databaseUser: GenericUser?
     
     public var explorePosts = [GenericPost]()
+    public var exploreUsers = [GenericUser]()
+
     
     private init () {
         //For Testing Only
