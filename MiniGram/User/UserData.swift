@@ -24,6 +24,8 @@ class UserData {
     
     public var explorePosts = [GenericPost]()
     
+    public var galleryPosts = [GenericPost]()
+    
     private init () {
         //For Testing Only
         createTestData()
@@ -90,6 +92,12 @@ class UserData {
             let newPost = GenericPost(id: "\(i)", userId: "\(i)", likes: Int.random(in: 0 ..< 20), desc: "lorem ipsum something something something. #something", date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
             explorePosts.append(newPost)
         }
+        
+        // Gallery Posts
+        for i in 0...10 {
+            let newPost = GenericPost(id: "\(i)", userId: "\(i)", likes: Int.random(in: 0 ..< 20), desc: "lorem ipsum something something something. #something", date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
+            galleryPosts.append(newPost)
+        }
     }
-    
 }
+
