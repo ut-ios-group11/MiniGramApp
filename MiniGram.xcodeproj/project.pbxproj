@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0FA091962F7C291141693562 /* Pods_MiniGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD41BE0269872D6E705F4CB /* Pods_MiniGram.framework */; };
 		341E671523FC8B61008EADA7 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */; };
+		3443465724168C3700F92F4B /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443465624168C3700F92F4B /* CommentTableViewCell.swift */; };
 		344461FE240EFA5B000130AB /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344461FD240EFA5B000130AB /* CommentsViewController.swift */; };
 		347644FF24100882007F8F70 /* HomeFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */; };
 		F31269BC240D605200AFE85B /* Shared in Resources */ = {isa = PBXBuildFile; fileRef = F31269BB240D605200AFE85B /* Shared */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		3443465624168C3700F92F4B /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		344461FD240EFA5B000130AB /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedTableViewCell.swift; sourceTree = "<group>"; };
 		75364A4969C99C1C2A5B074B /* Pods-MiniGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGram.debug.xcconfig"; path = "Target Support Files/Pods-MiniGram/Pods-MiniGram.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				F354DDB424073FAC00370C04 /* ViewControllers */,
 				F354DDAF24073F9500370C04 /* Home.storyboard */,
 				347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */,
+				3443465624168C3700F92F4B /* CommentTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				F354DD802406E2D500370C04 /* GenericMini.swift in Sources */,
 				344461FE240EFA5B000130AB /* CommentsViewController.swift in Sources */,
 				F354DDB8240742A700370C04 /* ProfileViewController.swift in Sources */,
+				3443465724168C3700F92F4B /* CommentTableViewCell.swift in Sources */,
 				F3EBB6B023F4B7A9005AD08D /* SimpleExtensions.swift in Sources */,
 				F3EBB69623F45B62005AD08D /* FireAuth.swift in Sources */,
 				F3EBB6A023F4AD52005AD08D /* Fire.swift in Sources */,
