@@ -94,7 +94,7 @@
                                                                             <rect key="frame" x="0.0" y="70" width="398" height="120"/>
                                                                             <subviews>
                                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DDN-Dn-AMr">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="77"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="398" height="77"/>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -112,6 +112,7 @@
                                                                                     <connections>
                                                                                         <action selector="viewAllCommentsButtonPressed:" destination="ScB-fX-9bQ" eventType="touchUpInside" id="jQU-kq-QTc"/>
                                                                                         <action selector="viewCommentsButtonPressed:" destination="ScB-fX-9bQ" eventType="touchUpInside" id="0kt-V4-SBd"/>
+                                                                                        <segue destination="AQ8-wu-2fh" kind="show" id="hv4-my-KWG"/>
                                                                                     </connections>
                                                                                 </button>
                                                                             </subviews>
@@ -170,6 +171,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVp-lY-fr3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="105.80357142857143"/>
+        </scene>
+        <!--Comment-->
+        <scene sceneID="hzZ-E7-5iI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Comment" id="AQ8-wu-2fh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="SuE-CZ-PWR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lun-X3-1mq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="517" y="556"/>
         </scene>
         <!--Home-->
         <scene sceneID="Kca-0o-Lv6">

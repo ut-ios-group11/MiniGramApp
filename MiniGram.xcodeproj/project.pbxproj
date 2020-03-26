@@ -12,6 +12,7 @@
 		341C5D23242D43C900780FFD /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341C5D22242D43C900780FFD /* Comment.storyboard */; };
 		341E671523FC8B61008EADA7 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */; };
 		347644FF24100882007F8F70 /* HomeFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */; };
+		34CE6B67242D526C00F6D121 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE6B66242D526C00F6D121 /* CommentTableViewCell.swift */; };
 		F3126A142410533C00AFE85B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3126A132410533C00AFE85B /* Comment.swift */; };
 		F354DD7E2406E2C700370C04 /* GenericPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DD7D2406E2C700370C04 /* GenericPost.swift */; };
 		F354DD802406E2D500370C04 /* GenericMini.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DD7F2406E2D500370C04 /* GenericMini.swift */; };
@@ -49,6 +50,7 @@
 		341C5D22242D43C900780FFD /* Comment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
 		341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedTableViewCell.swift; sourceTree = "<group>"; };
+		34CE6B66242D526C00F6D121 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		75364A4969C99C1C2A5B074B /* Pods-MiniGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGram.debug.xcconfig"; path = "Target Support Files/Pods-MiniGram/Pods-MiniGram.debug.xcconfig"; sourceTree = "<group>"; };
 		829AE59FCFCA65749BA5B4D5 /* Pods-MiniGramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.release.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.release.xcconfig"; sourceTree = "<group>"; };
 		B181299490F710A9B799608C /* Pods-MiniGramApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.debug.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				341C5D20242D43B400780FFD /* CommentViewController.swift */,
 				341C5D22242D43C900780FFD /* Comment.storyboard */,
+				34CE6B66242D526C00F6D121 /* CommentTableViewCell.swift */,
 			);
 			path = Comment;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */,
 				F3EBB69B23F45CCB005AD08D /* Database.swift in Sources */,
 				F3126A142410533C00AFE85B /* Comment.swift in Sources */,
+				34CE6B67242D526C00F6D121 /* CommentTableViewCell.swift in Sources */,
 				F354DDBA240742B000370C04 /* ExploreViewController.swift in Sources */,
 				F3EBB68123F455D9005AD08D /* SceneDelegate.swift in Sources */,
 				F354DD822406E2DF00370C04 /* GenericUser.swift in Sources */,
