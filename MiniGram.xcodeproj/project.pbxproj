@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0FA091962F7C291141693562 /* Pods_MiniGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD41BE0269872D6E705F4CB /* Pods_MiniGram.framework */; };
+		341C5D21242D43B400780FFD /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C5D20242D43B400780FFD /* CommentViewController.swift */; };
+		341C5D23242D43C900780FFD /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341C5D22242D43C900780FFD /* Comment.storyboard */; };
 		341E671523FC8B61008EADA7 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */; };
 		F3126A142410533C00AFE85B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3126A132410533C00AFE85B /* Comment.swift */; };
 		F354DD7E2406E2C700370C04 /* GenericPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DD7D2406E2C700370C04 /* GenericPost.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		341C5D20242D43B400780FFD /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		341C5D22242D43C900780FFD /* Comment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
 		341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		75364A4969C99C1C2A5B074B /* Pods-MiniGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGram.debug.xcconfig"; path = "Target Support Files/Pods-MiniGram/Pods-MiniGram.debug.xcconfig"; sourceTree = "<group>"; };
 		829AE59FCFCA65749BA5B4D5 /* Pods-MiniGramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.release.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		341C5D1F242D439900780FFD /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				341C5D20242D43B400780FFD /* CommentViewController.swift */,
+				341C5D22242D43C900780FFD /* Comment.storyboard */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
 		756D203D2E26936542ECD11B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +208,7 @@
 		F362F2AA241B19CB0032FDEF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				341C5D1F242D439900780FFD /* Comment */,
 				F362F2AB241B19D30032FDEF /* Post */,
 			);
 			path = Shared;
@@ -363,6 +377,7 @@
 				F3EBB69323F45AB1005AD08D /* GoogleService-Info.plist in Resources */,
 				F354DDB024073F9500370C04 /* Home.storyboard in Resources */,
 				F362F2AE241B19E90032FDEF /* Post.storyboard in Resources */,
+				341C5D23242D43C900780FFD /* Comment.storyboard in Resources */,
 				F3EBB69823F45C8A005AD08D /* Main.storyboard in Resources */,
 				F3EBB68823F455DB005AD08D /* Assets.xcassets in Resources */,
 				F3EBB68623F455D9005AD08D /* SignedIn.storyboard in Resources */,
@@ -430,6 +445,7 @@
 				F354DD802406E2D500370C04 /* GenericMini.swift in Sources */,
 				F354DDB8240742A700370C04 /* ProfileViewController.swift in Sources */,
 				F362F2AF241B19E90032FDEF /* PostViewController.swift in Sources */,
+				341C5D21242D43B400780FFD /* CommentViewController.swift in Sources */,
 				F3EBB6B023F4B7A9005AD08D /* SimpleExtensions.swift in Sources */,
 				F3EBB69623F45B62005AD08D /* FireAuth.swift in Sources */,
 				F3EBB6A023F4AD52005AD08D /* Fire.swift in Sources */,
