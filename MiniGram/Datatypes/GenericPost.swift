@@ -17,6 +17,7 @@ class GenericPost: FireInitable {
     var desc: String
     var likes: Int
     var image: UIImage?
+    var comments = [Comment]()
     
     required init(doc: DocumentSnapshot) {
         id = doc.documentID
@@ -33,6 +34,10 @@ class GenericPost: FireInitable {
         self.date = date
         self.desc = desc
         self.image = image
+    }
+    
+    func addComment (comment: Comment) {
+        comments.append(comment)
     }
     
 }
