@@ -11,10 +11,7 @@
 		341C5D21242D43B400780FFD /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C5D20242D43B400780FFD /* CommentViewController.swift */; };
 		341C5D23242D43C900780FFD /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341C5D22242D43C900780FFD /* Comment.storyboard */; };
 		341E671523FC8B61008EADA7 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */; };
-		3443465724168C3700F92F4B /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443465624168C3700F92F4B /* CommentTableViewCell.swift */; };
-		344461FE240EFA5B000130AB /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344461FD240EFA5B000130AB /* CommentsViewController.swift */; };
 		347644FF24100882007F8F70 /* HomeFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */; };
-		F31269BC240D605200AFE85B /* Shared in Resources */ = {isa = PBXBuildFile; fileRef = F31269BB240D605200AFE85B /* Shared */; };
 		F3126A142410533C00AFE85B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3126A132410533C00AFE85B /* Comment.swift */; };
 		F354DD7E2406E2C700370C04 /* GenericPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DD7D2406E2C700370C04 /* GenericPost.swift */; };
 		F354DD802406E2D500370C04 /* GenericMini.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DD7F2406E2D500370C04 /* GenericMini.swift */; };
@@ -51,8 +48,6 @@
 		341C5D20242D43B400780FFD /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		341C5D22242D43C900780FFD /* Comment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
 		341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
-		3443465624168C3700F92F4B /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
-		344461FD240EFA5B000130AB /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedTableViewCell.swift; sourceTree = "<group>"; };
 		75364A4969C99C1C2A5B074B /* Pods-MiniGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGram.debug.xcconfig"; path = "Target Support Files/Pods-MiniGram/Pods-MiniGram.debug.xcconfig"; sourceTree = "<group>"; };
 		829AE59FCFCA65749BA5B4D5 /* Pods-MiniGramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.release.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,7 +145,6 @@
 				F354DDB424073FAC00370C04 /* ViewControllers */,
 				F354DDAF24073F9500370C04 /* Home.storyboard */,
 				347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */,
-				3443465624168C3700F92F4B /* CommentTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -210,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				F354DDBB240742B900370C04 /* HomeViewController.swift */,
-				344461FD240EFA5B000130AB /* CommentsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -454,11 +447,9 @@
 				F3EBB6A323F4ADC0005AD08D /* LogManager.swift in Sources */,
 				F3EBB69E23F4AC6A005AD08D /* UserData.swift in Sources */,
 				F354DD802406E2D500370C04 /* GenericMini.swift in Sources */,
-				344461FE240EFA5B000130AB /* CommentsViewController.swift in Sources */,
 				F354DDB8240742A700370C04 /* ProfileViewController.swift in Sources */,
 				F362F2AF241B19E90032FDEF /* PostViewController.swift in Sources */,
 				341C5D21242D43B400780FFD /* CommentViewController.swift in Sources */,
-				3443465724168C3700F92F4B /* CommentTableViewCell.swift in Sources */,
 				F3EBB6B023F4B7A9005AD08D /* SimpleExtensions.swift in Sources */,
 				F3EBB69623F45B62005AD08D /* FireAuth.swift in Sources */,
 				F3EBB6A023F4AD52005AD08D /* Fire.swift in Sources */,
