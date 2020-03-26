@@ -12,8 +12,8 @@
 		9D21DBCE240F33B5004BCC2C /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D21DBCD240F33B5004BCC2C /* GalleryViewController.swift */; };
 		9D21DBD0240F38B1004BCC2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D21DBCF240F38B1004BCC2C /* Assets.xcassets */; };
 		9D21DBF424100DD6004BCC2C /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D21DBF324100DD6004BCC2C /* GalleryCollectionViewCell.swift */; };
-		9D21DBF6241016B0004BCC2C /* MiniaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D21DBF5241016B0004BCC2C /* MiniaturesViewController.swift */; };
-		9D21DBF8241016D2004BCC2C /* MiniaturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D21DBF7241016D2004BCC2C /* MiniaturesCollectionViewCell.swift */; };
+		9D7A5396242A84C400997A4F /* MiniaturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */; };
+		9D7A5398242A851C00997A4F /* MiniaturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */; };
 		F31269BC240D605200AFE85B /* Shared in Resources */ = {isa = PBXBuildFile; fileRef = F31269BB240D605200AFE85B /* Shared */; };
 		F354DD7E2406E2C700370C04 /* GenericPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DD7D2406E2C700370C04 /* GenericPost.swift */; };
 		F354DD802406E2D500370C04 /* GenericMini.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DD7F2406E2D500370C04 /* GenericMini.swift */; };
@@ -51,8 +51,8 @@
 		9D21DBCD240F33B5004BCC2C /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		9D21DBCF240F38B1004BCC2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D21DBF324100DD6004BCC2C /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
-		9D21DBF5241016B0004BCC2C /* MiniaturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesViewController.swift; sourceTree = "<group>"; };
-		9D21DBF7241016D2004BCC2C /* MiniaturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesCollectionViewCell.swift; sourceTree = "<group>"; };
+		9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesTableViewController.swift; sourceTree = "<group>"; };
+		9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesTableViewCell.swift; sourceTree = "<group>"; };
 		B181299490F710A9B799608C /* Pods-MiniGramApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.debug.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CDD41BE0269872D6E705F4CB /* Pods_MiniGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1995FBFF8CE42EBCF284E4B /* Pods-MiniGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGram.release.xcconfig"; path = "Target Support Files/Pods-MiniGram/Pods-MiniGram.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,9 +178,9 @@
 			children = (
 				F354DDB7240742A700370C04 /* ProfileViewController.swift */,
 				9D21DBCD240F33B5004BCC2C /* GalleryViewController.swift */,
-				9D21DBF5241016B0004BCC2C /* MiniaturesViewController.swift */,
 				9D21DBF324100DD6004BCC2C /* GalleryCollectionViewCell.swift */,
-				9D21DBF7241016D2004BCC2C /* MiniaturesCollectionViewCell.swift */,
+				9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */,
+				9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */,
 				9D21DBCF240F38B1004BCC2C /* Assets.xcassets */,
 			);
 			path = ViewControllers;
@@ -415,11 +415,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				341E671523FC8B61008EADA7 /* CreateAccountViewController.swift in Sources */,
-				9D21DBF8241016D2004BCC2C /* MiniaturesCollectionViewCell.swift in Sources */,
-				9D21DBF6241016B0004BCC2C /* MiniaturesViewController.swift in Sources */,
 				F3EBB6AE23F4B518005AD08D /* LoginViewController.swift in Sources */,
 				F354DDBC240742B900370C04 /* HomeViewController.swift in Sources */,
 				F3EBB6A523F4AECA005AD08D /* FireCollections.swift in Sources */,
+				9D7A5398242A851C00997A4F /* MiniaturesTableViewCell.swift in Sources */,
 				F354DD7E2406E2C700370C04 /* GenericPost.swift in Sources */,
 				F3EBB6A323F4ADC0005AD08D /* LogManager.swift in Sources */,
 				F3EBB69E23F4AC6A005AD08D /* UserData.swift in Sources */,
@@ -429,6 +428,7 @@
 				F3EBB69623F45B62005AD08D /* FireAuth.swift in Sources */,
 				F3EBB6A023F4AD52005AD08D /* Fire.swift in Sources */,
 				F354DDB62407429900370C04 /* AddViewController.swift in Sources */,
+				9D7A5396242A84C400997A4F /* MiniaturesTableViewController.swift in Sources */,
 				F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */,
 				9D21DBCE240F33B5004BCC2C /* GalleryViewController.swift in Sources */,
 				F3EBB69B23F45CCB005AD08D /* Database.swift in Sources */,

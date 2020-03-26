@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         profileImage.roundCorners(profileImage.frame.size.width / 2)
-        miniaturesView.alpha = 0
+        miniaturesView.isHidden = true
     }
     
     
@@ -32,11 +32,11 @@ class ProfileViewController: UIViewController {
         // If gallery view is selected
         if sender.selectedSegmentIndex == 0 {
             // The alpha of an object is it's transparency. This is used to hide and show the correct views
-            galleryView.alpha = 1
-            miniaturesView.alpha = 0
+            galleryView.isHidden = false
+            miniaturesView.isHidden = true
         } else {
-            galleryView.alpha = 0
-            miniaturesView.alpha = 1
+            galleryView.isHidden = true
+            miniaturesView.isHidden = false
         }
     }
     

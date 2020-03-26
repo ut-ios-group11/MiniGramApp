@@ -26,7 +26,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bnn-j1-7f1">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="176.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H69-kc-xIx">
                                                                 <rect key="frame" x="168" y="0.0" width="78" height="78"/>
@@ -75,28 +75,27 @@
                                                                     <action selector="switchProfileViews:" destination="3hh-7Z-GVF" eventType="valueChanged" id="6bO-Ab-s3U"/>
                                                                 </connections>
                                                             </segmentedControl>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="ZD9-pv-WMc" secondAttribute="trailing" constant="24" id="CxJ-Ha-3cm"/>
-                                                            <constraint firstItem="ZD9-pv-WMc" firstAttribute="leading" secondItem="Bnn-j1-7f1" secondAttribute="leading" constant="24" id="x3d-zX-hjp"/>
-                                                        </constraints>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bPG-Qn-xQX">
-                                                        <rect key="frame" x="0.0" y="176.5" width="414" height="592.5"/>
-                                                        <subviews>
                                                             <containerView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZFT-XD-lc5">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="296.5"/>
+                                                                <rect key="frame" x="0.0" y="184.5" width="414" height="288"/>
                                                                 <connections>
                                                                     <segue destination="GMG-Te-wwM" kind="embed" id="Omi-de-tEZ"/>
                                                                 </connections>
                                                             </containerView>
                                                             <containerView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nKy-Wr-PCM">
-                                                                <rect key="frame" x="0.0" y="296.5" width="414" height="296"/>
+                                                                <rect key="frame" x="0.0" y="480.5" width="414" height="288.5"/>
                                                                 <connections>
-                                                                    <segue destination="1xL-Sz-aqH" kind="embed" id="uBn-eh-rGv"/>
+                                                                    <segue destination="6Vg-6G-3Ph" kind="embed" id="YtW-J3-V1d"/>
                                                                 </connections>
                                                             </containerView>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="ZD9-pv-WMc" secondAttribute="trailing" constant="24" id="CxJ-Ha-3cm"/>
+                                                            <constraint firstItem="ZFT-XD-lc5" firstAttribute="top" secondItem="Bnn-j1-7f1" secondAttribute="top" constant="184.5" id="E08-ED-Lm8"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ZFT-XD-lc5" secondAttribute="bottom" constant="296.5" id="Kfo-nJ-RlY"/>
+                                                            <constraint firstItem="ZFT-XD-lc5" firstAttribute="leading" secondItem="Bnn-j1-7f1" secondAttribute="leadingMargin" id="iTv-Mk-xu6"/>
+                                                            <constraint firstItem="ZFT-XD-lc5" firstAttribute="leading" secondItem="nKy-Wr-PCM" secondAttribute="leading" id="utB-2L-Eab"/>
+                                                            <constraint firstItem="ZD9-pv-WMc" firstAttribute="leading" secondItem="Bnn-j1-7f1" secondAttribute="leading" constant="24" id="x3d-zX-hjp"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
@@ -150,11 +149,11 @@
             <objects>
                 <viewController id="GMG-Te-wwM" userLabel="Gallery View Controller" customClass="GalleryViewController" customModule="MiniGram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rbi-G5-oCl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="288"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GV2-JR-OiI">
-                                <rect key="frame" x="0.0" y="20" width="414" height="300"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GV2-JR-OiI">
+                                <rect key="frame" x="0.0" y="20" width="414" height="268"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="AY6-G1-mtI">
                                     <size key="itemSize" width="200" height="250"/>
@@ -210,20 +209,65 @@
             </objects>
             <point key="canvasLocation" x="-390" y="646"/>
         </scene>
-        <!--Miniatures View Controller-->
-        <scene sceneID="G7U-MB-DAm">
+        <!--Miniatures Table View Controller-->
+        <scene sceneID="hNd-3Q-ywl">
             <objects>
-                <viewController id="1xL-Sz-aqH" userLabel="Miniatures View Controller" customClass="MiniaturesViewController" customModule="MiniGram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oPB-6a-5zs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
+                <tableViewController id="6Vg-6G-3Ph" customClass="MiniaturesTableViewController" customModule="MiniGram" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="9Vx-lT-lJ0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="288.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="kPA-Sh-EfV"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gS1-fE-BR3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="140" id="BhR-vz-cnJ" customClass="MiniaturesTableViewCell" customModule="MiniGram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BhR-vz-cnJ" id="U49-CT-QgS">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dqq-bm-7CK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gfy-tI-yie">
+                                                <size key="itemSize" width="68" height="120"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="kEJ-iX-6lV">
+                                                    <rect key="frame" x="10" y="0.0" width="68" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TL9-0L-kjd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="68" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                    </collectionViewCellContentView>
+                                                </collectionViewCell>
+                                            </cells>
+                                        </collectionView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Dqq-bm-7CK" firstAttribute="leading" secondItem="U49-CT-QgS" secondAttribute="leading" id="00Y-l0-1eA"/>
+                                        <constraint firstItem="Dqq-bm-7CK" firstAttribute="top" secondItem="U49-CT-QgS" secondAttribute="top" id="0tx-Bj-b95"/>
+                                        <constraint firstAttribute="trailing" secondItem="Dqq-bm-7CK" secondAttribute="trailing" id="7XC-f9-zMK"/>
+                                        <constraint firstAttribute="bottom" secondItem="Dqq-bm-7CK" secondAttribute="bottom" id="ptx-az-Dtg"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="collectionView" destination="Dqq-bm-7CK" id="fLQ-H6-kz6"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6Vg-6G-3Ph" id="h6m-HJ-zp5"/>
+                            <outlet property="delegate" destination="6Vg-6G-3Ph" id="X4M-DI-uLw"/>
+                        </connections>
+                    </tableView>
+                    <value key="contentSizeForViewInPopover" type="size" width="414" height="893"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dXh-gd-8OR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="701" y="646"/>
+            <point key="canvasLocation" x="743" y="646"/>
         </scene>
     </scenes>
     <resources>
