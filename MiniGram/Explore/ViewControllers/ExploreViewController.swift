@@ -13,6 +13,8 @@ class ExploreViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBarTextField: UITextField!
     
+    var postToDisplay: GenericPost?
+    
     // MARK: Constants
     let collectionViewXInset: CGFloat = 10
     
@@ -44,6 +46,15 @@ class ExploreViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PostViewController {
+            vc.post = postToDisplay
+            vc.user = UserData.shared.exploreUsers.first(where: { (user) -> Bool in
+                return user.id == postToDisplay?.id
+            })
+        }
+    }
 }
 
 // MARK: Search Bar Text Field Delegate
@@ -63,6 +74,11 @@ extension ExploreViewController: UICollectionViewDelegateFlowLayout {
         let width = collectionView.frame.size.width
         let xInsets = collectionViewXInset * 2
         return CGSize(width: ((width - xInsets) / numberOfColumns), height: ((width - xInsets) / numberOfColumns))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        postToDisplay = explorePosts[indexPath.item]
+        performSegue(withIdentifier: "toPost", sender: self)
     }
 }
 

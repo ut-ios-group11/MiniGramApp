@@ -107,11 +107,22 @@
                         <outlet property="collectionView" destination="hiR-DQ-IeA" id="6AV-0G-YuY"/>
                         <outlet property="searchBarTextField" destination="gxl-s9-5E5" id="GZr-Z8-eMV"/>
                         <segue destination="4Iw-xE-cC2" kind="show" identifier="toSearch" animates="NO" id="Bwz-gw-qCR"/>
+                        <segue destination="CZt-Jg-e26" kind="show" identifier="toPost" id="BBn-kv-T1L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uzz-DY-l6e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928" y="106"/>
+        </scene>
+        <!--Post-->
+        <scene sceneID="Whj-qu-RAF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Post" id="CZt-Jg-e26" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="A7Q-JD-gWr"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XhS-zP-Rrh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928" y="546"/>
         </scene>
         <!--Explore Search View Controller-->
         <scene sceneID="FL1-re-1og">
