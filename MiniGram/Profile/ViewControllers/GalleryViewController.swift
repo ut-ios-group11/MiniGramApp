@@ -22,7 +22,6 @@ class GalleryViewController: UIViewController {
         galleryPosts = UserData.shared.galleryPosts
         
         collectionView.reloadData()
-
      }
     
     func collectionViewSetUp() {
