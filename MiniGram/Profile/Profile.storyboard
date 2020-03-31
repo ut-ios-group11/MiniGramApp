@@ -154,9 +154,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="288"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GV2-JR-OiI" customClass="DynamicSizedCollectionView" customModule="MiniGram" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="288"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GV2-JR-OiI" customClass="DynamicSizedCollectionView" customModule="MiniGram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="228"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="AY6-G1-mtI">
                                     <size key="itemSize" width="200" height="288"/>
@@ -198,6 +197,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GV2-JR-OiI" firstAttribute="trailing" secondItem="bKt-cI-FeD" secondAttribute="trailing" id="0Ih-S0-Wha"/>
+                            <constraint firstItem="bKt-cI-FeD" firstAttribute="bottom" secondItem="GV2-JR-OiI" secondAttribute="bottom" constant="16" id="4TE-ZS-8Ch"/>
+                            <constraint firstItem="GV2-JR-OiI" firstAttribute="top" secondItem="bKt-cI-FeD" secondAttribute="top" id="GQL-Bc-gKb"/>
+                            <constraint firstItem="GV2-JR-OiI" firstAttribute="leading" secondItem="bKt-cI-FeD" secondAttribute="leading" id="qv2-Na-CKk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bKt-cI-FeD"/>
                     </view>
                     <connections>
@@ -212,23 +217,24 @@
         <scene sceneID="hNd-3Q-ywl">
             <objects>
                 <tableViewController id="6Vg-6G-3Ph" customClass="MiniaturesTableViewController" customModule="MiniGram" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="9Vx-lT-lJ0" customClass="DynamicSizedTableView" customModule="MiniGram" customModuleProvider="target">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="9Vx-lT-lJ0" customClass="DynamicSizedTableView" customModule="MiniGram" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="288"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="140" id="BhR-vz-cnJ" customClass="MiniaturesTableViewCell" customModule="MiniGram" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="140"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="200" id="BhR-vz-cnJ" customClass="MiniaturesTableViewCell" customModule="MiniGram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BhR-vz-cnJ" id="U49-CT-QgS">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dqq-bm-7CK">
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dqq-bm-7CK" customClass="DynamicSizedCollectionView" customModule="MiniGram" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gfy-tI-yie">
-                                                <size key="itemSize" width="68" height="120"/>
+                                                <size key="itemSize" width="68" height="140"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                 <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
@@ -241,17 +247,10 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="68" height="140"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </collectionViewCellContentView>
-                                                    <size key="customSize" width="68" height="140"/>
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Dqq-bm-7CK" firstAttribute="leading" secondItem="U49-CT-QgS" secondAttribute="leading" id="00Y-l0-1eA"/>
-                                        <constraint firstItem="Dqq-bm-7CK" firstAttribute="top" secondItem="U49-CT-QgS" secondAttribute="top" id="0tx-Bj-b95"/>
-                                        <constraint firstAttribute="trailing" secondItem="Dqq-bm-7CK" secondAttribute="trailing" id="7XC-f9-zMK"/>
-                                        <constraint firstAttribute="bottom" secondItem="Dqq-bm-7CK" secondAttribute="bottom" id="ptx-az-Dtg"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="collectionView" destination="Dqq-bm-7CK" id="fLQ-H6-kz6"/>

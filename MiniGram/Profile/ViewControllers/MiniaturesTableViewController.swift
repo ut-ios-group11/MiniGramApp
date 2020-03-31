@@ -17,12 +17,6 @@ class MiniaturesTableViewController: UITableViewController {
         super.viewDidLoad()
 
         view.translatesAutoresizingMaskIntoConstraints = false
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -37,7 +31,6 @@ class MiniaturesTableViewController: UITableViewController {
         return cellSpacingHeight
     }
     
-    // Make the background color show through
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
@@ -102,5 +95,11 @@ extension UIColor {
         let brightness = CGFloat(arc4random() % 100) / 100
 
         return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
+    }
+}
+
+extension MiniaturesTableViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 500, height: 500)
     }
 }
