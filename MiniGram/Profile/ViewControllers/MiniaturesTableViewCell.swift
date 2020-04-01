@@ -25,6 +25,7 @@ class MiniaturesTableViewCell: UITableViewCell {
     
     // Set the delegate, datasource, and row number on the collectionView
     func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, forRow row: Int) {
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = dataSourceDelegate
         collectionView.dataSource = dataSourceDelegate
         collectionView.tag = row

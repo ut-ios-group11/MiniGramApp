@@ -15,6 +15,8 @@ class MiniaturesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.rowHeight = 200
 
         view.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -37,9 +39,9 @@ class MiniaturesTableViewController: UITableViewController {
         return headerView
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
@@ -100,6 +102,6 @@ extension UIColor {
 
 extension MiniaturesTableViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 500, height: 500)
+        return CGSize(width: 200, height: 200)
     }
 }
