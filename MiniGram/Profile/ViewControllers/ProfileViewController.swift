@@ -10,30 +10,39 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var followersLabel: UILabel!
+
+    @IBOutlet weak var profileViewSelector: UISegmentedControl!
+    @IBOutlet weak var galleryView: UIView!
+    @IBOutlet weak var miniaturesView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        profileImage.roundCorners(profileImage.frame.size.width / 2)
+        galleryView.isHidden = false
+        miniaturesView.isHidden = true
+        settingsButton.setImage(UIImage(named: "settings"), for: .normal)
+        
     }
     
-    @IBAction func signOutClick(_ sender: Any) {
-        UserData.shared.signOut(onError: { (error) in
-            LogManager.logError(error)
-            self.navigationController?.popToRootViewController(animated: true)
-        }) {
-            self.navigationController?.popToRootViewController(animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    @IBAction func switchProfileViews(_ sender: UISegmentedControl) {
+        // If gallery view is selected
+        if sender.selectedSegmentIndex == 0 {
+            galleryView.isHidden = false
+            miniaturesView.isHidden = true
+        } else {
+            galleryView.isHidden = true
+            miniaturesView.isHidden = false
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
