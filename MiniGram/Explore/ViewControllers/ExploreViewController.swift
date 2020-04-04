@@ -22,6 +22,7 @@ class ExploreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBarTextField.underlined()
         searchBarTextField.delegate = self
         collectionViewSetUp()
         
