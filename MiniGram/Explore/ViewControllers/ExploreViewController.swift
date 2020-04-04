@@ -9,22 +9,91 @@
 import UIKit
 
 class ExploreViewController: UIViewController {
-
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBarTextField: UITextField!
+    
+    var postToDisplay: GenericPost?
+    
+    // MARK: Constants
+    let collectionViewXInset: CGFloat = 10
+    
+    var explorePosts = [GenericPost]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        searchBarTextField.delegate = self
+        collectionViewSetUp()
+        
+        explorePosts = UserData.shared.explorePosts
+        
+        collectionView.reloadData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionViewSetUp() {
+        // Setting Delegates
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        // Setting the layout
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: collectionViewXInset, bottom: 0, right: collectionViewXInset)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        collectionView!.collectionViewLayout = layout
     }
-    */
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PostViewController {
+            vc.post = postToDisplay
+            vc.user = UserData.shared.exploreUsers.first(where: { (user) -> Bool in
+                return user.id == postToDisplay?.id
+            })
+        }
+    }
+}
 
+// MARK: Search Bar Text Field Delegate
+
+extension ExploreViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        searchBarTextField.endEditing(true)
+        performSegue(withIdentifier: "toSearch", sender: self)
+    }
+}
+
+// MARK: Collection View Flow Layout
+
+extension ExploreViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let numberOfColumns: CGFloat = 2
+        let width = collectionView.frame.size.width
+        let xInsets = collectionViewXInset * 2
+        return CGSize(width: ((width - xInsets) / numberOfColumns), height: ((width - xInsets) / numberOfColumns))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        postToDisplay = explorePosts[indexPath.item]
+        performSegue(withIdentifier: "toPost", sender: self)
+    }
+}
+
+// MARK: Collection View DataSource
+
+extension ExploreViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return explorePosts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pictureCell", for: indexPath) as? ExploreCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.imageView.image = explorePosts[indexPath.item].image
+        return cell
+    }
 }

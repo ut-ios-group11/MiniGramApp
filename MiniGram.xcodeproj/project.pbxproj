@@ -11,6 +11,17 @@
 		341C5D21242D43B400780FFD /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C5D20242D43B400780FFD /* CommentViewController.swift */; };
 		341C5D23242D43C900780FFD /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341C5D22242D43C900780FFD /* Comment.storyboard */; };
 		341E671523FC8B61008EADA7 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */; };
+		9D1C47642439016A009329A3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1C47632439016A009329A3 /* ChangePasswordViewController.swift */; };
+		9D21DBCE240F33B5004BCC2C /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D21DBCD240F33B5004BCC2C /* GalleryViewController.swift */; };
+		9D21DBD0240F38B1004BCC2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D21DBCF240F38B1004BCC2C /* Assets.xcassets */; };
+		9D21DBF424100DD6004BCC2C /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D21DBF324100DD6004BCC2C /* GalleryCollectionViewCell.swift */; };
+		9D422C7C243680050054FF65 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D422C7B243680050054FF65 /* Settings.storyboard */; };
+		9D422C7E2436800F0054FF65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D422C7D2436800F0054FF65 /* SettingsViewController.swift */; };
+		9D7A5396242A84C400997A4F /* MiniaturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */; };
+		9D7A5398242A851C00997A4F /* MiniaturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */; };
+		9DAE2D532437F650003F5597 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAE2D522437F650003F5597 /* EditProfileViewController.swift */; };
+		347644FF24100882007F8F70 /* HomeFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */; };
+		34CE6B67242D526C00F6D121 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE6B66242D526C00F6D121 /* CommentTableViewCell.swift */; };
 		7CA836132439160900F31A63 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA836122439160900F31A63 /* AddPostViewController.swift */; };
 		F3126A142410533C00AFE85B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3126A132410533C00AFE85B /* Comment.swift */; };
 		F354DD7E2406E2C700370C04 /* GenericPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DD7D2406E2C700370C04 /* GenericPost.swift */; };
@@ -24,6 +35,9 @@
 		F354DDB8240742A700370C04 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDB7240742A700370C04 /* ProfileViewController.swift */; };
 		F354DDBA240742B000370C04 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDB9240742B000370C04 /* ExploreViewController.swift */; };
 		F354DDBC240742B900370C04 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDBB240742B900370C04 /* HomeViewController.swift */; };
+		F354DDBE2407A87600370C04 /* ExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDBD2407A87600370C04 /* ExploreCollectionViewCell.swift */; };
+		F354DDC02408564E00370C04 /* ExploreSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDBF2408564E00370C04 /* ExploreSearchViewController.swift */; };
+		F354DDC224088CBD00370C04 /* ExploreSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDC124088CBD00370C04 /* ExploreSearchTableViewCell.swift */; };
 		F362F2AE241B19E90032FDEF /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F362F2AC241B19E90032FDEF /* Post.storyboard */; };
 		F362F2AF241B19E90032FDEF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F362F2AD241B19E90032FDEF /* PostViewController.swift */; };
 		F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB67E23F455D9005AD08D /* AppDelegate.swift */; };
@@ -48,9 +62,20 @@
 		341C5D20242D43B400780FFD /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		341C5D22242D43C900780FFD /* Comment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
 		341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedTableViewCell.swift; sourceTree = "<group>"; };
+		34CE6B66242D526C00F6D121 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		75364A4969C99C1C2A5B074B /* Pods-MiniGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGram.debug.xcconfig"; path = "Target Support Files/Pods-MiniGram/Pods-MiniGram.debug.xcconfig"; sourceTree = "<group>"; };
 		7CA836122439160900F31A63 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		829AE59FCFCA65749BA5B4D5 /* Pods-MiniGramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.release.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.release.xcconfig"; sourceTree = "<group>"; };
+		9D1C47632439016A009329A3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		9D21DBCD240F33B5004BCC2C /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		9D21DBCF240F38B1004BCC2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9D21DBF324100DD6004BCC2C /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		9D422C7B243680050054FF65 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		9D422C7D2436800F0054FF65 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesTableViewController.swift; sourceTree = "<group>"; };
+		9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesTableViewCell.swift; sourceTree = "<group>"; };
+		9DAE2D522437F650003F5597 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B181299490F710A9B799608C /* Pods-MiniGramApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.debug.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CDD41BE0269872D6E705F4CB /* Pods_MiniGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1995FBFF8CE42EBCF284E4B /* Pods-MiniGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGram.release.xcconfig"; path = "Target Support Files/Pods-MiniGram/Pods-MiniGram.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +91,9 @@
 		F354DDB7240742A700370C04 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F354DDB9240742B000370C04 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		F354DDBB240742B900370C04 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F354DDBD2407A87600370C04 /* ExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCollectionViewCell.swift; sourceTree = "<group>"; };
+		F354DDBF2408564E00370C04 /* ExploreSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSearchViewController.swift; sourceTree = "<group>"; };
+		F354DDC124088CBD00370C04 /* ExploreSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSearchTableViewCell.swift; sourceTree = "<group>"; };
 		F362F2AC241B19E90032FDEF /* Post.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		F362F2AD241B19E90032FDEF /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		F3EBB67B23F455D9005AD08D /* MiniGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +133,7 @@
 			children = (
 				341C5D20242D43B400780FFD /* CommentViewController.swift */,
 				341C5D22242D43C900780FFD /* Comment.storyboard */,
+				34CE6B66242D526C00F6D121 /* CommentTableViewCell.swift */,
 			);
 			path = Comment;
 			sourceTree = "<group>";
@@ -118,6 +147,25 @@
 				E1995FBFF8CE42EBCF284E4B /* Pods-MiniGram.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9D422C78243647F70054FF65 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9D422C7F2436801A0054FF65 /* ViewControllers */,
+				9D422C7B243680050054FF65 /* Settings.storyboard */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		9D422C7F2436801A0054FF65 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9D422C7D2436800F0054FF65 /* SettingsViewController.swift */,
+				9DAE2D522437F650003F5597 /* EditProfileViewController.swift */,
+				9D1C47632439016A009329A3 /* ChangePasswordViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		CD497841C21BC0BC788B139D /* Frameworks */ = {
@@ -144,6 +192,7 @@
 			children = (
 				F354DDB424073FAC00370C04 /* ViewControllers */,
 				F354DDAF24073F9500370C04 /* Home.storyboard */,
+				347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -153,6 +202,8 @@
 			children = (
 				F354DDB324073FA700370C04 /* ViewControllers */,
 				F354DDAD24073F8B00370C04 /* Explore.storyboard */,
+				F354DDBD2407A87600370C04 /* ExploreCollectionViewCell.swift */,
+				F354DDC124088CBD00370C04 /* ExploreSearchTableViewCell.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -188,6 +239,11 @@
 			isa = PBXGroup;
 			children = (
 				F354DDB7240742A700370C04 /* ProfileViewController.swift */,
+				9D21DBCD240F33B5004BCC2C /* GalleryViewController.swift */,
+				9D21DBF324100DD6004BCC2C /* GalleryCollectionViewCell.swift */,
+				9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */,
+				9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */,
+				9D21DBCF240F38B1004BCC2C /* Assets.xcassets */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -196,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				F354DDB9240742B000370C04 /* ExploreViewController.swift */,
+				F354DDBF2408564E00370C04 /* ExploreSearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -247,6 +304,7 @@
 		F3EBB67D23F455D9005AD08D /* MiniGram */ = {
 			isa = PBXGroup;
 			children = (
+				9D422C78243647F70054FF65 /* Settings */,
 				F362F2AA241B19CB0032FDEF /* Shared */,
 				F354DDA824073F3700370C04 /* Add */,
 				F354DDA724073F2E00370C04 /* Profile */,
@@ -383,8 +441,10 @@
 				341C5D23242D43C900780FFD /* Comment.storyboard in Resources */,
 				F3EBB69823F45C8A005AD08D /* Main.storyboard in Resources */,
 				F3EBB68823F455DB005AD08D /* Assets.xcassets in Resources */,
+				9D21DBD0240F38B1004BCC2C /* Assets.xcassets in Resources */,
 				F3EBB68623F455D9005AD08D /* SignedIn.storyboard in Resources */,
 				F354DDAC24073F7C00370C04 /* Profile.storyboard in Resources */,
+				9D422C7C243680050054FF65 /* Settings.storyboard in Resources */,
 				F354DDAA24073F6800370C04 /* Add.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,11 +498,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F354DDBE2407A87600370C04 /* ExploreCollectionViewCell.swift in Sources */,
 				341E671523FC8B61008EADA7 /* CreateAccountViewController.swift in Sources */,
 				F3EBB6AE23F4B518005AD08D /* LoginViewController.swift in Sources */,
+				347644FF24100882007F8F70 /* HomeFeedTableViewCell.swift in Sources */,
 				F354DDBC240742B900370C04 /* HomeViewController.swift in Sources */,
 				F3EBB6A523F4AECA005AD08D /* FireCollections.swift in Sources */,
+				9D7A5398242A851C00997A4F /* MiniaturesTableViewCell.swift in Sources */,
 				F354DD7E2406E2C700370C04 /* GenericPost.swift in Sources */,
+				F354DDC224088CBD00370C04 /* ExploreSearchTableViewCell.swift in Sources */,
 				F3EBB6A323F4ADC0005AD08D /* LogManager.swift in Sources */,
 				F3EBB69E23F4AC6A005AD08D /* UserData.swift in Sources */,
 				F354DD802406E2D500370C04 /* GenericMini.swift in Sources */,
@@ -450,17 +514,25 @@
 				F354DDB8240742A700370C04 /* ProfileViewController.swift in Sources */,
 				F362F2AF241B19E90032FDEF /* PostViewController.swift in Sources */,
 				341C5D21242D43B400780FFD /* CommentViewController.swift in Sources */,
+				9D1C47642439016A009329A3 /* ChangePasswordViewController.swift in Sources */,
 				F3EBB6B023F4B7A9005AD08D /* SimpleExtensions.swift in Sources */,
 				F3EBB69623F45B62005AD08D /* FireAuth.swift in Sources */,
 				F3EBB6A023F4AD52005AD08D /* Fire.swift in Sources */,
 				F354DDB62407429900370C04 /* AddViewController.swift in Sources */,
+				9D7A5396242A84C400997A4F /* MiniaturesTableViewController.swift in Sources */,
 				F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */,
+				F354DDC02408564E00370C04 /* ExploreSearchViewController.swift in Sources */,
+				9D21DBCE240F33B5004BCC2C /* GalleryViewController.swift in Sources */,
 				F3EBB69B23F45CCB005AD08D /* Database.swift in Sources */,
+				9DAE2D532437F650003F5597 /* EditProfileViewController.swift in Sources */,
 				F3126A142410533C00AFE85B /* Comment.swift in Sources */,
+				34CE6B67242D526C00F6D121 /* CommentTableViewCell.swift in Sources */,
 				F354DDBA240742B000370C04 /* ExploreViewController.swift in Sources */,
 				F3EBB68123F455D9005AD08D /* SceneDelegate.swift in Sources */,
 				F354DD822406E2DF00370C04 /* GenericUser.swift in Sources */,
+				9D21DBF424100DD6004BCC2C /* GalleryCollectionViewCell.swift in Sources */,
 				F3EBB6A723F4AF31005AD08D /* FireObjectProtocols.swift in Sources */,
+				9D422C7E2436800F0054FF65 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
