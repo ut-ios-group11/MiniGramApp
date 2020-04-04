@@ -32,6 +32,7 @@ class CommentViewController: UIViewController {
         
         navigationController?.setNavigationBarHidden(false, animated: true)
         addCommentText.underlined()
+        userImage.image = user?.image
     }
     
     func refreshData() {
