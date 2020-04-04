@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htc-ah-PDY">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htc-ah-PDY">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eB-cH-YpM">
@@ -120,10 +120,13 @@
                                     <constraint firstAttribute="trailing" secondItem="8eB-cH-YpM" secondAttribute="trailing" id="kE3-my-dRJ"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxO-I3-Hdm">
-                                <rect key="frame" x="348" y="46" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxO-I3-Hdm" userLabel="Settings Button">
+                                <rect key="frame" x="368" y="47" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Awe-gh-gao"/>
+                                    <constraint firstAttribute="width" constant="24" id="gyZ-Dx-Jgj"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="settings"/>
                                 <connections>
                                     <segue destination="2Te-8B-xJU" kind="show" id="yJN-hn-Ffe"/>
                                 </connections>
@@ -131,10 +134,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="cxO-I3-Hdm" firstAttribute="top" secondItem="OHD-xc-5o3" secondAttribute="top" constant="3" id="Nt4-Hc-ckZ"/>
                             <constraint firstAttribute="trailing" secondItem="Htc-ah-PDY" secondAttribute="trailing" id="Onl-pc-jIZ"/>
                             <constraint firstItem="OHD-xc-5o3" firstAttribute="bottom" secondItem="Htc-ah-PDY" secondAttribute="bottom" id="dxz-tE-MTZ"/>
                             <constraint firstItem="Htc-ah-PDY" firstAttribute="leading" secondItem="RhR-eZ-6m7" secondAttribute="leading" id="fky-dd-QaS"/>
                             <constraint firstItem="Htc-ah-PDY" firstAttribute="top" secondItem="OHD-xc-5o3" secondAttribute="top" id="ikZ-Bz-wQe"/>
+                            <constraint firstItem="OHD-xc-5o3" firstAttribute="trailing" secondItem="cxO-I3-Hdm" secondAttribute="trailing" constant="22" id="jfB-v6-UpN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OHD-xc-5o3"/>
                     </view>
@@ -147,6 +152,7 @@
                         <outlet property="nameLabel" destination="Y5A-en-6B0" id="eQw-Y2-lFB"/>
                         <outlet property="profileImage" destination="H69-kc-xIx" id="XYk-dW-Cmu"/>
                         <outlet property="profileViewSelector" destination="ZD9-pv-WMc" id="ITw-PI-1Qy"/>
+                        <outlet property="settingsButton" destination="cxO-I3-Hdm" id="v0Q-Gs-YZy"/>
                         <outlet property="usernameLabel" destination="yzk-aA-p8T" id="BAZ-VM-pmt"/>
                     </connections>
                 </viewController>
@@ -154,15 +160,15 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="105.80357142857143"/>
         </scene>
-        <!--Settings Navigation-->
+        <!--Settings-->
         <scene sceneID="fYb-4V-l6g">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Settings Navigation" storyboardName="Settings" referencedIdentifier="Settings Navigation" id="2Te-8B-xJU" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="Settings" storyboardName="Settings" referencedIdentifier="Settings" id="2Te-8B-xJU" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="V2j-wa-P6E"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjQ-OH-pug" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1626.8115942028987" y="-125.22321428571428"/>
+            <point key="canvasLocation" x="1807" y="106"/>
         </scene>
         <!--Gallery View Controller-->
         <scene sceneID="ye4-ts-SL7">
@@ -229,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVa-f7-E6X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-388" y="646"/>
+            <point key="canvasLocation" x="526" y="646"/>
         </scene>
         <!--Miniatures Table View Controller-->
         <scene sceneID="hNd-3Q-ywl">
@@ -297,7 +303,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXh-gd-8OR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="637.68115942028987" y="645.53571428571422"/>
+            <point key="canvasLocation" x="1567" y="646"/>
         </scene>
         <!--Profile-->
         <scene sceneID="2Ik-BB-mlb">
@@ -320,5 +326,6 @@
     </scenes>
     <resources>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="settings" width="512" height="512"/>
     </resources>
 </document>

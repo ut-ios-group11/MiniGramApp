@@ -22,6 +22,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         accountTableView.delegate = self
         accountTableView.dataSource = self
         darkModeToggle(darkModeSwitch)
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @IBAction func darkModeToggle(_ sender: UISwitch) {

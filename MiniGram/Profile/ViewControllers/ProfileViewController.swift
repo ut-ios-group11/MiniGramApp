@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -26,6 +27,12 @@ class ProfileViewController: UIViewController {
         profileImage.roundCorners(profileImage.frame.size.width / 2)
         galleryView.isHidden = false
         miniaturesView.isHidden = true
+        settingsButton.setImage(UIImage(named: "settings"), for: .normal)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @IBAction func switchProfileViews(_ sender: UISegmentedControl) {
