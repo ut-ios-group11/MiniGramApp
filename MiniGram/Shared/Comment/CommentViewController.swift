@@ -8,33 +8,12 @@
 
 import UIKit
 
-
 class CommentViewController: UIViewController {
-    
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var userImage: UIImageView!
-    
-    @IBOutlet weak var addCommentText: UITextField!
-    
-    @IBAction func buttonPressedAddComment(_ sender: Any) {
-        
-    }
-    
-    var post: GenericPost?
-    var user: GenericUser?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        refreshData()
+
         // Do any additional setup after loading the view.
-        
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    func refreshData() {
-        
     }
     
 
