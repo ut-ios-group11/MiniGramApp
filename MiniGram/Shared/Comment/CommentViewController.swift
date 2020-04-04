@@ -31,6 +31,7 @@ class CommentViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         navigationController?.setNavigationBarHidden(false, animated: true)
+        addCommentText.underlined()
     }
     
     func refreshData() {
