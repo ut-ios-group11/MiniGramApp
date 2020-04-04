@@ -17,6 +17,7 @@ class MiniaturesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.rowHeight = 200
+        self.tableView.allowsSelection = false
 
         view.translatesAutoresizingMaskIntoConstraints = false
     }
