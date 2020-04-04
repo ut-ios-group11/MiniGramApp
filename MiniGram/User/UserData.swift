@@ -103,6 +103,7 @@ class UserData {
         for i in 0...10 {
             let newUser = GenericUser(id: "\(i)", name: "User\(i)", followers: nil, image: UIImage(systemName: "person.circle.fill"))
             exploreUsers.append(newUser)
+        }
         // Gallery Posts
         for i in 0...10 {
             let newPost = GenericPost(id: "\(i)", userId: "\(i)", likes: Int.random(in: 0 ..< 20), desc: "lorem ipsum something something something. #something", date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
