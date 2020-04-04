@@ -23,6 +23,9 @@
 		F354DDB8240742A700370C04 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDB7240742A700370C04 /* ProfileViewController.swift */; };
 		F354DDBA240742B000370C04 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDB9240742B000370C04 /* ExploreViewController.swift */; };
 		F354DDBC240742B900370C04 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDBB240742B900370C04 /* HomeViewController.swift */; };
+		F354DDBE2407A87600370C04 /* ExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDBD2407A87600370C04 /* ExploreCollectionViewCell.swift */; };
+		F354DDC02408564E00370C04 /* ExploreSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDBF2408564E00370C04 /* ExploreSearchViewController.swift */; };
+		F354DDC224088CBD00370C04 /* ExploreSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDC124088CBD00370C04 /* ExploreSearchTableViewCell.swift */; };
 		F362F2AE241B19E90032FDEF /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F362F2AC241B19E90032FDEF /* Post.storyboard */; };
 		F362F2AF241B19E90032FDEF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F362F2AD241B19E90032FDEF /* PostViewController.swift */; };
 		F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB67E23F455D9005AD08D /* AppDelegate.swift */; };
@@ -64,6 +67,9 @@
 		F354DDB7240742A700370C04 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F354DDB9240742B000370C04 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		F354DDBB240742B900370C04 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F354DDBD2407A87600370C04 /* ExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCollectionViewCell.swift; sourceTree = "<group>"; };
+		F354DDBF2408564E00370C04 /* ExploreSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSearchViewController.swift; sourceTree = "<group>"; };
+		F354DDC124088CBD00370C04 /* ExploreSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSearchTableViewCell.swift; sourceTree = "<group>"; };
 		F362F2AC241B19E90032FDEF /* Post.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		F362F2AD241B19E90032FDEF /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		F3EBB67B23F455D9005AD08D /* MiniGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +157,8 @@
 			children = (
 				F354DDB324073FA700370C04 /* ViewControllers */,
 				F354DDAD24073F8B00370C04 /* Explore.storyboard */,
+				F354DDBD2407A87600370C04 /* ExploreCollectionViewCell.swift */,
+				F354DDC124088CBD00370C04 /* ExploreSearchTableViewCell.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -193,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				F354DDB9240742B000370C04 /* ExploreViewController.swift */,
+				F354DDBF2408564E00370C04 /* ExploreSearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -435,11 +444,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F354DDBE2407A87600370C04 /* ExploreCollectionViewCell.swift in Sources */,
 				341E671523FC8B61008EADA7 /* CreateAccountViewController.swift in Sources */,
 				F3EBB6AE23F4B518005AD08D /* LoginViewController.swift in Sources */,
 				F354DDBC240742B900370C04 /* HomeViewController.swift in Sources */,
 				F3EBB6A523F4AECA005AD08D /* FireCollections.swift in Sources */,
 				F354DD7E2406E2C700370C04 /* GenericPost.swift in Sources */,
+				F354DDC224088CBD00370C04 /* ExploreSearchTableViewCell.swift in Sources */,
 				F3EBB6A323F4ADC0005AD08D /* LogManager.swift in Sources */,
 				F3EBB69E23F4AC6A005AD08D /* UserData.swift in Sources */,
 				F354DD802406E2D500370C04 /* GenericMini.swift in Sources */,
@@ -451,6 +462,7 @@
 				F3EBB6A023F4AD52005AD08D /* Fire.swift in Sources */,
 				F354DDB62407429900370C04 /* AddViewController.swift in Sources */,
 				F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */,
+				F354DDC02408564E00370C04 /* ExploreSearchViewController.swift in Sources */,
 				F3EBB69B23F45CCB005AD08D /* Database.swift in Sources */,
 				F3126A142410533C00AFE85B /* Comment.swift in Sources */,
 				F354DDBA240742B000370C04 /* ExploreViewController.swift in Sources */,

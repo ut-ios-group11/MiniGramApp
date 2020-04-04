@@ -22,4 +22,11 @@ class GenericUser: FireInitable {
         followers = doc.get("followers") as? [String]
     }
     
+    init(id: String, name: String, followers: [String]?, image: UIImage?) {
+        self.id = id
+        self.name = name
+        self.followers = followers
+        self.image = image
+    }
+    
 }
