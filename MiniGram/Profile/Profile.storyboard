@@ -65,7 +65,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZD9-pv-WMc">
+                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZD9-pv-WMc">
                                                                 <rect key="frame" x="24" y="146.5" width="366" height="32"/>
                                                                 <segments>
                                                                     <segment title="Gallery"/>
@@ -152,6 +152,7 @@
                         <outlet property="nameLabel" destination="Y5A-en-6B0" id="eQw-Y2-lFB"/>
                         <outlet property="profileImage" destination="H69-kc-xIx" id="XYk-dW-Cmu"/>
                         <outlet property="profileViewSelector" destination="ZD9-pv-WMc" id="ITw-PI-1Qy"/>
+                        <outlet property="segmentedControl" destination="ZD9-pv-WMc" id="Zh6-vB-8Vw"/>
                         <outlet property="settingsButton" destination="cxO-I3-Hdm" id="v0Q-Gs-YZy"/>
                         <outlet property="usernameLabel" destination="yzk-aA-p8T" id="BAZ-VM-pmt"/>
                     </connections>

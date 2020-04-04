@@ -19,7 +19,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileViewSelector: UISegmentedControl!
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var miniaturesView: UIView!
-
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +31,7 @@ class ProfileViewController: UIViewController {
         miniaturesView.isHidden = true
         settingsButton.setImage(UIImage(named: "settings"), for: .normal)
         
+        setStyleForSegmentedControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,5 +47,36 @@ class ProfileViewController: UIViewController {
             galleryView.isHidden = true
             miniaturesView.isHidden = false
         }
+    }
+    
+    func setStyleForSegmentedControl() {
+        let normalFont = UIFont.systemFont(ofSize: 16)
+        let selectedFont = UIFont.boldSystemFont(ofSize: 16)
+
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: normalFont], for: .normal)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: selectedFont], for: .selected)
+        segmentedControl.backgroundColor = .clear
+        segmentedControl.tintColor = .clear
+        segmentedControl.removeBorders()
+    }
+}
+
+extension UISegmentedControl {
+    func removeBorders() {
+        setBackgroundImage(imageWithColor(color: backgroundColor ?? .clear), for: .normal, barMetrics: .default)
+        setBackgroundImage(imageWithColor(color: tintColor!), for: .selected, barMetrics: .default)
+        setDividerImage(imageWithColor(color: UIColor.clear), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+    }
+
+    // create a 1x1 image with this color
+    private func imageWithColor(color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0.0, y: 0.0, width:  32.0, height: 32.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context!.setFillColor(color.cgColor);
+        context!.fill(rect);
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image!
     }
 }
