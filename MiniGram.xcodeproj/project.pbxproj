@@ -11,6 +11,7 @@
 		341C5D21242D43B400780FFD /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C5D20242D43B400780FFD /* CommentViewController.swift */; };
 		341C5D23242D43C900780FFD /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341C5D22242D43C900780FFD /* Comment.storyboard */; };
 		341E671523FC8B61008EADA7 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */; };
+		7CA836132439160900F31A63 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA836122439160900F31A63 /* AddPostViewController.swift */; };
 		F3126A142410533C00AFE85B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3126A132410533C00AFE85B /* Comment.swift */; };
 		F354DD7E2406E2C700370C04 /* GenericPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DD7D2406E2C700370C04 /* GenericPost.swift */; };
 		F354DD802406E2D500370C04 /* GenericMini.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DD7F2406E2D500370C04 /* GenericMini.swift */; };
@@ -48,6 +49,7 @@
 		341C5D22242D43C900780FFD /* Comment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
 		341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		75364A4969C99C1C2A5B074B /* Pods-MiniGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGram.debug.xcconfig"; path = "Target Support Files/Pods-MiniGram/Pods-MiniGram.debug.xcconfig"; sourceTree = "<group>"; };
+		7CA836122439160900F31A63 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		829AE59FCFCA65749BA5B4D5 /* Pods-MiniGramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.release.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.release.xcconfig"; sourceTree = "<group>"; };
 		B181299490F710A9B799608C /* Pods-MiniGramApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.debug.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CDD41BE0269872D6E705F4CB /* Pods_MiniGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				F354DDB52407429900370C04 /* AddViewController.swift */,
+				7CA836122439160900F31A63 /* AddPostViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				F3EBB6A323F4ADC0005AD08D /* LogManager.swift in Sources */,
 				F3EBB69E23F4AC6A005AD08D /* UserData.swift in Sources */,
 				F354DD802406E2D500370C04 /* GenericMini.swift in Sources */,
+				7CA836132439160900F31A63 /* AddPostViewController.swift in Sources */,
 				F354DDB8240742A700370C04 /* ProfileViewController.swift in Sources */,
 				F362F2AF241B19E90032FDEF /* PostViewController.swift in Sources */,
 				341C5D21242D43B400780FFD /* CommentViewController.swift in Sources */,
@@ -602,7 +606,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92T5YVZA7N;
+				DEVELOPMENT_TEAM = R85MR64J5N;
 				INFOPLIST_FILE = MiniGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -610,6 +614,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = KeeganBlack.MiniGramApp;
 				PRODUCT_NAME = MiniGram;
+				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -621,7 +626,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92T5YVZA7N;
+				DEVELOPMENT_TEAM = R85MR64J5N;
 				INFOPLIST_FILE = MiniGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -629,6 +634,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = KeeganBlack.MiniGramApp;
 				PRODUCT_NAME = MiniGram;
+				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
