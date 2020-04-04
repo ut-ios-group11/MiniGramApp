@@ -10,6 +10,8 @@ import UIKit
 
 class HomeFeedTableViewCell: UITableViewCell {
     
+    var delegate: HomeFeedPost?
+    
     @IBOutlet weak var postImage: UIImageView!
     
     @IBOutlet weak var userImage: UIImageView!
@@ -17,8 +19,7 @@ class HomeFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var username: UILabel!
     
     @IBAction func likeButtonPressed(_ sender: Any) {
-        // database call + update LikeCount
-        
+        delegate?.likePost()
     }
     
     @IBOutlet weak var likeCount: UILabel!
@@ -26,8 +27,8 @@ class HomeFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var caption: UITextView!
     
     @IBAction func viewCommentsButtonPressed(_ sender: Any) {
+        delegate?.viewComments()
     }
-    
     
 }
 

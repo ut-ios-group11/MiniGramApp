@@ -8,7 +8,20 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+protocol HomeFeedPost {
+    func viewComments()
+    func likePost()
+}
+
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeFeedPost {
+    func viewComments() {
+        // segue to a comment view
+    }
+    
+    func likePost() {
+        // update number of likes, update data on screen
+    }
+    
     
     @IBOutlet weak var tableView: UITableView!
     
