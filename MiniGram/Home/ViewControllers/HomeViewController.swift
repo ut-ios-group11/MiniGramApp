@@ -27,6 +27,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var explorePosts = [GenericPost]()
     var user: GenericUser?
+    var commentSegueIdentifier = "commentSegue"
 
     
     override func viewDidLoad() {
@@ -48,11 +49,20 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.postImage.image = explorePosts[indexPath.row].image
         cell.userImage.image = explorePosts[indexPath.row].image
         cell.userImage.round()
+//        cell.userImage.roundCorners(cell.userImage.frame.size.width / 2)
         cell.username.text = explorePosts[indexPath.row].userId
         cell.likeCount.text = String(explorePosts[indexPath.row].likes)
         cell.caption.text = explorePosts[indexPath.row].desc
 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == commentSegueIdentifier,
+            let nextVC = segue.destination as? CommentViewController {
+            nextVC.user = user
+//            nextVC.post =
+        }
     }
     
     

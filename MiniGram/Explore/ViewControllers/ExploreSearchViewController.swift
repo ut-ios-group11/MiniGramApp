@@ -17,6 +17,7 @@ class ExploreSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchTextField.underlined()
         searchTextField.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
