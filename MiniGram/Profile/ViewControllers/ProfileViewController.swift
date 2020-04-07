@@ -19,8 +19,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileViewSelector: UISegmentedControl!
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var miniaturesView: UIView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +29,7 @@ class ProfileViewController: UIViewController {
         galleryView.isHidden = false
         miniaturesView.isHidden = true
         settingsButton.setImage(UIImage(named: "settings"), for: .normal)
-        
+        scrollView.bringSubviewToFront(settingsButton)
         setStyleForSegmentedControl()
     }
     
@@ -53,11 +52,11 @@ class ProfileViewController: UIViewController {
         let normalFont = UIFont.systemFont(ofSize: 16)
         let selectedFont = UIFont.boldSystemFont(ofSize: 16)
 
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: normalFont], for: .normal)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: selectedFont], for: .selected)
-        segmentedControl.backgroundColor = .clear
-        segmentedControl.tintColor = .clear
-        segmentedControl.removeBorders()
+        profileViewSelector.setTitleTextAttributes([NSAttributedString.Key.font: normalFont], for: .normal)
+        profileViewSelector.setTitleTextAttributes([NSAttributedString.Key.font: selectedFont], for: .selected)
+        profileViewSelector.backgroundColor = .clear
+        profileViewSelector.tintColor = .clear
+        profileViewSelector.removeBorders()
     }
 }
 
@@ -68,7 +67,6 @@ extension UISegmentedControl {
         setDividerImage(imageWithColor(color: UIColor.clear), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
     }
 
-    // create a 1x1 image with this color
     private func imageWithColor(color: UIColor) -> UIImage {
         let rect = CGRect(x: 0.0, y: 0.0, width:  32.0, height: 32.0)
         UIGraphicsBeginImageContext(rect.size)

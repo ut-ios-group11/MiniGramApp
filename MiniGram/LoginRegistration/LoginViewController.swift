@@ -28,6 +28,8 @@ class LoginViewController: UIViewController {
         loginButton.roundCorners(4)
         loginErrorView.roundCorners(4)
         hideError()
+        emailTextField.underlined()
+        passwordTextField.underlined()
     }
     
     func showError(error: String) {

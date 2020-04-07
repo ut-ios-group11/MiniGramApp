@@ -12,11 +12,16 @@ class ChangePasswordViewController: UIViewController {
 
     @IBOutlet weak var oldPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
+    @IBOutlet weak var saveChangesButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         oldPasswordTextField.underlined()
         newPasswordTextField.underlined()
+        
+        saveChangesButton.backgroundColor = .white
+        saveChangesButton.layer.borderColor = UIColor.black.cgColor
+        saveChangesButton.layer.borderWidth = 2
     }
 }

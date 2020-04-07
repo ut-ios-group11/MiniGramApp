@@ -21,16 +21,25 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view.
         accountTableView.delegate = self
         accountTableView.dataSource = self
+        darkModeSwitch.isOn =  UserDefaults.standard.bool(forKey: "switchState")
         darkModeToggle(darkModeSwitch)
-        
+
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @IBAction func darkModeToggle(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "switchState")
         if darkModeSwitch.isOn {
-            overrideUserInterfaceStyle = .dark
+            view.overrideUserInterfaceStyle = .dark
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .dark
+            }
         } else {
-            overrideUserInterfaceStyle = .light
+            view.overrideUserInterfaceStyle = .light
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .light
+            }
+
         }
     }
     

@@ -127,12 +127,15 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3f-mn-nVW">
-                                <rect key="frame" x="24" y="118.5" width="366" height="18.5"/>
+                                <rect key="frame" x="24" y="126.5" width="366" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qid-Q1-OLt">
-                                <rect key="frame" x="158" y="791" width="98" height="30"/>
+                                <rect key="frame" x="143" y="759" width="128" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="nP7-JH-Jmf"/>
+                                </constraints>
                                 <state key="normal" title="Save Changes">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -145,8 +148,8 @@
                             <constraint firstItem="gn1-hz-0pR" firstAttribute="trailing" secondItem="4ex-1X-LvU" secondAttribute="trailing" constant="24" id="Cny-ct-L1N"/>
                             <constraint firstItem="4ex-1X-LvU" firstAttribute="leading" secondItem="gn1-hz-0pR" secondAttribute="leading" constant="24" id="aRO-io-aA7"/>
                             <constraint firstItem="qid-Q1-OLt" firstAttribute="centerX" secondItem="gZV-ox-MK0" secondAttribute="centerX" id="bhA-JV-ncj"/>
-                            <constraint firstItem="L3f-mn-nVW" firstAttribute="top" secondItem="4ex-1X-LvU" secondAttribute="bottom" constant="24" id="d3t-xt-2qp"/>
-                            <constraint firstItem="qid-Q1-OLt" firstAttribute="bottom" secondItem="gn1-hz-0pR" secondAttribute="bottom" constant="8" id="lxW-55-yMY"/>
+                            <constraint firstItem="L3f-mn-nVW" firstAttribute="top" secondItem="4ex-1X-LvU" secondAttribute="bottom" constant="32" id="d3t-xt-2qp"/>
+                            <constraint firstItem="gn1-hz-0pR" firstAttribute="bottom" secondItem="qid-Q1-OLt" secondAttribute="bottom" constant="24" id="lxW-55-yMY"/>
                             <constraint firstItem="gn1-hz-0pR" firstAttribute="trailing" secondItem="L3f-mn-nVW" secondAttribute="trailing" constant="24" id="qvO-lZ-4qB"/>
                             <constraint firstItem="L3f-mn-nVW" firstAttribute="centerX" secondItem="gZV-ox-MK0" secondAttribute="centerX" id="vl2-mQ-Vbd"/>
                             <constraint firstItem="4ex-1X-LvU" firstAttribute="top" secondItem="gn1-hz-0pR" secondAttribute="top" constant="32" id="xhU-VD-q8o"/>
@@ -157,6 +160,7 @@
                     <connections>
                         <outlet property="newPasswordTextField" destination="L3f-mn-nVW" id="jXd-pC-N6U"/>
                         <outlet property="oldPasswordTextField" destination="4ex-1X-LvU" id="v4J-5z-Ue6"/>
+                        <outlet property="saveChangesButton" destination="qid-Q1-OLt" id="cxv-Hi-ShI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CAD-4J-gt1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -193,31 +197,39 @@
                                     <action selector="changeProfilePhoto:" destination="TlQ-xR-wg0" eventType="touchUpInside" id="TUj-bh-1eg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    Diego Maceda" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vwm-Pj-ZCf">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Diego Maceda" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vwm-Pj-ZCf">
                                 <rect key="frame" x="24" y="213" width="366" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    diegomaceda" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="awj-f2-Rs5">
-                                <rect key="frame" x="24" y="255.5" width="366" height="18.5"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@diegomaceda" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="awj-f2-Rs5">
+                                <rect key="frame" x="24" y="263.5" width="366" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    dmaceda22@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lfu-YS-osd">
-                                <rect key="frame" x="24" y="298" width="366" height="18.5"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="dmaceda22@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lfu-YS-osd">
+                                <rect key="frame" x="24" y="314" width="366" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OP8-NU-S2A" userLabel="Save Changes">
-                                <rect key="frame" x="158" y="737" width="98" height="30"/>
+                                <rect key="frame" x="143" y="705" width="128" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="FF3-Ba-DsZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Save Changes">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1KV-Ih-NrB">
-                                <rect key="frame" x="154.5" y="775" width="105" height="30"/>
+                                <rect key="frame" x="143" y="759" width="128" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="txT-gh-cIt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Delete Account">
-                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diego Maceda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wz0-3V-La4">
@@ -240,28 +252,30 @@
                             <constraint firstItem="zxM-3x-sG1" firstAttribute="trailing" secondItem="Lfu-YS-osd" secondAttribute="trailing" constant="24" id="Hsh-zx-iub"/>
                             <constraint firstItem="awj-f2-Rs5" firstAttribute="centerX" secondItem="9Qe-vc-fpL" secondAttribute="centerX" id="Kv3-Vn-kxn"/>
                             <constraint firstItem="awj-f2-Rs5" firstAttribute="leading" secondItem="zxM-3x-sG1" secondAttribute="leading" constant="24" id="SIn-Cs-y6U"/>
-                            <constraint firstItem="zxM-3x-sG1" firstAttribute="bottom" secondItem="1KV-Ih-NrB" secondAttribute="bottom" constant="8" id="YJp-ew-oPY"/>
+                            <constraint firstItem="zxM-3x-sG1" firstAttribute="bottom" secondItem="1KV-Ih-NrB" secondAttribute="bottom" constant="24" id="YJp-ew-oPY"/>
                             <constraint firstItem="zxM-3x-sG1" firstAttribute="trailing" secondItem="awj-f2-Rs5" secondAttribute="trailing" constant="24" id="b43-6q-l2z"/>
                             <constraint firstItem="sql-Rc-Qle" firstAttribute="top" secondItem="Wz0-3V-La4" secondAttribute="bottom" constant="8" id="bGL-hG-UBJ"/>
                             <constraint firstItem="Lfu-YS-osd" firstAttribute="leading" secondItem="zxM-3x-sG1" secondAttribute="leading" constant="24" id="cfr-PM-2JS"/>
                             <constraint firstItem="szw-H2-FaD" firstAttribute="leading" secondItem="zxM-3x-sG1" secondAttribute="leading" constant="24" id="cin-9J-Gwi"/>
                             <constraint firstItem="szw-H2-FaD" firstAttribute="top" secondItem="zxM-3x-sG1" secondAttribute="top" constant="24" id="kMa-bJ-CV0"/>
-                            <constraint firstItem="1KV-Ih-NrB" firstAttribute="top" secondItem="OP8-NU-S2A" secondAttribute="bottom" constant="8" id="kPs-JI-9Ag"/>
+                            <constraint firstItem="1KV-Ih-NrB" firstAttribute="top" secondItem="OP8-NU-S2A" secondAttribute="bottom" constant="24" id="kPs-JI-9Ag"/>
                             <constraint firstItem="Vwm-Pj-ZCf" firstAttribute="leading" secondItem="zxM-3x-sG1" secondAttribute="leading" constant="24" id="kot-ux-wI3"/>
-                            <constraint firstItem="awj-f2-Rs5" firstAttribute="top" secondItem="Vwm-Pj-ZCf" secondAttribute="bottom" constant="24" id="sKv-dG-Rgz"/>
+                            <constraint firstItem="awj-f2-Rs5" firstAttribute="top" secondItem="Vwm-Pj-ZCf" secondAttribute="bottom" constant="32" id="sKv-dG-Rgz"/>
                             <constraint firstItem="OP8-NU-S2A" firstAttribute="centerX" secondItem="9Qe-vc-fpL" secondAttribute="centerX" id="sfS-be-PFL"/>
                             <constraint firstItem="Wz0-3V-La4" firstAttribute="top" secondItem="zxM-3x-sG1" secondAttribute="top" constant="32" id="vog-9T-JSJ"/>
                             <constraint firstItem="ZMG-GZ-s0t" firstAttribute="leading" secondItem="zxM-3x-sG1" secondAttribute="leading" constant="24" id="wcX-Lu-Mp7"/>
-                            <constraint firstItem="Lfu-YS-osd" firstAttribute="top" secondItem="awj-f2-Rs5" secondAttribute="bottom" constant="24" id="z2p-El-CpW"/>
+                            <constraint firstItem="Lfu-YS-osd" firstAttribute="top" secondItem="awj-f2-Rs5" secondAttribute="bottom" constant="32" id="z2p-El-CpW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zxM-3x-sG1"/>
                     </view>
                     <navigationItem key="navigationItem" id="cls-Jg-pzE"/>
                     <connections>
+                        <outlet property="deleteAccountButton" destination="1KV-Ih-NrB" id="sKe-od-aCU"/>
                         <outlet property="editEmailTextField" destination="Lfu-YS-osd" id="RaI-9k-GeK"/>
                         <outlet property="editNameTextField" destination="Vwm-Pj-ZCf" id="PLg-VC-9ci"/>
                         <outlet property="editProfileImageView" destination="szw-H2-FaD" id="fF9-Qv-5VS"/>
                         <outlet property="editUsernameTextField" destination="awj-f2-Rs5" id="Cit-U1-l8o"/>
+                        <outlet property="saveChangesButton" destination="OP8-NU-S2A" id="8gg-Dz-plm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tqm-Tu-SJI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
