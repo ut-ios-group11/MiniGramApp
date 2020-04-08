@@ -11,122 +11,75 @@ import AVFoundation
 
 class AddViewController: UIViewController {
     
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet weak var previewView: PreviewView!
+    @IBOutlet weak var captureButton: UIButton!
     
-    var captureSession: AVCaptureSession?
-    var rearCamera: AVCaptureDevice?
-    var rearCameraInput: AVCaptureDeviceInput?
-    var photoOutput: AVCapturePhotoOutput?
-    var previewLayer: AVCaptureVideoPreviewLayer?
+    private let session = AVCaptureSession()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        func configureCameraController() {
-            self.prepare {(error) in
-                if let error = error {
-                    print(error)
-                }
-         
-                try? self.displayPreview(on: self.imageView)
-            }
-        }
-         
-        configureCameraController()
-        // Do any additional setup after loading the view.
-    }
-    
-    func displayPreview(on view: UIView) throws {
-        guard let captureSession = self.captureSession, captureSession.isRunning else { throw CameraControllerError.captureSessionIsMissing }
+        // DEBUG BYPASS *MUST REMOVE* BEFORE BETA!!!!
+        return
+        // ^ REMOVE!!!!
         
-        self.previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        self.previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        self.previewLayer?.connection?.videoOrientation = .portrait
-        
-        view.layer.insertSublayer(self.previewLayer!, at: 0)
-        self.previewLayer?.frame = view.frame
-    }
-    
-    func prepare(completionHandler: @escaping (Error?) -> Void) {
-        func createCaptureSession() {
-            self.captureSession = AVCaptureSession()
-        }
-        func configureCaptureDevices() throws {
-
-            let session = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .unspecified)
-            let cameras = (session.devices.compactMap { $0 })
-            for camera in cameras {
-                if camera.position == .back {
-                    self.rearCamera = camera
-             
-                    try camera.lockForConfiguration()
-                    camera.focusMode = .continuousAutoFocus
-                    camera.unlockForConfiguration()
+        // Verify authorization for capture
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized:
+            self.setupCaptureSession()
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { granted in
+                if granted {
+                    self.setupCaptureSession()
                 }
             }
-        }
-        func configureDeviceInputs() throws {
-            guard let captureSession = self.captureSession else { throw CameraControllerError.captureSessionIsMissing }
-            
-            if let rearCamera = self.rearCamera {
-                self.rearCameraInput = try AVCaptureDeviceInput(device: rearCamera)
-            
-                if captureSession.canAddInput(self.rearCameraInput!) { captureSession.addInput(self.rearCameraInput!) }
-
-                } else {
-                    throw CameraControllerError.noCamerasAvailable
-                }
-        }
-        func configurePhotoOutput() throws {
-            guard let captureSession = self.captureSession else { throw CameraControllerError.captureSessionIsMissing }
-            
-            self.photoOutput = AVCapturePhotoOutput()
-            self.photoOutput!.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey : AVVideoCodecType.jpeg])], completionHandler: nil)
-            
-            if captureSession.canAddOutput(self.photoOutput!) { captureSession.addOutput(self.photoOutput!) }
-            
-            captureSession.startRunning()
-        }
-        
-        DispatchQueue(label: "prepare").async {
-            do {
-                createCaptureSession()
-                try configureCaptureDevices()
-                try configureDeviceInputs()
-                try configurePhotoOutput()
-            }
-                
-            catch {
-                DispatchQueue.main.async {
-                    completionHandler(error)
-                }
-                
-                return
-            }
-            
-            DispatchQueue.main.async {
-                completionHandler(nil)
-            }
+        case .denied:
+            return
+        case .restricted:
+            return
+        @unknown default:
+            fatalError("Unknown authorization status!")
         }
     }
     
-    enum CameraControllerError: Swift.Error {
-        case captureSessionAlreadyRunning
-        case captureSessionIsMissing
-        case inputsAreInvalid
-        case invalidOperation
-        case noCamerasAvailable
-        case unknown
+    func setupCaptureSession() {
+        
+        session.beginConfiguration()
+        let videoDevice = self.selectBestDevice()
+        guard
+            let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
+            session.canAddInput(videoDeviceInput)
+            else {return}
+        session.addInput(videoDeviceInput)
+        let photoOutput = AVCapturePhotoOutput()
+        guard session.canAddOutput(photoOutput) else {return}
+        session.sessionPreset = .photo
+        session.addOutput(photoOutput)
+        session.commitConfiguration()
+    }
+    
+    func selectBestDevice() -> AVCaptureDevice {
+        
+        let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTrueDepthCamera, .builtInDualCamera, .builtInWideAngleCamera], mediaType: .video, position: .back)
+        let devices = discoverySession.devices
+        guard !devices.isEmpty else {fatalError("Missing capture devices!")}
+        return devices.first!
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //if segue.identifier == "DecideSegue",
+        //    let controller = segue.destination as? DecideViewController {
+        //    controller.delegate = self
+        //}
     }
-    */
+}
 
+class PreviewView: UIView {
+    override class var layerClass: AnyClass {
+        return AVCaptureVideoPreviewLayer.self
+    }
+    
+    var videoPreviewLayer: AVCaptureVideoPreviewLayer {
+        return layer as! AVCaptureVideoPreviewLayer
+    }
 }
