@@ -43,7 +43,7 @@
                                 <rect key="frame" x="0.0" y="54" width="414" height="748"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="252" id="gmn-ut-r5E" customClass="CommentTableViewCell" customModule="MiniGram" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="commentCell" rowHeight="252" id="gmn-ut-r5E" customClass="CommentTableViewCell" customModule="MiniGram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="252"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gmn-ut-r5E" id="MUC-01-m1X">
@@ -89,6 +89,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="dox-rs-pBz" secondAttribute="bottom" constant="10" id="jJM-Se-fEc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="commentText" destination="k6L-pX-m5R" id="yGg-h4-I2L"/>
+                                            <outlet property="commentUserImage" destination="qKR-11-UJh" id="Pin-cE-Z4A"/>
+                                            <outlet property="commentUsername" destination="vOa-tK-hGQ" id="fzh-gq-pyJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

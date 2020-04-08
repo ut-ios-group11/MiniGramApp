@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 
-class CommentViewController: UIViewController {
+
+class CommentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var explorePosts = [GenericPost]()
+
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,7 +23,12 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var addCommentText: UITextField!
     
     @IBAction func buttonPressedAddComment(_ sender: Any) {
-        
+        if addCommentText.text != "" {
+            let newComment = Comment(id: "uhhh...1", userId: user!.id, message: addCommentText.text!, date: Timestamp())
+            post?.addComment(comment: newComment)
+            addCommentText.text = ""
+            tableView.reloadData()
+        }
     }
     
     var post: GenericPost?
@@ -27,16 +36,33 @@ class CommentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        refreshData()
         // Do any additional setup after loading the view.
         
         navigationController?.setNavigationBarHidden(false, animated: true)
         addCommentText.underlined()
+        explorePosts = UserData.shared.explorePosts
+        user = UserData.shared.exploreUsers[0]
+        tableView.delegate = self
+        tableView.dataSource = self
         userImage.image = user?.image
+        tableView.reloadData()
     }
     
-    func refreshData() {
-        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        (post?.comments.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as? CommentTableViewCell else {
+                return UITableViewCell()
+        }
+        // need to be able to get the user from the userid...
+        // too lazy to write a for loop over the generic users to find the one with the given ID for alpha.
+        // will fix this for the beta with actual data from the db
+//        cell.commentUserImage = ???
+        cell.commentUsername.text = post?.comments[indexPath.row].userId
+        cell.commentText.text = post?.comments[indexPath.row].message
+        return cell
     }
     
 
