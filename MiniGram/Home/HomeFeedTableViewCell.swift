@@ -12,6 +12,8 @@ class HomeFeedTableViewCell: UITableViewCell {
     
     var delegate: HomeFeedPost?
     
+    var postId: String?
+    
     @IBOutlet weak var postImage: UIImageView!
     
     @IBOutlet weak var userImage: UIImageView!
@@ -27,7 +29,7 @@ class HomeFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var caption: UITextView!
     
     @IBAction func viewCommentsButtonPressed(_ sender: Any) {
-        delegate?.viewComments()
+        delegate?.viewComments(postId: postId!)
     }
     
 }
