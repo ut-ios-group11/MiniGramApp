@@ -236,11 +236,22 @@
                     <connections>
                         <outlet property="searchTextField" destination="G4b-pV-6C4" id="pk5-G6-goE"/>
                         <outlet property="tableView" destination="6Kg-kX-2An" id="S1M-It-JX9"/>
+                        <segue destination="Lgi-on-nX1" kind="show" identifier="toProfile" id="bMQ-hd-rC7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmi-QR-sT3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1685.5072463768117" y="105.80357142857143"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="Pf4-OE-Zxy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="Lgi-on-nX1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0B6-zH-PmP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OgS-36-FB7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2374" y="106"/>
         </scene>
         <!--Explore-->
         <scene sceneID="P9M-k9-CTu">

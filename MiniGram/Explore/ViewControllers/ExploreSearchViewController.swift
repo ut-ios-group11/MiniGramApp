@@ -67,7 +67,9 @@ extension ExploreSearchViewController: UITableViewDataSource {
 // MARK: Table View Delegate
 
 extension ExploreSearchViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toProfile", sender: self)
+    }
 }
 
 
