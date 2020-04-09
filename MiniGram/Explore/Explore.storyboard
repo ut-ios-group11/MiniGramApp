@@ -251,6 +251,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8tw-Ic-lke">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="flippedColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
