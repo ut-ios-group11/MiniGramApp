@@ -14,6 +14,8 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var editNameTextField: UITextField!
     @IBOutlet weak var editUsernameTextField: UITextField!
     @IBOutlet weak var editEmailTextField: UITextField!
+    @IBOutlet weak var saveChangesButton: UIButton!
+    @IBOutlet weak var deleteAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,11 @@ class EditProfileViewController: UIViewController {
         editNameTextField.underlined()
         editUsernameTextField.underlined()
         editEmailTextField.underlined()
+        
+        adjustButtonColor(saveChangesButton: saveChangesButton)
+        saveChangesButton.layer.borderWidth = 2
+        
+        deleteAccountButton.backgroundColor = UIColor.red
     }
     
     @IBAction func changeProfilePhoto(_ sender: Any) {

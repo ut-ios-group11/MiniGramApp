@@ -47,7 +47,7 @@ class MiniaturesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
         
-        cell.backgroundColor = UIColor.white
+        cell.backgroundColor = UIColor.clear
         cell.clipsToBounds = true
 
         return cell

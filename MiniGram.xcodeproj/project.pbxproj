@@ -20,6 +20,7 @@
 		9D21DBF424100DD6004BCC2C /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D21DBF324100DD6004BCC2C /* GalleryCollectionViewCell.swift */; };
 		9D422C7C243680050054FF65 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D422C7B243680050054FF65 /* Settings.storyboard */; };
 		9D422C7E2436800F0054FF65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D422C7D2436800F0054FF65 /* SettingsViewController.swift */; };
+		9D4CA07324393F6F0051A4CB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D4CA07224393F6E0051A4CB /* logo.png */; };
 		9D7A5396242A84C400997A4F /* MiniaturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */; };
 		9D7A5398242A851C00997A4F /* MiniaturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */; };
 		9DAE2D532437F650003F5597 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAE2D522437F650003F5597 /* EditProfileViewController.swift */; };
@@ -74,6 +75,7 @@
 		9D21DBF324100DD6004BCC2C /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D422C7B243680050054FF65 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		9D422C7D2436800F0054FF65 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9D4CA07224393F6E0051A4CB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesTableViewController.swift; sourceTree = "<group>"; };
 		9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesTableViewCell.swift; sourceTree = "<group>"; };
 		9DAE2D522437F650003F5597 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -134,8 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				341C5D20242D43B400780FFD /* CommentViewController.swift */,
-				341C5D22242D43C900780FFD /* Comment.storyboard */,
 				34CE6B66242D526C00F6D121 /* CommentTableViewCell.swift */,
+				341C5D22242D43C900780FFD /* Comment.storyboard */,
 			);
 			path = Comment;
 			sourceTree = "<group>";
@@ -279,8 +281,8 @@
 		F362F2AB241B19D30032FDEF /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				F362F2AC241B19E90032FDEF /* Post.storyboard */,
 				F362F2AD241B19E90032FDEF /* PostViewController.swift */,
+				F362F2AC241B19E90032FDEF /* Post.storyboard */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -327,6 +329,7 @@
 				F33FD9D2243ED3750063B466 /* Colors.xcassets */,
 				F3EBB68923F455DB005AD08D /* LaunchScreen.storyboard */,
 				F3EBB68C23F455DB005AD08D /* Info.plist */,
+				9D4CA07224393F6E0051A4CB /* logo.png */,
 				F3EBB6AF23F4B7A9005AD08D /* SimpleExtensions.swift */,
 			);
 			path = MiniGram;
@@ -440,6 +443,7 @@
 				F3EBB68B23F455DB005AD08D /* LaunchScreen.storyboard in Resources */,
 				F3EBB69323F45AB1005AD08D /* GoogleService-Info.plist in Resources */,
 				F354DDB024073F9500370C04 /* Home.storyboard in Resources */,
+				9D4CA07324393F6F0051A4CB /* logo.png in Resources */,
 				F362F2AE241B19E90032FDEF /* Post.storyboard in Resources */,
 				341C5D23242D43C900780FFD /* Comment.storyboard in Resources */,
 				F3EBB69823F45C8A005AD08D /* Main.storyboard in Resources */,
