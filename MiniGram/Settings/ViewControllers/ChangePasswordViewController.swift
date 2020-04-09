@@ -20,8 +20,7 @@ class ChangePasswordViewController: UIViewController {
         oldPasswordTextField.underlined()
         newPasswordTextField.underlined()
         
-        saveChangesButton.backgroundColor = .white
-        saveChangesButton.layer.borderColor = UIColor.black.cgColor
+        adjustButtonColor(saveChangesButton: saveChangesButton)
         saveChangesButton.layer.borderWidth = 2
     }
 }

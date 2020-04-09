@@ -26,8 +26,7 @@ class EditProfileViewController: UIViewController {
         editUsernameTextField.underlined()
         editEmailTextField.underlined()
         
-        saveChangesButton.backgroundColor = .white
-        saveChangesButton.layer.borderColor = UIColor.black.cgColor
+        adjustButtonColor(saveChangesButton: saveChangesButton)
         saveChangesButton.layer.borderWidth = 2
         
         deleteAccountButton.backgroundColor = UIColor.red

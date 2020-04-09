@@ -20,6 +20,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var miniaturesView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var followButtonSeparator: UILabel!
+    @IBOutlet weak var followButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,8 @@ class ProfileViewController: UIViewController {
         settingsButton.setImage(UIImage(named: "settings"), for: .normal)
         scrollView.bringSubviewToFront(settingsButton)
         setStyleForSegmentedControl()
+        
+        // TODO: If user is current user, hide followButton and followButtonSeparator 
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +63,18 @@ class ProfileViewController: UIViewController {
         profileViewSelector.tintColor = .clear
         profileViewSelector.removeBorders()
     }
+    
+    @IBAction func followButtonPressed(_ sender: Any) {
+        if followButton.image(for: .normal) == UIImage(named: "follow_unselected") {
+            followButton.setImage(UIImage(named: "follow_selected"), for: .normal)
+        } else {
+            followButton.setImage(UIImage(named: "follow_unselected"), for: .normal)
+        }
+        // TODO: Add user to follow list
+    }
+    
+    
+    
 }
 
 extension UISegmentedControl {
