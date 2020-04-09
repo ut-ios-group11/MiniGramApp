@@ -13,6 +13,7 @@
 		341E671523FC8B61008EADA7 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */; };
 		347644FF24100882007F8F70 /* HomeFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */; };
 		34CE6B67242D526C00F6D121 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE6B66242D526C00F6D121 /* CommentTableViewCell.swift */; };
+		7CA836132439160900F31A63 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA836122439160900F31A63 /* AddPostViewController.swift */; };
 		9D1C47642439016A009329A3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1C47632439016A009329A3 /* ChangePasswordViewController.swift */; };
 		9D21DBCE240F33B5004BCC2C /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D21DBCD240F33B5004BCC2C /* GalleryViewController.swift */; };
 		9D21DBD0240F38B1004BCC2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D21DBCF240F38B1004BCC2C /* Assets.xcassets */; };
@@ -22,10 +23,8 @@
 		9D7A5396242A84C400997A4F /* MiniaturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */; };
 		9D7A5398242A851C00997A4F /* MiniaturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */; };
 		9DAE2D532437F650003F5597 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAE2D522437F650003F5597 /* EditProfileViewController.swift */; };
-		347644FF24100882007F8F70 /* HomeFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */; };
-		34CE6B67242D526C00F6D121 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE6B66242D526C00F6D121 /* CommentTableViewCell.swift */; };
-		7CA836132439160900F31A63 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA836122439160900F31A63 /* AddPostViewController.swift */; };
 		F3126A142410533C00AFE85B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3126A132410533C00AFE85B /* Comment.swift */; };
+		F33FD9D3243ED3750063B466 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33FD9D2243ED3750063B466 /* Colors.xcassets */; };
 		F354DD7E2406E2C700370C04 /* GenericPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DD7D2406E2C700370C04 /* GenericPost.swift */; };
 		F354DD802406E2D500370C04 /* GenericMini.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DD7F2406E2D500370C04 /* GenericMini.swift */; };
 		F354DD822406E2DF00370C04 /* GenericUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DD812406E2DF00370C04 /* GenericUser.swift */; };
@@ -82,6 +81,7 @@
 		CDD41BE0269872D6E705F4CB /* Pods_MiniGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1995FBFF8CE42EBCF284E4B /* Pods-MiniGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGram.release.xcconfig"; path = "Target Support Files/Pods-MiniGram/Pods-MiniGram.release.xcconfig"; sourceTree = "<group>"; };
 		F3126A132410533C00AFE85B /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		F33FD9D2243ED3750063B466 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		F354DD7D2406E2C700370C04 /* GenericPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPost.swift; sourceTree = "<group>"; };
 		F354DD7F2406E2D500370C04 /* GenericMini.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericMini.swift; sourceTree = "<group>"; };
 		F354DD812406E2DF00370C04 /* GenericUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericUser.swift; sourceTree = "<group>"; };
@@ -324,6 +324,7 @@
 				F3EBB69723F45C8A005AD08D /* Main.storyboard */,
 				F3EBB68423F455D9005AD08D /* SignedIn.storyboard */,
 				F3EBB68723F455DB005AD08D /* Assets.xcassets */,
+				F33FD9D2243ED3750063B466 /* Colors.xcassets */,
 				F3EBB68923F455DB005AD08D /* LaunchScreen.storyboard */,
 				F3EBB68C23F455DB005AD08D /* Info.plist */,
 				F3EBB6AF23F4B7A9005AD08D /* SimpleExtensions.swift */,
@@ -448,6 +449,7 @@
 				F354DDAC24073F7C00370C04 /* Profile.storyboard in Resources */,
 				9D422C7C243680050054FF65 /* Settings.storyboard in Resources */,
 				F354DDAA24073F6800370C04 /* Add.storyboard in Resources */,
+				F33FD9D3243ED3750063B466 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
