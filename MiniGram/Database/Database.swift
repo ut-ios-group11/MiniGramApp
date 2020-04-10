@@ -86,8 +86,10 @@ class Database {
         return listener
     }
     
-    func profileMinaturesListener() {
-        
+    func profileMiniaturesListener(listenerId: String, userId: String, onComplete: @escaping ([GenericMini],[String],[GenericMini], String) -> Void) -> Listener {
+        let query = Firestore.firestore().collection(FireCollection.Miniatures.rawValue).whereField("userId", isEqualTo: userId)
+        let listenerRegistration = Fire.shared.listener(at: query, returning: GenericMini.self, onComplete: onComplete)
+        return Listener(id: listenerId, registration: listenerRegistration)
     }
     
     // MARK: - Check Methods

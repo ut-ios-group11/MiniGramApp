@@ -12,7 +12,7 @@ import Firebase
 class GenericMini: FireInitable {
     
     var id: String
-    var uid: String?
+    var userId: String?
     
     var unit: String?
     var name: String?
@@ -37,7 +37,7 @@ class GenericMini: FireInitable {
     
     required init(doc: DocumentSnapshot) {
         id = doc.documentID
-        uid = doc.get("uid") as? String
+        userId = doc.get("userId") as? String
         name = doc.get("name") as? String
         unit = doc.get("unit") as? String
         

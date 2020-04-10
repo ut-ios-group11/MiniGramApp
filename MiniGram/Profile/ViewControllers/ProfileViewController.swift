@@ -31,8 +31,6 @@ class ProfileViewController: UIViewController {
         profileImage.roundCorners(profileImage.frame.size.width / 2)
         galleryView.isHidden = false
         miniaturesView.isHidden = true
-        settingsButton.setImage(UIImage(named: "settings"), for: .normal)
-        scrollView.bringSubviewToFront(settingsButton)
         setStyleForSegmentedControl()
         
         // TODO: If user is current user, hide followButton and followButtonSeparator 
