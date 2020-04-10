@@ -26,6 +26,8 @@ class CreateAccountViewController: UIViewController {
         super.viewDidLoad()
         spinner.hidesWhenStopped = true
         hideKeyboardWhenTappedAround()
+        submitButton.roundCorners(4)
+        createAccountErrorView.roundCorners(4)
         spinner.roundCorners(4)
         hideError()
         // Do any additional setup after loading the view.
