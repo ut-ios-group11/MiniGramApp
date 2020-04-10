@@ -19,16 +19,17 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var setupSuccessful = false
         captureButton.isHidden = true
         
         // Verify authorization for capture
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
-            self.setupCaptureSession()
+            setupSuccessful = self.setupCaptureSession()
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted {
-                    self.setupCaptureSession()
+                    setupSuccessful = self.setupCaptureSession()
                 }
             }
         case .denied:
@@ -38,34 +39,39 @@ class AddViewController: UIViewController {
         @unknown default:
             fatalError("Unknown authorization status!")
         }
+        
+        if setupSuccessful {
+            self.captureButton.isHidden = false
+            self.previewView.videoPreviewLayer.session = self.session
+            session.startRunning()
+        }
     }
     
-    func setupCaptureSession() {
+    func setupCaptureSession() -> Bool {
         
         self.session.beginConfiguration()
         let videoDevice = self.selectBestDevice()
+        if videoDevice == nil {
+            return false
+        }
         guard
-            let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
+            let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!),
             self.session.canAddInput(videoDeviceInput)
-            else {return}
+            else {return false}
         self.session.addInput(videoDeviceInput)
         let photoOutput = AVCapturePhotoOutput()
-        guard session.canAddOutput(photoOutput) else {return}
+        guard session.canAddOutput(photoOutput) else {return false}
         self.session.sessionPreset = .photo
         self.session.addOutput(photoOutput)
         self.session.commitConfiguration()
-        
-        self.captureButton.isHidden = false
-        
-        self.previewView.videoPreviewLayer.session = self.session
-        session.startRunning()
+        return true
     }
     
-    func selectBestDevice() -> AVCaptureDevice {
+    func selectBestDevice() -> AVCaptureDevice? {
         
         let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTrueDepthCamera, .builtInDualCamera, .builtInWideAngleCamera], mediaType: .video, position: .back)
         let devices = discoverySession.devices
-        guard !devices.isEmpty else {fatalError("Missing capture devices!")}
+        guard !devices.isEmpty else {return nil}
         return devices.first!
     }
 
