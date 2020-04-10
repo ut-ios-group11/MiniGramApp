@@ -31,6 +31,11 @@ class CreateAccountViewController: UIViewController {
         spinner.roundCorners(4)
         hideError()
         // Do any additional setup after loading the view.
+        
+        createAccountErrorView.roundCorners(4)
+        submitButton.roundCorners(4)
+        cancelButton.roundCorners(4)
+        styleTextFields()
     }
     
     func showError(error: String) {
@@ -89,5 +94,11 @@ class CreateAccountViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         hideError()
     }
-
+    
+    func styleTextFields() {
+        nameTextField.underlined()
+        usernameTextField.underlined()
+        emailTextField.underlined()
+        passwordTextField.underlined()
+    }
 }

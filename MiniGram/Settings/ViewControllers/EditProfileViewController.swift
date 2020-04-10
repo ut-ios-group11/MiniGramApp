@@ -22,14 +22,12 @@ class EditProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         editProfileImageView.roundCorners(editProfileImageView.frame.size.width / 2)
-        editNameTextField.underlined()
-        editUsernameTextField.underlined()
-        editEmailTextField.underlined()
-        
-        adjustButtonColor(saveChangesButton: saveChangesButton)
-        saveChangesButton.layer.borderWidth = 2
-        
-        deleteAccountButton.backgroundColor = UIColor.red
+        styleTextFields()
+        styleButtons()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     @IBAction func changeProfilePhoto(_ sender: Any) {
@@ -51,5 +49,16 @@ class EditProfileViewController: UIViewController {
             handler: nil))
         
         present(controller, animated: true, completion: nil)
+    }
+    
+    func styleTextFields() {
+        editNameTextField.underlined()
+        editUsernameTextField.underlined()
+        editEmailTextField.underlined()
+    }
+    
+    func styleButtons() {
+        saveChangesButton.roundCorners(4)
+        deleteAccountButton.roundCorners(4)
     }
 }
