@@ -10,7 +10,7 @@ import UIKit
 
 protocol HomeFeedPost {
     func viewComments(postId: String)
-    func likePost()
+    func likePost(postId: String, selected: Bool)
 }
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeFeedPost {
@@ -20,10 +20,24 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         performSegue(withIdentifier: commentSegueIdentifier, sender: self)
     }
     
-    func likePost() {
+    func likePost(postId: String, selected: Bool) {
         // for local usage only. needs to be changed for db functionality.
-        
-        
+        var foundPost: GenericPost? = nil
+        for post in explorePosts {
+            if post.id == postId {
+                foundPost = post
+            }
+        }
+        if foundPost != nil {
+            if !selected {
+                foundPost?.likes.append(user!.id)
+            } else {
+                foundPost?.likes.removeAll(where: { (id) -> Bool in
+                    id == user!.id
+                })
+            }
+        }
+//        tableView.reloadData()
     }
     
     
@@ -44,6 +58,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
         explorePosts = UserData.shared.explorePosts
+        user = UserData.shared.exploreUsers[0]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,6 +74,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.userImage.round()
         cell.username.text = explorePosts[indexPath.row].userId
         cell.likeCount.text = String(explorePosts[indexPath.row].likes.count)
+        if explorePosts[indexPath.row].likes.contains(user!.id) {
+            cell.likeButton.isSelected = true
+        }
         cell.caption.text = explorePosts[indexPath.row].desc
         cell.postId = explorePosts[indexPath.row].id
         cell.delegate = self
