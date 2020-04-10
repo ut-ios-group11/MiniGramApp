@@ -65,10 +65,11 @@
                                                                                                 <constraint firstAttribute="width" constant="20" id="Qav-Rb-klY"/>
                                                                                             </constraints>
                                                                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                                                                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                                            <color key="tintColor" name="flippedColor"/>
                                                                                             <state key="normal" title="LikeButton" image="heart" catalog="system">
                                                                                                 <color key="titleColor" name="flippedColor"/>
                                                                                             </state>
+                                                                                            <state key="selected" image="heart.fill" catalog="system"/>
                                                                                             <connections>
                                                                                                 <action selector="likeButtonPressed:" destination="ScB-fX-9bQ" eventType="touchUpInside" id="fJS-fl-BLj"/>
                                                                                             </connections>
@@ -141,6 +142,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="caption" destination="DDN-Dn-AMr" id="lz6-0h-Oiy"/>
+                                            <outlet property="likeButton" destination="BhS-TE-SdA" id="S1d-9E-cir"/>
                                             <outlet property="likeCount" destination="BLs-HZ-eVQ" id="rys-IY-dey"/>
                                             <outlet property="postImage" destination="2up-aE-TYH" id="TDp-36-A94"/>
                                             <outlet property="userImage" destination="FlN-1B-ADJ" id="JHh-Sa-2mf"/>
@@ -202,6 +204,7 @@
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="64" height="54"/>
+        <image name="heart.fill" catalog="system" width="64" height="54"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <namedColor name="flippedColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

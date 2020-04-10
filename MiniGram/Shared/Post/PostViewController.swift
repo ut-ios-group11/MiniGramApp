@@ -39,6 +39,12 @@ class PostViewController: UIViewController {
             usernameLabel.text = user.name
             userImage.image = user.image
         }
+        // post my already be liked by user, initialize button appropirately
+        if user != nil && post != nil {
+            if (post?.likes.contains(user!.id))! {
+                likeButton.isSelected = true
+            }
+        }
     }
     
     @IBAction func likeClick(_ sender: UIButton) {
