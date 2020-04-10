@@ -13,7 +13,8 @@
 		341E671523FC8B61008EADA7 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341E671423FC8B61008EADA7 /* CreateAccountViewController.swift */; };
 		347644FF24100882007F8F70 /* HomeFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */; };
 		34CE6B67242D526C00F6D121 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE6B66242D526C00F6D121 /* CommentTableViewCell.swift */; };
-		7CA836132439160900F31A63 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA836122439160900F31A63 /* AddPostViewController.swift */; };
+		7C80321224403F6400875371 /* SubmitPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C80321124403F6400875371 /* SubmitPostViewController.swift */; };
+		7CA836132439160900F31A63 /* DecideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA836122439160900F31A63 /* DecideViewController.swift */; };
 		9D1C47642439016A009329A3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1C47632439016A009329A3 /* ChangePasswordViewController.swift */; };
 		9D21DBCE240F33B5004BCC2C /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D21DBCD240F33B5004BCC2C /* GalleryViewController.swift */; };
 		9D21DBD0240F38B1004BCC2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D21DBCF240F38B1004BCC2C /* Assets.xcassets */; };
@@ -66,8 +67,8 @@
 		347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedTableViewCell.swift; sourceTree = "<group>"; };
 		34CE6B66242D526C00F6D121 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		75364A4969C99C1C2A5B074B /* Pods-MiniGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGram.debug.xcconfig"; path = "Target Support Files/Pods-MiniGram/Pods-MiniGram.debug.xcconfig"; sourceTree = "<group>"; };
+		7C80321124403F6400875371 /* SubmitPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitPostViewController.swift; sourceTree = "<group>"; };
 		7CA836122439160900F31A63 /* DecideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecideViewController.swift; sourceTree = "<group>"; };
-		7CCC2503243E93DE0050474E /* SubmitPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitPostViewController.swift; sourceTree = "<group>"; };
 		829AE59FCFCA65749BA5B4D5 /* Pods-MiniGramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.release.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.release.xcconfig"; sourceTree = "<group>"; };
 		9D1C47632439016A009329A3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		9D21DBCD240F33B5004BCC2C /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -234,7 +235,7 @@
 			children = (
 				F354DDB52407429900370C04 /* AddViewController.swift */,
 				7CA836122439160900F31A63 /* DecideViewController.swift */,
-				7CCC2503243E93DE0050474E /* SubmitPostViewController.swift */,
+				7C80321124403F6400875371 /* SubmitPostViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -514,7 +515,7 @@
 				F354DD7E2406E2C700370C04 /* GenericPost.swift in Sources */,
 				F354DDC224088CBD00370C04 /* ExploreSearchTableViewCell.swift in Sources */,
 				F3EBB6A323F4ADC0005AD08D /* LogManager.swift in Sources */,
-				7CCC2504243E93DE0050474E /* SubmitPostViewController.swift in Sources */,
+				7C80321224403F6400875371 /* SubmitPostViewController.swift in Sources */,
 				F3EBB69E23F4AC6A005AD08D /* UserData.swift in Sources */,
 				F354DD802406E2D500370C04 /* GenericMini.swift in Sources */,
 				7CA836132439160900F31A63 /* DecideViewController.swift in Sources */,

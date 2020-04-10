@@ -15,20 +15,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Est-4P-bgU" customClass="PreviewView" customModule="MiniGram" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Est-4P-bgU" customClass="PreviewView" customModule="MiniGram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1L-jf-PF8">
-                                        <rect key="frame" x="223" y="636" width="38" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2G-n6-NHf">
-                                        <rect key="frame" x="173" y="617" width="68" height="64"/>
+                                        <rect key="frame" x="173" y="716" width="68" height="63.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="68" id="jU4-fo-dvj"/>
+                                            <constraint firstAttribute="width" constant="68" id="mO5-AP-GOr"/>
                                         </constraints>
-                                        <state key="normal" title="captureButton" image="viewfinder.circle" catalog="system">
+                                        <state key="normal" image="viewfinder.circle" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="45" scale="large"/>
                                         </state>
                                         <connections>
@@ -38,18 +33,17 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="u2G-n6-NHf" secondAttribute="bottom" constant="44" id="Iab-k2-q2J"/>
-                                    <constraint firstItem="u2G-n6-NHf" firstAttribute="centerY" secondItem="G1L-jf-PF8" secondAttribute="centerY" id="diG-sZ-ArI"/>
-                                    <constraint firstItem="u2G-n6-NHf" firstAttribute="centerX" secondItem="Est-4P-bgU" secondAttribute="centerX" id="lgP-zs-ayr"/>
+                                    <constraint firstAttribute="bottom" secondItem="u2G-n6-NHf" secondAttribute="bottom" constant="33.5" id="bLb-Qs-zx1"/>
+                                    <constraint firstItem="u2G-n6-NHf" firstAttribute="centerX" secondItem="Est-4P-bgU" secondAttribute="centerX" id="dwx-dc-x2v"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Est-4P-bgU" firstAttribute="leading" secondItem="tkH-KK-JmD" secondAttribute="leading" id="68C-Yz-PcP"/>
-                            <constraint firstItem="Est-4P-bgU" firstAttribute="trailing" secondItem="tkH-KK-JmD" secondAttribute="trailing" id="PSz-6j-ZAM"/>
-                            <constraint firstItem="Est-4P-bgU" firstAttribute="top" secondItem="tkH-KK-JmD" secondAttribute="top" id="UuS-ZJ-iPr"/>
-                            <constraint firstItem="Est-4P-bgU" firstAttribute="bottom" secondItem="tkH-KK-JmD" secondAttribute="bottom" id="lxS-dE-Qgv"/>
+                            <constraint firstItem="Est-4P-bgU" firstAttribute="top" secondItem="feJ-dI-YNB" secondAttribute="top" id="GQu-d3-rmj"/>
+                            <constraint firstItem="Est-4P-bgU" firstAttribute="leading" secondItem="feJ-dI-YNB" secondAttribute="leading" id="WAQ-xF-fHd"/>
+                            <constraint firstAttribute="bottom" secondItem="Est-4P-bgU" secondAttribute="bottom" constant="83" id="Wt5-tH-0OZ"/>
+                            <constraint firstAttribute="trailing" secondItem="Est-4P-bgU" secondAttribute="trailing" id="zCl-fR-FrS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tkH-KK-JmD"/>
                     </view>
@@ -148,8 +142,7 @@
                                 <rect key="frame" x="20" y="707" width="374" height="30"/>
                                 <state key="normal" title="Submit post"/>
                                 <connections>
-                                    <action selector="submitButton:" destination="hLw-cU-SVQ" eventType="touchUpInside" id="hWc-PB-PPu"/>
-                                    <segue destination="3UN-uZ-VIY" kind="show" id="21c-bJ-RHq"/>
+                                    <action selector="submitButton:" destination="hLw-cU-SVQ" eventType="touchUpInside" id="RQF-1C-gam"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -170,22 +163,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="Btb-BP-S74"/>
                     <connections>
-                        <outlet property="captionField" destination="OM1-hp-xIH" id="w2u-1F-T5A"/>
+                        <outlet property="captionField" destination="OM1-hp-xIH" id="fp5-j4-lFD"/>
+                        <segue destination="L8y-xd-gqo" kind="unwind" identifier="HomeSegue" unwindAction="prepareForUnwindWithSegue:" id="uHt-7x-AIw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhH-mg-Ld1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="L8y-xd-gqo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="511.59420289855075" y="834.375"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="nGi-6L-2mx">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="3UN-uZ-VIY" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Vig-Zo-hYo"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Qa-jm-0xV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="513" y="1241"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vhf-Ie-Smd">

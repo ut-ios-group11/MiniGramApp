@@ -19,9 +19,7 @@ class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // DEBUG BYPASS *MUST REMOVE* BEFORE BETA!!!!
-        return
-        // ^ REMOVE!!!!
+        captureButton.isHidden = true
         
         // Verify authorization for capture
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -44,18 +42,23 @@ class AddViewController: UIViewController {
     
     func setupCaptureSession() {
         
-        session.beginConfiguration()
+        self.session.beginConfiguration()
         let videoDevice = self.selectBestDevice()
         guard
             let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
-            session.canAddInput(videoDeviceInput)
+            self.session.canAddInput(videoDeviceInput)
             else {return}
-        session.addInput(videoDeviceInput)
+        self.session.addInput(videoDeviceInput)
         let photoOutput = AVCapturePhotoOutput()
         guard session.canAddOutput(photoOutput) else {return}
-        session.sessionPreset = .photo
-        session.addOutput(photoOutput)
-        session.commitConfiguration()
+        self.session.sessionPreset = .photo
+        self.session.addOutput(photoOutput)
+        self.session.commitConfiguration()
+        
+        self.captureButton.isHidden = false
+        
+        self.previewView.videoPreviewLayer.session = self.session
+        session.startRunning()
     }
     
     func selectBestDevice() -> AVCaptureDevice {
