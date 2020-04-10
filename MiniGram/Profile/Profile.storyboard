@@ -132,11 +132,11 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="cxO-I3-Hdm" firstAttribute="top" secondItem="8eB-cH-YpM" secondAttribute="top" constant="20" id="Bke-J5-GLX"/>
-                                            <constraint firstAttribute="trailing" secondItem="cxO-I3-Hdm" secondAttribute="trailing" constant="20" id="TGY-8X-CEo"/>
+                                            <constraint firstAttribute="trailing" secondItem="cxO-I3-Hdm" secondAttribute="trailing" constant="20" id="Zp7-Ix-Scm"/>
                                             <constraint firstItem="pZU-SW-JnZ" firstAttribute="leading" secondItem="8eB-cH-YpM" secondAttribute="leading" id="lBI-sg-jdI"/>
                                             <constraint firstAttribute="bottom" secondItem="pZU-SW-JnZ" secondAttribute="bottom" id="qtR-ok-gWb"/>
                                             <constraint firstAttribute="trailing" secondItem="pZU-SW-JnZ" secondAttribute="trailing" id="r0U-CL-1x5"/>
+                                            <constraint firstItem="cxO-I3-Hdm" firstAttribute="top" secondItem="8eB-cH-YpM" secondAttribute="top" constant="20" id="rHe-jk-Ddi"/>
                                             <constraint firstItem="pZU-SW-JnZ" firstAttribute="top" secondItem="8eB-cH-YpM" secondAttribute="top" id="tsc-6L-tRZ"/>
                                         </constraints>
                                     </view>
