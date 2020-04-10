@@ -32,7 +32,7 @@ class PostViewController: UIViewController {
     func refreshData() {
         if let post = post {
             postImage.image = post.image
-            likesLabel.text = "\(post.likes) likes"
+            likesLabel.text = String(post.likes.count)
             descTextView.text = post.desc
         }
         if let user = user {
@@ -45,11 +45,13 @@ class PostViewController: UIViewController {
         // Update Database instead of local.
         if (!sender.isSelected) {
             sender.isSelected = true
-            post?.likes += 1
+            post?.likes.append(user!.id)
             refreshData()
         } else {
             sender.isSelected = false
-            post?.likes -= 1
+            post?.likes.removeAll(where: { (id) -> Bool in
+                id == user!.id
+            })
             refreshData()
         }
         
