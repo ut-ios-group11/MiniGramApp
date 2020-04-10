@@ -10,6 +10,8 @@ import Foundation
 
 enum FireCollection: String {
     case Users
+    case Posts
+    case Miniatures
     
     // Error
     case iOSErrorLogs
@@ -21,5 +23,8 @@ enum FireSubCollection: String {
 }
 
 enum FireStorageCollection: String {
+    case Users
+    case Posts
+    case Miniatures
     case Placeholder //Change as we implement
 }
