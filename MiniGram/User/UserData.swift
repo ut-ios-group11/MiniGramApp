@@ -82,6 +82,8 @@ class UserData {
                 return
             }
             self.databaseUser = databaseUser
+            databaseUser.startPostsListening()
+            databaseUser.startMiniatureListening()
             onComplete()
         })
     }
