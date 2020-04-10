@@ -39,8 +39,6 @@ class Database {
             let reference = Firestore.firestore().collection(FireCollection.Users.rawValue)
             Fire.shared.create(at: reference, withID: uid, data: data, onError: onError, onComplete: onComplete)
         }
-        
-        
     }
     
     func createPost() {
@@ -77,8 +75,15 @@ class Database {
         
     }
     
-    func profilePostsListener() {
+    func profilePostsListener(onComplete: @escaping ([GenericPost], [String], [GenericPost], String) -> Void, userId: String, listenerId: String) -> Listener {
+        let postsRef = db.collection("Posts")
+        let query = postsRef.whereField("userId", isEqualTo: userId)
+
+        // Create a listener registration
+        let profileListenerRegistration = Fire.shared.listener(at: query, returning: GenericPost.self, onComplete: onComplete)
         
+        let listener = Listener(id: listenerId, registration: profileListenerRegistration)
+        return listener
     }
     
     func profileMinaturesListener() {

@@ -26,6 +26,7 @@ class FireAuth {
     func isUserSignedIn() -> User? {
         return Auth.auth().currentUser
     }
+    
     // MARK: Create User
     func createUser(email: String, password: String, onError: @escaping (Error) -> Void, onComplete: @escaping (User) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
