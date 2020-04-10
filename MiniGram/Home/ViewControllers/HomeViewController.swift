@@ -32,7 +32,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var commentSegueIdentifier = "commentSegue"
     var seguePostId: String?
 
-    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
