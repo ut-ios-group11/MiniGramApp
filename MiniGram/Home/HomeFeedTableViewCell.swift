@@ -21,7 +21,7 @@ class HomeFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var username: UILabel!
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
-        // update UI and call function to record like
+        // update UI and call function to record like in database
         if (!sender.isSelected) {
             sender.isSelected = true
             likeCount.text = String(Int(likeCount.text!)! + 1)

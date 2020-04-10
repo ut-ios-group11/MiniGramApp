@@ -74,6 +74,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.userImage.round()
         cell.username.text = explorePosts[indexPath.row].userId
         cell.likeCount.text = String(explorePosts[indexPath.row].likes.count)
+        // account for fact that user may have already liked post when loading data
         if explorePosts[indexPath.row].likes.contains(user!.id) {
             cell.likeButton.isSelected = true
         }
