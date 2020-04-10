@@ -43,7 +43,47 @@ class Database {
         
     }
     
+    func createPost() {
+        
+    }
+    
+    func createMinature() {
+        
+    }
+    
     // MARK: - Update Methods
+    
+    // Minatures
+    func updateMinature() {
+        
+    }
+    
+    // Profile
+    func updateProfile() {
+        
+    }
+    
+    func updateProfilePhoto() {
+        
+    }
+    
+    func updateUserPassword() {
+        
+    }
+    
+    // MARK: - Listener Methods
+    
+    func profileListener() {
+        
+    }
+    
+    func profilePostsListener() {
+        
+    }
+    
+    func profileMinaturesListener() {
+        
+    }
     
     // MARK: - Check Methods
     
