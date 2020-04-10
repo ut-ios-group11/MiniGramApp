@@ -21,6 +21,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func likePost() {
+        // for local usage only. needs to be changed for db functionality.
+        
         
     }
     
