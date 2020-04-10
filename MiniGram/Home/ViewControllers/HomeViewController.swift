@@ -21,7 +21,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func likePost() {
-        // update number of likes, update data on screen
+        // for local usage only. needs to be changed for db functionality.
+        
+        
     }
     
     
@@ -32,7 +34,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var commentSegueIdentifier = "commentSegue"
     var seguePostId: String?
 
-    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -53,7 +58,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.userImage.image = explorePosts[indexPath.row].image
         cell.userImage.round()
         cell.username.text = explorePosts[indexPath.row].userId
-        cell.likeCount.text = String(explorePosts[indexPath.row].likes)
+        cell.likeCount.text = String(explorePosts[indexPath.row].likes.count)
         cell.caption.text = explorePosts[indexPath.row].desc
         cell.postId = explorePosts[indexPath.row].id
         cell.delegate = self

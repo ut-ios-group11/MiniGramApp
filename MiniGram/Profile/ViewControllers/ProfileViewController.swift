@@ -19,7 +19,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileViewSelector: UISegmentedControl!
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var miniaturesView: UIView!
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var followButtonSeparator: UILabel!
+    @IBOutlet weak var followButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,8 +31,9 @@ class ProfileViewController: UIViewController {
         profileImage.roundCorners(profileImage.frame.size.width / 2)
         galleryView.isHidden = false
         miniaturesView.isHidden = true
-        settingsButton.setImage(UIImage(named: "settings"), for: .normal)
+        setStyleForSegmentedControl()
         
+        // TODO: If user is current user, hide followButton and followButtonSeparator 
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,5 +49,47 @@ class ProfileViewController: UIViewController {
             galleryView.isHidden = true
             miniaturesView.isHidden = false
         }
+    }
+    
+    func setStyleForSegmentedControl() {
+        let normalFont = UIFont.systemFont(ofSize: 16)
+        let selectedFont = UIFont.boldSystemFont(ofSize: 16)
+
+        profileViewSelector.setTitleTextAttributes([NSAttributedString.Key.font: normalFont], for: .normal)
+        profileViewSelector.setTitleTextAttributes([NSAttributedString.Key.font: selectedFont], for: .selected)
+        profileViewSelector.backgroundColor = .clear
+        profileViewSelector.tintColor = .clear
+        profileViewSelector.removeBorders()
+    }
+    
+    @IBAction func followButtonPressed(_ sender: Any) {
+        if followButton.image(for: .normal) == UIImage(named: "follow_unselected") {
+            followButton.setImage(UIImage(named: "follow_selected"), for: .normal)
+        } else {
+            followButton.setImage(UIImage(named: "follow_unselected"), for: .normal)
+        }
+        // TODO: Add user to follow list
+    }
+    
+    
+    
+}
+
+extension UISegmentedControl {
+    func removeBorders() {
+        setBackgroundImage(imageWithColor(color: backgroundColor ?? .clear), for: .normal, barMetrics: .default)
+        setBackgroundImage(imageWithColor(color: tintColor!), for: .selected, barMetrics: .default)
+        setDividerImage(imageWithColor(color: UIColor.clear), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+    }
+
+    private func imageWithColor(color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0.0, y: 0.0, width:  32.0, height: 32.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context!.setFillColor(color.cgColor);
+        context!.fill(rect);
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image!
     }
 }

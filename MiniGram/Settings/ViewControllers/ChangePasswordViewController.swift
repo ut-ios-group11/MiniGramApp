@@ -12,11 +12,26 @@ class ChangePasswordViewController: UIViewController {
 
     @IBOutlet weak var oldPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
+    @IBOutlet weak var saveChangesButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        styleTextFields()
+        styleButtons()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    func styleTextFields() {
         oldPasswordTextField.underlined()
         newPasswordTextField.underlined()
     }
+    
+    func styleButtons() {
+        saveChangesButton.roundCorners(4)
+    }
+    
+    
 }

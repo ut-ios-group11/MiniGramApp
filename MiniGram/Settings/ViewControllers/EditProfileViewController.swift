@@ -14,15 +14,20 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var editNameTextField: UITextField!
     @IBOutlet weak var editUsernameTextField: UITextField!
     @IBOutlet weak var editEmailTextField: UITextField!
+    @IBOutlet weak var saveChangesButton: UIButton!
+    @IBOutlet weak var deleteAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         editProfileImageView.roundCorners(editProfileImageView.frame.size.width / 2)
-        editNameTextField.underlined()
-        editUsernameTextField.underlined()
-        editEmailTextField.underlined()
+        styleTextFields()
+        styleButtons()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     @IBAction func changeProfilePhoto(_ sender: Any) {
@@ -44,5 +49,16 @@ class EditProfileViewController: UIViewController {
             handler: nil))
         
         present(controller, animated: true, completion: nil)
+    }
+    
+    func styleTextFields() {
+        editNameTextField.underlined()
+        editUsernameTextField.underlined()
+        editEmailTextField.underlined()
+    }
+    
+    func styleButtons() {
+        saveChangesButton.roundCorners(4)
+        deleteAccountButton.roundCorners(4)
     }
 }
