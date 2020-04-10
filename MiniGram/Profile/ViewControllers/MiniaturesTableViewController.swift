@@ -47,7 +47,7 @@ class MiniaturesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
         
-        cell.backgroundColor = UIColor.white
+        cell.backgroundColor = UIColor.clear
         cell.clipsToBounds = true
 
         return cell
@@ -103,6 +103,6 @@ extension UIColor {
 
 extension MiniaturesTableViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 200)
+        return CGSize(width: 170, height: 170)
     }
 }

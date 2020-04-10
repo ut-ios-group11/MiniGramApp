@@ -62,7 +62,7 @@ final class DynamicSizedCollectionView: UICollectionView {
 }
 
 extension UITextField {
-    func underlined(){
+    func underlined() {
         let border = CALayer()
         let width = CGFloat(1.0)
         border.borderColor = UIColor.lightGray.cgColor
@@ -73,3 +73,4 @@ extension UITextField {
     }
 
 }
+ 

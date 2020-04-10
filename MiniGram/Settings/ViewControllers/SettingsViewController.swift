@@ -14,6 +14,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var accountTableView: UITableView!
     @IBOutlet weak var darkModeSwitch: UISwitch!
+    @IBOutlet weak var logOutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,16 +22,32 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view.
         accountTableView.delegate = self
         accountTableView.dataSource = self
+        darkModeSwitch.isOn =  UserDefaults.standard.bool(forKey: "switchState")
         darkModeToggle(darkModeSwitch)
-        
+        logOutButton.roundCorners(4)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     @IBAction func darkModeToggle(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "switchState")
         if darkModeSwitch.isOn {
-            overrideUserInterfaceStyle = .dark
+            view.overrideUserInterfaceStyle = .dark
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .dark
+            }
         } else {
-            overrideUserInterfaceStyle = .light
+            view.overrideUserInterfaceStyle = .light
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .light
+            }
         }
     }
     
