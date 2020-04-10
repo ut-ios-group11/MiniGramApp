@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var miniaturesView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var viewInsideScrollView: UIView!
     @IBOutlet weak var followButtonSeparator: UILabel!
     @IBOutlet weak var followButton: UIButton!
     
@@ -31,6 +32,7 @@ class ProfileViewController: UIViewController {
         profileImage.roundCorners(profileImage.frame.size.width / 2)
         galleryView.isHidden = false
         miniaturesView.isHidden = true
+        viewInsideScrollView.bringSubviewToFront(settingsButton)
         setStyleForSegmentedControl()
         
         // TODO: If user is current user, hide followButton and followButtonSeparator 

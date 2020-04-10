@@ -41,7 +41,7 @@ class GenericUser: FireInitable {
     // MARK: - Listener Functions
     
     func setPostsRefreshFunction(refreshFunction: (() -> Void)?) {
-        
+        postsRefreshFunction = refreshFunction
     }
     
     func setMinisRefreshFunction(refreshFunction: (() -> Void)?) {
@@ -49,7 +49,17 @@ class GenericUser: FireInitable {
     }
     
     func startPostsListening() {
+        for listener in listeners where listener.id == "Post" {
+            listener.registration.remove()
+        }
         
+        listeners.removeAll { (listener) -> Bool in
+            listener.id == "Post"
+        }
+        
+        posts.removeAll()
+        listeners.append(Database.shared
+            .profilePostsListener(listenerId: "Post", userId: id, onComplete: postsListener))
     }
     
     func startMiniatureListening() {
@@ -65,7 +75,26 @@ class GenericUser: FireInitable {
     }
     
     private func postsListener(add: [GenericPost], remove: [String], change: [GenericPost], id: String) {
-        
+        //add
+        for post in add {
+            self.posts.append(post)
+        }
+        //remove
+        for id in remove {
+            self.posts.removeAll(where: {$0.id == id})
+        }
+        //change
+        for post in change {
+            for i in 0..<self.posts.count where self.posts[i].id ==
+                post.id {
+                    self.posts[i] = post
+            }
+        }
+        print("Posts Listener Called")
+        print("add:", add)
+        print("remove:", remove)
+        print("change:", change)
+        postsRefreshFunction?()
     }
     
     private func minaturesListener(add: [GenericMini], remove: [String], change: [GenericMini], id: String) {

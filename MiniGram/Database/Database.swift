@@ -75,15 +75,12 @@ class Database {
         
     }
     
-    func profilePostsListener(onComplete: @escaping ([GenericPost], [String], [GenericPost], String) -> Void, userId: String, listenerId: String) -> Listener {
-        let postsRef = db.collection("Posts")
-        let query = postsRef.whereField("userId", isEqualTo: userId)
-
+    func profilePostsListener(listenerId: String, userId: String, onComplete: @escaping ([GenericPost], [String], [GenericPost], String) -> Void) -> Listener {
+        let query = Firestore.firestore().collection(FireCollection.Posts.rawValue).whereField("userId", isEqualTo: userId)
         // Create a listener registration
         let profileListenerRegistration = Fire.shared.listener(at: query, returning: GenericPost.self, onComplete: onComplete)
         
-        let listener = Listener(id: listenerId, registration: profileListenerRegistration)
-        return listener
+        return Listener(id: listenerId, registration: profileListenerRegistration)
     }
     
     func profileMiniaturesListener(listenerId: String, userId: String, onComplete: @escaping ([GenericMini],[String],[GenericMini], String) -> Void) -> Listener {
