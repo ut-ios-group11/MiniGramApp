@@ -20,9 +20,12 @@ class GalleryViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         collectionViewSetUp()
         
-        galleryPosts = UserData.shared.galleryPosts
+        if let user = UserData.shared.getDatabaseUser() {
+            user.setPostsRefreshFunction(refreshFunction: reloadGalleryPosts)
+        }
         
-        collectionView.reloadData()
+        reloadGalleryPosts()
+        
      }
     
     func collectionViewSetUp() {
@@ -36,6 +39,13 @@ class GalleryViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         collectionView!.collectionViewLayout = layout
+    }
+    
+    func reloadGalleryPosts() {
+        if let user = UserData.shared.getDatabaseUser() {
+            galleryPosts = user.posts
+            collectionView.reloadData()
+        }
     }
 
     /*
