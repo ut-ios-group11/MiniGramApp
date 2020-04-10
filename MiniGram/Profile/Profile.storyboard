@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htc-ah-PDY">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxO-I3-Hdm" userLabel="Settings Button">
                                         <rect key="frame" x="366" y="24" width="24" height="24"/>
@@ -25,7 +26,9 @@
                                             <constraint firstAttribute="height" constant="24" id="Awe-gh-gao"/>
                                             <constraint firstAttribute="width" constant="24" id="gyZ-Dx-Jgj"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="settings"/>
+                                        <state key="normal" title="Button" image="settings">
+                                            <color key="titleColor" name="flippedColor"/>
+                                        </state>
                                         <connections>
                                             <segue destination="2Te-8B-xJU" kind="show" id="yJN-hn-Ffe"/>
                                         </connections>
@@ -324,11 +327,13 @@
         <!--Profile-->
         <scene sceneID="2Ik-BB-mlb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="wHv-jo-Gb8" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wHv-jo-Gb8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="jnU-wL-AHp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qAy-du-rY0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="flippedColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -344,5 +349,8 @@
         <image name="follow_unselected" width="22" height="23"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="settings" width="512" height="512"/>
+        <namedColor name="flippedColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

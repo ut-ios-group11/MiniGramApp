@@ -73,16 +73,4 @@ extension UITextField {
     }
 
 }
-
-func adjustButtonColor(saveChangesButton: UIButton) {
-    let darkModeOn = UserDefaults.standard.bool(forKey: "switchState")
-    if darkModeOn {
-        // Dark mode is on, create a white button
-        saveChangesButton.layer.borderColor = UIColor.white.cgColor
-        saveChangesButton.setTitleColor(.white, for: .normal)
-    } else {
-        saveChangesButton.layer.borderColor = UIColor.black.cgColor
-    }
-
-}
-
+ 
