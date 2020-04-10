@@ -31,14 +31,14 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="u2G-n6-NHf" secondAttribute="bottom" constant="33.5" id="bLb-Qs-zx1"/>
                                     <constraint firstItem="u2G-n6-NHf" firstAttribute="centerX" secondItem="Est-4P-bgU" secondAttribute="centerX" id="dwx-dc-x2v"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Est-4P-bgU" firstAttribute="top" secondItem="feJ-dI-YNB" secondAttribute="top" id="GQu-d3-rmj"/>
                             <constraint firstItem="Est-4P-bgU" firstAttribute="leading" secondItem="feJ-dI-YNB" secondAttribute="leading" id="WAQ-xF-fHd"/>
@@ -164,6 +164,7 @@
                     <navigationItem key="navigationItem" id="Btb-BP-S74"/>
                     <connections>
                         <outlet property="captionField" destination="OM1-hp-xIH" id="fp5-j4-lFD"/>
+                        <outlet property="captionFieldConstraint" destination="XWc-Vr-zxx" id="kVr-m4-pUP"/>
                         <segue destination="L8y-xd-gqo" kind="unwind" identifier="HomeSegue" unwindAction="prepareForUnwindWithSegue:" id="uHt-7x-AIw"/>
                     </connections>
                 </viewController>
