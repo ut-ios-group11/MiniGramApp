@@ -10,6 +10,8 @@ import Foundation
 
 enum FireCollection: String {
     case Users
+    case Posts
+    case Miniatures
     
     // Error
     case iOSErrorLogs
