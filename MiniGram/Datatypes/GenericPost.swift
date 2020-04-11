@@ -36,6 +36,11 @@ class GenericPost: FireInitable {
         self.image = image
     }
     
+    func update(with post: GenericPost) {
+        desc = post.desc
+        likes = post.likes
+    }
+    
     func downloadImageIfMissing() {
         if image == nil {
             downloadImage()
