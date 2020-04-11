@@ -41,22 +41,23 @@ class GenericPost: FireInitable {
         likes = post.likes
     }
     
-    func downloadImageIfMissing() {
+    func downloadImageIfMissing(onComplete: ((UIImage)-> Void)? = nil) {
         if image == nil {
-            downloadImage()
+            downloadImage(onComplete: onComplete)
         }
     }
     
-    func downloadImageForced() {
-        downloadImage()
+    func downloadImageForced(onComplete: ((UIImage)-> Void)? = nil) {
+        downloadImage(onComplete: onComplete)
     }
     
-    private func downloadImage() {
+    private func downloadImage(onComplete: ((UIImage)-> Void)? = nil) {
         Database.shared.downloadPostImage(id: id, onError: { (error) in
             LogManager.logError(error)
         }) { (image) in
             self.image = image
             LogManager.logInfo("Image for post \(self.id) downloaded")
+            onComplete?(image)
         }
     }
     

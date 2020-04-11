@@ -77,7 +77,7 @@ class GenericUser: FireInitable {
     private func postsListener(add: [GenericPost], remove: [String], change: [GenericPost], id: String) {
         //add
         for post in add {
-            post.downloadImageIfMissing()
+            //post.downloadImageIfMissing()
             self.posts.append(post)
         }
         //remove
