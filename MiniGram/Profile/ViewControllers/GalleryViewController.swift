@@ -20,9 +20,12 @@ class GalleryViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         collectionViewSetUp()
         
-        galleryPosts = UserData.shared.galleryPosts
+        if let user = UserData.shared.getDatabaseUser() {
+            user.setPostsRefreshFunction(refreshFunction: reloadGalleryPosts)
+        }
         
-        collectionView.reloadData()
+        reloadGalleryPosts()
+        
      }
     
     func collectionViewSetUp() {
@@ -37,6 +40,24 @@ class GalleryViewController: UIViewController {
         layout.minimumLineSpacing = 0
         collectionView!.collectionViewLayout = layout
     }
+    
+    func reloadGalleryPosts() {
+        if let user = UserData.shared.getDatabaseUser() {
+            galleryPosts = user.posts
+            collectionView.reloadData()
+        }
+    }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
 
 extension GalleryViewController: UICollectionViewDelegateFlowLayout {

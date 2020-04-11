@@ -36,6 +36,25 @@ class GenericPost: FireInitable {
         self.image = image
     }
     
+    func downloadImageIfMissing() {
+        if image == nil {
+            downloadImage()
+        }
+    }
+    
+    func downloadImageForced() {
+        downloadImage()
+    }
+    
+    private func downloadImage() {
+        Database.shared.downloadPostImage(id: id, onError: { (error) in
+            LogManager.logError(error)
+        }) { (image) in
+            self.image = image
+            LogManager.logInfo("Image for post \(self.id) downloaded")
+        }
+    }
+    
     func addComment (comment: Comment) {
         comments.append(comment)
     }

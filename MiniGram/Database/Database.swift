@@ -69,6 +69,20 @@ class Database {
         
     }
     
+    // MARK: - Single Download
+    
+    func downloadProfileImage(id: String, onError: @escaping (Error) -> Void, onComplete: @escaping (UIImage) -> Void) {
+        Fire.shared.downloadImage(at: FireStorageCollection.Users, id: id, OnError: onError, onComplete: onComplete)
+    }
+    
+    func downloadPostImage(id: String, onError: @escaping (Error) -> Void, onComplete: @escaping (UIImage) -> Void) {
+        Fire.shared.downloadImage(at: FireStorageCollection.Posts, id: id, OnError: onError, onComplete: onComplete)
+    }
+    
+    func downloadMiniatureImage(id: String, onError: @escaping (Error) -> Void, onComplete: @escaping (UIImage) -> Void) {
+        Fire.shared.downloadImage(at: FireStorageCollection.Miniatures, id: id, OnError: onError, onComplete: onComplete)
+    }
+    
     // MARK: - Listener Methods
     
     func profileListener() {
