@@ -70,7 +70,7 @@ class GenericUser: FireInitable {
         listeners.removeAll { (listener) -> Bool in
             listener.id == "Mini"
         }
-        posts.removeAll()
+        minis.removeAll()
         listeners.append(Database.shared.profileMiniaturesListener(listenerId: "Mini", userId: id, onComplete: minaturesListener))
     }
     

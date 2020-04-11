@@ -37,17 +37,6 @@ class GalleryViewController: UIViewController {
         layout.minimumLineSpacing = 0
         collectionView!.collectionViewLayout = layout
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension GalleryViewController: UICollectionViewDelegateFlowLayout {
@@ -72,5 +61,18 @@ extension GalleryViewController: UICollectionViewDataSource {
         }
         cell.galleryImageView.image = galleryPosts[indexPath.item].image
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "clickOnGalleryPostSegue" {
+            if let postVC = segue.destination as? PostViewController {
+                postVC.post = sender as? GenericPost
+            }
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Perform segue to post and send in post and user
+        performSegue(withIdentifier: "clickOnGalleryPostSegue", sender: galleryPosts[indexPath.item])
     }
 }

@@ -21,6 +21,7 @@
 		9D422C7C243680050054FF65 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D422C7B243680050054FF65 /* Settings.storyboard */; };
 		9D422C7E2436800F0054FF65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D422C7D2436800F0054FF65 /* SettingsViewController.swift */; };
 		9D4CA07324393F6F0051A4CB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D4CA07224393F6E0051A4CB /* logo.png */; };
+		9D709C012441471200611642 /* MiniaturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D709C002441471200611642 /* MiniaturesCollectionViewCell.swift */; };
 		9D7A5396242A84C400997A4F /* MiniaturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */; };
 		9D7A5398242A851C00997A4F /* MiniaturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */; };
 		9DAE2D532437F650003F5597 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAE2D522437F650003F5597 /* EditProfileViewController.swift */; };
@@ -76,6 +77,7 @@
 		9D422C7B243680050054FF65 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		9D422C7D2436800F0054FF65 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9D4CA07224393F6E0051A4CB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		9D709C002441471200611642 /* MiniaturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesTableViewController.swift; sourceTree = "<group>"; };
 		9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesTableViewCell.swift; sourceTree = "<group>"; };
 		9DAE2D522437F650003F5597 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				9D21DBF324100DD6004BCC2C /* GalleryCollectionViewCell.swift */,
 				9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */,
 				9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */,
+				9D709C002441471200611642 /* MiniaturesCollectionViewCell.swift */,
 				9D21DBCF240F38B1004BCC2C /* Assets.xcassets */,
 			);
 			path = ViewControllers;
@@ -527,6 +530,7 @@
 				F3EBB69623F45B62005AD08D /* FireAuth.swift in Sources */,
 				F3EBB6A023F4AD52005AD08D /* Fire.swift in Sources */,
 				F354DDB62407429900370C04 /* AddViewController.swift in Sources */,
+				9D709C012441471200611642 /* MiniaturesCollectionViewCell.swift in Sources */,
 				9D7A5396242A84C400997A4F /* MiniaturesTableViewController.swift in Sources */,
 				F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */,
 				F354DDC02408564E00370C04 /* ExploreSearchViewController.swift in Sources */,

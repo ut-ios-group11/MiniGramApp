@@ -11,6 +11,7 @@ import UIKit
 class MiniaturesTableViewController: UITableViewController {
 
     let model: [[UIColor]] = generateRandomData()
+    var miniaturePosts = [[GenericPost]]()
     let cellSpacingHeight: CGFloat = 16
 
     override func viewDidLoad() {
@@ -18,12 +19,13 @@ class MiniaturesTableViewController: UITableViewController {
         
         self.tableView.rowHeight = 200
         self.tableView.allowsSelection = false
+        miniaturePosts = [UserData.shared.galleryPosts]
 
         view.translatesAutoresizingMaskIntoConstraints = false
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return model.count
+        return miniaturePosts.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,6 +50,7 @@ class MiniaturesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
         
         cell.backgroundColor = UIColor.clear
+        cell.layer.borderWidth = 0
         cell.clipsToBounds = true
 
         return cell
@@ -65,18 +68,32 @@ extension MiniaturesTableViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView,
         numberOfItemsInSection section: Int) -> Int {
 
-        return model[collectionView.tag].count
+        return miniaturePosts[collectionView.tag].count
     }
 
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell",
-                                                      for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell",
+                                                            for: indexPath) as? MiniaturesCollectionViewCell else {
+                                                                return UICollectionViewCell()
+        }
 
-        cell.backgroundColor = model[collectionView.tag][indexPath.item]
+        cell.miniaturesImageView.image = miniaturePosts[collectionView.tag][indexPath.item].image
 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "clickOnMinisPostSegue" {
+            if let postVC = segue.destination as? PostViewController {
+                postVC.post = sender as? GenericPost
+            }
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Perform segue to post and send in post and user
+        performSegue(withIdentifier: "clickOnMinisPostSegue", sender: miniaturePosts[collectionView.tag][indexPath.item])
     }
 }
 
