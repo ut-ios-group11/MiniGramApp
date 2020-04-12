@@ -30,6 +30,15 @@ class LoginViewController: UIViewController {
         hideError()
         emailTextField.underlined()
         passwordTextField.underlined()
+        
+        self.disableInteraction(true)
+        UserData.shared.tryAutoSignIn(onError: { (error) in
+            LogManager.logInfo(error)
+            self.disableInteraction(false)
+        }) {
+            self.performSegue(withIdentifier: "toSignedIn", sender: self)
+            self.disableInteraction(false)
+        }
     }
     
     func showError(error: String) {
