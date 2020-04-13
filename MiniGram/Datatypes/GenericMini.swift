@@ -106,4 +106,27 @@ class GenericMini: FireInitable {
             LogManager.logInfo("Image for miniature \(self.id) downloaded")
         }
     }
+    func update(with mini: GenericMini) {
+        unit = mini.unit
+        name = mini.name
+        
+        pointValue = mini.pointValue
+        power = mini.power
+        movement = mini.movement
+        weaponSkill = mini.weaponSkill
+        ballisticSkill = mini.ballisticSkill
+        strength = mini.strength
+        toughness = mini.toughness
+        wounds = mini.wounds
+        attacks = mini.attacks
+        leadership = mini.leadership
+        save = mini.save
+        
+        weapons = mini.weapons
+        warGear = mini.warGear
+        abilities = mini.abilities
+        factionKeywords = mini.factionKeywords
+        keywords = mini.keywords
+    }
+    
 }

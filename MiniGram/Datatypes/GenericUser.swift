@@ -77,7 +77,7 @@ class GenericUser: FireInitable {
     private func postsListener(add: [GenericPost], remove: [String], change: [GenericPost], id: String) {
         //add
         for post in add {
-            post.downloadImageIfMissing()
+            //post.downloadImageIfMissing()
             self.posts.append(post)
         }
         //remove
@@ -88,7 +88,7 @@ class GenericUser: FireInitable {
         for post in change {
             for i in 0..<self.posts.count where self.posts[i].id ==
                 post.id {
-                    self.posts[i] = post
+                    self.posts[i].update(with: post)
             }
         }
         print("Posts Listener Called")
@@ -111,7 +111,7 @@ class GenericUser: FireInitable {
         //change
         for mini in change {
            for i in 0..<self.minis.count where self.minis[i].id == mini.id {
-               self.minis[i] = mini
+                self.minis[i].update(with: mini)
            }
         }
         print("Minatures Listener Called")

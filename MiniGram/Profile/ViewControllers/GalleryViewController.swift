@@ -81,6 +81,7 @@ extension GalleryViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         cell.galleryImageView.image = galleryPosts[indexPath.item].image
+        galleryPosts[indexPath.item].downloadImageIfMissing(onComplete: cell.updateImage)
         return cell
     }
     
