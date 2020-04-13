@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LFr-0h-KdJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LFr-0h-KdJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,14 +12,14 @@
             <objects>
                 <viewController storyboardIdentifier="Miniature" id="LFr-0h-KdJ" customClass="MiniatureViewController" customModule="MiniGram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DKS-Oq-TEP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2L-b5-dw6">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1222"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAa-8M-0la">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1191"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B6X-Kb-ehc">
                                                 <rect key="frame" x="24" y="0.0" width="366" height="366"/>
@@ -149,30 +149,29 @@
                                             <constraint firstAttribute="trailing" secondItem="hNE-Jl-5rn" secondAttribute="trailing" constant="24" id="eI3-yd-IDg"/>
                                             <constraint firstItem="hNE-Jl-5rn" firstAttribute="leading" secondItem="JAa-8M-0la" secondAttribute="leading" constant="24" id="mCc-tq-4YQ"/>
                                             <constraint firstAttribute="trailing" secondItem="B6X-Kb-ehc" secondAttribute="trailing" constant="24" id="tGg-EU-IuS"/>
+                                            <constraint firstAttribute="bottom" secondItem="hNE-Jl-5rn" secondAttribute="bottom" constant="24" id="v3C-zN-Cgd"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="JAa-8M-0la" secondAttribute="bottom" id="1zV-HB-f2N"/>
                                     <constraint firstAttribute="trailing" secondItem="JAa-8M-0la" secondAttribute="trailing" id="F0O-Z5-RAZ"/>
-                                    <constraint firstItem="JAa-8M-0la" firstAttribute="bottom" secondItem="5Wq-oe-Ir3" secondAttribute="bottom" id="JP1-Bq-b5x"/>
-                                    <constraint firstItem="JAa-8M-0la" firstAttribute="leading" secondItem="5Wq-oe-Ir3" secondAttribute="leading" id="Wls-Ev-RFq"/>
-                                    <constraint firstItem="JAa-8M-0la" firstAttribute="top" secondItem="5Wq-oe-Ir3" secondAttribute="top" id="ghJ-lf-j93"/>
-                                    <constraint firstItem="JAa-8M-0la" firstAttribute="centerX" secondItem="L2L-b5-dw6" secondAttribute="centerX" id="piY-8u-RGP"/>
+                                    <constraint firstItem="JAa-8M-0la" firstAttribute="width" secondItem="L2L-b5-dw6" secondAttribute="width" id="RDB-XY-QRe"/>
+                                    <constraint firstItem="JAa-8M-0la" firstAttribute="leading" secondItem="L2L-b5-dw6" secondAttribute="leading" id="Wls-Ev-RFq"/>
+                                    <constraint firstItem="JAa-8M-0la" firstAttribute="top" secondItem="L2L-b5-dw6" secondAttribute="top" id="ghJ-lf-j93"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="ydr-RA-9rh"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="5Wq-oe-Ir3"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="L2L-b5-dw6" firstAttribute="trailing" secondItem="lwn-aT-t5L" secondAttribute="trailing" id="5u0-Hd-8Z6"/>
-                            <constraint firstAttribute="bottom" secondItem="L2L-b5-dw6" secondAttribute="bottom" id="H1w-HL-Gnl"/>
+                            <constraint firstItem="lwn-aT-t5L" firstAttribute="bottom" secondItem="L2L-b5-dw6" secondAttribute="bottom" id="H1w-HL-Gnl"/>
                             <constraint firstItem="L2L-b5-dw6" firstAttribute="top" secondItem="lwn-aT-t5L" secondAttribute="top" id="Iz3-Kz-E1W"/>
                             <constraint firstItem="L2L-b5-dw6" firstAttribute="leading" secondItem="lwn-aT-t5L" secondAttribute="leading" id="Snu-Ta-PKr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lwn-aT-t5L"/>
                     </view>
+                    <size key="freeformSize" width="414" height="1300"/>
                     <connections>
                         <outlet property="abilitiesLabel" destination="wmP-Ib-sYZ" id="beV-Ou-hbK"/>
                         <outlet property="attacksLabel" destination="BjQ-Bk-mFu" id="lWh-LX-rqe"/>
