@@ -15,7 +15,8 @@ class SubmitPostViewController: UIViewController {
     @IBOutlet weak var captionFieldConstraint: NSLayoutConstraint!
     
     @IBAction func submitButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "HomeSegue", sender: self)
+        self.tabBarController?.selectedIndex = 0
+        self.navigationController?.popToRootViewController(animated: false)
     }
     
     let CAPTION_FIELD_CONSTRAINT_CONSTANT = 4
