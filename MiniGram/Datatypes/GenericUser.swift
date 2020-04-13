@@ -13,6 +13,7 @@ class GenericUser: FireInitable {
     
     var id: String
     var name: String?
+    var userName: String?
     var followers: [String]?
     var image: UIImage?
     
@@ -27,16 +28,39 @@ class GenericUser: FireInitable {
     required init(doc: DocumentSnapshot) {
         id = doc.documentID
         name = doc.get("name") as? String
+        userName = doc.get("userName") as? String
         followers = doc.get("followers") as? [String]
     }
     
-    init(id: String, name: String, followers: [String]?, image: UIImage?) {
+    init(id: String, userName: String, name: String, followers: [String]?, image: UIImage?) {
         self.id = id
         self.name = name
+        self.userName = userName
         self.followers = followers
         self.image = image
     }
     
+    // MARK: - Profile Image
+    
+    func downloadImageIfMissing(onComplete: ((UIImage)-> Void)? = nil) {
+        if image == nil {
+            downloadImage(onComplete: onComplete)
+        }
+    }
+    
+    func downloadImageForced(onComplete: ((UIImage)-> Void)? = nil) {
+        downloadImage(onComplete: onComplete)
+    }
+    
+    private func downloadImage(onComplete: ((UIImage)-> Void)? = nil) {
+        Database.shared.downloadProfileImage(id: id, onError: { (error) in
+            LogManager.logError(error)
+        }) { (image) in
+            self.image = image
+            LogManager.logInfo("Image for post \(self.id) downloaded")
+            onComplete?(image)
+        }
+    }
     
     // MARK: - Listener Functions
     

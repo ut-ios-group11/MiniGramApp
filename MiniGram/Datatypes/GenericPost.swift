@@ -19,6 +19,8 @@ class GenericPost: FireInitable {
     var image: UIImage?
     var comments = [Comment]()
     
+    var user: GenericUser?
+    
     required init(doc: DocumentSnapshot) {
         id = doc.documentID
         userId = doc.get("userId") as? String ?? ""
