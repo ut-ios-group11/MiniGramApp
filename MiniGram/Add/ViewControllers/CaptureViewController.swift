@@ -17,6 +17,11 @@ class CaptureViewController: UIViewController {
     
     @IBAction func captureButton(_ sender: Any) {
         
+        if(self.imageCaptured) {
+            return
+        }
+        
+        self.lockCaptureButton()
         var photoSettings = AVCapturePhotoSettings()
         
         // Capture HEIF photos when supported.
@@ -59,6 +64,7 @@ class CaptureViewController: UIViewController {
     private var videoDeviceInput: AVCaptureDeviceInput?
     private var flashStatus = FlashOptions.auto
     private var setupSuccessful = false
+    private var imageCaptured = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,12 +138,21 @@ class CaptureViewController: UIViewController {
         self.flashStatus = status
         self.flashButton.setImage(UIImage(systemName: status.rawValue), for: .normal)
     }
+    
+    func lockCaptureButton() {
+        self.imageCaptured = true
+    }
+    
+    func unlockCaptureButton() {
+        self.imageCaptured = false
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DecideSegue",
             let controller = segue.destination as? DecideViewController {
             controller.delegate = self
             controller.image = self.photoCaptureProcessor.image
+            self.unlockCaptureButton()
         }
     }
 }

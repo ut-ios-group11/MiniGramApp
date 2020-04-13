@@ -14,7 +14,7 @@
 		347644FF24100882007F8F70 /* HomeFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347644FE24100882007F8F70 /* HomeFeedTableViewCell.swift */; };
 		34CE6B67242D526C00F6D121 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE6B66242D526C00F6D121 /* CommentTableViewCell.swift */; };
 		7C80321224403F6400875371 /* SubmitPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C80321124403F6400875371 /* SubmitPostViewController.swift */; };
-		7CA836132439160900F31A63 /* DecideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA836122439160900F31A63 /* DecideViewController.swift */; };
+		7C882AE024442AEF0083A327 /* DecideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C882ADF24442AEF0083A327 /* DecideViewController.swift */; };
 		9D1C47642439016A009329A3 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1C47632439016A009329A3 /* ChangePasswordViewController.swift */; };
 		9D21DBCE240F33B5004BCC2C /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D21DBCD240F33B5004BCC2C /* GalleryViewController.swift */; };
 		9D21DBD0240F38B1004BCC2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D21DBCF240F38B1004BCC2C /* Assets.xcassets */; };
@@ -34,7 +34,7 @@
 		F354DDAC24073F7C00370C04 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F354DDAB24073F7C00370C04 /* Profile.storyboard */; };
 		F354DDAE24073F8B00370C04 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F354DDAD24073F8B00370C04 /* Explore.storyboard */; };
 		F354DDB024073F9500370C04 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F354DDAF24073F9500370C04 /* Home.storyboard */; };
-		F354DDB62407429900370C04 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDB52407429900370C04 /* AddViewController.swift */; };
+		F354DDB62407429900370C04 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDB52407429900370C04 /* CaptureViewController.swift */; };
 		F354DDB8240742A700370C04 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDB7240742A700370C04 /* ProfileViewController.swift */; };
 		F354DDBA240742B000370C04 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDB9240742B000370C04 /* ExploreViewController.swift */; };
 		F354DDBC240742B900370C04 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDBB240742B900370C04 /* HomeViewController.swift */; };
@@ -69,7 +69,7 @@
 		34CE6B66242D526C00F6D121 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		75364A4969C99C1C2A5B074B /* Pods-MiniGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGram.debug.xcconfig"; path = "Target Support Files/Pods-MiniGram/Pods-MiniGram.debug.xcconfig"; sourceTree = "<group>"; };
 		7C80321124403F6400875371 /* SubmitPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitPostViewController.swift; sourceTree = "<group>"; };
-		7CA836122439160900F31A63 /* DecideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecideViewController.swift; sourceTree = "<group>"; };
+		7C882ADF24442AEF0083A327 /* DecideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecideViewController.swift; sourceTree = "<group>"; };
 		829AE59FCFCA65749BA5B4D5 /* Pods-MiniGramApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniGramApp.release.xcconfig"; path = "Target Support Files/Pods-MiniGramApp/Pods-MiniGramApp.release.xcconfig"; sourceTree = "<group>"; };
 		9D1C47632439016A009329A3 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		9D21DBCD240F33B5004BCC2C /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		F354DDAB24073F7C00370C04 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F354DDAD24073F8B00370C04 /* Explore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		F354DDAF24073F9500370C04 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		F354DDB52407429900370C04 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		F354DDB52407429900370C04 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		F354DDB7240742A700370C04 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F354DDB9240742B000370C04 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		F354DDBB240742B900370C04 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -235,9 +235,9 @@
 		F354DDB124073F9B00370C04 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F354DDB52407429900370C04 /* AddViewController.swift */,
-				7CA836122439160900F31A63 /* DecideViewController.swift */,
+				F354DDB52407429900370C04 /* CaptureViewController.swift */,
 				7C80321124403F6400875371 /* SubmitPostViewController.swift */,
+				7C882ADF24442AEF0083A327 /* DecideViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -522,7 +522,6 @@
 				7C80321224403F6400875371 /* SubmitPostViewController.swift in Sources */,
 				F3EBB69E23F4AC6A005AD08D /* UserData.swift in Sources */,
 				F354DD802406E2D500370C04 /* GenericMini.swift in Sources */,
-				7CA836132439160900F31A63 /* DecideViewController.swift in Sources */,
 				F354DDB8240742A700370C04 /* ProfileViewController.swift in Sources */,
 				F362F2AF241B19E90032FDEF /* PostViewController.swift in Sources */,
 				341C5D21242D43B400780FFD /* CommentViewController.swift in Sources */,
@@ -530,12 +529,13 @@
 				F3EBB6B023F4B7A9005AD08D /* SimpleExtensions.swift in Sources */,
 				F3EBB69623F45B62005AD08D /* FireAuth.swift in Sources */,
 				F3EBB6A023F4AD52005AD08D /* Fire.swift in Sources */,
-				F354DDB62407429900370C04 /* AddViewController.swift in Sources */,
+				F354DDB62407429900370C04 /* CaptureViewController.swift in Sources */,
 				9D7A5396242A84C400997A4F /* MiniaturesTableViewController.swift in Sources */,
 				F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */,
 				F354DDC02408564E00370C04 /* ExploreSearchViewController.swift in Sources */,
 				9D21DBCE240F33B5004BCC2C /* GalleryViewController.swift in Sources */,
 				F3EBB69B23F45CCB005AD08D /* Database.swift in Sources */,
+				7C882AE024442AEF0083A327 /* DecideViewController.swift in Sources */,
 				9DAE2D532437F650003F5597 /* EditProfileViewController.swift in Sources */,
 				F3126A142410533C00AFE85B /* Comment.swift in Sources */,
 				34CE6B67242D526C00F6D121 /* CommentTableViewCell.swift in Sources */,
@@ -690,13 +690,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92T5YVZA7N;
+				DEVELOPMENT_TEAM = R85MR64J5N;
 				INFOPLIST_FILE = MiniGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = KeeganBlack.minigramApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = JosephManahan.minigramApplication;
 				PRODUCT_NAME = MiniGram;
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;
@@ -710,13 +710,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92T5YVZA7N;
+				DEVELOPMENT_TEAM = R85MR64J5N;
 				INFOPLIST_FILE = MiniGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = KeeganBlack.minigramApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = JosephManahan.minigramApplication;
 				PRODUCT_NAME = MiniGram;
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;

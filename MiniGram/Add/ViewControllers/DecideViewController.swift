@@ -13,12 +13,25 @@ class DecideViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    var delegate: UIViewController!
+    var image: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.imageView.image = self.image
     }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PostSegue",
+            let controller = segue.destination as? SubmitPostViewController {
+            controller.delegate = self
+            controller.image = self.image
+        }
+        //if segue.identifier == "AddSegue",
+        //    let controller = segue.destination as? DecideViewController {
+        //    controller.delegate = self
+        //    controller.image = self.photoCaptureProcessor.image
+        //}
     }
 
 }
