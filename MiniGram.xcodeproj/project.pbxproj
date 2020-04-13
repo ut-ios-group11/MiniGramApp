@@ -22,6 +22,8 @@
 		9D422C7E2436800F0054FF65 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D422C7D2436800F0054FF65 /* SettingsViewController.swift */; };
 		9D4CA07324393F6F0051A4CB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D4CA07224393F6E0051A4CB /* logo.png */; };
 		9D709C012441471200611642 /* MiniaturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D709C002441471200611642 /* MiniaturesCollectionViewCell.swift */; };
+		9D709C04244178F100611642 /* Miniature.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D709C03244178F100611642 /* Miniature.storyboard */; };
+		9D709C072441817A00611642 /* MiniatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D709C062441817A00611642 /* MiniatureViewController.swift */; };
 		9D7A5396242A84C400997A4F /* MiniaturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */; };
 		9D7A5398242A851C00997A4F /* MiniaturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */; };
 		9DAE2D532437F650003F5597 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAE2D522437F650003F5597 /* EditProfileViewController.swift */; };
@@ -78,6 +80,8 @@
 		9D422C7D2436800F0054FF65 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9D4CA07224393F6E0051A4CB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		9D709C002441471200611642 /* MiniaturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesCollectionViewCell.swift; sourceTree = "<group>"; };
+		9D709C03244178F100611642 /* Miniature.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Miniature.storyboard; sourceTree = "<group>"; };
+		9D709C062441817A00611642 /* MiniatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniatureViewController.swift; sourceTree = "<group>"; };
 		9D7A5395242A84C400997A4F /* MiniaturesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesTableViewController.swift; sourceTree = "<group>"; };
 		9D7A5397242A851C00997A4F /* MiniaturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniaturesTableViewCell.swift; sourceTree = "<group>"; };
 		9DAE2D522437F650003F5597 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +174,31 @@
 				9D422C7D2436800F0054FF65 /* SettingsViewController.swift */,
 				9DAE2D522437F650003F5597 /* EditProfileViewController.swift */,
 				9D1C47632439016A009329A3 /* ChangePasswordViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9D709C02244178D900611642 /* Miniature */ = {
+			isa = PBXGroup;
+			children = (
+				9D709C052441814600611642 /* ViewControllers */,
+				9D709C03244178F100611642 /* Miniature.storyboard */,
+			);
+			path = Miniature;
+			sourceTree = "<group>";
+		};
+		9D709C052441814600611642 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9D709C062441817A00611642 /* MiniatureViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9D709C082441818100611642 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F362F2AD241B19E90032FDEF /* PostViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +304,7 @@
 		F362F2AA241B19CB0032FDEF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				9D709C02244178D900611642 /* Miniature */,
 				341C5D1F242D439900780FFD /* Comment */,
 				F362F2AB241B19D30032FDEF /* Post */,
 			);
@@ -284,7 +314,7 @@
 		F362F2AB241B19D30032FDEF /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				F362F2AD241B19E90032FDEF /* PostViewController.swift */,
+				9D709C082441818100611642 /* ViewControllers */,
 				F362F2AC241B19E90032FDEF /* Post.storyboard */,
 			);
 			path = Post;
@@ -451,6 +481,7 @@
 				341C5D23242D43C900780FFD /* Comment.storyboard in Resources */,
 				F3EBB69823F45C8A005AD08D /* Main.storyboard in Resources */,
 				F3EBB68823F455DB005AD08D /* Assets.xcassets in Resources */,
+				9D709C04244178F100611642 /* Miniature.storyboard in Resources */,
 				9D21DBD0240F38B1004BCC2C /* Assets.xcassets in Resources */,
 				F3EBB68623F455D9005AD08D /* SignedIn.storyboard in Resources */,
 				F354DDAC24073F7C00370C04 /* Profile.storyboard in Resources */,
@@ -509,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D709C072441817A00611642 /* MiniatureViewController.swift in Sources */,
 				F354DDBE2407A87600370C04 /* ExploreCollectionViewCell.swift in Sources */,
 				341E671523FC8B61008EADA7 /* CreateAccountViewController.swift in Sources */,
 				F3EBB6AE23F4B518005AD08D /* LoginViewController.swift in Sources */,

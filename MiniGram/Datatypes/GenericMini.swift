@@ -13,10 +13,12 @@ class GenericMini: FireInitable {
     
     var id: String
     var userId: String?
+    var date: Timestamp
     
     var unit: String?
     var name: String?
-    
+    var image: UIImage?
+
     var pointValue: Int
     var power: Int
     var movement: Int
@@ -38,6 +40,7 @@ class GenericMini: FireInitable {
     required init(doc: DocumentSnapshot) {
         id = doc.documentID
         userId = doc.get("userId") as? String
+        date = doc.get("date") as? Timestamp ?? Timestamp()
         name = doc.get("name") as? String
         unit = doc.get("unit") as? String
         
@@ -60,4 +63,47 @@ class GenericMini: FireInitable {
         keywords = doc.get("keywords") as? [String]
     }
     
+    init(id: String, userId: String, date: Timestamp, unit: String, name: String, image: UIImage, pointValue: Int, power: Int, movement: Int, weaponSkill: Int, ballisticSkill: Int, strength: Int, toughness: Int, wounds: Int, attacks: Int, leadership: Int, save: Int, weapons: [String], warGear: [String], abilities: [String], factionKeywords: [String], keywords: [String]) {
+        self.id = id
+        self.userId = userId
+        self.date = date
+        self.unit = unit
+        self.name = name
+        self.image = image
+        self.pointValue = pointValue
+        self.power = power
+        self.movement = movement
+        self.weaponSkill = weaponSkill
+        self.ballisticSkill = ballisticSkill
+        self.strength = strength
+        self.toughness = toughness
+        self.wounds = wounds
+        self.attacks = attacks
+        self.leadership = leadership
+        self.save = save
+        self.weapons = weapons
+        self.warGear = warGear
+        self.abilities = abilities
+        self.factionKeywords = factionKeywords
+        self.keywords = keywords
+    }
+    
+    func downloadImageIfMissing() {
+        if image == nil {
+            downloadImage()
+        }
+    }
+    
+    func downloadImageForced() {
+        downloadImage()
+    }
+    
+    private func downloadImage() {
+        Database.shared.downloadMiniatureImage(id: id, onError: { (error) in
+            LogManager.logError(error)
+        }) { (image) in
+            self.image = image
+            LogManager.logInfo("Image for miniature \(self.id) downloaded")
+        }
+    }
 }

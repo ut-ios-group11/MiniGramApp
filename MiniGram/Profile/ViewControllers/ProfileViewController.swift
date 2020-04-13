@@ -72,9 +72,6 @@ class ProfileViewController: UIViewController {
         }
         // TODO: Add user to follow list
     }
-    
-    
-    
 }
 
 extension UISegmentedControl {

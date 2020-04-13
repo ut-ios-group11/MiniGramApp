@@ -12,3 +12,4 @@ class MiniaturesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var miniaturesImageView: UIImageView!
 }
+

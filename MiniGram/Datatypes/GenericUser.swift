@@ -101,6 +101,7 @@ class GenericUser: FireInitable {
     private func minaturesListener(add: [GenericMini], remove: [String], change: [GenericMini], id: String) {
         //add
         for mini in add {
+            mini.downloadImageIfMissing()
            self.minis.append(mini)
         }
         //remove
