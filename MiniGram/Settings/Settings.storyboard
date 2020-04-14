@@ -316,7 +316,9 @@
                         <outlet property="editNameTextField" destination="qeM-nn-cEj" id="24v-Yx-RPO"/>
                         <outlet property="editProfileImageView" destination="yOm-eB-Cdj" id="ZP6-UC-QtQ"/>
                         <outlet property="editUsernameTextField" destination="Y5f-g5-fx3" id="Ned-nH-1gm"/>
+                        <outlet property="nameLabel" destination="4pM-Qe-ClI" id="i3k-rX-46v"/>
                         <outlet property="saveChangesButton" destination="YHW-q1-0LS" id="SuT-5Q-n1q"/>
+                        <outlet property="usernameLabel" destination="Jju-x7-Wbd" id="TI5-YC-k0I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CCc-6J-rfg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

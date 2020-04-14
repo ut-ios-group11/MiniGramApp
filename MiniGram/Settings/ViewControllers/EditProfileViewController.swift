@@ -16,6 +16,8 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var editEmailTextField: UITextField!
     @IBOutlet weak var saveChangesButton: UIButton!
     @IBOutlet weak var deleteAccountButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,17 @@ class EditProfileViewController: UIViewController {
         editProfileImageView.roundCorners(editProfileImageView.frame.size.width / 2)
         styleTextFields()
         styleButtons()
+        guard let user = UserData.shared.getDatabaseUser() else { return }
+        // setup name and username and image
+        nameLabel.text = user.name
+        usernameLabel.text = "@" + user.userName!
+        editProfileImageView.image = user.image
+        user.downloadImageIfMissing(onComplete: updateImage)
+        // set text field placeholders
+        editNameTextField.placeholder = user.name
+        editUsernameTextField.placeholder = user.userName
+        // NEED A WAY TO GET EMAIL OF USER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        editEmailTextField.placeholder = ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +65,19 @@ class EditProfileViewController: UIViewController {
     }
     
     @IBAction func saveChanges(_ sender: Any) {
-        
+        var newName: String? = nil
+        var newUsername: String? = nil
+        if editNameTextField.text != "" {
+            newName = editNameTextField.text
+        }
+        if editUsernameTextField.text != "" {
+            newUsername = editUsernameTextField.text
+        }
+        Database.shared.updateProfile(name: newName, userName: newUsername, onError: { (Error) in
+            LogManager.logError(Error)
+        }) {
+            LogManager.logInfo("Updated profile information.")
+        }
     }
     
     
@@ -65,5 +90,9 @@ class EditProfileViewController: UIViewController {
     func styleButtons() {
         saveChangesButton.roundCorners(4)
         deleteAccountButton.roundCorners(4)
+    }
+    
+    func updateImage(image: UIImage?) {
+        editProfileImageView.image = image
     }
 }
