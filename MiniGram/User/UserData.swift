@@ -56,6 +56,7 @@ class UserData {
     
     public func tryAutoSignIn(onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         if let user = FireAuth.shared.isUserSignedIn() {
+            self.user = user
             readUser(id: user.uid, onError: onError, onComplete: {
                 self.startUserListener(id: user.uid)
                 onComplete()
@@ -117,6 +118,10 @@ class UserData {
     
     public func setUserRefreshFunction(with function: ((GenericUser) -> Void)?) {
         userRefreshFunction = function
+    }
+    
+    public func getUserEmail() -> String? {
+        return user?.email
     }
 
     // MARK: TEST DATA

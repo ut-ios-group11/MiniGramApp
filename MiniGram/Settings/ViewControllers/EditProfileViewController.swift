@@ -26,9 +26,6 @@ class EditProfileViewController: UIViewController {
         editProfileImageView.roundCorners(editProfileImageView.frame.size.width / 2)
         styleTextFields()
         styleButtons()
-
-        // NEED A WAY TO GET EMAIL OF USER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        editEmailTextField.placeholder = ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +43,7 @@ class EditProfileViewController: UIViewController {
         user.downloadImageIfMissing(onComplete: updateImage)
         editNameTextField.placeholder = user.name
         editUsernameTextField.placeholder = user.userName
+        editEmailTextField.placeholder = UserData.shared.getUserEmail()
     }
     
     @IBAction func changeProfilePhoto(_ sender: Any) {
