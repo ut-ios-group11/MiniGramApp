@@ -37,6 +37,25 @@ class GenericUser: FireInitable {
         self.image = image
     }
     
+    func downloadImageIfMissing(onComplete: ((UIImage)-> Void)? = nil) {
+        if image == nil {
+            downloadImage(onComplete: onComplete)
+        }
+    }
+    
+    func downloadImageForced(onComplete: ((UIImage)-> Void)? = nil) {
+        downloadImage(onComplete: onComplete)
+    }
+    
+    private func downloadImage(onComplete: ((UIImage)-> Void)? = nil) {
+        Database.shared.downloadProfileImage(id: id, onError: { (error) in
+            LogManager.logError(error)
+        }) { (image) in
+            self.image = image
+            LogManager.logInfo("Profile photo for user \(self.id) downloaded")
+            onComplete?(image)
+        }
+    }
     
     // MARK: - Listener Functions
     
@@ -101,8 +120,8 @@ class GenericUser: FireInitable {
     private func minaturesListener(add: [GenericMini], remove: [String], change: [GenericMini], id: String) {
         //add
         for mini in add {
-            mini.downloadImageIfMissing()
-           self.minis.append(mini)
+            //mini.downloadImageIfMissing()
+            self.minis.append(mini)
         }
         //remove
         for id in remove {

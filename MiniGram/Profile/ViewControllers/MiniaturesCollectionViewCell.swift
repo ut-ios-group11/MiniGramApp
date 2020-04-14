@@ -11,5 +11,10 @@ import UIKit
 class MiniaturesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var miniaturesImageView: UIImageView!
+    
+    func updateImage(image: UIImage?) {
+        self.miniaturesImageView.image = image
+    }
+
 }
 

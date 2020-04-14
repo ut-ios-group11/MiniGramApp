@@ -89,12 +89,16 @@ extension MiniaturesTableViewController: UICollectionViewDelegate, UICollectionV
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as? MiniaturesCollectionViewCell else { return UICollectionViewCell() }
+        
+        // Get the proper mini to display
         let key = Array(miniaturePosts.keys)[collectionView.tag]
         let array = miniaturePosts[key]
         let mini = array![indexPath.item]
         
+        // Set the mini's image and download if missing
         cell.miniaturesImageView.image = mini.image
-
+        miniaturePosts[key]![indexPath.item].downloadImageIfMissing(onComplete: cell.updateImage)
+        
         return cell
     }
     

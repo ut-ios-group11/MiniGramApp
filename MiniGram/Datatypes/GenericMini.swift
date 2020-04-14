@@ -88,9 +88,9 @@ class GenericMini: FireInitable {
         self.keywords = keywords
     }
     
-    func downloadImageIfMissing() {
+    func downloadImageIfMissing(onComplete: ((UIImage)-> Void)? = nil) {
         if image == nil {
-            downloadImage()
+            downloadImage(onComplete: onComplete)
         }
     }
     
@@ -98,14 +98,16 @@ class GenericMini: FireInitable {
         downloadImage()
     }
     
-    private func downloadImage() {
+    private func downloadImage(onComplete: ((UIImage)-> Void)? = nil) {
         Database.shared.downloadMiniatureImage(id: id, onError: { (error) in
             LogManager.logError(error)
         }) { (image) in
             self.image = image
             LogManager.logInfo("Image for miniature \(self.id) downloaded")
+            onComplete?(image)
         }
     }
+    
     func update(with mini: GenericMini) {
         unit = mini.unit
         name = mini.name
@@ -128,5 +130,4 @@ class GenericMini: FireInitable {
         factionKeywords = mini.factionKeywords
         keywords = mini.keywords
     }
-    
 }

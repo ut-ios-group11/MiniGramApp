@@ -8,6 +8,11 @@
 
 import UIKit
 
+infix operator ???: NilCoalescingPrecedence
+public func ???<T>(optional: T?, defaultValue: @autoclosure () -> String) -> String {
+    return optional.map { String(describing: $0) } ?? defaultValue()
+}
+
 class MiniatureViewController: UIViewController {
 
     @IBOutlet weak var miniatureImage: UIImageView!
@@ -33,6 +38,8 @@ class MiniatureViewController: UIViewController {
     var mini: GenericMini?
     var user: GenericUser?
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,10 +51,10 @@ class MiniatureViewController: UIViewController {
     func refreshData() {
         if let mini = mini {
             miniatureImage.image = mini.image
-            
-            unitLabel.text = "Unit: \(mini.unit)"
-            nameLabel.text = "Name: \(mini.name)"
-            
+
+            unitLabel.text = "Name: \(mini.unit ??? "")"
+            nameLabel.text = "Name: \(mini.name ??? "")"
+
             pointValueLabel.text = "Point Value: \(String(mini.pointValue))"
             powerLabel.text = "Power: \(String(mini.power))"
             movementLabel.text = "Movement: \(String(mini.movement))"
@@ -60,11 +67,11 @@ class MiniatureViewController: UIViewController {
             leadershipLabel.text = "Leadership: \(String(mini.leadership))"
             saveLabel.text = "Save: \(String(mini.save))"
             
-            weaponsLabel.text = "Weapons: \(mini.weapons)"
-            warGearLabel.text = "War Gear: \(mini.warGear)"
-            abilitiesLabel.text = "Abilities: \(mini.abilities)"
-            factionKeywordsLabel.text = "Faction Keywords: \(mini.factionKeywords)"
-            keywordsLabel.text = "Keywords: \(mini.keywords)"
+            weaponsLabel.text = "Weapons: \(mini.weapons ??? "")"
+            warGearLabel.text = "War Gear: \(mini.warGear ??? "")"
+            abilitiesLabel.text = "Abilities: \(mini.abilities ??? "")"
+            factionKeywordsLabel.text = "Faction Keywords: \(mini.factionKeywords ??? "")"
+            keywordsLabel.text = "Keywords: \(mini.keywords ??? "")"
         }
     }
 }

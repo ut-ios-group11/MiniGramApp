@@ -272,7 +272,7 @@
         <scene sceneID="hNd-3Q-ywl">
             <objects>
                 <tableViewController id="6Vg-6G-3Ph" customClass="MiniaturesTableViewController" customModule="MiniGram" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="9Vx-lT-lJ0" customClass="DynamicSizedTableView" customModule="MiniGram" customModuleProvider="target">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="9Vx-lT-lJ0" customClass="DynamicSizedTableView" customModule="MiniGram" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="288"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
