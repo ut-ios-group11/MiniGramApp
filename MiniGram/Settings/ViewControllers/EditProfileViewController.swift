@@ -69,14 +69,21 @@ class EditProfileViewController: UIViewController {
     
     @IBAction func saveChanges(_ sender: Any) {
         if editEmailTextField.text != "" {
-            let controller = UIAlertController(title: "Password Required", message: "Please enter your password to confirm changes.", preferredStyle: .alert)
+            let controller = UIAlertController(title: "Password Required", message: "Please enter your password to change your email.", preferredStyle: .alert)
             controller.addTextField()
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            controller.addAction(cancelAction)
             
             let submitAction = UIAlertAction(title: "Submit", style: .default) { (alertAction) in
                 Database.shared.updateEmail(email: self.editEmailTextField.text!, password: controller.textFields![0].text!, onError: { (error) in
                     LogManager.logError(error)
                 }, onComplete: {
                     LogManager.logInfo("Updated email sucessfully.")
+                    UserData.shared.getUserReloadedEmail(onComplete: { (email) in
+                        self.editEmailTextField.placeholder = email
+                        self.editEmailTextField.text = ""
+                    })
                 })
             }
             controller.addAction(submitAction)
@@ -95,8 +102,9 @@ class EditProfileViewController: UIViewController {
             LogManager.logError(error)
         }) {
             LogManager.logInfo("Updated profile information sucessfully.")
+            self.editNameTextField.text = ""
+            self.editUsernameTextField.text = ""
         }
-        
     }
     
     

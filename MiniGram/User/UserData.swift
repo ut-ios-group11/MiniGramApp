@@ -123,6 +123,14 @@ class UserData {
     public func getUserEmail() -> String? {
         return user?.email
     }
+    
+    public func getUserReloadedEmail(onComplete: @escaping (String) -> Void) {
+        Auth.auth().currentUser?.reload(completion: { (error) in
+            if error == nil, let email = Auth.auth().currentUser?.email{
+                onComplete(email)
+            }
+        })
+    }
 
     // MARK: TEST DATA
     private func createTestData() {
