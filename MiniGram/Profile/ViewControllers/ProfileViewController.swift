@@ -37,6 +37,10 @@ class ProfileViewController: UIViewController {
         // TODO: If user is current user, hide followButton and followButtonSeparator
         if let user = UserData.shared.getDatabaseUser() {
             profileImage.image = user.image
+            nameLabel.text = user.name
+            let count = user.followers?.count ?? 0
+            usernameLabel.text = "@" + user.userName!
+            followersLabel.text = String(count)
             user.downloadImageIfMissing(onComplete: updateImage)
         }
     }
