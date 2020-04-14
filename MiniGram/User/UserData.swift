@@ -25,10 +25,7 @@ class UserData {
     // Only For Alpha
     public var explorePosts = [GenericPost]()
     public var exploreUsers = [GenericUser]()
-
-    public var galleryPosts = [GenericPost]()
-    public var miniPosts = [GenericMini]()
-
+    
     private init () {
         //For Testing Only
         createTestData()
@@ -108,15 +105,6 @@ class UserData {
             let newUser = GenericUser(id: "\(i)", userName: "username\(i)", name: "User\(i)", followers: nil, image: UIImage(systemName: "person.circle.fill"))
             exploreUsers.append(newUser)
         }
-        // Gallery Posts
-        for i in 0...10 {
-            let newPost = GenericPost(id: "\(i)", userId: "\(i)", likes: ["user1", "user2", "user3"], desc: "lorem ipsum something something something. #something", date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
-            galleryPosts.append(newPost)
-        }
         
-        for i in 0...10 {            
-            let newMini = GenericMini(id: "\(i)", userId: "\(i)", date: Timestamp(), unit: "Test Unit", name: "Test Name", image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))")!, pointValue: 0, power: 0, movement: 0, weaponSkill: 0, ballisticSkill: 0, strength: 0, toughness: 0, wounds: 0, attacks: 0, leadership: 0, save: 0, weapons: ["Weapon1", "Weapon2", "Weapon3"], warGear: ["Wargear1", "Wargear2", "Wargear3"], abilities: ["Ability1", "Ability2"], factionKeywords: ["fk1", "fk2"], keywords: ["key1", "key2", "key3"])
-            miniPosts.append(newMini)
-        }
     }
 }
