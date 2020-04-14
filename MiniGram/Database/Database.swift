@@ -70,7 +70,16 @@ class Database {
     }
     
     // Profile
-    func updateProfile() {
+    func updateProfile(name: String? = nil, userName: String? = nil, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        guard let user = UserData.shared.getDatabaseUser() else { return }
+        let newName = name ?? user.name
+        let newUserName = userName ?? user.userName
+        let reference = Firestore.firestore().collection(FireCollection.Posts.rawValue).document(user.id)
+        let data = ["name": newName, "userName": newUserName]
+        Fire.shared.update(at: reference, data: data as [String : Any], onError: onError, onComplete: onComplete)
+    }
+    
+    func updateEmail(email: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         
     }
     
