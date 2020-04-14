@@ -43,12 +43,25 @@ class Database {
         
     }
     
-    func createPost() {
-        
+    func createPost( image: UIImage, post: GenericPost, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        let reference = Firestore.firestore().collection(FireCollection.Posts.rawValue)
+        let id = reference.document().documentID
+        let data = post.toDict()
+        Fire.shared.create(at: reference, withID: id, data: data, onError: onError) {
+            let fsReference = FireStorageCollection.Posts
+            Fire.shared.uploadImage(at: fsReference, id: id, image: image, onError: onError, onComplete: onComplete)
+        }
     }
     
-    func createMinature() {
-        
+    func createMinature(image: UIImage, miniature: GenericMini, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        let reference = Firestore.firestore().collection(FireCollection.Miniatures.rawValue)
+        let id = reference.document().documentID
+        let data = miniature.toDict()
+        Fire.shared.create(at: reference, data: data, onError: onError) {
+            let fsReference = FireStorageCollection.Miniatures
+            Fire.shared.uploadImage(at: fsReference, id: id, image: image, onError: onError, onComplete: onComplete)
+        }
+
     }
     
     // MARK: - Update Methods

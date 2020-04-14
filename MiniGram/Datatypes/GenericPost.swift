@@ -40,4 +40,13 @@ class GenericPost: FireInitable {
         comments.append(comment)
     }
     
+    func toDict() -> [String : Any] {
+        return [
+            "desc": desc,
+            "date": date,
+            "likes": likes,
+            "userId": userId
+        ]
+    }
+    
 }
