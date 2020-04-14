@@ -79,8 +79,8 @@ class Database {
         Fire.shared.update(at: reference, data: data as [String : Any], onError: onError, onComplete: onComplete)
     }
     
-    func updateEmail(email: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
-        FireAuth.shared.updateEmail(email: email, onError: onError, onComplete: onComplete)
+    func updateEmail(email: String, password: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        FireAuth.shared.updateEmail(email: email, password: password, onError: onError, onComplete: onComplete)
     }
     
     func updateProfilePhoto() {
