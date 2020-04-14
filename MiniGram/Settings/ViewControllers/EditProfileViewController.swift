@@ -69,14 +69,24 @@ class EditProfileViewController: UIViewController {
     
     @IBAction func saveChanges(_ sender: Any) {
         if editEmailTextField.text != "" {
-            Database.shared.updateEmail(email: editEmailTextField.text!, onError: { (Error) in
-                LogManager.logError(Error)
-            }) {
-                LogManager.logInfo("Updated profile email.")
+            let controller = UIAlertController(title: "Password Required", message: "Please enter your password to confirm changes.", preferredStyle: .alert)
+            controller.addTextField()
+            
+            let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned controller] _ in
+                let answer = controller.textFields![0]
             }
+            controller.addAction(submitAction)
+            present(controller, animated: true, completion: {
+                
+                Database.shared.updateEmail(email: self.editEmailTextField.text!, onError: { (Error) in
+                    LogManager.logError(Error)
+                }) {
+                    LogManager.logInfo("Updated profile email.")
+                }
+            })
+            
         }
-        let controller = UIAlertController( title: "Password Required", message: "Please enter your password to confirm changes.", preferredStyle: .alert)
-        controller.addTextField(configurationHandler: <#T##((UITextField) -> Void)?##((UITextField) -> Void)?##(UITextField) -> Void#>)
+        
         
         var newName: String? = nil
         var newUsername: String? = nil
