@@ -80,7 +80,7 @@ class Database {
     }
     
     func updateEmail(email: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
-        
+        FireAuth.shared.updateEmail(email: email, onError: onError, onComplete: onComplete)
     }
     
     func updateProfilePhoto() {
