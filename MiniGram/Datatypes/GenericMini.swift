@@ -112,4 +112,46 @@ class GenericMini: FireInitable {
         ]
     }
     
+    func downloadImageIfMissing(onComplete: ((UIImage)-> Void)? = nil) {
+        if image == nil {
+            downloadImage(onComplete: onComplete)
+        }
+    }
+    
+    func downloadImageForced() {
+        downloadImage()
+    }
+    
+    private func downloadImage(onComplete: ((UIImage)-> Void)? = nil) {
+        Database.shared.downloadMiniatureImage(id: id, onError: { (error) in
+            LogManager.logError(error)
+        }) { (image) in
+            self.image = image
+            LogManager.logInfo("Image for miniature \(self.id) downloaded")
+            onComplete?(image)
+        }
+    }
+    
+    func update(with mini: GenericMini) {
+        unit = mini.unit
+        name = mini.name
+        
+        pointValue = mini.pointValue
+        power = mini.power
+        movement = mini.movement
+        weaponSkill = mini.weaponSkill
+        ballisticSkill = mini.ballisticSkill
+        strength = mini.strength
+        toughness = mini.toughness
+        wounds = mini.wounds
+        attacks = mini.attacks
+        leadership = mini.leadership
+        save = mini.save
+        
+        weapons = mini.weapons
+        warGear = mini.warGear
+        abilities = mini.abilities
+        factionKeywords = mini.factionKeywords
+        keywords = mini.keywords
+    }
 }

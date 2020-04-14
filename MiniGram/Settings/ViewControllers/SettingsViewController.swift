@@ -51,6 +51,16 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    @IBAction func logoutButton() {
+        UserData.shared.signOut(onError: { (error) in
+            LogManager.logError(error)
+        }) {
+            if let vc = self.view.window?.rootViewController as? UINavigationController {
+                vc.popToRootViewController(animated: true)
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         accountSettings.count
     }

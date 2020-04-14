@@ -39,8 +39,6 @@ class Database {
             let reference = Firestore.firestore().collection(FireCollection.Users.rawValue)
             Fire.shared.create(at: reference, withID: uid, data: data, onError: onError, onComplete: onComplete)
         }
-        
-        
     }
     
     func createPost( image: UIImage, post: GenericPost, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
@@ -84,17 +82,35 @@ class Database {
         
     }
     
+    // MARK: - Single Download
+    
+    func downloadProfileImage(id: String, onError: @escaping (Error) -> Void, onComplete: @escaping (UIImage) -> Void) {
+        Fire.shared.downloadImage(at: FireStorageCollection.Users, id: id, OnError: onError, onComplete: onComplete)
+    }
+    
+    func downloadPostImage(id: String, onError: @escaping (Error) -> Void, onComplete: @escaping (UIImage) -> Void) {
+        Fire.shared.downloadImage(at: FireStorageCollection.Posts, id: id, OnError: onError, onComplete: onComplete)
+    }
+    
+    func downloadMiniatureImage(id: String, onError: @escaping (Error) -> Void, onComplete: @escaping (UIImage) -> Void) {
+        Fire.shared.downloadImage(at: FireStorageCollection.Miniatures, id: id, OnError: onError, onComplete: onComplete)
+    }
+    
     // MARK: - Listener Methods
     
     func profileListener() {
         
     }
     
-    func profilePostsListener() {
+    func profilePostsListener(listenerId: String, userId: String, onComplete: @escaping ([GenericPost], [String], [GenericPost], String) -> Void) -> Listener {
+        let query = Firestore.firestore().collection(FireCollection.Posts.rawValue).whereField("userId", isEqualTo: userId)
+        // Create a listener registration
+        let profileListenerRegistration = Fire.shared.listener(at: query, returning: GenericPost.self, onComplete: onComplete)
         
+        return Listener(id: listenerId, registration: profileListenerRegistration)
     }
     
-    func profileMinaturesListener(listenerId: String, userId: String, onComplete: @escaping ([GenericMini],[String],[GenericMini], String) -> Void) -> Listener {
+    func profileMiniaturesListener(listenerId: String, userId: String, onComplete: @escaping ([GenericMini],[String],[GenericMini], String) -> Void) -> Listener {
         let query = Firestore.firestore().collection(FireCollection.Miniatures.rawValue).whereField("userId", isEqualTo: userId)
         let listenerRegistration = Fire.shared.listener(at: query, returning: GenericMini.self, onComplete: onComplete)
         return Listener(id: listenerId, registration: listenerRegistration)

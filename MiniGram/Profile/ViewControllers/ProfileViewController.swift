@@ -20,9 +20,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var miniaturesView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var viewInsideScrollView: UIView!
     @IBOutlet weak var followButtonSeparator: UILabel!
     @IBOutlet weak var followButton: UIButton!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +31,18 @@ class ProfileViewController: UIViewController {
         profileImage.roundCorners(profileImage.frame.size.width / 2)
         galleryView.isHidden = false
         miniaturesView.isHidden = true
+        viewInsideScrollView.bringSubviewToFront(settingsButton)
         setStyleForSegmentedControl()
         
-        // TODO: If user is current user, hide followButton and followButtonSeparator 
+        // TODO: If user is current user, hide followButton and followButtonSeparator
+        if let user = UserData.shared.getDatabaseUser() {
+            profileImage.image = user.image
+            user.downloadImageIfMissing(onComplete: updateImage)
+        }
+    }
+    
+    func updateImage(image: UIImage?) {
+        profileImage.image = image
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,9 +79,6 @@ class ProfileViewController: UIViewController {
         }
         // TODO: Add user to follow list
     }
-    
-    
-    
 }
 
 extension UISegmentedControl {
