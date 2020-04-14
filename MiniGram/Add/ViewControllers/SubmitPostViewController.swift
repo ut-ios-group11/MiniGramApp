@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SubmitPostViewController: UIViewController {
     
@@ -15,8 +16,15 @@ class SubmitPostViewController: UIViewController {
     @IBOutlet weak var captionFieldConstraint: NSLayoutConstraint!
     
     @IBAction func submitButton(_ sender: Any) {
-        self.tabBarController?.selectedIndex = 0
-        self.navigationController?.popToRootViewController(animated: false)
+        guard let user = UserData.shared.getDatabaseUser() else { return }
+        let post = GenericPost(id: "", userId: user.id, likes: [String](), desc: captionField.text!, date: Timestamp(), image: nil)
+        Database.shared.createPost(image: imageView.image!, post: post, onError: { (Error) in
+            LogManager.logError(Error)
+        }) {
+            self.tabBarController?.selectedIndex = 0
+            self.navigationController?.popToRootViewController(animated: false)
+            LogManager.logInfo("Sucessfully created post")
+        }
     }
     
     let CAPTION_FIELD_CONSTRAINT_CONSTANT = 4

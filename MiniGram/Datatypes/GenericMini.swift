@@ -12,10 +12,12 @@ import Firebase
 class GenericMini: FireInitable {
     
     var id: String
-    var uid: String?
+    var userId: String?
+    var date: Timestamp?
     
     var unit: String?
     var name: String?
+    var image: UIImage?
     
     var pointValue: Int
     var power: Int
@@ -37,7 +39,8 @@ class GenericMini: FireInitable {
     
     required init(doc: DocumentSnapshot) {
         id = doc.documentID
-        uid = doc.get("uid") as? String
+        userId = doc.get("userId") as? String
+        date = doc.get("date") as? Timestamp ?? Timestamp()
         name = doc.get("name") as? String
         unit = doc.get("unit") as? String
         
@@ -58,6 +61,55 @@ class GenericMini: FireInitable {
         abilities = doc.get("abilities") as? [String]
         factionKeywords = doc.get("factionKeywords") as? [String]
         keywords = doc.get("keywords") as? [String]
+    }
+    
+    init(id: String, userId: String, date: Timestamp, unit: String, name: String, image: UIImage, pointValue: Int, power: Int, movement: Int, weaponSkill: Int, ballisticSkill: Int, strength: Int, toughness: Int, wounds: Int, attacks: Int, leadership: Int, save: Int, weapons: [String], warGear: [String], abilities: [String], factionKeywords: [String], keywords: [String]) {
+        self.id = id
+        self.userId = userId
+        self.date = date
+        self.unit = unit
+        self.name = name
+        self.image = image
+        self.pointValue = pointValue
+        self.power = power
+        self.movement = movement
+        self.weaponSkill = weaponSkill
+        self.ballisticSkill = ballisticSkill
+        self.strength = strength
+        self.toughness = toughness
+        self.wounds = wounds
+        self.attacks = attacks
+        self.leadership = leadership
+        self.save = save
+        self.weapons = weapons
+        self.warGear = warGear
+        self.abilities = abilities
+        self.factionKeywords = factionKeywords
+        self.keywords = keywords
+    }
+    
+    func toDict() -> [String : Any] {
+        return [
+            "unit": unit ?? "",
+            "name": name ?? "",
+            "pointValue": pointValue,
+            "power": power,
+            "movement": movement,
+            "weaponSkill": weaponSkill,
+            "ballisticSkill": ballisticSkill,
+            "strength": strength,
+            "toughness": toughness,
+            "wounds": wounds,
+            "attacks": attacks,
+            "leadership": leadership,
+            "save": save,
+            "weapons": weapons ?? [String](),
+            "warGear": warGear ?? [String](),
+            "abilities": abilities ?? [String](),
+            "factionKeywords": factionKeywords ?? [String](),
+            "keywords": keywords ?? [String](),
+            "date": Timestamp()
+        ]
     }
     
 }
