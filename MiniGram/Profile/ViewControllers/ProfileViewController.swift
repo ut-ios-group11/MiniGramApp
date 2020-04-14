@@ -35,22 +35,28 @@ class ProfileViewController: UIViewController {
         setStyleForSegmentedControl()
         
         // TODO: If user is current user, hide followButton and followButtonSeparator
-        if let user = UserData.shared.getDatabaseUser() {
-            profileImage.image = user.image
-            nameLabel.text = user.name
-            let count = user.followers?.count ?? 0
-            usernameLabel.text = "@" + user.userName!
-            followersLabel.text = String(count)
-            user.downloadImageIfMissing(onComplete: updateImage)
-        }
+        
     }
     
     func updateImage(image: UIImage?) {
         profileImage.image = image
     }
     
+    func updateProfile(user: GenericUser) {
+        profileImage.image = user.image
+        nameLabel.text = user.name
+        let count = user.followers?.count ?? 0
+        usernameLabel.text = "@" + user.userName!
+        followersLabel.text = String(count)
+        user.downloadImageIfMissing(onComplete: updateImage)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
+        if let user = UserData.shared.getDatabaseUser() {
+            updateProfile(user: user)
+            UserData.shared.setUserRefreshFunction(with: updateProfile(user:))
+        }
     }
     
     @IBAction func switchProfileViews(_ sender: UISegmentedControl) {

@@ -26,21 +26,26 @@ class EditProfileViewController: UIViewController {
         editProfileImageView.roundCorners(editProfileImageView.frame.size.width / 2)
         styleTextFields()
         styleButtons()
-        guard let user = UserData.shared.getDatabaseUser() else { return }
-        // setup name and username and image
-        nameLabel.text = user.name
-        usernameLabel.text = "@" + user.userName!
-        editProfileImageView.image = user.image
-        user.downloadImageIfMissing(onComplete: updateImage)
-        // set text field placeholders
-        editNameTextField.placeholder = user.name
-        editUsernameTextField.placeholder = user.userName
+
         // NEED A WAY TO GET EMAIL OF USER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         editEmailTextField.placeholder = ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
+        if let user = UserData.shared.getDatabaseUser() {
+            updateProfile(user: user)
+            UserData.shared.setUserRefreshFunction(with: updateProfile(user:))
+        }
+    }
+    
+    func updateProfile(user: GenericUser) {
+        nameLabel.text = user.name
+        usernameLabel.text = "@" + user.userName!
+        editProfileImageView.image = user.image
+        user.downloadImageIfMissing(onComplete: updateImage)
+        editNameTextField.placeholder = user.name
+        editUsernameTextField.placeholder = user.userName
     }
     
     @IBAction func changeProfilePhoto(_ sender: Any) {
