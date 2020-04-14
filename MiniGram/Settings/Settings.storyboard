@@ -292,6 +292,9 @@
                                 <state key="normal" title="Save Changes">
                                     <color key="titleColor" name="flippedColorComplement"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveChanges:" destination="a5q-at-03O" eventType="touchUpInside" id="rBR-qx-HYX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
