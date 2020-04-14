@@ -62,6 +62,20 @@ class FireAuth {
         signOutHelper(onError: onError, onComplete: onComplete)
     }
     
+    func updateEmail(email: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        if let currentUser = Auth.auth().currentUser {
+            currentUser.updateEmail(to: email) { (error) in
+                if let error = error {
+                    onError(error)
+                } else {
+                    onComplete()
+                }
+            }
+        } else {
+            onError(AuthError.MissingUserError)
+        }
+    }
+    
     func signOutHelper(onError: ((Error) -> Void)? = nil, onComplete: @escaping () -> Void) {
         do {
             try Auth.auth().signOut()
