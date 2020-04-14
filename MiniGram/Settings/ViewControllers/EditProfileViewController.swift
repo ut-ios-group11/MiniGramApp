@@ -72,11 +72,7 @@ class EditProfileViewController: UIViewController {
             let controller = UIAlertController(title: "Password Required", message: "Please enter your password to confirm changes.", preferredStyle: .alert)
             controller.addTextField()
             let submitAction = UIAlertAction(title: "Submit", style: .default, handler: {
-                Database.shared.updateEmail(email: self.editEmailTextField.text!, password: controller.textFields![0].text!, onError: { (Error) in
-                    LogManager.logError(Error)
-                }) {
-                    LogManager.logInfo("Updated profile email.")
-                }
+                Database.shared.updateEmail(email: self.editEmailTextField.text!, password: controller.textFields![0].text!, onError: (Error) -> Void, onComplete: () -> Void)
             })
             controller.addAction(submitAction)
             present(controller, animated: true)
@@ -90,8 +86,8 @@ class EditProfileViewController: UIViewController {
         if editUsernameTextField.text != "" {
             newUsername = editUsernameTextField.text
         }
-        Database.shared.updateProfile(name: newName, userName: newUsername, onError: { (Error) in
-            LogManager.logError(Error)
+        Database.shared.updateProfile(name: newName, userName: newUsername, onError: { (error) in
+            LogManager.logError(error)
         }) {
             LogManager.logInfo("Updated profile information.")
         }
