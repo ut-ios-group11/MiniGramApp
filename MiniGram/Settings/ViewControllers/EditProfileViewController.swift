@@ -75,8 +75,8 @@ class EditProfileViewController: UIViewController {
                 LogManager.logInfo("Updated profile email.")
             }
         }
-        let controller = UIAlertController( title: "Password Required", message: "Please enter your password to confirm changes.", preferredStyle: .alert)
-        controller.addTextField(configurationHandler: <#T##((UITextField) -> Void)?##((UITextField) -> Void)?##(UITextField) -> Void#>)
+        //let controller = UIAlertController( title: "Password Required", message: "Please enter your password to confirm changes.", preferredStyle: .alert)
+        //controller.addTextField(configurationHandler: <#T##((UITextField) -> Void)?##((UITextField) -> Void)?##(UITextField) -> Void#>)
         
         var newName: String? = nil
         var newUsername: String? = nil

@@ -10,8 +10,8 @@ import UIKit
 
 class ChangePasswordViewController: UIViewController {
 
-    @IBOutlet weak var oldPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
+    @IBOutlet weak var oldPasswordTextField: UITextField!
     @IBOutlet weak var saveChangesButton: UIButton!
     
     override func viewDidLoad() {
@@ -31,6 +31,22 @@ class ChangePasswordViewController: UIViewController {
     
     func styleButtons() {
         saveChangesButton.roundCorners(4)
+    }
+    
+    @IBAction func submitPasswordChange(_ sender: UIButton) {
+        guard let newPassword = newPasswordTextField.text, let oldPassword = oldPasswordTextField.text else {
+            return
+        }
+        if !newPassword.isEmpty {
+            Database.shared.updateUserPassword(newPassword: newPassword, oldPassword: oldPassword, onError: { (error) in
+                LogManager.logError(error)
+            }) {
+                LogManager.logInfo("User Password Updated")
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
+        
     }
     
     

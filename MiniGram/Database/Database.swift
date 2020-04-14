@@ -87,8 +87,8 @@ class Database {
         
     }
     
-    func updateUserPassword(password: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
-        FireAuth.shared.updatePassword(password: password, onError: onError, onComplete: onComplete)
+    func updateUserPassword(newPassword: String, oldPassword: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        FireAuth.shared.updatePassword(oldPassword: oldPassword, newPassword: newPassword, onError: onError, onComplete: onComplete)
     }
     
     // MARK: - Single Download

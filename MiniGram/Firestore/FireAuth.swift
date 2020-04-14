@@ -76,14 +76,28 @@ class FireAuth {
         }
     }
     
-    func updatePassword(password: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+    func updatePassword(oldPassword: String, newPassword: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        guard let email = UserData.shared.getUserEmail() else {
+            onError(AuthError.MissingUserError)
+            return
+        }
+        
+        let credential = EmailAuthProvider.credential(withEmail: email, password: oldPassword)
+        
         if let currentUser = Auth.auth().currentUser {
-            currentUser.updatePassword(to: password) { (error) in
+            currentUser.reauthenticate(with: credential) { (authResult, error) in
                 if let error = error {
                     onError(error)
                 } else {
-                    onComplete()
+                    currentUser.updatePassword(to: newPassword) { (error) in
+                        if let error = error {
+                            onError(error)
+                        } else {
+                            onComplete()
+                        }
+                    }
                 }
+                
             }
         } else {
             onError(AuthError.MissingUserError)

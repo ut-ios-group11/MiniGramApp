@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -155,17 +155,20 @@
                                 <state key="normal" title="Save Changes">
                                     <color key="titleColor" name="flippedColorComplement"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitPasswordChange:" destination="BXQ-PV-1Cx" eventType="touchUpInside" id="Zlc-MM-QvL"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="biK-bL-Xa2">
-                                <rect key="frame" x="24" y="68" width="366" height="66"/>
+                                <rect key="frame" x="24" y="68" width="366" height="69"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ex-1X-LvU">
-                                        <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kvk-Vu-0uG">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3f-mn-nVW">
-                                        <rect key="frame" x="0.0" y="49" width="366" height="17"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ex-1X-LvU">
+                                        <rect key="frame" x="0.0" y="50.5" width="366" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -184,8 +187,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Change Password" id="QUa-eT-XMj"/>
                     <connections>
-                        <outlet property="newPasswordTextField" destination="L3f-mn-nVW" id="jXd-pC-N6U"/>
-                        <outlet property="oldPasswordTextField" destination="4ex-1X-LvU" id="v4J-5z-Ue6"/>
+                        <outlet property="newPasswordTextField" destination="4ex-1X-LvU" id="O60-b9-lek"/>
+                        <outlet property="oldPasswordTextField" destination="Kvk-Vu-0uG" id="UPJ-8u-nsL"/>
                         <outlet property="saveChangesButton" destination="qid-Q1-OLt" id="cxv-Hi-ShI"/>
                     </connections>
                 </viewController>
@@ -202,7 +205,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="LNv-7r-UIj">
-                                <rect key="frame" x="24" y="68" width="366" height="260"/>
+                                <rect key="frame" x="24" y="68" width="366" height="264.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wZk-Zg-Sj6">
                                         <rect key="frame" x="0.0" y="0.0" width="262.5" height="113"/>
@@ -248,17 +251,17 @@
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Diego Maceda" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qeM-nn-cEj">
-                                        <rect key="frame" x="0.0" y="145" width="366" height="17"/>
+                                        <rect key="frame" x="0.0" y="145" width="366" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@diegomaceda" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y5f-g5-fx3">
-                                        <rect key="frame" x="0.0" y="194" width="366" height="17"/>
+                                        <rect key="frame" x="0.0" y="195.5" width="366" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="dmaceda22@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rnj-K9-z82">
-                                        <rect key="frame" x="0.0" y="243" width="366" height="17"/>
+                                        <rect key="frame" x="0.0" y="246" width="366" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
