@@ -26,6 +26,7 @@ class FireAuth {
     func isUserSignedIn() -> User? {
         return Auth.auth().currentUser
     }
+    
     // MARK: Create User
     func createUser(email: String, password: String, onError: @escaping (Error) -> Void, onComplete: @escaping (User) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
@@ -59,6 +60,20 @@ class FireAuth {
     func signOut(onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         // Additional stuff before sign out like removing FCM tokens
         signOutHelper(onError: onError, onComplete: onComplete)
+    }
+    
+    func updateEmail(email: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        if let currentUser = Auth.auth().currentUser {
+            currentUser.updateEmail(to: email) { (error) in
+                if let error = error {
+                    onError(error)
+                } else {
+                    onComplete()
+                }
+            }
+        } else {
+            onError(AuthError.MissingUserError)
+        }
     }
     
     func signOutHelper(onError: ((Error) -> Void)? = nil, onComplete: @escaping () -> Void) {

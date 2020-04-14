@@ -11,7 +11,9 @@ import UIKit
 class MiniaturesTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var unitLabel: UILabel!
+    var cellData = [GenericMini]()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

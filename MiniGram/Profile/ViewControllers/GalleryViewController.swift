@@ -20,9 +20,11 @@ class GalleryViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         collectionViewSetUp()
         
-        galleryPosts = UserData.shared.galleryPosts
+        if let user = UserData.shared.getDatabaseUser() {
+            user.setPostsRefreshFunction(refreshFunction: reloadGalleryPosts)
+        }
         
-        collectionView.reloadData()
+        reloadGalleryPosts()
      }
     
     func collectionViewSetUp() {
@@ -37,17 +39,13 @@ class GalleryViewController: UIViewController {
         layout.minimumLineSpacing = 0
         collectionView!.collectionViewLayout = layout
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func reloadGalleryPosts() {
+        if let user = UserData.shared.getDatabaseUser() {
+            galleryPosts = user.posts
+            collectionView.reloadData()
+        }
     }
-    */
-
 }
 
 extension GalleryViewController: UICollectionViewDelegateFlowLayout {
@@ -71,6 +69,21 @@ extension GalleryViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         cell.galleryImageView.image = galleryPosts[indexPath.item].image
+        galleryPosts[indexPath.item].downloadImageIfMissing(onComplete: cell.updateImage)
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "clickOnGalleryPostSegue" {
+            if let postVC = segue.destination as? PostViewController {
+                postVC.post = sender as? GenericPost
+                postVC.user = UserData.shared.getDatabaseUser()
+            }
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Perform segue to post and send in post and user
+        performSegue(withIdentifier: "clickOnGalleryPostSegue", sender: galleryPosts[indexPath.item])
     }
 }

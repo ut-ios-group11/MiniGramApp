@@ -36,7 +36,7 @@ class PostViewController: UIViewController {
             descTextView.text = post.desc
         }
         if let user = user {
-            usernameLabel.text = user.name
+            usernameLabel.text = user.userName
             userImage.image = user.image
         }
         // post my already be liked by user, initialize button appropirately

@@ -59,7 +59,6 @@ class Fire {
                 onComplete()
             }
         }
-        
     }
     
     func uploadImage(at ref: FireStorageCollection, id: String, image: UIImage, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
