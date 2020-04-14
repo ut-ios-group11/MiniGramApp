@@ -62,7 +62,7 @@ class FireAuth {
         signOutHelper(onError: onError, onComplete: onComplete)
     }
     
-    func updateEmail(email: String, password: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+    func updateEmail(newEmail: String, password: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         guard let email = UserData.shared.getUserEmail() else {
             onError(AuthError.MissingUserError)
             return
@@ -75,7 +75,7 @@ class FireAuth {
                 if let error = error {
                     onError(error)
                 } else {
-                    currentUser.updateEmail(to: email) { (error) in
+                    currentUser.updateEmail(to: newEmail) { (error) in
                         if let error = error {
                             onError(error)
                         } else {

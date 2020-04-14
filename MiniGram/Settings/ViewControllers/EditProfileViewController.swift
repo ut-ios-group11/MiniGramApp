@@ -76,7 +76,7 @@ class EditProfileViewController: UIViewController {
                 Database.shared.updateEmail(email: self.editEmailTextField.text!, password: controller.textFields![0].text!, onError: { (error) in
                     LogManager.logError(error)
                 }, onComplete: {
-                    LogManager.logInfo("Success")
+                    LogManager.logInfo("Updated email sucessfully.")
                 })
             }
             controller.addAction(submitAction)
@@ -94,7 +94,7 @@ class EditProfileViewController: UIViewController {
         Database.shared.updateProfile(name: newName, userName: newUsername, onError: { (error) in
             LogManager.logError(error)
         }) {
-            LogManager.logInfo("Updated profile information.")
+            LogManager.logInfo("Updated profile information sucessfully.")
         }
         
     }
