@@ -83,6 +83,7 @@ class UserData {
                 return
             }
             self.databaseUser = databaseUser
+            self.databaseUser?.downloadImageIfMissing()
             databaseUser.startPostsListening()
             databaseUser.startMiniatureListening()
             onComplete()
@@ -104,7 +105,7 @@ class UserData {
 
         // Explore Users
         for i in 0...10 {
-            let newUser = GenericUser(id: "\(i)", name: "User\(i)", followers: nil, image: UIImage(systemName: "person.circle.fill"))
+            let newUser = GenericUser(id: "\(i)", userName: "username\(i)", name: "User\(i)", followers: nil, image: UIImage(systemName: "person.circle.fill"))
             exploreUsers.append(newUser)
         }
         // Gallery Posts
