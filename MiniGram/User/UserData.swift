@@ -21,6 +21,8 @@ class UserData {
     // Only Use Private Variables
     private var user: User?
     private var databaseUser: GenericUser?
+    private var userListener: Listener?
+    private var userRefreshFunction: ((GenericUser) -> Void)?
 
     // Only For Alpha
     public var explorePosts = [GenericPost]()
@@ -34,16 +36,32 @@ class UserData {
     private func clearAllData() {
         user = nil
         databaseUser = nil
+        userListener?.registration.remove()
+        userListener = nil
+        userRefreshFunction = nil
     }
 
     public func getDatabaseUser() -> GenericUser? {
         return self.databaseUser
     }
+    
+    // MARK: - Sign in/out
 
     public func signOut(onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         FireAuth.shared.signOut(onError: onError) {
             self.clearAllData()
             onComplete()
+        }
+    }
+    
+    public func tryAutoSignIn(onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        if let user = FireAuth.shared.isUserSignedIn() {
+            readUser(id: user.uid, onError: onError, onComplete: {
+                self.startUserListener(id: user.uid)
+                onComplete()
+            })
+        } else {
+            onError(UserDataError.noSignedInUser)
         }
     }
 
@@ -56,22 +74,16 @@ class UserData {
             self.signInHelper(email: email, password: password, onError: onError, onComplete: onComplete)
         }
     }
-
-    public func tryAutoSignIn(onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
-        if let user = FireAuth.shared.isUserSignedIn() {
-            readUser(id: user.uid, onError: onError, onComplete: onComplete)
-        } else {
-            onError(UserDataError.noSignedInUser)
-        }
-    }
-
     private func signInHelper(email: String, password: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         FireAuth.shared.signIn(login: email, pass: password, onError: onError) { (user) in
             self.user = user
-            self.readUser(id: user.uid, onError: onError, onComplete: onComplete)
+            self.readUser(id: user.uid, onError: onError, onComplete: {
+                self.startUserListener(id: user.uid)
+                onComplete()
+            })
         }
     }
-
+    
     private func readUser(id: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         let query = Firestore.firestore().collection(FireCollection.Users.rawValue).document(id)
         Fire.shared.read(at: query, returning: GenericUser.self, onError: onError, onComplete: { (databaseUser) in
@@ -86,7 +98,26 @@ class UserData {
             onComplete()
         })
     }
-
+    
+    // MARK: - User Listener Functions
+    
+    private func startUserListener(id: String) {
+        userListener?.registration.remove()
+        let ref = Firestore.firestore().collection(FireCollection.Users.rawValue).document(id)
+        let listenerReg = Fire.shared.listener(at: ref, returning: GenericUser.self, onComplete: userListenerRead(profileUpdate:))
+        userListener = Listener(id: "user", registration: listenerReg)
+    }
+    
+    private func userListenerRead(profileUpdate: GenericUser) {
+        databaseUser?.update(with: profileUpdate)
+        if let databaseUser = databaseUser {
+            userRefreshFunction?(databaseUser)
+        }
+    }
+    
+    public func setUserRefreshFunction(with function: ((GenericUser) -> Void)?) {
+        userRefreshFunction = function
+    }
 
     // MARK: TEST DATA
     private func createTestData() {
