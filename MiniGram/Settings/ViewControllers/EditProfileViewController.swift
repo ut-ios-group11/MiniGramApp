@@ -45,12 +45,12 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         editNameTextField.placeholder = user.name
         editUsernameTextField.placeholder = user.userName
         editEmailTextField.placeholder = UserData.shared.getUserEmail()
+        editProfileImageView.roundCorners(editProfileImageView.frame.size.width / 2)
     }
     
     let imagePicker = UIImagePickerController()
     
     @IBAction func changeProfilePhoto(_ sender: Any) {
-        
         let controller = UIAlertController(
             title: nil, message: nil,
             preferredStyle: .actionSheet)
@@ -79,7 +79,14 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         LogManager.logInfo("Completed image picker")
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            editProfileImageView.image = pickedImage
+            Database.shared.updateProfilePhoto(image: pickedImage, onError: { (error) in
+                LogManager.logError(error)
+            }) {
+                LogManager.logInfo("Sucessfully updated user profile photo.")
+                UserData.shared.getDatabaseUser()?.downloadImageForced(onComplete: { (image) in
+                    self.editProfileImageView.image = image
+                })
+            }
         }
         dismiss(animated: true, completion: nil)
     }
@@ -128,7 +135,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             self.editUsernameTextField.text = ""
         }
     }
-    
     
     func styleTextFields() {
         editNameTextField.underlined()

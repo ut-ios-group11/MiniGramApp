@@ -45,9 +45,5 @@ class ChangePasswordViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
             }
         }
-        
-        
     }
-    
-    
 }
