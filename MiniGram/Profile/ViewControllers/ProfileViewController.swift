@@ -94,11 +94,11 @@ class ProfileViewController: UIViewController {
         profileViewSelector.removeBorders()
     }
     
-    @IBAction func followButtonPressed(_ sender: Any) {
-        if followButton.image(for: .normal) == UIImage(named: "follow_unselected") {
-            followButton.setImage(UIImage(named: "follow_selected"), for: .normal)
+    @IBAction func followButtonPressed(_ sender: UIButton) {
+        if(!sender.isSelected) {
+            sender.isSelected = true
         } else {
-            followButton.setImage(UIImage(named: "follow_unselected"), for: .normal)
+            sender.isSelected = false
         }
         // TODO: Add user to follow list
     }
