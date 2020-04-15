@@ -47,6 +47,7 @@
 		F354DDC224088CBD00370C04 /* ExploreSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDC124088CBD00370C04 /* ExploreSearchTableViewCell.swift */; };
 		F362F2AE241B19E90032FDEF /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F362F2AC241B19E90032FDEF /* Post.storyboard */; };
 		F362F2AF241B19E90032FDEF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F362F2AD241B19E90032FDEF /* PostViewController.swift */; };
+		F3C6E5C62446A3220050F9E2 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C6E5C52446A3220050F9E2 /* Theme.swift */; };
 		F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB67E23F455D9005AD08D /* AppDelegate.swift */; };
 		F3EBB68123F455D9005AD08D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB68023F455D9005AD08D /* SceneDelegate.swift */; };
 		F3EBB68623F455D9005AD08D /* SignedIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB68423F455D9005AD08D /* SignedIn.storyboard */; };
@@ -110,6 +111,7 @@
 		F354DDC124088CBD00370C04 /* ExploreSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSearchTableViewCell.swift; sourceTree = "<group>"; };
 		F362F2AC241B19E90032FDEF /* Post.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		F362F2AD241B19E90032FDEF /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		F3C6E5C52446A3220050F9E2 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F3EBB67B23F455D9005AD08D /* MiniGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EBB67E23F455D9005AD08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EBB68023F455D9005AD08D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				9D709C02244178D900611642 /* Miniature */,
 				341C5D1F242D439900780FFD /* Comment */,
 				F362F2AB241B19D30032FDEF /* Post */,
+				F3C6E5C52446A3220050F9E2 /* Theme.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				F354DDB8240742A700370C04 /* ProfileViewController.swift in Sources */,
 				F362F2AF241B19E90032FDEF /* PostViewController.swift in Sources */,
 				341C5D21242D43B400780FFD /* CommentViewController.swift in Sources */,
+				F3C6E5C62446A3220050F9E2 /* Theme.swift in Sources */,
 				9D1C47642439016A009329A3 /* ChangePasswordViewController.swift in Sources */,
 				F3EBB6B023F4B7A9005AD08D /* SimpleExtensions.swift in Sources */,
 				F3EBB69623F45B62005AD08D /* FireAuth.swift in Sources */,

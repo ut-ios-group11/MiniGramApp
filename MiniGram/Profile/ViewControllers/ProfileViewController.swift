@@ -24,6 +24,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var followButtonSeparator: UILabel!
     @IBOutlet weak var followButton: UIButton!
     
+    var profileToDisplay: GenericUser?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,23 +36,40 @@ class ProfileViewController: UIViewController {
         viewInsideScrollView.bringSubviewToFront(settingsButton)
         setStyleForSegmentedControl()
         
-        // TODO: If user is current user, hide followButton and followButtonSeparator
-        if let user = UserData.shared.getDatabaseUser() {
-            profileImage.image = user.image
-            nameLabel.text = user.name
-            let count = user.followers?.count ?? 0
-            usernameLabel.text = "@" + user.userName!
-            followersLabel.text = String(count)
-            user.downloadImageIfMissing(onComplete: updateImage)
+        if profileToDisplay == nil {
+            followButton.isHidden = true
+            followButtonSeparator.isHidden = true
+        } else {
+            settingsButton.isHidden = true
         }
+    }
+    
+    func setProfileToDisplay(_ user: GenericUser) {
+        profileToDisplay = user
     }
     
     func updateImage(image: UIImage?) {
         profileImage.image = image
     }
     
+    func updateProfile(user: GenericUser) {
+        profileImage.image = user.image
+        nameLabel.text = user.name
+        let count = user.followers?.count ?? 0
+        usernameLabel.text = "@" + user.userName!
+        followersLabel.text = String(count)
+        user.downloadImageIfMissing(onComplete: updateImage)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        if let profileToDisplay = profileToDisplay {
+            updateProfile(user: profileToDisplay)
+        } else if let user = UserData.shared.getDatabaseUser() {
+            updateProfile(user: user)
+            UserData.shared.setUserRefreshFunction(with: updateProfile(user:))
+        }
     }
     
     @IBAction func switchProfileViews(_ sender: UISegmentedControl) {
@@ -75,13 +94,22 @@ class ProfileViewController: UIViewController {
         profileViewSelector.removeBorders()
     }
     
-    @IBAction func followButtonPressed(_ sender: Any) {
-        if followButton.image(for: .normal) == UIImage(named: "follow_unselected") {
-            followButton.setImage(UIImage(named: "follow_selected"), for: .normal)
+    @IBAction func followButtonPressed(_ sender: UIButton) {
+        if(!sender.isSelected) {
+            sender.isSelected = true
         } else {
-            followButton.setImage(UIImage(named: "follow_unselected"), for: .normal)
+            sender.isSelected = false
         }
         // TODO: Add user to follow list
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? GalleryViewController {
+            vc.setUser(profileToDisplay ?? UserData.shared.getDatabaseUser())
+        }
+        if let vc = segue.destination as? MiniaturesTableViewController {
+            vc.setUser(profileToDisplay ?? UserData.shared.getDatabaseUser())
+        }
     }
 }
 

@@ -62,13 +62,53 @@ class FireAuth {
         signOutHelper(onError: onError, onComplete: onComplete)
     }
     
-    func updateEmail(email: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+    func updateEmail(newEmail: String, password: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        guard let email = UserData.shared.getUserEmail() else {
+            onError(AuthError.MissingUserError)
+            return
+        }
+        
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        
         if let currentUser = Auth.auth().currentUser {
-            currentUser.updateEmail(to: email) { (error) in
+            currentUser.reauthenticate(with: credential) { (authResult, error) in
                 if let error = error {
                     onError(error)
                 } else {
-                    onComplete()
+                    currentUser.updateEmail(to: newEmail) { (error) in
+                        if let error = error {
+                            onError(error)
+                        } else {
+                            onComplete()
+                        }
+                    }
+                }
+            }
+        } else {
+            onError(AuthError.MissingUserError)
+        }
+    }
+    
+    func updatePassword(oldPassword: String, newPassword: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        guard let email = UserData.shared.getUserEmail() else {
+            onError(AuthError.MissingUserError)
+            return
+        }
+        
+        let credential = EmailAuthProvider.credential(withEmail: email, password: oldPassword)
+        
+        if let currentUser = Auth.auth().currentUser {
+            currentUser.reauthenticate(with: credential) { (authResult, error) in
+                if let error = error {
+                    onError(error)
+                } else {
+                    currentUser.updatePassword(to: newPassword) { (error) in
+                        if let error = error {
+                            onError(error)
+                        } else {
+                            onComplete()
+                        }
+                    }
                 }
             }
         } else {

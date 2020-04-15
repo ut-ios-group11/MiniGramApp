@@ -23,19 +23,12 @@ class Database {
     
     let db = Firestore.firestore()
     
-    /*
-     Recommended Ex:
-     
-         func createDatabaseUser(user: DatabaseUser, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
-         
-         }
-     */
-    
     // MARK: - Create Methods
+    
     func createUser(email: String, password: String, username: String, name: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         FireAuth.shared.createUser(email: email, password: password, onError: onError) { (user) in
             let uid = user.uid
-            let data = ["username": username, "name": name]
+            let data = ["userName": username, "name": name]
             let reference = Firestore.firestore().collection(FireCollection.Users.rawValue)
             Fire.shared.create(at: reference, withID: uid, data: data, onError: onError, onComplete: onComplete)
         }
@@ -59,36 +52,31 @@ class Database {
             let fsReference = FireStorageCollection.Miniatures
             Fire.shared.uploadImage(at: fsReference, id: id, image: image, onError: onError, onComplete: onComplete)
         }
-
     }
     
     // MARK: - Update Methods
     
-    // Minatures
-    func updateMinature() {
-        
-    }
-    
-    // Profile
     func updateProfile(name: String? = nil, userName: String? = nil, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         guard let user = UserData.shared.getDatabaseUser() else { return }
         let newName = name ?? user.name
         let newUserName = userName ?? user.userName
-        let reference = Firestore.firestore().collection(FireCollection.Posts.rawValue).document(user.id)
+        let reference = Firestore.firestore().collection(FireCollection.Users.rawValue).document(user.id)
         let data = ["name": newName, "userName": newUserName]
         Fire.shared.update(at: reference, data: data as [String : Any], onError: onError, onComplete: onComplete)
     }
     
-    func updateEmail(email: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
-        FireAuth.shared.updateEmail(email: email, onError: onError, onComplete: onComplete)
+    func updateEmail(email: String, password: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        FireAuth.shared.updateEmail(newEmail: email, password: password, onError: onError, onComplete: onComplete)
     }
     
-    func updateProfilePhoto() {
-        
+    func updateProfilePhoto(image: UIImage, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        let fsReference = FireStorageCollection.Users
+        guard let user = UserData.shared.getDatabaseUser() else { return }
+        Fire.shared.uploadImage(at: fsReference, id: user.id, image: image, onError: onError, onComplete: onComplete)
     }
     
-    func updateUserPassword() {
-        
+    func updateUserPassword(newPassword: String, oldPassword: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        FireAuth.shared.updatePassword(oldPassword: oldPassword, newPassword: newPassword, onError: onError, onComplete: onComplete)
     }
     
     // MARK: - Single Download
@@ -106,10 +94,6 @@ class Database {
     }
     
     // MARK: - Listener Methods
-    
-    func profileListener() {
-        
-    }
     
     func profilePostsListener(listenerId: String, userId: String, onComplete: @escaping ([GenericPost], [String], [GenericPost], String) -> Void) -> Listener {
         let query = Firestore.firestore().collection(FireCollection.Posts.rawValue).whereField("userId", isEqualTo: userId)

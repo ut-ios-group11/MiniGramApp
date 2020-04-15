@@ -13,6 +13,8 @@ class MiniaturesTableViewController: UITableViewController {
     var miniaturePosts = [String: [GenericMini]]()
     var downloadedMiniaturePosts = [GenericMini]()
     let cellSpacingHeight: CGFloat = 16
+    
+    var userToDisplay: GenericUser?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +23,18 @@ class MiniaturesTableViewController: UITableViewController {
         self.tableView.allowsSelection = false
         view.translatesAutoresizingMaskIntoConstraints = false
         
-        if let user = UserData.shared.getDatabaseUser() {
+        if let user = userToDisplay {
             user.setMinisRefreshFunction(refreshFunction: reloadMiniaturePosts)
+            reloadMiniaturePosts()
         }
-        
-        reloadMiniaturePosts()
+    }
+    
+    func setUser(_ user: GenericUser?) {
+        userToDisplay = user
     }
     
     func reloadMiniaturePosts() {
-        if let user = UserData.shared.getDatabaseUser() {
+        if let user = userToDisplay {
             downloadedMiniaturePosts = user.minis
             // Transform 1D array into dict with each entry being a unit name and corresponding GenericMinis
             for mini in downloadedMiniaturePosts {

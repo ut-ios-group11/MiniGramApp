@@ -40,6 +40,13 @@ class GenericUser: FireInitable {
         self.image = image
     }
     
+    // Only updates profile information
+    func update(with profile: GenericUser) {
+        name = profile.name
+        userName = profile.userName
+        followers = profile.followers
+    }
+    
     // MARK: - Profile Image
     
     func downloadImageIfMissing(onComplete: ((UIImage)-> Void)? = nil) {

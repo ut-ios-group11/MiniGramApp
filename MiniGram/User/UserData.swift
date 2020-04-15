@@ -21,14 +21,13 @@ class UserData {
     // Only Use Private Variables
     private var user: User?
     private var databaseUser: GenericUser?
+    private var userListener: Listener?
+    private var userRefreshFunction: ((GenericUser) -> Void)?
 
     // Only For Alpha
     public var explorePosts = [GenericPost]()
     public var exploreUsers = [GenericUser]()
-
-    public var galleryPosts = [GenericPost]()
-    public var miniPosts = [GenericMini]()
-
+    
     private init () {
         //For Testing Only
         createTestData()
@@ -37,16 +36,33 @@ class UserData {
     private func clearAllData() {
         user = nil
         databaseUser = nil
+        userListener?.registration.remove()
+        userListener = nil
+        userRefreshFunction = nil
     }
 
     public func getDatabaseUser() -> GenericUser? {
         return self.databaseUser
     }
+    
+    // MARK: - Sign in/out
 
     public func signOut(onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         FireAuth.shared.signOut(onError: onError) {
             self.clearAllData()
             onComplete()
+        }
+    }
+    
+    public func tryAutoSignIn(onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        if let user = FireAuth.shared.isUserSignedIn() {
+            self.user = user
+            readUser(id: user.uid, onError: onError, onComplete: {
+                self.startUserListener(id: user.uid)
+                onComplete()
+            })
+        } else {
+            onError(UserDataError.noSignedInUser)
         }
     }
 
@@ -59,22 +75,16 @@ class UserData {
             self.signInHelper(email: email, password: password, onError: onError, onComplete: onComplete)
         }
     }
-
-    public func tryAutoSignIn(onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
-        if let user = FireAuth.shared.isUserSignedIn() {
-            readUser(id: user.uid, onError: onError, onComplete: onComplete)
-        } else {
-            onError(UserDataError.noSignedInUser)
-        }
-    }
-
     private func signInHelper(email: String, password: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         FireAuth.shared.signIn(login: email, pass: password, onError: onError) { (user) in
             self.user = user
-            self.readUser(id: user.uid, onError: onError, onComplete: onComplete)
+            self.readUser(id: user.uid, onError: onError, onComplete: {
+                self.startUserListener(id: user.uid)
+                onComplete()
+            })
         }
     }
-
+    
     private func readUser(id: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         let query = Firestore.firestore().collection(FireCollection.Users.rawValue).document(id)
         Fire.shared.read(at: query, returning: GenericUser.self, onError: onError, onComplete: { (databaseUser) in
@@ -89,7 +99,38 @@ class UserData {
             onComplete()
         })
     }
-
+    
+    // MARK: - User Listener Functions
+    
+    private func startUserListener(id: String) {
+        userListener?.registration.remove()
+        let ref = Firestore.firestore().collection(FireCollection.Users.rawValue).document(id)
+        let listenerReg = Fire.shared.listener(at: ref, returning: GenericUser.self, onComplete: userListenerRead(profileUpdate:))
+        userListener = Listener(id: "user", registration: listenerReg)
+    }
+    
+    private func userListenerRead(profileUpdate: GenericUser) {
+        databaseUser?.update(with: profileUpdate)
+        if let databaseUser = databaseUser {
+            userRefreshFunction?(databaseUser)
+        }
+    }
+    
+    public func setUserRefreshFunction(with function: ((GenericUser) -> Void)?) {
+        userRefreshFunction = function
+    }
+    
+    public func getUserEmail() -> String? {
+        return user?.email
+    }
+    
+    public func getUserReloadedEmail(onComplete: @escaping (String) -> Void) {
+        Auth.auth().currentUser?.reload(completion: { (error) in
+            if error == nil, let email = Auth.auth().currentUser?.email{
+                onComplete(email)
+            }
+        })
+    }
 
     // MARK: TEST DATA
     private func createTestData() {
@@ -108,15 +149,6 @@ class UserData {
             let newUser = GenericUser(id: "\(i)", userName: "username\(i)", name: "User\(i)", followers: nil, image: UIImage(systemName: "person.circle.fill"))
             exploreUsers.append(newUser)
         }
-        // Gallery Posts
-        for i in 0...10 {
-            let newPost = GenericPost(id: "\(i)", userId: "\(i)", likes: ["user1", "user2", "user3"], desc: "lorem ipsum something something something. #something", date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
-            galleryPosts.append(newPost)
-        }
         
-        for i in 0...10 {            
-            let newMini = GenericMini(id: "\(i)", userId: "\(i)", date: Timestamp(), unit: "Test Unit", name: "Test Name", image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))")!, pointValue: 0, power: 0, movement: 0, weaponSkill: 0, ballisticSkill: 0, strength: 0, toughness: 0, wounds: 0, attacks: 0, leadership: 0, save: 0, weapons: ["Weapon1", "Weapon2", "Weapon3"], warGear: ["Wargear1", "Wargear2", "Wargear3"], abilities: ["Ability1", "Ability2"], factionKeywords: ["fk1", "fk2"], keywords: ["key1", "key2", "key3"])
-            miniPosts.append(newMini)
-        }
     }
 }
