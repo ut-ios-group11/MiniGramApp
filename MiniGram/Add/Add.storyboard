@@ -1465,7 +1465,7 @@
                                                                                     <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="EHZ-xg-HOr"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Angels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtI-4g-K6o">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carcharodons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtI-4g-K6o">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
@@ -1620,6 +1620,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiP-Fd-Tgo">
                                                         <rect key="frame" x="0.0" y="1722.5" width="398" height="30"/>
                                                         <state key="normal" title="Add Miniature"/>
+                                                        <connections>
+                                                            <action selector="addButton:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="rad-sZ-T7h"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -1656,7 +1659,20 @@
                     <navigationItem key="navigationItem" id="HAW-eP-Xma"/>
                     <size key="freeformSize" width="414" height="2000"/>
                     <connections>
+                        <outlet property="attacksField" destination="d7i-BH-csh" id="z5L-mz-Ke4"/>
+                        <outlet property="ballisticSkillField" destination="g6q-Uj-0rY" id="0yC-Nf-yKt"/>
+                        <outlet property="basePointValueField" destination="yv1-P6-KBP" id="8GQ-Vo-E3X"/>
                         <outlet property="imageView" destination="LwH-uv-GqE" id="LEV-kn-W7H"/>
+                        <outlet property="leadershipField" destination="g3i-uA-kt9" id="e0U-eR-gh5"/>
+                        <outlet property="movementField" destination="EwJ-0c-qlt" id="U96-Se-ZNK"/>
+                        <outlet property="nameField" destination="KzG-fN-TNX" id="waX-b9-51D"/>
+                        <outlet property="powerField" destination="8TW-Yw-KtU" id="D10-DI-gUH"/>
+                        <outlet property="saveField" destination="nTm-61-CK4" id="E8D-5r-thJ"/>
+                        <outlet property="strengthField" destination="nlq-Ce-D8h" id="D3v-8a-rqU"/>
+                        <outlet property="toughnessField" destination="al7-AP-nr3" id="IJN-LD-IAE"/>
+                        <outlet property="unitField" destination="I6h-4H-rSa" id="EEw-va-uYa"/>
+                        <outlet property="weaponSkillField" destination="U89-MY-Haz" id="dhr-SJ-ImE"/>
+                        <outlet property="woundsField" destination="WPe-CJ-uAR" id="F5s-3Z-vTf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SsW-bZ-RW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
