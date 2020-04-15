@@ -14,18 +14,23 @@ class GalleryViewController: UIViewController {
     let collectionViewXInset: CGFloat = 10
     var galleryPosts = [GenericPost]()
     
+    var userToDisplay: GenericUser?
+    
     override func viewDidLoad() {
          super.viewDidLoad()
         
         view.translatesAutoresizingMaskIntoConstraints = false
         collectionViewSetUp()
-        
-        if let user = UserData.shared.getDatabaseUser() {
+
+        if let user = userToDisplay {
             user.setPostsRefreshFunction(refreshFunction: reloadGalleryPosts)
+            reloadGalleryPosts()
         }
-        
-        reloadGalleryPosts()
      }
+    
+    func setUser(_ user: GenericUser?) {
+        userToDisplay = user
+    }
     
     func collectionViewSetUp() {
         // Setting Delegates
@@ -41,10 +46,11 @@ class GalleryViewController: UIViewController {
     }
     
     func reloadGalleryPosts() {
-        if let user = UserData.shared.getDatabaseUser() {
+        if let user = userToDisplay {
             galleryPosts = user.posts
             collectionView.reloadData()
         }
+        
     }
 }
 
@@ -77,7 +83,7 @@ extension GalleryViewController: UICollectionViewDataSource {
         if segue.identifier == "clickOnGalleryPostSegue" {
             if let postVC = segue.destination as? PostViewController {
                 postVC.post = sender as? GenericPost
-                postVC.user = UserData.shared.getDatabaseUser()
+                postVC.user = userToDisplay
             }
         }
     }
