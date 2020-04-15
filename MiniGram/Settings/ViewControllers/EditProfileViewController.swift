@@ -51,7 +51,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     let imagePicker = UIImagePickerController()
     
     @IBAction func changeProfilePhoto(_ sender: Any) {
-        
         let controller = UIAlertController(
             title: nil, message: nil,
             preferredStyle: .actionSheet)
@@ -136,7 +135,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             self.editUsernameTextField.text = ""
         }
     }
-    
     
     func styleTextFields() {
         editNameTextField.underlined()
