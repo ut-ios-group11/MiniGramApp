@@ -27,11 +27,11 @@ class DecideViewController: UIViewController {
             controller.delegate = self
             controller.image = self.image
         }
-        //if segue.identifier == "AddSegue",
-        //    let controller = segue.destination as? DecideViewController {
-        //    controller.delegate = self
-        //    controller.image = self.photoCaptureProcessor.image
-        //}
+        if segue.identifier == "AddSegue",
+            let controller = segue.destination as? AddMiniatureViewController {
+            controller.delegate = self
+            controller.image = self.image
+        }
     }
 
 }

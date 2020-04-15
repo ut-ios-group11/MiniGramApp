@@ -192,10 +192,10 @@
             </objects>
             <point key="canvasLocation" x="511.59420289855075" y="834.375"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Miniature View Controller-->
         <scene sceneID="vhf-Ie-Smd">
             <objects>
-                <viewController id="SbJ-C3-bzb" sceneMemberID="viewController">
+                <viewController id="SbJ-C3-bzb" customClass="AddMiniatureViewController" customModule="MiniGram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CiC-Oz-WyE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -299,6 +299,9 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="2uc-pX-Ugc"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assault cannon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhp-zu-l1J">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -315,6 +318,9 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="XYe-6u-wUp"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autocannon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6O-vu-HFQ">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -332,10 +338,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ukl-SM-AU1">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNX-eW-ZYG">
+                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNX-eW-ZYG">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="Yyn-05-eaq"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boltgun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNi-Zg-1vF">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -348,10 +357,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-DK-6Qb">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VD-85-2pE">
+                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VD-85-2pE">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="gvg-um-6CZ"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bolt pistol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mrt-OJ-Wz9">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -369,10 +381,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="IhT-ix-63Z">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lf-Qe-3KA">
+                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lf-Qe-3KA">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="cEx-Zn-hnl"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Combi-weapons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gk-zQ-Mqh">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -385,10 +400,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="flI-QZ-7rH">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zw-Nm-LPm">
+                                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zw-Nm-LPm">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="ICA-5i-FMw"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flamer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qc-Td-Unq">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -406,10 +424,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="88j-l3-nUY">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeE-7I-xwQ">
+                                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeE-7I-xwQ">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="0XL-tf-jxB"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flamestorm cannon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P66-iB-9vE">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -422,10 +443,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5AH-mE-D7C">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glz-c5-Fao">
+                                                                            <button opaque="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glz-c5-Fao">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="rNq-xG-CHP"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heavy bolter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaM-Kh-02P">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -443,10 +467,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AkD-XM-ofn">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7L-U7-Ey2">
+                                                                            <button opaque="NO" tag="8" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7L-U7-Ey2">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="8Sz-nT-wBx"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heavy flamer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lt6-Pc-Fm2">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -459,10 +486,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="VES-jk-6QA">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3e-cs-Llo">
+                                                                            <button opaque="NO" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3e-cs-Llo">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="czV-Jw-VCl"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lascannon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCK-U5-Snz">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -480,10 +510,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PQZ-8R-LTq">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjd-wa-pga">
+                                                                            <button opaque="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjd-wa-pga">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="b04-Zf-7gy"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meltagun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgz-f1-LjN">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -496,10 +529,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2P4-np-CeI">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdc-vr-iFt">
+                                                                            <button opaque="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdc-vr-iFt">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="FSs-DP-PWC"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Missile launcher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTI-CW-VdH">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -517,10 +553,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5pu-de-4D5">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o68-yY-AOF">
+                                                                            <button opaque="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o68-yY-AOF">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="20o-sT-L41"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multi-melta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTg-bD-CSZ">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -533,10 +572,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="6fu-Cw-41v">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTB-ov-cUu">
+                                                                            <button opaque="NO" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTB-ov-cUu">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="8M1-e0-XlS"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plasma cannon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1b-SI-dUr">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -554,10 +596,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="JPx-0K-2ds">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CP1-Jc-aVN">
+                                                                            <button opaque="NO" tag="14" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CP1-Jc-aVN">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="ePu-NV-Psm"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plasma gun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9i8-gG-AFp">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -570,10 +615,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="dO5-w6-Rv9">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xip-9G-4lZ">
+                                                                            <button opaque="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xip-9G-4lZ">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="rjw-GI-3eu"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plasma pistol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agc-mE-785">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -591,10 +639,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="we7-9T-mdC">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNV-GD-4ql">
+                                                                            <button opaque="NO" tag="16" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNV-GD-4ql">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="3es-j9-Hp0"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sniper rifle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFJ-O8-e3b">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -607,10 +658,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Gf3-Xr-OkW">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNu-ws-vOX">
+                                                                            <button opaque="NO" tag="17" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNu-ws-vOX">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="ULP-Kf-KxN"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Space Marine shotgun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t32-mv-Joj">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -628,10 +682,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="pWJ-qY-rHj">
                                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="InG-R1-ZaU">
+                                                                            <button opaque="NO" tag="18" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="InG-R1-ZaU">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="LBS-oR-pHd"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storm bolter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jii-eT-SgN">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="374.5" height="22"/>
@@ -660,10 +717,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7HL-Sg-ZTq">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0PD-vC-O9Q">
+                                                                            <button opaque="NO" tag="19" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0PD-vC-O9Q">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="oeB-jY-CJt"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chainfist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8B-hM-BMe">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -676,10 +736,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cgT-ab-Cki">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjU-lR-8ZR">
+                                                                            <button opaque="NO" tag="20" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjU-lR-8ZR">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="eQT-Da-mIA"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chainsword" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUb-Qm-lNr">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -697,10 +760,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="wdB-1K-cBW">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAd-y4-nVm">
+                                                                            <button opaque="NO" tag="21" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAd-y4-nVm">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="YDw-u8-TPG"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Power fist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLo-DL-OPK">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -713,10 +779,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bPy-M5-d6E">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgv-V5-n0m">
+                                                                            <button opaque="NO" tag="22" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgv-V5-n0m">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="mzX-4Z-jz2"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thunder hammer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAd-gu-aye">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -745,10 +814,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="c2H-GO-d07">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phP-Yd-g9Y">
+                                                                            <button opaque="NO" tag="23" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phP-Yd-g9Y">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="YjR-cj-6c4"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frag grenade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbI-zR-Drf">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -761,10 +833,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cAS-25-1Xf">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCZ-BG-nN5">
+                                                                            <button opaque="NO" tag="24" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCZ-BG-nN5">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="Zn4-yh-foE"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Krak grenade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Q8-rE-Qjc">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -782,10 +857,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hJd-mT-DPN">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHa-ql-p9R">
+                                                                            <button opaque="NO" tag="25" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHa-ql-p9R">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="ygp-mE-CF3"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melta bombs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXe-vN-MaN">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -798,10 +876,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jzo-KJ-KCL">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSV-RX-0u1">
+                                                                            <button opaque="NO" tag="26" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSV-RX-0u1">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="Bls-GH-W0C"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Psychic hood" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AT0-j8-Hoq">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -819,10 +900,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Wsx-Va-tRc">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x94-eu-siz">
+                                                                            <button opaque="NO" tag="27" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x94-eu-siz">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="Qwo-aQ-212"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scout armour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgV-p1-ThU">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -835,10 +919,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WCH-jv-KGN">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35X-0o-XCm">
+                                                                            <button opaque="NO" tag="28" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35X-0o-XCm">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="lQW-ho-KDu"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Power armour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAV-7h-iHJ">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -856,10 +943,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="V7V-Yh-3Ic">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAC-jP-bNv">
+                                                                            <button opaque="NO" tag="29" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAC-jP-bNv">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="b8g-jw-sMs"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Runic armour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLB-BO-yRB">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -872,10 +962,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="psT-0g-bbV">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMw-Uv-Xj4">
+                                                                            <button opaque="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMw-Uv-Xj4">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="Orl-4b-G5y"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terminator armour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OE-Gv-6hQ">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -904,10 +997,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="KuR-KQ-Wfh">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pM-gI-0xB">
+                                                                            <button opaque="NO" tag="31" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pM-gI-0xB">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="cdY-Ef-HMW"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acute Senses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blp-7D-rrz">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -920,10 +1016,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="sB2-LL-wNH">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUJ-xU-JJr">
+                                                                            <button opaque="NO" tag="32" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUJ-xU-JJr">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="ZT2-uc-Fbr"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Counter-attack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCf-La-QEt">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -941,10 +1040,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HsP-ou-Lux">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GK1-EU-MuI">
+                                                                            <button opaque="NO" tag="33" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GK1-EU-MuI">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="DnA-Fv-jw0"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7r-2e-m5P">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -957,10 +1059,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hE1-8N-AOc">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mI-2r-7N9">
+                                                                            <button opaque="NO" tag="34" contentMode="scaleToFill" horizontalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mI-2r-7N9">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="18" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="9rF-zc-U6L"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Independent Character" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7k-GR-RJ8">
                                                                                 <rect key="frame" x="22" y="0.0" width="177" height="22"/>
@@ -978,10 +1083,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="h1w-xQ-xZe">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFP-s3-OVD">
+                                                                            <button opaque="NO" tag="35" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFP-s3-OVD">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="9tF-Rm-vi3"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mindlock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8g-2M-kXh">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -994,10 +1102,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Jb2-y5-FO6">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoq-72-OUb">
+                                                                            <button opaque="NO" tag="36" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoq-72-OUb">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="fV1-c2-z6M"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thralls" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whU-Tn-J3B">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1015,10 +1126,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BIi-q8-6DI">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xst-QG-Kz3">
+                                                                            <button opaque="NO" tag="37" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xst-QG-Kz3">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="sl8-7T-nhD"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eternal Warrior" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7T-Pa-lrY">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1031,10 +1145,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="y4S-aA-c2U">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auq-L9-IEY">
+                                                                            <button opaque="NO" tag="38" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auq-L9-IEY">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="Sln-0x-cth"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fearless" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPB-ud-tJE">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1052,10 +1169,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8Xn-Bv-C8Y">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYu-db-KMd">
+                                                                            <button opaque="NO" tag="39" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYu-db-KMd">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="7fs-GS-pBp"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feel No Pain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEv-qu-nBF">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1068,10 +1188,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SaN-7W-AGI">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbP-EX-Cwq">
+                                                                            <button opaque="NO" tag="40" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbP-EX-Cwq">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="2Lf-lg-uB9"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monster Hunter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kw0-JM-amf">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1100,10 +1223,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ta0-Kk-w8Q">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFk-XC-6x8">
+                                                                            <button opaque="NO" tag="41" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFk-XC-6x8">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="gJX-zC-O8e"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imperium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPl-8t-D7u">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1116,10 +1242,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="yCu-Sf-48J">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CY0-VD-Ylj">
+                                                                            <button opaque="NO" tag="42" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CY0-VD-Ylj">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="iqm-bZ-0RP"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adeptus Astartes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86C-Nh-yFk">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1137,10 +1266,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fu7-Gf-Ah7">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qH-Oq-Ayg">
+                                                                            <button opaque="NO" tag="43" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qH-Oq-Ayg">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="rUJ-2D-l6z"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Space Wolves" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjJ-I8-90y">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1153,10 +1285,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RRG-yt-OWR">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHg-IR-kXw">
+                                                                            <button opaque="NO" tag="44" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHg-IR-kXw">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="Qjv-oE-tdu"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ultramarines" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkO-bN-XzC">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1174,10 +1309,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="w58-jI-6Ms">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75B-dN-LgE">
+                                                                            <button opaque="NO" tag="45" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75B-dN-LgE">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="2kw-6f-l6O"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imperial Fists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBH-kM-lpX">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1190,10 +1328,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="0Vm-kL-nYu">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNz-Mb-jhL">
+                                                                            <button opaque="NO" tag="46" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNz-Mb-jhL">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="7aN-g5-Tf7"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Angels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJy-tO-Ymq">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1211,10 +1352,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3b0-T6-8aC">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoP-ic-GoE">
+                                                                            <button opaque="NO" tag="47" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoP-ic-GoE">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="Oft-0C-62I"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Angels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwk-mv-mek">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1227,10 +1371,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SiL-MU-Dxb">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EjN-sl-K08">
+                                                                            <button opaque="NO" tag="48" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EjN-sl-K08">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="RJX-Yi-kPC"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="White Scars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6y-Fe-gYZ">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1248,10 +1395,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-bX-OJd">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxb-E0-Nub">
+                                                                            <button opaque="NO" tag="49" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxb-E0-Nub">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="0jh-p4-P9r"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Black Templars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVg-rs-cax">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1264,10 +1414,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Pqo-zr-RCm">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYN-K8-hxd">
+                                                                            <button opaque="NO" tag="50" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYN-K8-hxd">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="QV4-mK-xoM"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salamanders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gva-5L-IhI">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1285,10 +1438,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="a5Y-gW-Brz">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFf-7l-6ev">
+                                                                            <button opaque="NO" tag="51" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFf-7l-6ev">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="jwn-Nt-ev9"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crimson Fists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCS-Mz-KNP">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1301,10 +1457,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SAQ-zr-J9Y">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfm-h3-cZv">
+                                                                            <button opaque="NO" tag="52" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfm-h3-cZv">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="EHZ-xg-HOr"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Angels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtI-4g-K6o">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1333,10 +1492,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="V6I-iO-1cz">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IS5-lJ-8s2">
+                                                                            <button opaque="NO" tag="53" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IS5-lJ-8s2">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="wlV-pU-Zfu"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hF1-tS-pzh">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1349,10 +1511,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BsC-DG-xpO">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8If-vO-ue5">
+                                                                            <button opaque="NO" tag="54" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8If-vO-ue5">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="01q-3N-XJr"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primaris" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFH-di-izB">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1370,10 +1535,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="l1x-bX-OsV">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wz-wS-Ck5">
+                                                                            <button opaque="NO" tag="55" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wz-wS-Ck5">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="NkW-VX-jkL"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Infantry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJQ-FO-04N">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1386,10 +1554,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="flB-zJ-2g2">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuZ-5a-tvz">
+                                                                            <button opaque="NO" tag="56" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuZ-5a-tvz">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="EU1-1e-a2b"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battle leader" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjq-8I-zmO">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1407,10 +1578,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PWM-gP-A8P">
                                                                         <rect key="frame" x="0.0" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfE-xT-yqP">
+                                                                            <button opaque="NO" tag="57" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfE-xT-yqP">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="WgF-jk-8he"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terminator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oj8-hu-tHr">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1423,10 +1597,13 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Exb-9B-4Ke">
                                                                         <rect key="frame" x="199" y="0.0" width="199" height="22"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf9-gr-9hy">
+                                                                            <button opaque="NO" tag="58" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf9-gr-9hy">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="22"/>
                                                                                 <state key="normal" image="square" catalog="system"/>
                                                                                 <state key="selected" image="square.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="buttonPressedWithSender:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="N4U-kE-3ut"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cavalry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSm-vF-xuk">
                                                                                 <rect key="frame" x="23.5" y="0.0" width="175.5" height="22"/>
@@ -1478,6 +1655,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="HAW-eP-Xma"/>
                     <size key="freeformSize" width="414" height="2000"/>
+                    <connections>
+                        <outlet property="imageView" destination="LwH-uv-GqE" id="LEV-kn-W7H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SsW-bZ-RW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
