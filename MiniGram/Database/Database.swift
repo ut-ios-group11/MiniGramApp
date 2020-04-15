@@ -83,8 +83,10 @@ class Database {
         FireAuth.shared.updateEmail(newEmail: email, password: password, onError: onError, onComplete: onComplete)
     }
     
-    func updateProfilePhoto() {
-        
+    func updateProfilePhoto(image: UIImage, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        let fsReference = FireStorageCollection.Users
+        guard let user = UserData.shared.getDatabaseUser() else { return }
+        Fire.shared.uploadImage(at: fsReference, id: user.id, image: image, onError: onError, onComplete: onComplete)
     }
     
     func updateUserPassword(newPassword: String, oldPassword: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
