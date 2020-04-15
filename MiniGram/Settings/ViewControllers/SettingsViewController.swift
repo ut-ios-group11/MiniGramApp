@@ -13,7 +13,7 @@ var accountSettings = ["Edit Profile", "Change Password"]
 class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var accountTableView: UITableView!
-    @IBOutlet weak var darkModeSwitch: UISwitch!
+    @IBOutlet weak var themeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var logOutButton: UIButton!
     
     override func viewDidLoad() {
@@ -22,10 +22,33 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view.
         accountTableView.delegate = self
         accountTableView.dataSource = self
-        darkModeSwitch.isOn =  UserDefaults.standard.bool(forKey: "switchState")
-        darkModeToggle(darkModeSwitch)
+        setUpSegmentedControl()
         logOutButton.roundCorners(4)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    func setUpSegmentedControl() {
+        switch Theme.getCurrentTheme() {
+        case .system:
+            themeSegmentedControl.selectedSegmentIndex = 0
+        case .dark:
+            themeSegmentedControl.selectedSegmentIndex = 1
+        case .light:
+            themeSegmentedControl.selectedSegmentIndex = 2
+        }
+    }
+    
+    @IBAction func switchTheme(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            Theme.setCurrentTheme(.system)
+        case 1:
+            Theme.setCurrentTheme(.dark)
+        case 2:
+            Theme.setCurrentTheme(.light)
+        default:
+            return
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,21 +57,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewWillDisappear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-    }
-    
-    @IBAction func darkModeToggle(_ sender: UISwitch) {
-        UserDefaults.standard.set(sender.isOn, forKey: "switchState")
-        if darkModeSwitch.isOn {
-            view.overrideUserInterfaceStyle = .dark
-            UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = .dark
-            }
-        } else {
-            view.overrideUserInterfaceStyle = .light
-            UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = .light
-            }
-        }
     }
     
     @IBAction func logoutButton() {

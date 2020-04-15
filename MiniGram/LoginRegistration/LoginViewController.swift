@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Theme.updateSystemToCurrentState()
         self.hideKeyboardWhenTappedAround()
         spinner.hidesWhenStopped = true
         spinner.roundCorners(4)
