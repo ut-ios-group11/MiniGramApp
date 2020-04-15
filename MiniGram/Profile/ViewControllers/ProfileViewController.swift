@@ -24,6 +24,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var followButtonSeparator: UILabel!
     @IBOutlet weak var followButton: UIButton!
     
+    var profileToDisplay: GenericUser?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,8 +36,16 @@ class ProfileViewController: UIViewController {
         viewInsideScrollView.bringSubviewToFront(settingsButton)
         setStyleForSegmentedControl()
         
-        // TODO: If user is current user, hide followButton and followButtonSeparator
-        
+        if profileToDisplay == nil {
+            followButton.isHidden = true
+            followButtonSeparator.isHidden = true
+        } else {
+            settingsButton.isHidden = true
+        }
+    }
+    
+    func setProfileToDisplay(_ user: GenericUser) {
+        profileToDisplay = user
     }
     
     func updateImage(image: UIImage?) {
@@ -53,7 +63,10 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
-        if let user = UserData.shared.getDatabaseUser() {
+        
+        if let profileToDisplay = profileToDisplay {
+            updateProfile(user: profileToDisplay)
+        } else if let user = UserData.shared.getDatabaseUser() {
             updateProfile(user: user)
             UserData.shared.setUserRefreshFunction(with: updateProfile(user:))
         }
@@ -88,6 +101,15 @@ class ProfileViewController: UIViewController {
             followButton.setImage(UIImage(named: "follow_unselected"), for: .normal)
         }
         // TODO: Add user to follow list
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? GalleryViewController {
+            vc.setUser(profileToDisplay ?? UserData.shared.getDatabaseUser())
+        }
+        if let vc = segue.destination as? MiniaturesTableViewController {
+            vc.setUser(profileToDisplay ?? UserData.shared.getDatabaseUser())
+        }
     }
 }
 
