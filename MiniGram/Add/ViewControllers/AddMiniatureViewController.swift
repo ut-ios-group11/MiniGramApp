@@ -32,26 +32,26 @@ class AddMiniatureViewController: UIViewController {
         
         guard let user = UserData.shared.getDatabaseUser() else { return }
         
-        var unit = self.unitField.text ?? ""
-        var name = self.nameField.text ?? ""
-        var pointValue = Int(basePointValueField.text ?? "0")! + self.getWeaponsPointValue() + self.getWargearPointValue()
-        var power = Int(self.powerField.text ?? "0")!
-        var movement = Int(self.movementField.text ?? "0")!
-        var weaponSkill = Int(self.weaponSkillField.text ?? "0")!
-        var ballisticSkill = Int(self.ballisticSkillField.text ?? "0")!
-        var strength = Int(self.strengthField.text ?? "0")!
-        var toughness = Int(self.toughnessField.text ?? "0")!
-        var wounds = Int(self.woundsField.text ?? "0")!
-        var attacks = Int(self.attacksField.text ?? "0")!
-        var leadership = Int(self.leadershipField.text ?? "0")!
-        var save = Int(self.saveField.text ?? "0")!
-        var weapons = self.getSelectedButtons(start: WEAPONS_BEG, end: WEAPONS_END)
-        var wargear = self.getSelectedButtons(start: WARGEAR_BEG, end: WARGEAR_END)
-        var abilities = self.getSelectedButtons(start: ABILITIES_BEG, end: ABILITIES_END)
-        var factionKeywords = self.getSelectedButtons(start: FACTION_KEYWORDS_BEG, end: FACTION_KEYWORDS_END)
-        var keywords = self.getSelectedButtons(start: KEYWORDS_BEG, end: KEYWORDS_END)
+        let unit = self.unitField.text ?? ""
+        let name = self.nameField.text ?? ""
+        let pointValue = Int(basePointValueField.text ?? "0")! + self.getWeaponsPointValue() + self.getWargearPointValue()
+        let power = Int(self.powerField.text ?? "0")!
+        let movement = Int(self.movementField.text ?? "0")!
+        let weaponSkill = Int(self.weaponSkillField.text ?? "0")!
+        let ballisticSkill = Int(self.ballisticSkillField.text ?? "0")!
+        let strength = Int(self.strengthField.text ?? "0")!
+        let toughness = Int(self.toughnessField.text ?? "0")!
+        let wounds = Int(self.woundsField.text ?? "0")!
+        let attacks = Int(self.attacksField.text ?? "0")!
+        let leadership = Int(self.leadershipField.text ?? "0")!
+        let save = Int(self.saveField.text ?? "0")!
+        let weapons = self.getSelectedButtons(start: WEAPONS_BEG, end: WEAPONS_END)
+        let wargear = self.getSelectedButtons(start: WARGEAR_BEG, end: WARGEAR_END)
+        let abilities = self.getSelectedButtons(start: ABILITIES_BEG, end: ABILITIES_END)
+        let factionKeywords = self.getSelectedButtons(start: FACTION_KEYWORDS_BEG, end: FACTION_KEYWORDS_END)
+        let keywords = self.getSelectedButtons(start: KEYWORDS_BEG, end: KEYWORDS_END)
         
-        var newMiniature = GenericMini(id: "", userId: user.id, date: Timestamp(), unit: unit, name: name, image: self.image, pointValue: pointValue, power: power, movement: movement, weaponSkill: weaponSkill, ballisticSkill: ballisticSkill, strength: strength, toughness: toughness, wounds: wounds, attacks: attacks, leadership: leadership, save: save, weapons: weapons, warGear: wargear, abilities: abilities, factionKeywords: factionKeywords, keywords: keywords)
+        let newMiniature = GenericMini(id: "", userId: user.id, date: Timestamp(), unit: unit, name: name, image: self.image, pointValue: pointValue, power: power, movement: movement, weaponSkill: weaponSkill, ballisticSkill: ballisticSkill, strength: strength, toughness: toughness, wounds: wounds, attacks: attacks, leadership: leadership, save: save, weapons: weapons, warGear: wargear, abilities: abilities, factionKeywords: factionKeywords, keywords: keywords)
         
         Database.shared.createMinature(image: self.image, miniature: newMiniature, onError: { (Error) in
             LogManager.logError(Error)
@@ -80,6 +80,7 @@ class AddMiniatureViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         self.imageView.image = self.image
     }
     
