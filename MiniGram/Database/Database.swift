@@ -48,7 +48,7 @@ class Database {
         let reference = Firestore.firestore().collection(FireCollection.Miniatures.rawValue)
         let id = reference.document().documentID
         let data = miniature.toDict()
-        Fire.shared.create(at: reference, data: data, onError: onError) {
+        Fire.shared.create(at: reference, withID: id, data: data, onError: onError) {
             let fsReference = FireStorageCollection.Miniatures
             Fire.shared.uploadImage(at: fsReference, id: id, image: image, onError: onError, onComplete: onComplete)
         }

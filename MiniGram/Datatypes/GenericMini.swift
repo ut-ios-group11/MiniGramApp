@@ -90,6 +90,7 @@ class GenericMini: FireInitable {
     
     func toDict() -> [String : Any] {
         return [
+            "userId": userId ?? "",
             "unit": unit ?? "",
             "name": name ?? "",
             "pointValue": pointValue,
