@@ -112,6 +112,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rr-lW-3iy">
                                         <rect key="frame" x="50" y="635" width="314" height="30"/>
                                         <color key="backgroundColor" name="flippedColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Create new post">
                                             <color key="titleColor" name="flippedColorComplement"/>
                                         </state>
@@ -122,6 +123,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2b5-jT-P0Q">
                                         <rect key="frame" x="50" y="675" width="314" height="30"/>
                                         <color key="backgroundColor" name="flippedColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Add new miniature">
                                             <color key="titleColor" name="flippedColorComplement"/>
                                         </state>
