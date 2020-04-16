@@ -167,16 +167,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iTt-UD-NRs">
-                                <rect key="frame" x="0.0" y="88" width="414" height="499"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="560.5"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OM1-hp-xIH">
-                                <rect key="frame" x="20" y="669" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OM1-hp-xIH">
+                                <rect key="frame" x="20" y="668.5" width="374" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHW-Yf-Tmo">
                                 <rect key="frame" x="20" y="707" width="374" height="30"/>
-                                <state key="normal" title="Submit post"/>
+                                <color key="backgroundColor" name="flippedColor"/>
+                                <state key="normal" title="Submit post">
+                                    <color key="titleColor" name="flippedColorComplement"/>
+                                </state>
                                 <connections>
                                     <action selector="submitButton:" destination="hLw-cU-SVQ" eventType="touchUpInside" id="RQF-1C-gam"/>
                                 </connections>
@@ -189,9 +192,9 @@
                             <constraint firstItem="EHW-Yf-Tmo" firstAttribute="leading" secondItem="ppG-10-qIJ" secondAttribute="leading" constant="20" id="HeL-uq-wpn"/>
                             <constraint firstItem="iTt-UD-NRs" firstAttribute="centerX" secondItem="OM1-hp-xIH" secondAttribute="centerX" id="VnQ-SW-2zq"/>
                             <constraint firstItem="iTt-UD-NRs" firstAttribute="leading" secondItem="ppG-10-qIJ" secondAttribute="leading" id="WGo-ub-qfy"/>
-                            <constraint firstItem="EHW-Yf-Tmo" firstAttribute="top" secondItem="OM1-hp-xIH" secondAttribute="bottom" constant="4" id="XWc-Vr-zxx"/>
+                            <constraint firstItem="EHW-Yf-Tmo" firstAttribute="top" secondItem="OM1-hp-xIH" secondAttribute="bottom" constant="20" id="XWc-Vr-zxx"/>
                             <constraint firstItem="OM1-hp-xIH" firstAttribute="leading" secondItem="v9M-Kq-yd7" secondAttribute="leadingMargin" id="Yar-VL-P1q"/>
-                            <constraint firstItem="OM1-hp-xIH" firstAttribute="top" secondItem="iTt-UD-NRs" secondAttribute="bottom" constant="82" id="bkL-FY-rtw"/>
+                            <constraint firstItem="OM1-hp-xIH" firstAttribute="top" secondItem="iTt-UD-NRs" secondAttribute="bottom" constant="20" id="bkL-FY-rtw"/>
                             <constraint firstItem="OM1-hp-xIH" firstAttribute="centerX" secondItem="EHW-Yf-Tmo" secondAttribute="centerX" id="kEP-6R-DLJ"/>
                             <constraint firstItem="iTt-UD-NRs" firstAttribute="top" secondItem="ppG-10-qIJ" secondAttribute="top" id="oQ3-ke-X8D"/>
                         </constraints>
@@ -200,8 +203,9 @@
                     <navigationItem key="navigationItem" id="Btb-BP-S74"/>
                     <connections>
                         <outlet property="captionField" destination="OM1-hp-xIH" id="fp5-j4-lFD"/>
-                        <outlet property="captionFieldConstraint" destination="XWc-Vr-zxx" id="kVr-m4-pUP"/>
+                        <outlet property="captionFieldConstraint" destination="H4C-Fk-jr7" id="Xe8-V2-vrN"/>
                         <outlet property="imageView" destination="iTt-UD-NRs" id="fMd-rK-ubY"/>
+                        <outlet property="submitButton" destination="EHW-Yf-Tmo" id="2KA-eM-SQr"/>
                         <segue destination="L8y-xd-gqo" kind="unwind" identifier="HomeSegue" unwindAction="prepareForUnwindWithSegue:" id="uHt-7x-AIw"/>
                     </connections>
                 </viewController>

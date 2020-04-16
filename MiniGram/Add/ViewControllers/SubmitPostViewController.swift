@@ -14,6 +14,7 @@ class SubmitPostViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var captionField: UITextField!
     @IBOutlet weak var captionFieldConstraint: NSLayoutConstraint!
+    @IBOutlet weak var submitButton: UIButton!
     
     @IBAction func submitButton(_ sender: Any) {
         guard let user = UserData.shared.getDatabaseUser() else { return }
@@ -39,6 +40,8 @@ class SubmitPostViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         self.imageView.image = self.image
+        captionField.underlined()
+        submitButton.roundCorners(4)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
