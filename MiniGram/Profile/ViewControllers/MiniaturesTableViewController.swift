@@ -29,6 +29,10 @@ class MiniaturesTableViewController: UITableViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        reloadMiniaturePosts()
+    }
+    
     func setUser(_ user: GenericUser?) {
         userToDisplay = user
     }

@@ -28,6 +28,10 @@ class GalleryViewController: UIViewController {
         }
      }
     
+    override func viewWillAppear(_ animated: Bool) {
+        reloadGalleryPosts()
+    }
+    
     func setUser(_ user: GenericUser?) {
         userToDisplay = user
     }
