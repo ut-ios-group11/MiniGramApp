@@ -19,7 +19,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u8W-yl-HKo">
                                 <rect key="frame" x="10" y="812" width="394" height="40"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pxg-qA-PAe">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pxg-qA-PAe">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Pxg-qA-PAe" secondAttribute="height" multiplier="1:1" id="4yG-gq-D4E"/>
@@ -58,7 +58,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dox-rs-pBz">
                                                     <rect key="frame" x="10" y="10" width="394" height="232"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qKR-11-UJh">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qKR-11-UJh">
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="qKR-11-UJh" secondAttribute="height" multiplier="1:1" id="84G-cj-ULR"/>
