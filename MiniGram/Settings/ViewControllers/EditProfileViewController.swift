@@ -24,6 +24,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 
         // Do any additional setup after loading the view.
         editProfileImageView.roundCorners(editProfileImageView.frame.size.width / 2)
+        self.hideKeyboardWhenTappedAround()
         styleTextFields()
         styleButtons()
         imagePicker.delegate = self
