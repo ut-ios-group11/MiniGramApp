@@ -86,6 +86,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
 //        cell.commentUserImage = ???
         cell.commentUsername.text = post?.comments[indexPath.row].userId
         cell.commentText.text = post?.comments[indexPath.row].message
+        cell.commentUserImage.image = user?.image
         return cell
     }
     
