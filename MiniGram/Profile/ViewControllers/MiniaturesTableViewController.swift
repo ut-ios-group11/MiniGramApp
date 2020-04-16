@@ -71,7 +71,6 @@ class MiniaturesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! MiniaturesTableViewCell
         
         cell.unitLabel.text = Array(miniaturePosts.keys)[indexPath.section]
-        cell.cellData = miniaturePosts[Array(miniaturePosts.keys)[indexPath.section]]!
         cell.backgroundColor = UIColor.clear
         cell.layer.borderWidth = 0
         cell.clipsToBounds = true
