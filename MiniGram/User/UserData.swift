@@ -136,9 +136,9 @@ class UserData {
     private func createTestData() {
         // Explore Posts
         for i in 0...10 {
-            let newPost = GenericPost(id: "\(i)", userId: "\(i)", likes: ["user1", "user2", "user3"], desc: "lorem ipsum something something something. #something", date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
+            let newPost = GenericPost(id: "\(i)", userId: "TestUser\(i)", likes: ["user1", "user2", "user3"], desc: "lorem ipsum something something something. #something", date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
             for j in 0...2 {
-                let comment = Comment(id: "\(j)", userId: "\(i)", message: "this is a comment. Specifically comment number \(j) created by user \(i)", date: Timestamp())
+                let comment = Comment(id: "\(j)", userId: "TestUser\(i)", message: "this is a comment. Specifically comment number \(j) created by user \(i)", date: Timestamp())
                 newPost.addComment(comment: comment)
             }
             explorePosts.append(newPost)
@@ -146,7 +146,7 @@ class UserData {
 
         // Explore Users
         for i in 0...10 {
-            let newUser = GenericUser(id: "\(i)", userName: "username\(i)", name: "User\(i)", followers: nil, image: UIImage(systemName: "person.circle.fill"))
+            let newUser = GenericUser(id: "\(i)", userName: "TestUser\(i)", name: "User\(i)", followers: nil, image: UIImage(systemName: "person.circle.fill"))
             exploreUsers.append(newUser)
         }
         
