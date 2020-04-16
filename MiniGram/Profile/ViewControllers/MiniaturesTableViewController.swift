@@ -92,7 +92,7 @@ extension MiniaturesTableViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView,
         numberOfItemsInSection section: Int) -> Int {
-//        collectionView.reloadData()
+        collectionView.reloadData()
         return Array(miniaturePosts.values)[collectionView.tag].count
     }
 
