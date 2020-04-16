@@ -67,11 +67,22 @@ class MiniatureViewController: UIViewController {
             leadershipLabel.text = "Leadership: \(String(mini.leadership))"
             saveLabel.text = "Save: \(String(mini.save))"
             
-            weaponsLabel.text = "Weapons: \(mini.weapons ??? "")"
-            warGearLabel.text = "War Gear: \(mini.warGear ??? "")"
-            abilitiesLabel.text = "Abilities: \(mini.abilities ??? "")"
-            factionKeywordsLabel.text = "Faction Keywords: \(mini.factionKeywords ??? "")"
-            keywordsLabel.text = "Keywords: \(mini.keywords ??? "")"
+            weaponsLabel.text = printArrayItems(field: "Weapons", array: mini.weapons ?? [])
+            warGearLabel.text = printArrayItems(field: "War Gear", array: mini.warGear ?? [])
+            abilitiesLabel.text = printArrayItems(field: "Abilites", array: mini.abilities ?? [])
+            factionKeywordsLabel.text = printArrayItems(field: "Faction Keywords", array: mini.factionKeywords ?? [])
+            keywordsLabel.text = printArrayItems(field: "Keywords", array: mini.keywords ?? [])
         }
+    }
+    
+    func printArrayItems(field: String, array: [String]) -> String {
+        var labelText = ""
+        labelText += field + ": "
+        var delim = ""
+        for item in array {
+            labelText += delim + item
+            delim = ", "
+        }
+        return labelText
     }
 }
