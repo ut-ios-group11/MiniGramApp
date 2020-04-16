@@ -31,13 +31,13 @@ class PostViewController: UIViewController {
     
     func refreshData() {
         if let post = post {
-            postImage.image = post.image
+            postImage.image = post.image ?? UIImage(named: "placeholder")
             likesLabel.text = String(post.likes.count)
             descTextView.text = post.desc
         }
         if let user = user {
             usernameLabel.text = user.userName
-            userImage.image = user.image
+            userImage.image = user.image ?? UIImage(named: "placeholder")
         }
         // post my already be liked by user, initialize button appropirately
         if user != nil && post != nil {

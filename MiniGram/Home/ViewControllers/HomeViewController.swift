@@ -71,8 +71,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 return UITableViewCell()
         }
         let user = getUser(userName: exploreUsers[indexPath.row].userName!)
-        cell.postImage.image = explorePosts[indexPath.row].image
-        cell.userImage.image = user.image
+        cell.postImage.image = explorePosts[indexPath.row].image ?? UIImage(named: "placeholder")
+        cell.userImage.image = user.image ?? UIImage(named: "placeholder")
         cell.userImage.round()
         cell.username.text = explorePosts[indexPath.row].userId
         cell.likeCount.text = String(explorePosts[indexPath.row].likes.count)

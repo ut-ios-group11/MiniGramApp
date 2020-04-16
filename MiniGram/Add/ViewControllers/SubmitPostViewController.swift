@@ -39,7 +39,7 @@ class SubmitPostViewController: UIViewController {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        self.imageView.image = self.image
+        self.imageView.image = self.image ?? UIImage(named: "placeholder")
         captionField.underlined()
         submitButton.roundCorners(4)
     }

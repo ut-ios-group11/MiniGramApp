@@ -50,7 +50,7 @@ class MiniatureViewController: UIViewController {
     
     func refreshData() {
         if let mini = mini {
-            miniatureImage.image = mini.image
+            miniatureImage.image = mini.image ?? UIImage(named: "placeholder")
 
             unitLabel.text = "Unit: \(mini.unit ??? "")"
             nameLabel.text = "Name: \(mini.name ??? "")"

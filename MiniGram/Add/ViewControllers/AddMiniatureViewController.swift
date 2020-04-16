@@ -85,7 +85,7 @@ class AddMiniatureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        self.imageView.image = self.image
+        self.imageView.image = self.image ?? UIImage(named: "placeholder")
         
         self.unitField.underlined()
         self.nameField.underlined()

@@ -151,7 +151,7 @@ class CaptureViewController: UIViewController {
         if segue.identifier == "DecideSegue",
             let controller = segue.destination as? DecideViewController {
             controller.delegate = self
-            controller.image = self.photoCaptureProcessor.image
+            controller.image = self.photoCaptureProcessor.image ?? UIImage(named: "placeholder")
             self.unlockCaptureButton()
         }
     }

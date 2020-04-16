@@ -13,7 +13,7 @@ class MiniaturesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var miniaturesImageView: UIImageView!
     
     func updateImage(image: UIImage?) {
-        self.miniaturesImageView.image = image
+        self.miniaturesImageView.image = image ?? UIImage(named: "placeholder")
     }
 
 }

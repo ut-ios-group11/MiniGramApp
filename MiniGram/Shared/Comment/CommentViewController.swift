@@ -44,7 +44,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         explorePosts = UserData.shared.explorePosts
         tableView.delegate = self
         tableView.dataSource = self
-        userImage.image = user?.image
+        userImage.image = user?.image ?? UIImage(named: "placeholder")
         tableView.reloadData()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -87,7 +87,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
 //        cell.commentUserImage = ???
         cell.commentUsername.text = post?.comments[indexPath.row].userId
         cell.commentText.text = post?.comments[indexPath.row].message
-        cell.commentUserImage.image = user?.image
+        cell.commentUserImage.image = user?.image ?? UIImage(named: "placeholder")
         return cell
     }
     
