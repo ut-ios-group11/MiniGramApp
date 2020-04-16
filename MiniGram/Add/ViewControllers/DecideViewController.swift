@@ -20,7 +20,7 @@ class DecideViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imageView.image = self.image
+        self.imageView.image = self.image ?? UIImage(named: "placeholder")
         postButton.roundCorners(4)
         miniButton.roundCorners(4)
     }
@@ -29,12 +29,12 @@ class DecideViewController: UIViewController {
         if segue.identifier == "PostSegue",
             let controller = segue.destination as? SubmitPostViewController {
             controller.delegate = self
-            controller.image = self.image
+            controller.image = self.image ?? UIImage(named: "placeholder")
         }
         if segue.identifier == "AddSegue",
             let controller = segue.destination as? AddMiniatureViewController {
             controller.delegate = self
-            controller.image = self.image
+            controller.image = self.image ?? UIImage(named: "placeholder")
         }
     }
 

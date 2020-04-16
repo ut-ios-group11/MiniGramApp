@@ -94,7 +94,7 @@ extension ExploreViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pictureCell", for: indexPath) as? ExploreCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.imageView.image = explorePosts[indexPath.item].image
+        cell.imageView.image = explorePosts[indexPath.item].image ?? UIImage(named: "placeholder")
         return cell
     }
 }

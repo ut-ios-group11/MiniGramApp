@@ -58,7 +58,7 @@ extension ExploreSearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as! ExploreSearchTableViewCell
-        cell.profileImage?.image = users[indexPath.row].image
+        cell.profileImage?.image = users[indexPath.row].image ?? UIImage(named: "placeholder")
         cell.nameLabel.text = users[indexPath.row].name
         return cell
     }

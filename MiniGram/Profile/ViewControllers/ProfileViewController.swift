@@ -49,11 +49,11 @@ class ProfileViewController: UIViewController {
     }
     
     func updateImage(image: UIImage?) {
-        profileImage.image = image
+        profileImage.image = image ?? UIImage(named: "placeholder")
     }
     
     func updateProfile(user: GenericUser) {
-        profileImage.image = user.image
+        profileImage.image = user.image ?? UIImage(named: "placeholder")
         nameLabel.text = user.name
         let count = user.followers?.count ?? 0
         usernameLabel.text = "@" + user.userName!

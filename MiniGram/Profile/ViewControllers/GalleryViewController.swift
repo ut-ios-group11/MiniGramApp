@@ -74,7 +74,7 @@ extension GalleryViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pictureCell", for: indexPath) as? GalleryCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.galleryImageView.image = galleryPosts[indexPath.item].image
+        cell.galleryImageView.image = galleryPosts[indexPath.item].image ?? UIImage(named: "placeholder")
         galleryPosts[indexPath.item].downloadImageIfMissing(onComplete: cell.updateImage)
         return cell
     }

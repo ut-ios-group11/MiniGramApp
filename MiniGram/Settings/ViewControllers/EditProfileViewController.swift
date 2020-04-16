@@ -41,7 +41,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     func updateProfile(user: GenericUser) {
         nameLabel.text = user.name
         usernameLabel.text = "@" + user.userName!
-        editProfileImageView.image = user.image
+        editProfileImageView.image = user.image ?? UIImage(named: "placeholder")
         user.downloadImageIfMissing(onComplete: updateImage)
         editNameTextField.placeholder = user.name
         editUsernameTextField.placeholder = user.userName
@@ -150,6 +150,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func updateImage(image: UIImage?) {
-        editProfileImageView.image = image
+        editProfileImageView.image = image ?? UIImage(named: "placeholder")
     }
 }
