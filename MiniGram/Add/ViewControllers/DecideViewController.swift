@@ -12,6 +12,8 @@ class DecideViewController: UIViewController {
     
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var miniButton: UIButton!
     
     var delegate: UIViewController!
     var image: UIImage!
@@ -19,6 +21,8 @@ class DecideViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageView.image = self.image
+        postButton.roundCorners(4)
+        miniButton.roundCorners(4)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

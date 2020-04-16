@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i2u-kC-KDM">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -17,13 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Est-4P-bgU" customClass="PreviewView" customModule="MiniGram" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2G-n6-NHf">
-                                        <rect key="frame" x="173" y="716" width="68" height="63.5"/>
+                                        <rect key="frame" x="173" y="628" width="68" height="63.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="68" id="mO5-AP-GOr"/>
                                         </constraints>
+                                        <color key="tintColor" name="flippedColor"/>
                                         <state key="normal" image="viewfinder.circle" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="45" scale="large"/>
                                         </state>
@@ -41,9 +42,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Est-4P-bgU" firstAttribute="top" secondItem="feJ-dI-YNB" secondAttribute="top" id="GQu-d3-rmj"/>
+                            <constraint firstItem="Est-4P-bgU" firstAttribute="top" secondItem="tkH-KK-JmD" secondAttribute="top" id="GQu-d3-rmj"/>
                             <constraint firstItem="Est-4P-bgU" firstAttribute="leading" secondItem="feJ-dI-YNB" secondAttribute="leading" id="WAQ-xF-fHd"/>
-                            <constraint firstAttribute="bottom" secondItem="Est-4P-bgU" secondAttribute="bottom" constant="83" id="Wt5-tH-0OZ"/>
+                            <constraint firstItem="tkH-KK-JmD" firstAttribute="bottom" secondItem="Est-4P-bgU" secondAttribute="bottom" id="Wt5-tH-0OZ"/>
                             <constraint firstAttribute="trailing" secondItem="Est-4P-bgU" secondAttribute="trailing" id="zCl-fR-FrS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tkH-KK-JmD"/>
@@ -54,6 +55,7 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1KU-YI-6fC">
                                 <rect key="frame" x="20" y="8.5" width="23" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="flippedColor"/>
                                 <state key="normal" image="bolt.badge.a.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
@@ -61,6 +63,7 @@
                                     <action selector="flashButton:" destination="t3O-oz-fEt" eventType="touchUpInside" id="Yob-Vj-e64"/>
                                 </connections>
                             </button>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -82,6 +85,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xJ9-ay-Ei0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="flippedColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="t3O-oz-fEt" kind="relationship" relationship="rootViewController" id="cdT-do-eMa"/>
@@ -99,42 +103,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOX-fL-qfY">
-                                <rect key="frame" x="0.0" y="88" width="414" height="499"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rr-lW-3iy">
-                                <rect key="frame" x="20" y="669" width="374" height="30"/>
-                                <state key="normal" title="Create new post"/>
-                                <connections>
-                                    <segue destination="hLw-cU-SVQ" kind="show" identifier="PostSegue" id="O9I-oR-6CV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2b5-jT-P0Q">
-                                <rect key="frame" x="20" y="707" width="374" height="30"/>
-                                <state key="normal" title="Add new miniature"/>
-                                <connections>
-                                    <segue destination="SbJ-C3-bzb" kind="show" identifier="AddSegue" id="VXb-4Z-aIF"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bU7-zN-wRP">
+                                <rect key="frame" x="0.0" y="88" width="414" height="705"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="nOX-fL-qfY">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="625"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rr-lW-3iy">
+                                        <rect key="frame" x="50" y="635" width="314" height="30"/>
+                                        <color key="backgroundColor" name="flippedColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Create new post">
+                                            <color key="titleColor" name="flippedColorComplement"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="hLw-cU-SVQ" kind="show" identifier="PostSegue" id="O9I-oR-6CV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2b5-jT-P0Q">
+                                        <rect key="frame" x="50" y="675" width="314" height="30"/>
+                                        <color key="backgroundColor" name="flippedColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Add new miniature">
+                                            <color key="titleColor" name="flippedColorComplement"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="SbJ-C3-bzb" kind="show" identifier="AddSegue" id="VXb-4Z-aIF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2b5-jT-P0Q" firstAttribute="leading" secondItem="bU7-zN-wRP" secondAttribute="leading" constant="50" id="VJH-r2-u79"/>
+                                    <constraint firstItem="3Rr-lW-3iy" firstAttribute="leading" secondItem="bU7-zN-wRP" secondAttribute="leading" constant="50" id="sL6-bJ-sS2"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="2b5-jT-P0Q" firstAttribute="top" secondItem="3Rr-lW-3iy" secondAttribute="bottom" constant="8" id="8UG-yd-XJ1"/>
-                            <constraint firstItem="CGq-dU-ddS" firstAttribute="bottom" secondItem="2b5-jT-P0Q" secondAttribute="bottom" constant="76" id="AOQ-Wd-sgH"/>
-                            <constraint firstItem="3Rr-lW-3iy" firstAttribute="leading" secondItem="CGq-dU-ddS" secondAttribute="leading" constant="20" id="Iew-7U-CcM"/>
-                            <constraint firstItem="nOX-fL-qfY" firstAttribute="centerX" secondItem="3Rr-lW-3iy" secondAttribute="centerX" id="RiZ-U3-162"/>
-                            <constraint firstItem="nOX-fL-qfY" firstAttribute="trailing" secondItem="CGq-dU-ddS" secondAttribute="trailing" id="TW0-fH-SRy"/>
-                            <constraint firstItem="nOX-fL-qfY" firstAttribute="top" secondItem="CGq-dU-ddS" secondAttribute="top" id="bRh-JY-Kjz"/>
-                            <constraint firstItem="nOX-fL-qfY" firstAttribute="leading" secondItem="CGq-dU-ddS" secondAttribute="leading" id="ffJ-U5-m8V"/>
-                            <constraint firstItem="2b5-jT-P0Q" firstAttribute="leading" secondItem="3Rr-lW-3iy" secondAttribute="leading" id="oVm-WT-Abt"/>
-                            <constraint firstItem="2b5-jT-P0Q" firstAttribute="trailing" secondItem="3Rr-lW-3iy" secondAttribute="trailing" id="rQc-Fg-CW8"/>
-                            <constraint firstItem="3Rr-lW-3iy" firstAttribute="top" secondItem="nOX-fL-qfY" secondAttribute="bottom" constant="82" id="xKu-K1-k5S"/>
+                            <constraint firstItem="bU7-zN-wRP" firstAttribute="leading" secondItem="CGq-dU-ddS" secondAttribute="leading" id="9F8-HA-azf"/>
+                            <constraint firstItem="CGq-dU-ddS" firstAttribute="bottom" secondItem="bU7-zN-wRP" secondAttribute="bottom" constant="20" id="N41-SS-L99"/>
+                            <constraint firstItem="bU7-zN-wRP" firstAttribute="top" secondItem="CGq-dU-ddS" secondAttribute="top" id="NZT-MT-wQx"/>
+                            <constraint firstItem="bU7-zN-wRP" firstAttribute="trailing" secondItem="CGq-dU-ddS" secondAttribute="trailing" id="hJf-L6-Z0N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CGq-dU-ddS"/>
                     </view>
                     <navigationItem key="navigationItem" id="Rvv-5u-Qgc"/>
                     <connections>
                         <outlet property="imageView" destination="nOX-fL-qfY" id="vlo-gh-AVg"/>
+                        <outlet property="miniButton" destination="2b5-jT-P0Q" id="CYe-AE-6pr"/>
+                        <outlet property="postButton" destination="3Rr-lW-3iy" id="0Ai-L6-LoL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7m6-zO-uxg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -150,16 +167,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iTt-UD-NRs">
-                                <rect key="frame" x="0.0" y="88" width="414" height="499"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="560.5"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OM1-hp-xIH">
-                                <rect key="frame" x="20" y="669" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OM1-hp-xIH">
+                                <rect key="frame" x="20" y="668.5" width="374" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHW-Yf-Tmo">
                                 <rect key="frame" x="20" y="707" width="374" height="30"/>
-                                <state key="normal" title="Submit post"/>
+                                <color key="backgroundColor" name="flippedColor"/>
+                                <state key="normal" title="Submit post">
+                                    <color key="titleColor" name="flippedColorComplement"/>
+                                </state>
                                 <connections>
                                     <action selector="submitButton:" destination="hLw-cU-SVQ" eventType="touchUpInside" id="RQF-1C-gam"/>
                                 </connections>
@@ -172,9 +192,9 @@
                             <constraint firstItem="EHW-Yf-Tmo" firstAttribute="leading" secondItem="ppG-10-qIJ" secondAttribute="leading" constant="20" id="HeL-uq-wpn"/>
                             <constraint firstItem="iTt-UD-NRs" firstAttribute="centerX" secondItem="OM1-hp-xIH" secondAttribute="centerX" id="VnQ-SW-2zq"/>
                             <constraint firstItem="iTt-UD-NRs" firstAttribute="leading" secondItem="ppG-10-qIJ" secondAttribute="leading" id="WGo-ub-qfy"/>
-                            <constraint firstItem="EHW-Yf-Tmo" firstAttribute="top" secondItem="OM1-hp-xIH" secondAttribute="bottom" constant="4" id="XWc-Vr-zxx"/>
+                            <constraint firstItem="EHW-Yf-Tmo" firstAttribute="top" secondItem="OM1-hp-xIH" secondAttribute="bottom" constant="20" id="XWc-Vr-zxx"/>
                             <constraint firstItem="OM1-hp-xIH" firstAttribute="leading" secondItem="v9M-Kq-yd7" secondAttribute="leadingMargin" id="Yar-VL-P1q"/>
-                            <constraint firstItem="OM1-hp-xIH" firstAttribute="top" secondItem="iTt-UD-NRs" secondAttribute="bottom" constant="82" id="bkL-FY-rtw"/>
+                            <constraint firstItem="OM1-hp-xIH" firstAttribute="top" secondItem="iTt-UD-NRs" secondAttribute="bottom" constant="20" id="bkL-FY-rtw"/>
                             <constraint firstItem="OM1-hp-xIH" firstAttribute="centerX" secondItem="EHW-Yf-Tmo" secondAttribute="centerX" id="kEP-6R-DLJ"/>
                             <constraint firstItem="iTt-UD-NRs" firstAttribute="top" secondItem="ppG-10-qIJ" secondAttribute="top" id="oQ3-ke-X8D"/>
                         </constraints>
@@ -183,8 +203,9 @@
                     <navigationItem key="navigationItem" id="Btb-BP-S74"/>
                     <connections>
                         <outlet property="captionField" destination="OM1-hp-xIH" id="fp5-j4-lFD"/>
-                        <outlet property="captionFieldConstraint" destination="XWc-Vr-zxx" id="kVr-m4-pUP"/>
+                        <outlet property="captionFieldConstraint" destination="H4C-Fk-jr7" id="Xe8-V2-vrN"/>
                         <outlet property="imageView" destination="iTt-UD-NRs" id="fMd-rK-ubY"/>
+                        <outlet property="submitButton" destination="EHW-Yf-Tmo" id="2KA-eM-SQr"/>
                         <segue destination="L8y-xd-gqo" kind="unwind" identifier="HomeSegue" unwindAction="prepareForUnwindWithSegue:" id="uHt-7x-AIw"/>
                     </connections>
                 </viewController>
