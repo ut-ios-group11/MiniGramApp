@@ -35,6 +35,7 @@ class MiniaturesTableViewController: UITableViewController {
     
     func reloadMiniaturePosts() {
         if let user = userToDisplay {
+            miniaturePosts.removeAll()
             downloadedMiniaturePosts = user.minis
             // Transform 1D array into dict with each entry being a unit name and corresponding GenericMinis
             for mini in downloadedMiniaturePosts {
