@@ -102,7 +102,7 @@ extension MiniaturesTableViewController: UICollectionViewDelegate, UICollectionV
         
         // Set the mini's image and download if missing
         cell.miniaturesImageView.image = mini.image
-        miniaturePosts[key]![indexPath.item].downloadImageIfMissing(onComplete: cell.updateImage)
+        mini.downloadImageIfMissing(onComplete: cell.updateImage)
         
         return cell
     }
