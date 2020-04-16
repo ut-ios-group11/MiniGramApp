@@ -49,6 +49,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         self.hideKeyboardWhenTappedAround()
+        addCommentText.addBottomBorderWithColor()
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -86,6 +87,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
 //        cell.commentUserImage = ???
         cell.commentUsername.text = post?.comments[indexPath.row].userId
         cell.commentText.text = post?.comments[indexPath.row].message
+        cell.commentUserImage.image = user?.image
         return cell
     }
     

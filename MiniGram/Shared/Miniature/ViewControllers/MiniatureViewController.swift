@@ -52,7 +52,7 @@ class MiniatureViewController: UIViewController {
         if let mini = mini {
             miniatureImage.image = mini.image
 
-            unitLabel.text = "Name: \(mini.unit ??? "")"
+            unitLabel.text = "Unit: \(mini.unit ??? "")"
             nameLabel.text = "Name: \(mini.name ??? "")"
 
             pointValueLabel.text = "Point Value: \(String(mini.pointValue))"
