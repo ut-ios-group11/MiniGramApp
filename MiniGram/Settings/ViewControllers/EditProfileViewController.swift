@@ -101,6 +101,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         if editEmailTextField.text != "" {
             let controller = UIAlertController(title: "Password Required", message: "Please enter your password to change your email.", preferredStyle: .alert)
             controller.addTextField()
+            controller.textFields![0].isSecureTextEntry = true
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             controller.addAction(cancelAction)
