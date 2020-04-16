@@ -34,17 +34,17 @@ class AddMiniatureViewController: UIViewController {
         
         let unit = self.unitField.text ?? ""
         let name = self.nameField.text ?? ""
-        let pointValue = Int(basePointValueField.text ?? "0")! + self.getWeaponsPointValue() + self.getWargearPointValue()
-        let power = Int(self.powerField.text ?? "0")!
-        let movement = Int(self.movementField.text ?? "0")!
-        let weaponSkill = Int(self.weaponSkillField.text ?? "0")!
-        let ballisticSkill = Int(self.ballisticSkillField.text ?? "0")!
-        let strength = Int(self.strengthField.text ?? "0")!
-        let toughness = Int(self.toughnessField.text ?? "0")!
-        let wounds = Int(self.woundsField.text ?? "0")!
-        let attacks = Int(self.attacksField.text ?? "0")!
-        let leadership = Int(self.leadershipField.text ?? "0")!
-        let save = Int(self.saveField.text ?? "0")!
+        let pointValue = Int(basePointValueField.text ?? "0") ?? 0 + self.getWeaponsPointValue() + self.getWargearPointValue()
+        let power = Int(self.powerField.text ?? "0") ?? 0
+        let movement = Int(self.movementField.text ?? "0") ?? 0
+        let weaponSkill = Int(self.weaponSkillField.text ?? "0") ?? 0
+        let ballisticSkill = Int(self.ballisticSkillField.text ?? "0") ?? 0
+        let strength = Int(self.strengthField.text ?? "0") ?? 0
+        let toughness = Int(self.toughnessField.text ?? "0") ?? 0
+        let wounds = Int(self.woundsField.text ?? "0") ?? 0
+        let attacks = Int(self.attacksField.text ?? "0") ?? 0
+        let leadership = Int(self.leadershipField.text ?? "0") ?? 0
+        let save = Int(self.saveField.text ?? "0") ?? 0
         let weapons = self.getSelectedButtons(start: WEAPONS_BEG, end: WEAPONS_END)
         let wargear = self.getSelectedButtons(start: WARGEAR_BEG, end: WARGEAR_END)
         let abilities = self.getSelectedButtons(start: ABILITIES_BEG, end: ABILITIES_END)
@@ -82,6 +82,20 @@ class AddMiniatureViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         self.imageView.image = self.image
+        
+        self.unitField.underlined()
+        self.nameField.underlined()
+        self.basePointValueField.underlined()
+        self.powerField.underlined()
+        self.movementField.underlined()
+        self.weaponSkillField.underlined()
+        self.ballisticSkillField.underlined()
+        self.strengthField.underlined()
+        self.toughnessField.underlined()
+        self.woundsField.underlined()
+        self.attacksField.underlined()
+        self.leadershipField.underlined()
+        self.saveField.underlined()
     }
     
     func getSelectedButtons(start: Int, end: Int) -> [String] {
