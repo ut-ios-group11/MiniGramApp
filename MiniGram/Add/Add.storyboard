@@ -177,6 +177,7 @@
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHW-Yf-Tmo">
                                 <rect key="frame" x="20" y="707" width="374" height="30"/>
                                 <color key="backgroundColor" name="flippedColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Submit post">
                                     <color key="titleColor" name="flippedColorComplement"/>
                                 </state>
@@ -226,10 +227,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="2329"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOf-gD-YAM">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2299"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2287"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="0dm-m8-dIW">
-                                                <rect key="frame" x="8" y="8" width="398" height="2283"/>
+                                                <rect key="frame" x="8" y="8" width="398" height="2271"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LwH-uv-GqE">
                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="497.5"/>
@@ -1701,10 +1702,12 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiP-Fd-Tgo">
-                                                        <rect key="frame" x="0.0" y="2241" width="398" height="42"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <color key="tintColor" name="flippedColor"/>
-                                                        <state key="normal" title="Add Miniature"/>
+                                                        <rect key="frame" x="0.0" y="2241" width="398" height="30"/>
+                                                        <color key="backgroundColor" name="flippedColor"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                        <state key="normal" title="Add Miniature">
+                                                            <color key="titleColor" name="flippedColorComplement"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="addButton:" destination="SbJ-C3-bzb" eventType="touchUpInside" id="rad-sZ-T7h"/>
                                                         </connections>
@@ -1744,6 +1747,7 @@
                     <navigationItem key="navigationItem" id="HAW-eP-Xma"/>
                     <size key="freeformSize" width="414" height="2500"/>
                     <connections>
+                        <outlet property="addButton" destination="ZiP-Fd-Tgo" id="RrP-Hu-Jlk"/>
                         <outlet property="attacksField" destination="d7i-BH-csh" id="z5L-mz-Ke4"/>
                         <outlet property="ballisticSkillField" destination="g6q-Uj-0rY" id="0yC-Nf-yKt"/>
                         <outlet property="basePointValueField" destination="yv1-P6-KBP" id="8GQ-Vo-E3X"/>

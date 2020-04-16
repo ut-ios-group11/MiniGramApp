@@ -18,6 +18,7 @@ class AddMiniatureViewController: UIViewController {
     @IBOutlet weak var attacksField: UITextField!
     @IBOutlet weak var leadershipField: UITextField!
     @IBOutlet weak var saveField: UITextField!
+    @IBOutlet weak var addButton: UIButton!
     
     @IBAction func buttonPressed(sender: UIButton) {
         sender.isSelected = !sender.isSelected
@@ -32,7 +33,10 @@ class AddMiniatureViewController: UIViewController {
         
         guard let user = UserData.shared.getDatabaseUser() else { return }
         
-        let unit = self.unitField.text ?? ""
+        var unit = self.unitField.text ?? ""
+        if unit == "" {
+            unit = "Unspecified"
+        }
         let name = self.nameField.text ?? ""
         let pointValue = Int(basePointValueField.text ?? "0") ?? 0 + self.getWeaponsPointValue() + self.getWargearPointValue()
         let power = Int(self.powerField.text ?? "0") ?? 0
@@ -96,6 +100,7 @@ class AddMiniatureViewController: UIViewController {
         self.attacksField.underlined()
         self.leadershipField.underlined()
         self.saveField.underlined()
+        self.addButton.roundCorners(4)
     }
     
     func getSelectedButtons(start: Int, end: Int) -> [String] {
