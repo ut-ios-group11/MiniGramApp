@@ -41,7 +41,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         
         navigationController?.setNavigationBarHidden(false, animated: true)
 //        addCommentText.underlined()
-        explorePosts = UserData.shared.explorePosts
+        explorePosts = UserData.shared.getExplorePosts()
         tableView.delegate = self
         tableView.dataSource = self
         userImage.image = user?.image ?? UIImage(named: "placeholder")

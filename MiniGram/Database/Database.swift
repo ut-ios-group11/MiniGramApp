@@ -109,6 +109,11 @@ class Database {
         return Listener(id: listenerId, registration: listenerRegistration)
     }
     
+    func allPostsListener(listenerId: String, onComplete: @escaping ([GenericPost],[String],[GenericPost], String) -> Void) -> Listener {
+        let query = Firestore.firestore().collection(FireCollection.Posts.rawValue)
+        let listenerRegistration = Fire.shared.listener(at: query, returning: GenericPost.self, onComplete: onComplete)
+        return Listener(id: listenerId, registration: listenerRegistration)
+    }
     // MARK: - Check Methods
     
     // MARK: - Delete Methods

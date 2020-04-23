@@ -26,8 +26,18 @@ class ExploreViewController: UIViewController {
         searchBarTextField.delegate = self
         collectionViewSetUp()
         
-        explorePosts = UserData.shared.explorePosts
+        explorePosts = UserData.shared.getExplorePosts()
         
+        UserData.shared.setExplorePostsRefreshFunction(with: reloadData)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reloadData()
+    }
+    
+    func reloadData() {
+        explorePosts = UserData.shared.getExplorePosts()
         collectionView.reloadData()
     }
     
@@ -94,7 +104,9 @@ extension ExploreViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pictureCell", for: indexPath) as? ExploreCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.imageView.image = explorePosts[indexPath.item].image ?? UIImage(named: "placeholder")
+        let post = explorePosts[indexPath.item]
+        cell.imageView.image = post.image ?? UIImage(named: "placeholder")
+        post.downloadImageIfMissing(onComplete: cell.updateImage(image:))
         return cell
     }
 }

@@ -23,9 +23,12 @@ class UserData {
     private var databaseUser: GenericUser?
     private var userListener: Listener?
     private var userRefreshFunction: ((GenericUser) -> Void)?
+    
+    private var explorePostsListener: Listener?
+    private var explorePostsRefreshFunction: (() -> Void)?
 
+    private var explorePosts = [GenericPost]()
     // Only For Alpha
-    public var explorePosts = [GenericPost]()
     public var exploreUsers = [GenericUser]()
     
     private init () {
@@ -39,6 +42,12 @@ class UserData {
         userListener?.registration.remove()
         userListener = nil
         userRefreshFunction = nil
+        
+        explorePostsListener?.registration.remove()
+        explorePostsListener = nil
+        explorePostsRefreshFunction = nil
+        
+        explorePosts.removeAll()
     }
 
     public func getDatabaseUser() -> GenericUser? {
@@ -59,6 +68,7 @@ class UserData {
             self.user = user
             readUser(id: user.uid, onError: onError, onComplete: {
                 self.startUserListener(id: user.uid)
+                self.startPostsListener()
                 onComplete()
             })
         } else {
@@ -80,6 +90,7 @@ class UserData {
             self.user = user
             self.readUser(id: user.uid, onError: onError, onComplete: {
                 self.startUserListener(id: user.uid)
+                self.startPostsListener()
                 onComplete()
             })
         }
@@ -131,19 +142,42 @@ class UserData {
             }
         })
     }
+    
+    // MARK: - Post Listener Functions
+    public func getExplorePosts() -> [GenericPost] {
+        return explorePosts
+    }
+    private func startPostsListener() {
+        explorePostsListener?.registration.remove()
+        explorePosts.removeAll()
+        explorePostsListener = Database.shared.allPostsListener(listenerId: "explorePosts", onComplete: postsListenerRead(add:remove:change:id:))
+    }
+    
+    public func setExplorePostsRefreshFunction(with function: (() -> Void)?) {
+        explorePostsRefreshFunction = function
+    }
+    
+    private func postsListenerRead(add: [GenericPost], remove: [String], change: [GenericPost], id: String) {
+        //add
+        for post in add {
+            self.explorePosts.append(post)
+        }
+        //remove
+        for id in remove {
+            self.explorePosts.removeAll(where: {$0.id == id})
+        }
+        //change
+        for post in change {
+            for i in 0..<self.explorePosts.count where self.explorePosts[i].id ==
+                post.id {
+                    self.explorePosts[i].update(with: post)
+            }
+        }
+        explorePostsRefreshFunction?()
+    }
 
     // MARK: TEST DATA
     private func createTestData() {
-        // Explore Posts
-        for i in 0...6 {
-            let newPost = GenericPost(id: "\(i)", userId: "TestUser\(i)", likes: ["user1", "user2", "user3"], desc: "lorem ipsum something something something. #something", date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
-            for j in 0...2 {
-                let comment = Comment(id: "\(j)", userId: "TestUser\(i)", message: "this is a comment. Specifically comment number \(j) created by user \(i)", date: Timestamp())
-                newPost.addComment(comment: comment)
-            }
-            explorePosts.append(newPost)
-        }
-
         // Explore Users
         for i in 0...6 {
             let newUser = GenericUser(id: "\(i)", userName: "TestUser\(i)", name: "User\(i)", followers: nil, image: UIImage(named: "u\(i)"))

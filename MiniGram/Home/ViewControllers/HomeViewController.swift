@@ -58,7 +58,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        explorePosts = UserData.shared.explorePosts
+        explorePosts = UserData.shared.getExplorePosts()
         exploreUsers = UserData.shared.exploreUsers
     }
     
