@@ -106,7 +106,9 @@ extension MiniaturesTableViewController: UICollectionViewDelegate, UICollectionV
         
         // Set the mini's image and download if missing
         cell.miniaturesImageView.image = mini.image ?? UIImage(named: "placeholder")
-        mini.downloadImageIfMissing(onComplete: cell.updateImage)
+        mini.downloadImageIfMissing {
+            collectionView.reloadItems(at: [indexPath])
+        }
         
         return cell
     }

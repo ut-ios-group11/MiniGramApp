@@ -10,8 +10,5 @@ import UIKit
 
 class GalleryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var galleryImageView: UIImageView!
-    
-    func updateImage(image: UIImage?) {
-        self.galleryImageView.image = image ?? UIImage(named: "placeholder")
-    }
+
 }

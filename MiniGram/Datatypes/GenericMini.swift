@@ -113,7 +113,7 @@ class GenericMini: FireInitable {
         ]
     }
     
-    func downloadImageIfMissing(onComplete: ((UIImage)-> Void)? = nil) {
+    func downloadImageIfMissing(onComplete: (()-> Void)? = nil) {
         if image == nil {
             downloadImage(onComplete: onComplete)
         }
@@ -123,13 +123,13 @@ class GenericMini: FireInitable {
         downloadImage()
     }
     
-    private func downloadImage(onComplete: ((UIImage)-> Void)? = nil) {
+    private func downloadImage(onComplete: (()-> Void)? = nil) {
         Database.shared.downloadMiniatureImage(id: id, onError: { (error) in
             LogManager.logError(error)
         }) { (image) in
             self.image = image
             LogManager.logInfo("Image for miniature \(self.id) downloaded")
-            onComplete?(image)
+            onComplete?()
         }
     }
     

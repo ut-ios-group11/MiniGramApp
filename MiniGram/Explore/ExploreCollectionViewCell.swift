@@ -12,7 +12,4 @@ class ExploreCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    func updateImage(image: UIImage?) {
-        self.imageView.image = image ?? UIImage(named: "placeholder")
-    }
 }
