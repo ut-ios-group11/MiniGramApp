@@ -106,7 +106,9 @@ extension ExploreViewController: UICollectionViewDataSource {
         }
         let post = explorePosts[indexPath.item]
         cell.imageView.image = post.image ?? UIImage(named: "placeholder")
-        post.downloadImageIfMissing(onComplete: cell.updateImage(image:))
+        post.downloadImageIfMissing {
+            collectionView.reloadItems(at: [indexPath])
+        }
         return cell
     }
 }
