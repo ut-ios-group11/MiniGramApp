@@ -18,7 +18,7 @@ class SubmitPostViewController: UIViewController {
     
     @IBAction func submitButton(_ sender: Any) {
         guard let user = UserData.shared.getDatabaseUser() else { return }
-        let post = GenericPost(id: "", userId: user.id, likes: [String](), desc: captionField.text!, date: Timestamp(), image: nil)
+        let post = GenericPost(id: "", userId: user.id, userName: user.userName, likes: [String](), desc: captionField.text!, date: Timestamp(), image: nil)
         Database.shared.createPost(image: imageView.image!, post: post, onError: { (Error) in
             LogManager.logError(Error)
         }) {

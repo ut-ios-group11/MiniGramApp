@@ -87,7 +87,6 @@ extension GalleryViewController: UICollectionViewDataSource {
         if segue.identifier == "clickOnGalleryPostSegue" {
             if let postVC = segue.destination as? PostViewController {
                 postVC.post = sender as? GenericPost
-                postVC.user = userToDisplay
             }
         }
     }

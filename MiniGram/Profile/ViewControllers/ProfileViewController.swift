@@ -56,7 +56,7 @@ class ProfileViewController: UIViewController {
         profileImage.image = user.image ?? UIImage(named: "placeholder")
         nameLabel.text = user.name
         let count = user.followers?.count ?? 0
-        usernameLabel.text = "@" + user.userName!
+        usernameLabel.text = "@" + user.userName
         followersLabel.text = String(count)
         user.downloadImageIfMissing(onComplete: updateImage)
     }

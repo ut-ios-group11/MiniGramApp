@@ -51,9 +51,6 @@ class ExploreViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PostViewController {
             vc.post = postToDisplay
-            vc.user = UserData.shared.exploreUsers.first(where: { (user) -> Bool in
-                return user.id == postToDisplay?.id
-            })
         }
     }
 }

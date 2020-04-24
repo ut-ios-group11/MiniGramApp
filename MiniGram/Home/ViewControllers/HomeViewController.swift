@@ -70,7 +70,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? HomeFeedTableViewCell else {
                 return UITableViewCell()
         }
-        let user = getUser(userName: exploreUsers[indexPath.row].userName!)
+        let user = getUser(userName: exploreUsers[indexPath.row].userName)
         cell.postImage.image = explorePosts[indexPath.row].image ?? UIImage(named: "placeholder")
         cell.userImage.image = user.image ?? UIImage(named: "placeholder")
         cell.userImage.round()

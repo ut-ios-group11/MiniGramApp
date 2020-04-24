@@ -18,13 +18,12 @@ class PostViewController: UIViewController {
     @IBOutlet weak var likesLabel: UILabel!
     
     var post: GenericPost?
-    var user: GenericUser?
-
+    let currentUser = UserData.shared.getDatabaseUser()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         userImage.round()
         refreshData()
-        // Do any additional setup after loading the view.
         
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -34,29 +33,35 @@ class PostViewController: UIViewController {
             postImage.image = post.image ?? UIImage(named: "placeholder")
             likesLabel.text = String(post.likes.count)
             descTextView.text = post.desc
+            usernameLabel.text = post.userName
+            
+            // Set the profile image for the user who posted 
+            userImage.image = post.userImage ?? UIImage(named: "placeholder")
+            post.downloadUserImageIfMissing(onComplete: updateImage)
         }
-        if let user = user {
-            usernameLabel.text = user.userName
-            userImage.image = user.image ?? UIImage(named: "placeholder")
-        }
+        
         // post my already be liked by user, initialize button appropirately
-        if user != nil && post != nil {
-            if (post?.likes.contains(user!.id))! {
+        if currentUser != nil && post != nil {
+            if (post?.likes.contains(currentUser!.id))! {
                 likeButton.isSelected = true
             }
         }
+    }
+    
+    func updateImage(image: UIImage?) {
+        self.userImage.image = image ?? UIImage(named: "placeholder")
     }
     
     @IBAction func likeClick(_ sender: UIButton) {
         // Update Database instead of local.
         if (!sender.isSelected) {
             sender.isSelected = true
-            post?.likes.append(user!.id)
+            post?.likes.append(currentUser!.id)
             refreshData()
         } else {
             sender.isSelected = false
             post?.likes.removeAll(where: { (id) -> Bool in
-                id == user!.id
+                id == currentUser!.id
             })
             refreshData()
         }

@@ -13,25 +13,27 @@ class GenericPost: FireInitable {
     
     var id: String
     var userId: String
+    var userName: String
     var date: Timestamp
     var desc: String
     var likes: [String]
     var image: UIImage?
     var comments = [Comment]()
-    
-    var user: GenericUser?
-    
+    var userImage: UIImage?
+
     required init(doc: DocumentSnapshot) {
         id = doc.documentID
         userId = doc.get("userId") as? String ?? ""
+        userName = doc.get("userName") as? String ?? ""
         likes = doc.get("likes") as? [String] ?? [""]
         date = doc.get("date") as? Timestamp ?? Timestamp()
         desc = doc.get("desc") as? String ?? ""
     }
     
-    init (id: String, userId:String, likes:[String], desc: String, date: Timestamp, image: UIImage?) {
+    init (id: String, userId: String, userName: String, likes:[String], desc: String, date: Timestamp, image: UIImage?) {
         self.id = id
         self.userId = userId
+        self.userName = userName
         self.likes = likes
         self.date = date
         self.desc = desc
@@ -63,6 +65,26 @@ class GenericPost: FireInitable {
         }
     }
     
+    func downloadUserImageIfMissing(onComplete: ((UIImage) -> Void)? = nil) {
+        if userImage == nil {
+            downloadUserImage(onComplete: onComplete)
+        }
+    }
+
+    func downloadUserImageForced(onComplete: ((UIImage)-> Void)? = nil) {
+        downloadUserImage(onComplete: onComplete)
+    }
+
+    private func downloadUserImage(onComplete: ((UIImage)-> Void)? = nil) {
+        Database.shared.downloadProfileImage(id: userId, onError: { (error) in
+            LogManager.logError(error)
+        }) { (image) in
+            self.userImage = image
+            LogManager.logInfo("Image for user \(self.userId) downloaded")
+            onComplete?(image)
+        }
+    }
+    
     func addComment (comment: Comment) {
         comments.append(comment)
     }
@@ -72,7 +94,8 @@ class GenericPost: FireInitable {
             "desc": desc,
             "date": date,
             "likes": likes,
-            "userId": userId
+            "userId": userId,
+            "userName": userName
         ]
     }
     

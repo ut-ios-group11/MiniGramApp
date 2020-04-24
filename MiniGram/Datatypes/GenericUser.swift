@@ -13,7 +13,7 @@ class GenericUser: FireInitable {
     
     var id: String
     var name: String?
-    var userName: String?
+    var userName: String
     var followers: [String]?
     var image: UIImage?
     
@@ -28,7 +28,7 @@ class GenericUser: FireInitable {
     required init(doc: DocumentSnapshot) {
         id = doc.documentID
         name = doc.get("name") as? String
-        userName = doc.get("userName") as? String
+        userName = doc.get("userName") as! String
         followers = doc.get("followers") as? [String]
     }
     

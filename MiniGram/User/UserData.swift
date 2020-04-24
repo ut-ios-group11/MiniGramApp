@@ -136,7 +136,7 @@ class UserData {
     private func createTestData() {
         // Explore Posts
         for i in 0...6 {
-            let newPost = GenericPost(id: "\(i)", userId: "TestUser\(i)", likes: ["user1", "user2", "user3"], desc: "lorem ipsum something something something. #something", date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
+            let newPost = GenericPost(id: "\(i)", userId: "TestUser\(i)", userName: "testusername", likes: ["user1", "user2", "user3"], desc: "lorem ipsum something something something. #something", date: Timestamp(), image: UIImage(named: "minature\(Int.random(in: 0 ..< 3))"))
             for j in 0...2 {
                 let comment = Comment(id: "\(j)", userId: "TestUser\(i)", message: "this is a comment. Specifically comment number \(j) created by user \(i)", date: Timestamp())
                 newPost.addComment(comment: comment)
