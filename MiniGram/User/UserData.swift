@@ -24,12 +24,17 @@ class UserData {
     private var userListener: Listener?
     private var userRefreshFunction: ((GenericUser) -> Void)?
     
-    private var explorePostsListener: Listener?
+    private var postsListener: Listener?
     private var explorePostsRefreshFunction: (() -> Void)?
+    private var homePostsRefreshFunction: (() -> Void)?
+
 
     private var explorePosts = [GenericPost]()
+    private var homePosts = [GenericPost]()
+
     // Only For Alpha
     public var exploreUsers = [GenericUser]()
+    
     
     private init () {
         //For Testing Only
@@ -43,11 +48,12 @@ class UserData {
         userListener = nil
         userRefreshFunction = nil
         
-        explorePostsListener?.registration.remove()
-        explorePostsListener = nil
+        postsListener?.registration.remove()
+        postsListener = nil
         explorePostsRefreshFunction = nil
         
         explorePosts.removeAll()
+        homePosts.removeAll()
     }
 
     public func getDatabaseUser() -> GenericUser? {
@@ -147,17 +153,88 @@ class UserData {
     public func getExplorePosts() -> [GenericPost] {
         return explorePosts
     }
+    
+    public func getHomePosts() -> [GenericPost] {
+        return homePosts
+    }
+    
     private func startPostsListener() {
-        explorePostsListener?.registration.remove()
+        postsListener?.registration.remove()
         explorePosts.removeAll()
-        explorePostsListener = Database.shared.allPostsListener(listenerId: "explorePosts", onComplete: postsListenerRead(add:remove:change:id:))
+        homePosts.removeAll()
+        postsListener = Database.shared.allPostsListener(listenerId: "explorePosts", onComplete: postsListenerRead(add:remove:change:id:))
     }
     
     public func setExplorePostsRefreshFunction(with function: (() -> Void)?) {
         explorePostsRefreshFunction = function
     }
     
+    public func setHomePostsRefreshFunction(with function: (() -> Void)?) {
+        homePostsRefreshFunction = function
+    }
+    
     private func postsListenerRead(add: [GenericPost], remove: [String], change: [GenericPost], id: String) {
+        guard let user = databaseUser else { return }
+        let following = user.getFollowersSet()
+
+        
+        var addHome = [GenericPost]()
+        var addExplore = [GenericPost]()
+        
+        var removeHome = [String]()
+        var removeExplore = [String]()
+        
+        var changeHome = [GenericPost]()
+        var changeExplore = [GenericPost]()
+        
+        for post in add {
+            if following != nil && following!.contains(post.userId) {
+                // I am following the user who posted this -> home
+                addHome.append(post)
+            } else if post.userId != user.id {
+                addExplore.append(post)
+            }
+        }
+        
+        for post in change {
+            if following != nil && following!.contains(post.userId) {
+                changeHome.append(post)
+            } else if post.userId != user.id {
+                changeExplore.append(post)
+            }
+        }
+        
+        for postId in remove {
+            if following != nil && following!.contains(postId) {
+                removeHome.append(postId)
+            } else {
+                removeExplore.append(postId)
+            }
+        }
+        handleHomePosts(add: addHome, remove: removeHome, change: changeHome, id: id)
+        handleExplorePosts(add: addExplore, remove: removeExplore, change: changeHome, id: id)
+    }
+    
+    private func handleHomePosts(add: [GenericPost], remove: [String], change: [GenericPost], id: String) {
+        //add
+        for post in add {
+            self.homePosts.append(post)
+        }
+        //remove
+        for id in remove {
+            self.homePosts.removeAll(where: {$0.id == id})
+        }
+        //change
+        for post in change {
+            for i in 0..<self.homePosts.count where self.homePosts[i].id ==
+                post.id {
+                    self.homePosts[i].update(with: post)
+            }
+        }
+//        explorePostsRefreshFunction?()
+    }
+    
+    private func handleExplorePosts(add: [GenericPost], remove: [String], change: [GenericPost], id: String) {
         //add
         for post in add {
             self.explorePosts.append(post)

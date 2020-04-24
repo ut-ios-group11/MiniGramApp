@@ -47,6 +47,13 @@ class GenericUser: FireInitable {
         followers = profile.followers
     }
     
+    func getFollowersSet() -> Set<String>? {
+        if let followers = followers {
+            return Set<String>(followers)
+        }
+        return nil
+    }
+    
     // MARK: - Profile Image
     
     func downloadImageIfMissing(onComplete: ((UIImage)-> Void)? = nil) {

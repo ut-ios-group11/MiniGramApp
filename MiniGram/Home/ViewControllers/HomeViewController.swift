@@ -22,30 +22,28 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func likePost(postId: String, selected: Bool) {
         // for local usage only. needs to be changed for db functionality.
-        var foundPost: GenericPost? = nil
-        for post in explorePosts {
-            if post.id == postId {
-                foundPost = post
-            }
-        }
-        if foundPost != nil {
-            let user = getUser(userName: foundPost!.userId)
-            if !selected {
-                foundPost?.likes.append(user.id)
-            } else {
-                foundPost?.likes.removeAll(where: { (id) -> Bool in
-                    id == user.id
-                })
-            }
-        }
-//        tableView.reloadData()
+//        var foundPost: GenericPost? = nil
+//        for post in posts {
+//            if post.id == postId {
+//                foundPost = post
+//            }
+//        }
+//        if foundPost != nil {
+//            let user = getUser(userName: foundPost!.userId)
+//            if !selected {
+//                foundPost?.likes.append(user.id)
+//            } else {
+//                foundPost?.likes.removeAll(where: { (id) -> Bool in
+//                    id == user.id
+//                })
+//            }
+//        }
     }
     
     
     @IBOutlet weak var tableView: UITableView!
     
-    var explorePosts = [GenericPost]()
-    var exploreUsers = [GenericUser]()
+    var posts = [GenericPost]()
     var commentSegueIdentifier = "commentSegue"
     var seguePostId: String?
 
@@ -58,51 +56,51 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        explorePosts = UserData.shared.getExplorePosts()
-        exploreUsers = UserData.shared.exploreUsers
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        posts = UserData.shared.getHomePosts()
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        explorePosts.count
+        posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? HomeFeedTableViewCell else {
                 return UITableViewCell()
         }
-        let user = getUser(userName: exploreUsers[indexPath.row].userName!)
-        cell.postImage.image = explorePosts[indexPath.row].image ?? UIImage(named: "placeholder")
-        cell.userImage.image = user.image ?? UIImage(named: "placeholder")
+        let post = posts[indexPath.row]
+        cell.postImage.image = post.image ?? UIImage(named: "placeholder")
+        post.downloadImageIfMissing {
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
+        cell.userImage.image = post.userImage ?? UIImage(named: "placeholder")
+        post.downloadUserImageIfMissing {
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
         cell.userImage.round()
-        cell.username.text = explorePosts[indexPath.row].userId
-        cell.likeCount.text = String(explorePosts[indexPath.row].likes.count)
+        cell.username.text = post.userId
+        cell.likeCount.text = String(post.likes.count)
         // account for fact that user may have already liked post when loading data
-        if explorePosts[indexPath.row].likes.contains(user.id) {
+        let user = UserData.shared.getDatabaseUser()
+        if post.likes.contains(user?.id ?? "") {
             cell.likeButton.isSelected = true
         }
-        cell.caption.text = explorePosts[indexPath.row].desc
-        cell.postId = explorePosts[indexPath.row].id
+        cell.caption.text = post.desc
+        cell.postId = post.id
         cell.delegate = self
         return cell
-    }
-    
-    func getUser(userName: String) -> GenericUser {
-        if let user = exploreUsers.first(where: { (genuser) -> Bool in
-            return genuser.userName == userName
-        }) {
-            return user
-        }
-        // didn't find the user so just return the first local test user - alpha and beta only
-        return exploreUsers[0]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == commentSegueIdentifier,
             let nextVC = segue.destination as? CommentViewController {
-            if let post = explorePosts.first(where: { (GenericPost) -> Bool in
+            if let post = posts.first(where: { (GenericPost) -> Bool in
                 return GenericPost.id == seguePostId
             }) {
-                nextVC.user = getUser(userName: post.userId)
+//                nextVC.user = getUser(userName: post.userId)
                 nextVC.post = post
             }
         }

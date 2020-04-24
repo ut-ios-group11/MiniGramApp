@@ -18,6 +18,7 @@ class GenericPost: FireInitable {
     var likes: [String]
     var image: UIImage?
     var comments = [Comment]()
+    var userImage: UIImage?
     
     var user: GenericUser?
     
@@ -59,6 +60,26 @@ class GenericPost: FireInitable {
         }) { (image) in
             self.image = image
             LogManager.logInfo("Image for post \(self.id) downloaded")
+            onComplete?()
+        }
+    }
+    
+    func downloadUserImageIfMissing(onComplete: (() -> Void)? = nil) {
+        if userImage == nil {
+            downloadUserImage(onComplete: onComplete)
+        }
+    }
+    
+    func downloadUserImageForced(onComplete: (()-> Void)? = nil) {
+        downloadUserImage(onComplete: onComplete)
+    }
+    
+    private func downloadUserImage(onComplete: (()-> Void)? = nil) {
+        Database.shared.downloadProfileImage(id: userId, onError: { (error) in
+            LogManager.logError(error)
+        }) { (image) in
+            self.userImage = image
+            LogManager.logInfo("Image for user \(self.userId) downloaded")
             onComplete?()
         }
     }
