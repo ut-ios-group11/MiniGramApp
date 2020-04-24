@@ -20,7 +20,6 @@ class GenericPost: FireInitable {
     var image: UIImage?
     var comments = [Comment]()
     var userImage: UIImage?
-
     required init(doc: DocumentSnapshot) {
         id = doc.documentID
         userId = doc.get("userId") as? String ?? ""
@@ -45,23 +44,43 @@ class GenericPost: FireInitable {
         likes = post.likes
     }
     
-    func downloadImageIfMissing(onComplete: ((UIImage)-> Void)? = nil) {
+    func downloadImageIfMissing(onComplete: (() -> Void)? = nil) {
         if image == nil {
             downloadImage(onComplete: onComplete)
         }
     }
     
-    func downloadImageForced(onComplete: ((UIImage)-> Void)? = nil) {
+    func downloadImageForced(onComplete: (()-> Void)? = nil) {
         downloadImage(onComplete: onComplete)
     }
     
-    private func downloadImage(onComplete: ((UIImage)-> Void)? = nil) {
+    private func downloadImage(onComplete: (()-> Void)? = nil) {
         Database.shared.downloadPostImage(id: id, onError: { (error) in
             LogManager.logError(error)
         }) { (image) in
             self.image = image
             LogManager.logInfo("Image for post \(self.id) downloaded")
-            onComplete?(image)
+            onComplete?()
+        }
+    }
+    
+    func downloadUserImageIfMissing(onComplete: (() -> Void)? = nil) {
+        if userImage == nil {
+            downloadUserImage(onComplete: onComplete)
+        }
+    }
+    
+    func downloadUserImageForced(onComplete: (()-> Void)? = nil) {
+        downloadUserImage(onComplete: onComplete)
+    }
+    
+    private func downloadUserImage(onComplete: (()-> Void)? = nil) {
+        Database.shared.downloadProfileImage(id: userId, onError: { (error) in
+            LogManager.logError(error)
+        }) { (image) in
+            self.userImage = image
+            LogManager.logInfo("Image for user \(self.userId) downloaded")
+            onComplete?()
         }
     }
     
