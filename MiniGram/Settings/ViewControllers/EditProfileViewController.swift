@@ -84,9 +84,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 LogManager.logError(error)
             }) {
                 LogManager.logInfo("Sucessfully updated user profile photo.")
-                UserData.shared.getDatabaseUser()?.downloadImageForced(onComplete: { (image) in
-                    self.editProfileImageView.image = image
-                })
+                UserData.shared.getDatabaseUser()?.downloadImageForced {
+                    self.updateImage()
+                }
             }
         }
         dismiss(animated: true, completion: nil)
@@ -149,7 +149,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         deleteAccountButton.roundCorners(4)
     }
     
-    func updateImage(image: UIImage?) {
-        editProfileImageView.image = image ?? UIImage(named: "placeholder")
+    func updateImage() {
+        editProfileImageView.image = UserData.shared.getDatabaseUser()?.image ?? UIImage(named: "placeholder")
     }
 }

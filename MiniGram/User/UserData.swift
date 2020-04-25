@@ -27,19 +27,13 @@ class UserData {
     private var postsListener: Listener?
     private var explorePostsRefreshFunction: (() -> Void)?
     private var homePostsRefreshFunction: (() -> Void)?
-
+    
+    private var userListListener: Listener?
+    private var userListRefreshFunction: (() -> Void)?
 
     private var explorePosts = [GenericPost]()
     private var homePosts = [GenericPost]()
-
-    // Only For Alpha
-    public var exploreUsers = [GenericUser]()
-    
-    
-    private init () {
-        //For Testing Only
-        createTestData()
-    }
+    private var userList = [GenericUser]()
 
     private func clearAllData() {
         user = nil
@@ -51,9 +45,15 @@ class UserData {
         postsListener?.registration.remove()
         postsListener = nil
         explorePostsRefreshFunction = nil
+        homePostsRefreshFunction = nil
+        
+        userListListener?.registration.remove()
+        userListListener = nil
+        userListRefreshFunction = nil
         
         explorePosts.removeAll()
         homePosts.removeAll()
+        userList.removeAll()
     }
 
     public func getDatabaseUser() -> GenericUser? {
@@ -73,8 +73,7 @@ class UserData {
         if let user = FireAuth.shared.isUserSignedIn() {
             self.user = user
             readUser(id: user.uid, onError: onError, onComplete: {
-                self.startUserListener(id: user.uid)
-                self.startPostsListener()
+                self.startListeners()
                 onComplete()
             })
         } else {
@@ -95,10 +94,17 @@ class UserData {
         FireAuth.shared.signIn(login: email, pass: password, onError: onError) { (user) in
             self.user = user
             self.readUser(id: user.uid, onError: onError, onComplete: {
-                self.startUserListener(id: user.uid)
-                self.startPostsListener()
+                self.startListeners()
                 onComplete()
             })
+        }
+    }
+    
+    func startListeners() {
+        if let userId = user?.uid {
+            self.startUserListener(id: userId)
+            self.startPostsListener()
+            self.startUserListListener()
         }
     }
     
@@ -252,14 +258,41 @@ class UserData {
         }
         explorePostsRefreshFunction?()
     }
-
-    // MARK: TEST DATA
-    private func createTestData() {
-        // Explore Users
-        for i in 0...6 {
-            let newUser = GenericUser(id: "\(i)", userName: "TestUser\(i)", name: "User\(i)", followers: nil, image: UIImage(named: "u\(i)"))
-            exploreUsers.append(newUser)
-        }
-        
+    
+    // MARK: - UserList function
+    public func getUserList() -> [GenericUser] {
+        return userList
     }
+    
+    public func setUserListRefreshFunction(with function: (() -> Void)?) {
+        userListRefreshFunction = function
+    }
+    
+    private func startUserListListener() {
+        userListListener?.registration.remove()
+        userList.removeAll()
+        userListListener = Database.shared.allUsersListener(listenerId: "allUsers", onComplete: userListListenerRead)
+    }
+    
+    private func userListListenerRead(add: [GenericUser], remove: [String], change: [GenericUser], id: String) {
+        let userId = user?.uid ?? ""
+        
+        //add
+        for userObj in add where userObj.id != userId {
+            self.userList.append(userObj)
+        }
+        //remove
+        for objId in remove where objId != userId {
+            self.userList.removeAll(where: {$0.id == objId})
+        }
+        //change
+        for userObj in change where userObj.id != userId {
+            for i in 0..<self.userList.count where self.userList[i].id ==
+                userObj.id {
+                    self.userList[i].update(with: userObj)
+            }
+        }
+        userListRefreshFunction?()
+    }
+
 }
