@@ -231,7 +231,7 @@ class UserData {
                     self.homePosts[i].update(with: post)
             }
         }
-//        explorePostsRefreshFunction?()
+        homePostsRefreshFunction?()
     }
     
     private func handleExplorePosts(add: [GenericPost], remove: [String], change: [GenericPost], id: String) {
