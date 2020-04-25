@@ -37,7 +37,9 @@ class PostViewController: UIViewController {
             
             // Set the profile image for the user who posted 
             userImage.image = post.userImage ?? UIImage(named: "placeholder")
-            post.downloadUserImageIfMissing(onComplete: updateImage)
+            post.downloadUserImageIfMissing {
+                self.userImage.image = post.userImage
+            }
         }
         
         // post my already be liked by user, initialize button appropirately
@@ -46,10 +48,6 @@ class PostViewController: UIViewController {
                 likeButton.isSelected = true
             }
         }
-    }
-    
-    func updateImage(image: UIImage?) {
-        self.userImage.image = image ?? UIImage(named: "placeholder")
     }
     
     @IBAction func likeClick(_ sender: UIButton) {

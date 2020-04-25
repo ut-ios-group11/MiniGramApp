@@ -25,7 +25,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func buttonPressedAddComment(_ sender: Any) {
         if addCommentText.text != "" {
-            let newComment = Comment(id: "uhhh...1", userId: user?.userName! ?? "placeholder", message: addCommentText.text!, date: Timestamp())
+            let newComment = Comment(id: "uhhh...1", userId: user?.userName ?? "placeholder", message: addCommentText.text!, date: Timestamp())
             post?.addComment(comment: newComment)
             addCommentText.text = ""
             tableView.reloadData()
