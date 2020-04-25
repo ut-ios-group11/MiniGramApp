@@ -59,6 +59,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        reloadData()
+        UserData.shared.setHomePostsRefreshFunction(with: reloadData)
+    }
+    
+    func reloadData() {
         posts = UserData.shared.getHomePosts()
         tableView.reloadData()
     }
