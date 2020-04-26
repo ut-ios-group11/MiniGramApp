@@ -48,8 +48,8 @@ class ProfileViewController: UIViewController {
         profileToDisplay = user
     }
     
-    func updateImage(image: UIImage?) {
-        profileImage.image = image ?? UIImage(named: "placeholder")
+    func updateImage() {
+        profileImage.image = profileToDisplay?.image ?? UIImage(named: "placeholder")
     }
     
     func updateProfile(user: GenericUser) {
