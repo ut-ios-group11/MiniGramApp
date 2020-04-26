@@ -31,6 +31,8 @@ class Database {
             let data = ["userName": username, "name": name]
             let reference = Firestore.firestore().collection(FireCollection.Users.rawValue)
             Fire.shared.create(at: reference, withID: uid, data: data, onError: onError, onComplete: onComplete)
+            let fsReference = FireStorageCollection.Users
+            Fire.shared.uploadImage(at: fsReference, id: uid, image: UIImage(named: "placeholder")!, onError: onError, onComplete: onComplete)
         }
     }
     
