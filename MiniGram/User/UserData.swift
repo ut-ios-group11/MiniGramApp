@@ -181,7 +181,7 @@ class UserData {
     
     private func postsListenerRead(add: [GenericPost], remove: [String], change: [GenericPost], id: String) {
         guard let user = databaseUser else { return }
-        let following = user.getFollowersSet()
+        let following = user.getFollowingSet()
 
         
         var addHome = [GenericPost]()

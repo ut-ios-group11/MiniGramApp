@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var followersLabel: UILabel!
+    @IBOutlet weak var followingLabel: UILabel!
 
     @IBOutlet weak var profileViewSelector: UISegmentedControl!
     @IBOutlet weak var galleryView: UIView!
@@ -55,9 +55,9 @@ class ProfileViewController: UIViewController {
     func updateProfile(user: GenericUser) {
         profileImage.image = user.image ?? UIImage(named: "placeholder")
         nameLabel.text = user.name
-        let count = user.followers?.count ?? 0
+        let count = user.following?.count ?? 0
         usernameLabel.text = "@" + user.userName!
-        followersLabel.text = String(count)
+        followingLabel.text = String(count)
         user.downloadImageIfMissing(onComplete: updateImage)
     }
     
