@@ -14,6 +14,8 @@ class ExploreSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var users = [GenericUser]()
+    
+    var userToDisplay: GenericUser?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,16 @@ class ExploreSearchViewController: UIViewController {
     @IBAction func cancelClick(_ sender: Any) {
         navigationController?.popViewController(animated: false)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nav = segue.destination as? UINavigationController {
+            if let vc = nav.topViewController as? ProfileViewController {
+                userToDisplay?.startPostsListening()
+                userToDisplay?.startMiniatureListening()
+                vc.profileToDisplay = userToDisplay
+            }
+        }
+    }
 }
 
 // MARK: Table View Data Source
@@ -78,6 +90,7 @@ extension ExploreSearchViewController: UITableViewDataSource {
 
 extension ExploreSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        userToDisplay = users[indexPath.row]
         performSegue(withIdentifier: "toProfile", sender: self)
     }
 }

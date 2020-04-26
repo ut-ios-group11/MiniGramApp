@@ -22,7 +22,7 @@ class UserData {
     private var user: User?
     private var databaseUser: GenericUser?
     private var userListener: Listener?
-    private var userRefreshFunction: ((GenericUser) -> Void)?
+    private var userRefreshFunction: (() -> Void)?
     
     private var postsListener: Listener?
     private var explorePostsRefreshFunction: (() -> Void)?
@@ -134,12 +134,13 @@ class UserData {
     
     private func userListenerRead(profileUpdate: GenericUser) {
         databaseUser?.update(with: profileUpdate)
-        if let databaseUser = databaseUser {
-            userRefreshFunction?(databaseUser)
+        if databaseUser != nil {
+            resortExploreHomePosts()
+            userRefreshFunction?()
         }
     }
     
-    public func setUserRefreshFunction(with function: ((GenericUser) -> Void)?) {
+    public func setUserRefreshFunction(with function: (() -> Void)?) {
         userRefreshFunction = function
     }
     
@@ -179,6 +180,28 @@ class UserData {
         homePostsRefreshFunction = function
     }
     
+    public func resortExploreHomePosts() {
+        guard let user = databaseUser else { return }
+        let following = user.getFollowingSet()
+        
+        for (i,post) in homePosts.enumerated().reversed() {
+            if following == nil || !following!.contains(post.userId) {
+               homePosts.remove(at: i)
+               explorePosts.append(post)
+           }
+        }
+        
+        for (i,post) in explorePosts.enumerated().reversed() {
+            if following != nil && following!.contains(post.userId) {
+               explorePosts.remove(at: i)
+               homePosts.append(post)
+           }
+        }
+        
+        explorePostsRefreshFunction?()
+        homePostsRefreshFunction?()
+    }
+    
     private func postsListenerRead(add: [GenericPost], remove: [String], change: [GenericPost], id: String) {
         guard let user = databaseUser else { return }
         let following = user.getFollowingSet()
@@ -211,11 +234,8 @@ class UserData {
         }
         
         for postId in remove {
-            if following != nil && following!.contains(postId) {
-                removeHome.append(postId)
-            } else {
-                removeExplore.append(postId)
-            }
+            removeHome.append(postId)
+            removeExplore.append(postId)
         }
         handleHomePosts(add: addHome, remove: removeHome, change: changeHome, id: id)
         handleExplorePosts(add: addExplore, remove: removeExplore, change: changeHome, id: id)

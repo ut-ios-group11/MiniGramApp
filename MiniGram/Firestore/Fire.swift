@@ -38,6 +38,14 @@ class Fire {
         case ImageConversionError
     }
     
+    func arrayUnion<T>(data: [T]) -> FieldValue {
+        return FieldValue.arrayUnion(data)
+    }
+    
+    func arrayRemove<T>(data: [T]) -> FieldValue {
+        return FieldValue.arrayRemove(data)
+    }
+    
     func create(at ref: CollectionReference, withID: String = "", data: [String: Any], onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         var objData = data
         objData["deleted"] = false

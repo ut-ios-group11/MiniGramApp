@@ -79,6 +79,22 @@ class Database {
         FireAuth.shared.updatePassword(oldPassword: oldPassword, newPassword: newPassword, onError: onError, onComplete: onComplete)
     }
     
+    func followUser(currentUserId: String, userToFollowId: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        let data = [
+            "following": Fire.shared.arrayUnion(data: [userToFollowId])
+        ]
+        let ref = Firestore.firestore().collection(FireCollection.Users.rawValue).document(currentUserId)
+        Fire.shared.update(at: ref, data: data, onError: onError, onComplete: onComplete)
+    }
+    
+    func unFollowUser(currentUserId: String, userToUnFollowId: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        let data = [
+            "following": Fire.shared.arrayRemove(data: [userToUnFollowId])
+        ]
+        let ref = Firestore.firestore().collection(FireCollection.Users.rawValue).document(currentUserId)
+        Fire.shared.update(at: ref, data: data, onError: onError, onComplete: onComplete)
+    }
+    
     // MARK: - Single Download
     
     func downloadProfileImage(id: String, onError: @escaping (Error) -> Void, onComplete: @escaping (UIImage) -> Void) {
