@@ -116,6 +116,12 @@ class Database {
         let listenerRegistration = Fire.shared.listener(at: query, returning: GenericPost.self, onComplete: onComplete)
         return Listener(id: listenerId, registration: listenerRegistration)
     }
+    
+    func allUsersListener(listenerId: String, onComplete: @escaping ([GenericUser],[String],[GenericUser], String) -> Void) -> Listener {
+        let query = Firestore.firestore().collection(FireCollection.Users.rawValue)
+        let listenerRegistration = Fire.shared.listener(at: query, returning: GenericUser.self, onComplete: onComplete)
+        return Listener(id: listenerId, registration: listenerRegistration)
+    }
     // MARK: - Check Methods
     
     // MARK: - Delete Methods
