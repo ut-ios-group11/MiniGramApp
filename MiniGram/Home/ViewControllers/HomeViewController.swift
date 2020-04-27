@@ -84,6 +84,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 return UITableViewCell()
         }
         let post = posts[indexPath.row]
+        cell.likeButton.isSelected = false
         cell.postImage.image = post.image ?? UIImage(named: "placeholder")
         post.downloadImageIfMissing {
             tableView.reloadRows(at: [indexPath], with: .fade)

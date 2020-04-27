@@ -33,8 +33,6 @@ class HomeFeedTableViewCell: UITableViewCell {
                 LogManager.logError(error)
             }) {
                 LogManager.logInfo("\(userId) successfully liked post \(self.postId!)")
-//                self.post?.likes.append(userId)
-//                self.refreshData()
             }
             likeCount.text = String(Int(likeCount.text!)! + 1)
         } else {
