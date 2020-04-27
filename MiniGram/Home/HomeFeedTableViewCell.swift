@@ -22,9 +22,7 @@ class HomeFeedTableViewCell: UITableViewCell {
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         // update UI and call function to record like in database
-        guard let userId = UserData.shared.getDatabaseUser()?.id else {
-            return
-        }
+        guard let userId = UserData.shared.getDatabaseUser()?.id else { return }
         
         if (!sender.isSelected) {
             sender.isSelected = true
@@ -45,8 +43,6 @@ class HomeFeedTableViewCell: UITableViewCell {
             }
             likeCount.text = String(Int(likeCount.text!)! - 1)
         }
-        // must negate isSelected for this call because we just reversed it above
-        delegate?.likePost(postId: postId!, selected: !sender.isSelected)
     }
     
     @IBOutlet weak var likeButton: UIButton!
