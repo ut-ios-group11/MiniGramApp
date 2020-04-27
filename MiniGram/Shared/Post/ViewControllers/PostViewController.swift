@@ -31,6 +31,7 @@ class PostViewController: UIViewController {
     func refreshData() {
         if let post = post {
             postImage.image = post.image ?? UIImage(named: "placeholder")
+            print("Number of likes: \(String(post.likes.count))")
             likesLabel.text = String(post.likes.count)
             descTextView.text = post.desc
             usernameLabel.text = post.userName
@@ -43,7 +44,7 @@ class PostViewController: UIViewController {
         }
         
         // post my already be liked by user, initialize button appropirately
-        if currentUser != nil && post != nil {
+        if post != nil {
             if (post?.likes.contains(currentUser!.id))! {
                 likeButton.isSelected = true
             }
@@ -51,19 +52,35 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func likeClick(_ sender: UIButton) {
-        // Update Database instead of local.
-        if (!sender.isSelected) {
-            sender.isSelected = true
-            post?.likes.append(currentUser!.id)
-            refreshData()
-        } else {
-            sender.isSelected = false
-            post?.likes.removeAll(where: { (id) -> Bool in
-                id == currentUser!.id
-            })
-            refreshData()
+        guard let userId = UserData.shared.getDatabaseUser()?.id else {
+            return
         }
         
+        guard let postId = post?.id else {
+            return
+        }
+        if (!sender.isSelected) {
+            sender.isSelected = true
+            Database.shared.likePost(currentUserId: userId, postToLikeId: postId, onError: {
+                (error) in
+                LogManager.logError(error)
+            }) {
+                LogManager.logInfo("\(userId) successfully liked post \(postId)")
+                self.post?.likes.append(userId)
+                self.refreshData()
+            }
+        } else {
+            sender.isSelected = false
+            Database.shared.unlikePost(currentUserId: userId, postToUnlikeId: postId, onError: {
+                (error) in
+                LogManager.logError(error)
+            }) {
+                LogManager.logInfo("\(userId) successfully unliked post \(postId)")
+                self.post?.likes.removeAll(where: { (id) -> Bool in
+                    id == userId
+                })
+                self.refreshData()
+            }
+        }
     }
-
 }

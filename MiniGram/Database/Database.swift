@@ -97,6 +97,24 @@ class Database {
         Fire.shared.update(at: ref, data: data, onError: onError, onComplete: onComplete)
     }
     
+    func likePost(currentUserId: String, postToLikeId: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        let data = [
+            "likes": Fire.shared.arrayUnion(data: [currentUserId])
+        ]
+        
+        let ref = Firestore.firestore().collection(FireCollection.Posts.rawValue).document(postToLikeId)
+        Fire.shared.update(at: ref, data: data, onError: onError, onComplete: onComplete)
+    }
+    
+    func unlikePost(currentUserId: String, postToUnlikeId: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        let data = [
+            "likes": Fire.shared.arrayRemove(data: [currentUserId])
+        ]
+        
+        let ref = Firestore.firestore().collection(FireCollection.Posts.rawValue).document(postToUnlikeId)
+        Fire.shared.update(at: ref, data: data, onError: onError, onComplete: onComplete)
+    }
+
     // MARK: - Single Download
     
     func downloadProfileImage(id: String, onError: @escaping (Error) -> Void, onComplete: @escaping (UIImage) -> Void) {
