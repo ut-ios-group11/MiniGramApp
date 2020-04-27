@@ -66,7 +66,10 @@ class PostViewController: UIViewController {
                 LogManager.logError(error)
             }) {
                 LogManager.logInfo("\(userId) successfully liked post \(postId)")
-                self.post?.likes.append(userId)
+                if (!((self.post?.likes.contains(userId))!)) {
+                    self.likeButton.isSelected = true
+                    self.post?.likes.append(userId)
+                }
                 self.refreshData()
             }
         } else {
