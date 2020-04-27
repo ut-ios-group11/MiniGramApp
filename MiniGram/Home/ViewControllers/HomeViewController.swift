@@ -10,7 +10,6 @@ import UIKit
 
 protocol HomeFeedPost {
     func viewComments(postId: String)
-    func likePost(postId: String, selected: Bool)
 }
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeFeedPost {
@@ -19,27 +18,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         seguePostId = postId
         performSegue(withIdentifier: commentSegueIdentifier, sender: self)
     }
-    
-    func likePost(postId: String, selected: Bool) {
-        // for local usage only. needs to be changed for db functionality.
-//        var foundPost: GenericPost? = nil
-//        for post in posts {
-//            if post.id == postId {
-//                foundPost = post
-//            }
-//        }
-//        if foundPost != nil {
-//            let user = getUser(userName: foundPost!.userId)
-//            if !selected {
-//                foundPost?.likes.append(user.id)
-//            } else {
-//                foundPost?.likes.removeAll(where: { (id) -> Bool in
-//                    id == user.id
-//                })
-//            }
-//        }
-    }
-    
     
     @IBOutlet weak var noFollowersLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -95,7 +73,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.userImage.round()
         cell.username.text = post.userName
         cell.likeCount.text = String(post.likes.count)
-        // account for fact that user may have already liked post when loading data
         let user = UserData.shared.getDatabaseUser()
         if post.likes.contains(user?.id ?? "") {
             cell.likeButton.isSelected = true
@@ -112,7 +89,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if let post = posts.first(where: { (GenericPost) -> Bool in
                 return GenericPost.id == seguePostId
             }) {
-//                nextVC.user = getUser(userName: post.userId)
                 nextVC.post = post
             }
         }
