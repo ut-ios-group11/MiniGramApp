@@ -87,5 +87,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         } else {
             performSegue(withIdentifier: "changePasswordSegue", sender: nil)
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
