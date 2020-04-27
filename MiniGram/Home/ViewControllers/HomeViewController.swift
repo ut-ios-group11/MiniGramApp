@@ -93,7 +93,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             tableView.reloadRows(at: [indexPath], with: .fade)
         }
         cell.userImage.round()
-        cell.username.text = post.userId
+        cell.username.text = post.userName
         cell.likeCount.text = String(post.likes.count)
         // account for fact that user may have already liked post when loading data
         let user = UserData.shared.getDatabaseUser()
