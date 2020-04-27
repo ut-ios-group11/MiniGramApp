@@ -32,13 +32,14 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
-        if let user = UserData.shared.getDatabaseUser() {
-            updateProfile(user: user)
-            UserData.shared.setUserRefreshFunction(with: updateProfile(user:))
-        }
+        updateProfile()
+        UserData.shared.setUserRefreshFunction(with: updateProfile)
     }
     
-    func updateProfile(user: GenericUser) {
+    func updateProfile() {
+        guard let user = UserData.shared.getDatabaseUser() else {
+            return
+        }
         nameLabel.text = user.name
         usernameLabel.text = "@" + user.userName
         editProfileImageView.image = user.image ?? UIImage(named: "placeholder")
@@ -84,9 +85,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 LogManager.logError(error)
             }) {
                 LogManager.logInfo("Sucessfully updated user profile photo.")
-                UserData.shared.getDatabaseUser()?.downloadImageForced(onComplete: { (image) in
-                    self.editProfileImageView.image = image
-                })
+                UserData.shared.getDatabaseUser()?.downloadImageForced {
+                    self.updateImage()
+                }
             }
         }
         dismiss(animated: true, completion: nil)
@@ -149,7 +150,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         deleteAccountButton.roundCorners(4)
     }
     
-    func updateImage(image: UIImage?) {
-        editProfileImageView.image = image ?? UIImage(named: "placeholder")
+    func updateImage() {
+        editProfileImageView.image = UserData.shared.getDatabaseUser()?.image ?? UIImage(named: "placeholder")
     }
 }

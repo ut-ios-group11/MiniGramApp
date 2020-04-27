@@ -31,6 +31,8 @@ class Database {
             let data = ["userName": username, "name": name]
             let reference = Firestore.firestore().collection(FireCollection.Users.rawValue)
             Fire.shared.create(at: reference, withID: uid, data: data, onError: onError, onComplete: onComplete)
+            let fsReference = FireStorageCollection.Users
+            Fire.shared.uploadImage(at: fsReference, id: uid, image: UIImage(named: "placeholder")!, onError: onError, onComplete: onComplete)
         }
     }
     
@@ -79,6 +81,22 @@ class Database {
         FireAuth.shared.updatePassword(oldPassword: oldPassword, newPassword: newPassword, onError: onError, onComplete: onComplete)
     }
     
+    func followUser(currentUserId: String, userToFollowId: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        let data = [
+            "following": Fire.shared.arrayUnion(data: [userToFollowId])
+        ]
+        let ref = Firestore.firestore().collection(FireCollection.Users.rawValue).document(currentUserId)
+        Fire.shared.update(at: ref, data: data, onError: onError, onComplete: onComplete)
+    }
+    
+    func unFollowUser(currentUserId: String, userToUnFollowId: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        let data = [
+            "following": Fire.shared.arrayRemove(data: [userToUnFollowId])
+        ]
+        let ref = Firestore.firestore().collection(FireCollection.Users.rawValue).document(currentUserId)
+        Fire.shared.update(at: ref, data: data, onError: onError, onComplete: onComplete)
+    }
+    
     // MARK: - Single Download
     
     func downloadProfileImage(id: String, onError: @escaping (Error) -> Void, onComplete: @escaping (UIImage) -> Void) {
@@ -112,6 +130,12 @@ class Database {
     func allPostsListener(listenerId: String, onComplete: @escaping ([GenericPost],[String],[GenericPost], String) -> Void) -> Listener {
         let query = Firestore.firestore().collection(FireCollection.Posts.rawValue)
         let listenerRegistration = Fire.shared.listener(at: query, returning: GenericPost.self, onComplete: onComplete)
+        return Listener(id: listenerId, registration: listenerRegistration)
+    }
+    
+    func allUsersListener(listenerId: String, onComplete: @escaping ([GenericUser],[String],[GenericUser], String) -> Void) -> Listener {
+        let query = Firestore.firestore().collection(FireCollection.Users.rawValue)
+        let listenerRegistration = Fire.shared.listener(at: query, returning: GenericUser.self, onComplete: onComplete)
         return Listener(id: listenerId, registration: listenerRegistration)
     }
     // MARK: - Check Methods

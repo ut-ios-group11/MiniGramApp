@@ -41,6 +41,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
+    @IBOutlet weak var noFollowersLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [GenericPost]()
@@ -49,6 +50,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
+        reloadData()
+        UserData.shared.setHomePostsRefreshFunction(with: reloadData)
     }
 
     override func viewDidLoad() {
@@ -59,6 +62,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        // display no followers message
+        if posts.count == 0 {
+             noFollowersLabel.isHidden = false
+        } else {
+             noFollowersLabel.isHidden = true
+        }
+    }
+    
+    func reloadData() {
         posts = UserData.shared.getHomePosts()
         tableView.reloadData()
     }

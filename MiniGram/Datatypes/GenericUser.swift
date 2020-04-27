@@ -13,8 +13,8 @@ class GenericUser: FireInitable {
     
     var id: String
     var name: String?
-    var userName: String
-    var followers: [String]?
+    var userName: String?
+    var following: [String]?
     var image: UIImage?
     
     var posts = [GenericPost]()
@@ -28,15 +28,15 @@ class GenericUser: FireInitable {
     required init(doc: DocumentSnapshot) {
         id = doc.documentID
         name = doc.get("name") as? String
-        userName = doc.get("userName") as! String
-        followers = doc.get("followers") as? [String]
+        userName = doc.get("userName") as? String
+        following = doc.get("following") as? [String]
     }
     
-    init(id: String, userName: String, name: String, followers: [String]?, image: UIImage?) {
+    init(id: String, userName: String, name: String, following: [String]?, image: UIImage?) {
         self.id = id
         self.name = name
         self.userName = userName
-        self.followers = followers
+        self.following = following
         self.image = image
     }
     
@@ -44,35 +44,35 @@ class GenericUser: FireInitable {
     func update(with profile: GenericUser) {
         name = profile.name
         userName = profile.userName
-        followers = profile.followers
+        following = profile.following
     }
     
-    func getFollowersSet() -> Set<String>? {
-        if let followers = followers {
-            return Set<String>(followers)
+    func getFollowingSet() -> Set<String>? {
+        if let following = following {
+            return Set<String>(following)
         }
         return nil
     }
     
     // MARK: - Profile Image
     
-    func downloadImageIfMissing(onComplete: ((UIImage)-> Void)? = nil) {
+    func downloadImageIfMissing(onComplete: (()-> Void)? = nil) {
         if image == nil {
             downloadImage(onComplete: onComplete)
         }
     }
-    
-    func downloadImageForced(onComplete: ((UIImage)-> Void)? = nil) {
+
+    func downloadImageForced(onComplete: (()-> Void)? = nil) {
         downloadImage(onComplete: onComplete)
     }
-    
-    private func downloadImage(onComplete: ((UIImage)-> Void)? = nil) {
+
+    private func downloadImage(onComplete: (()-> Void)? = nil) {
         Database.shared.downloadProfileImage(id: id, onError: { (error) in
             LogManager.logError(error)
         }) { (image) in
             self.image = image
             LogManager.logInfo("Image for post \(self.id) downloaded")
-            onComplete?(image)
+            onComplete?()
         }
     }
     

@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var followersLabel: UILabel!
+    @IBOutlet weak var followingLabel: UILabel!
 
     @IBOutlet weak var profileViewSelector: UISegmentedControl!
     @IBOutlet weak var galleryView: UIView!
@@ -48,28 +48,50 @@ class ProfileViewController: UIViewController {
         profileToDisplay = user
     }
     
-    func updateImage(image: UIImage?) {
-        profileImage.image = image ?? UIImage(named: "placeholder")
+    func updateImage() {
+        profileImage.image = profileToDisplay?.image ?? UIImage(named: "placeholder")
+    }
+    
+    func reloadProfile() {
+        if let profileToDisplay = profileToDisplay {
+            updateProfile(user: profileToDisplay)
+        } else if let user = UserData.shared.getDatabaseUser() {
+            updateProfile(user: user)
+        }
     }
     
     func updateProfile(user: GenericUser) {
         profileImage.image = user.image ?? UIImage(named: "placeholder")
         nameLabel.text = user.name
-        let count = user.followers?.count ?? 0
-        usernameLabel.text = "@" + user.userName
-        followersLabel.text = String(count)
+        let count = user.following?.count ?? 0
+        usernameLabel.text = "@" + user.userName!
+        followingLabel.text = String(count)
         user.downloadImageIfMissing(onComplete: updateImage)
+        updateFollowButton()
+    }
+    
+    func updateFollowButton() {
+        
+        if let loggedInUser = UserData.shared.getDatabaseUser(), let profileToDisplay = profileToDisplay {
+            if let following = loggedInUser.following, following.contains(profileToDisplay.id) {
+                followButton.isSelected = true
+            } else {
+                followButton.isSelected = false
+            }
+        } else {
+            followButton.isSelected = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
         
-        if let profileToDisplay = profileToDisplay {
-            updateProfile(user: profileToDisplay)
-        } else if let user = UserData.shared.getDatabaseUser() {
-            updateProfile(user: user)
-            UserData.shared.setUserRefreshFunction(with: updateProfile(user:))
+        UserData.shared.setUserRefreshFunction(with: reloadProfile)
+        if profileToDisplay != nil {
+            UserData.shared.setUserListRefreshFunction(with: reloadProfile)
         }
+        
+        reloadProfile()
     }
     
     @IBAction func switchProfileViews(_ sender: UISegmentedControl) {
@@ -95,12 +117,27 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func followButtonPressed(_ sender: UIButton) {
-        if(!sender.isSelected) {
-            sender.isSelected = true
-        } else {
-            sender.isSelected = false
+        guard let userId = UserData.shared.getDatabaseUser()?.id else {
+            return
         }
-        // TODO: Add user to follow list
+        
+        guard let followId = profileToDisplay?.id else {
+            return
+        }
+        
+        if(!sender.isSelected) {
+            Database.shared.followUser(currentUserId: userId, userToFollowId: followId, onError: { (error) in
+                LogManager.logError(error)
+            }) {
+                LogManager.logInfo("\(userId) successfully followed \(followId)")
+            }
+        } else {
+            Database.shared.unFollowUser(currentUserId: userId, userToUnFollowId: followId, onError: { (error) in
+                LogManager.logError(error)
+            }) {
+                LogManager.logInfo("\(userId) successfully unFollowed \(followId)")
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

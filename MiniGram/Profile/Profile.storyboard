@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eB-cH-YpM">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="780"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxO-I3-Hdm" userLabel="Settings Button">
                                                 <rect key="frame" x="370" y="20" width="24" height="24"/>
@@ -37,7 +37,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pZU-SW-JnZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="772"/>
+                                                <rect key="frame" x="0.0" y="20" width="414" height="772"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bnn-j1-7f1">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
@@ -57,7 +57,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zat-mw-Cvf">
-                                                                <rect key="frame" x="50.5" y="118" width="313" height="23"/>
+                                                                <rect key="frame" x="51" y="118" width="312.5" height="23"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@diegomaceda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzk-aA-p8T">
                                                                         <rect key="frame" x="0.0" y="0.0" width="113" height="23"/>
@@ -71,21 +71,22 @@
                                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="346 followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m14-tD-bhN">
-                                                                        <rect key="frame" x="152.5" y="0.0" width="99" height="23"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="346 following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m14-tD-bhN">
+                                                                        <rect key="frame" x="152.5" y="0.0" width="98.5" height="23"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBr-yL-jpJ">
-                                                                        <rect key="frame" x="267.5" y="0.0" width="7.5" height="23"/>
+                                                                        <rect key="frame" x="267" y="0.0" width="7.5" height="23"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKf-vM-Ngf" userLabel="Follow Button">
-                                                                        <rect key="frame" x="291" y="0.0" width="22" height="23"/>
+                                                                        <rect key="frame" x="290.5" y="0.0" width="22" height="23"/>
                                                                         <state key="normal" image="follow_unselected"/>
+                                                                        <state key="selected" image="follow_selected"/>
                                                                         <connections>
                                                                             <action selector="followButtonPressed:" destination="3hh-7Z-GVF" eventType="touchUpInside" id="YQ8-0d-R0i"/>
                                                                         </connections>
@@ -137,7 +138,7 @@
                                             <constraint firstAttribute="bottom" secondItem="pZU-SW-JnZ" secondAttribute="bottom" constant="8" id="qtR-ok-gWb"/>
                                             <constraint firstAttribute="trailing" secondItem="pZU-SW-JnZ" secondAttribute="trailing" id="r0U-CL-1x5"/>
                                             <constraint firstItem="cxO-I3-Hdm" firstAttribute="top" secondItem="8eB-cH-YpM" secondAttribute="top" constant="20" id="rHe-jk-Ddi"/>
-                                            <constraint firstItem="pZU-SW-JnZ" firstAttribute="top" secondItem="8eB-cH-YpM" secondAttribute="top" id="tsc-6L-tRZ"/>
+                                            <constraint firstItem="pZU-SW-JnZ" firstAttribute="top" secondItem="8eB-cH-YpM" secondAttribute="top" constant="20" id="tsc-6L-tRZ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -164,7 +165,7 @@
                     <connections>
                         <outlet property="followButton" destination="aKf-vM-Ngf" id="k98-zw-X8p"/>
                         <outlet property="followButtonSeparator" destination="fBr-yL-jpJ" id="Jqc-Xd-3Dk"/>
-                        <outlet property="followersLabel" destination="m14-tD-bhN" id="M8S-as-060"/>
+                        <outlet property="followingLabel" destination="m14-tD-bhN" id="eKJ-pb-UMK"/>
                         <outlet property="galleryView" destination="ZFT-XD-lc5" id="2Fm-9k-xSj"/>
                         <outlet property="miniaturesView" destination="nKy-Wr-PCM" id="iAc-o9-xFH"/>
                         <outlet property="nameLabel" destination="Y5A-en-6B0" id="eQw-Y2-lFB"/>
@@ -389,7 +390,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Settings" width="512" height="512"/>
+        <image name="follow_selected" width="23" height="23"/>
         <image name="follow_unselected" width="22" height="23"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <namedColor name="flippedColor">

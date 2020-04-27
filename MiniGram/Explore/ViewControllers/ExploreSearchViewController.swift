@@ -14,14 +14,33 @@ class ExploreSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var users = [GenericUser]()
+    
+    var userToDisplay: GenericUser?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.underlined()
-        searchTextField.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
+        
+        searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         // Do any additional setup after loading the view.
+    }
+    
+    func updateUserList() {
+        if let text = searchTextField.text {
+            users = text.isEmpty ? [GenericUser]() : UserData.shared.getUserList().filter({ (user) -> Bool in
+                guard let name = user.name else {
+                    return false
+                }
+                return name.range(of: text, options: .caseInsensitive, range: nil, locale: nil) != nil
+            })
+            tableView.reloadData()
+        }
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        updateUserList()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,21 +50,15 @@ class ExploreSearchViewController: UIViewController {
     @IBAction func cancelClick(_ sender: Any) {
         navigationController?.popViewController(animated: false)
     }
-}
-
-// MARK: Text Field Delegate
-extension ExploreSearchViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        users = string.isEmpty ? [GenericUser]() : UserData.shared.exploreUsers.filter({ (user) -> Bool in
-            guard let name = user.name else {
-                return false
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nav = segue.destination as? UINavigationController {
+            if let vc = nav.topViewController as? ProfileViewController {
+                userToDisplay?.startPostsListening()
+                userToDisplay?.startMiniatureListening()
+                vc.profileToDisplay = userToDisplay
             }
-            return name.range(of: string, options: .caseInsensitive, range: nil, locale: nil) != nil
-        })
-        tableView.reloadData()
-        
-        return true;
+        }
     }
 }
 
@@ -58,8 +71,17 @@ extension ExploreSearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as! ExploreSearchTableViewCell
-        cell.profileImage?.image = users[indexPath.row].image ?? UIImage(named: "placeholder")
-        cell.nameLabel.text = users[indexPath.row].name
+        let user = users[indexPath.row]
+        
+        cell.profileImage?.image = user.image ?? UIImage(named: "placeholder")
+        user.downloadImageIfMissing {
+            DispatchQueue.main.async {
+                if tableView.hasRowAtIndexPath(indexPath: indexPath) {
+                    tableView.reloadRows(at: [indexPath], with: .fade)
+                }
+            }
+        }
+        cell.nameLabel.text = user.name
         return cell
     }
 }
@@ -68,6 +90,7 @@ extension ExploreSearchViewController: UITableViewDataSource {
 
 extension ExploreSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        userToDisplay = users[indexPath.row]
         performSegue(withIdentifier: "toProfile", sender: self)
     }
 }

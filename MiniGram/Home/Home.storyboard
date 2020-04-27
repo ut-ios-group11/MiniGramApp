@@ -151,6 +151,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You aren't following any users!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bh1-C2-eQb">
+                                <rect key="frame" x="91.5" y="438" width="231.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -158,6 +164,8 @@
                             <constraint firstItem="i7M-Bu-OrD" firstAttribute="top" secondItem="gtU-Tq-kAS" secondAttribute="top" id="Dg3-g8-30K"/>
                             <constraint firstItem="i7M-Bu-OrD" firstAttribute="bottom" secondItem="gtU-Tq-kAS" secondAttribute="bottom" id="O6k-3p-ZVu"/>
                             <constraint firstItem="i7M-Bu-OrD" firstAttribute="leading" secondItem="gtU-Tq-kAS" secondAttribute="leading" id="fV9-c7-D4v"/>
+                            <constraint firstItem="bh1-C2-eQb" firstAttribute="centerX" secondItem="d9Y-P6-7JF" secondAttribute="centerX" id="hCn-32-oxz"/>
+                            <constraint firstItem="bh1-C2-eQb" firstAttribute="centerY" secondItem="d9Y-P6-7JF" secondAttribute="centerY" id="lWP-k5-O9Q"/>
                             <constraint firstItem="gtU-Tq-kAS" firstAttribute="trailing" secondItem="i7M-Bu-OrD" secondAttribute="trailing" id="yuc-jG-aJY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gtU-Tq-kAS"/>
@@ -165,6 +173,7 @@
                     <navigationItem key="navigationItem" id="3fJ-e3-cPv"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="noFollowersLabel" destination="bh1-C2-eQb" id="ibL-7x-yKQ"/>
                         <outlet property="tableView" destination="i7M-Bu-OrD" id="hf5-im-8tu"/>
                         <segue destination="eQn-if-ChN" kind="show" identifier="commentSegue" id="Sd6-MM-SNz"/>
                     </connections>
