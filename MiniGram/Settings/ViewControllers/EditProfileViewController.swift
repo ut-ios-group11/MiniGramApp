@@ -18,11 +18,17 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var deleteAccountButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var changeProfilePhotoButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        spinner.hidesWhenStopped = true
+        spinner.roundCorners(4)
+        saveChangesButton.roundCorners(4)
+        deleteAccountButton.roundCorners(4)
         editProfileImageView.roundCorners(editProfileImageView.frame.size.width / 2)
         self.hideKeyboardWhenTappedAround()
         styleTextFields()
@@ -34,6 +40,22 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.tabBarController?.tabBar.isHidden = true
         updateProfile()
         UserData.shared.setUserRefreshFunction(with: updateProfile)
+    }
+    
+    func disableUserInteraction(_ bool: Bool) {
+        saveChangesButton.isUserInteractionEnabled = bool
+        deleteAccountButton.isUserInteractionEnabled = bool
+        changeProfilePhotoButton.isUserInteractionEnabled = bool
+        editProfileImageView.isUserInteractionEnabled = bool
+        editUsernameTextField.isUserInteractionEnabled = bool
+        editEmailTextField.isUserInteractionEnabled = bool
+        editNameTextField.isUserInteractionEnabled = bool
+        
+        if !bool {
+            spinner.startAnimating()
+        } else {
+            spinner.stopAnimating()
+        }
     }
     
     func updateProfile() {
@@ -79,15 +101,18 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        disableUserInteraction(false)
         LogManager.logInfo("Completed image picker")
         if let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             Database.shared.updateProfilePhoto(image: pickedImage, onError: { (error) in
                 LogManager.logError(error)
+                self.disableUserInteraction(true)
             }) {
                 LogManager.logInfo("Sucessfully updated user profile photo.")
                 UserData.shared.getDatabaseUser()?.downloadImageForced {
                     self.updateImage()
                 }
+                self.disableUserInteraction(true)
             }
         }
         dismiss(animated: true, completion: nil)
@@ -108,20 +133,23 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             controller.addAction(cancelAction)
             
             let submitAction = UIAlertAction(title: "Submit", style: .default) { (alertAction) in
+                self.disableUserInteraction(false)
                 Database.shared.updateEmail(email: self.editEmailTextField.text!, password: controller.textFields![0].text!, onError: { (error) in
                     LogManager.logError(error)
+                    self.disableUserInteraction(true)
                 }, onComplete: {
                     LogManager.logInfo("Updated email sucessfully.")
                     UserData.shared.getUserReloadedEmail(onComplete: { (email) in
                         self.editEmailTextField.placeholder = email
                         self.editEmailTextField.text = ""
                     })
+                    self.disableUserInteraction(true)
                 })
             }
             controller.addAction(submitAction)
             present(controller, animated: true)
         }
-        
+        disableUserInteraction(false)
         var newName: String? = nil
         var newUsername: String? = nil
         if editNameTextField.text != "" {
@@ -132,11 +160,14 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         }
         Database.shared.updateProfile(name: newName, userName: newUsername, onError: { (error) in
             LogManager.logError(error)
+            self.disableUserInteraction(true)
         }) {
             LogManager.logInfo("Updated profile information sucessfully.")
             self.editNameTextField.text = ""
             self.editUsernameTextField.text = ""
+            self.disableUserInteraction(true)
         }
+        disableUserInteraction(true)
     }
     
     func styleTextFields() {

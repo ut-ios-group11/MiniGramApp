@@ -291,6 +291,15 @@
                                     <action selector="saveChanges:" destination="a5q-at-03O" eventType="touchUpInside" id="rBR-qx-HYX"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="qfe-rE-rHb">
+                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <color key="backgroundColor" name="flippedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Dbg-Yi-qRV"/>
+                                    <constraint firstAttribute="height" constant="40" id="qvD-mC-q8j"/>
+                                </constraints>
+                                <color key="color" name="flippedColorComplement"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -301,11 +310,14 @@
                             <constraint firstItem="LNv-7r-UIj" firstAttribute="leading" secondItem="ncU-dk-nmd" secondAttribute="leading" constant="24" id="USE-B3-879"/>
                             <constraint firstItem="ncU-dk-nmd" firstAttribute="bottom" secondItem="2rU-Sx-3VR" secondAttribute="bottom" constant="24" id="VuD-Dq-Bax"/>
                             <constraint firstItem="2rU-Sx-3VR" firstAttribute="top" secondItem="YHW-q1-0LS" secondAttribute="bottom" constant="24" id="Yzn-fo-Q22"/>
+                            <constraint firstItem="qfe-rE-rHb" firstAttribute="centerX" secondItem="q35-dF-3f1" secondAttribute="centerX" id="fC7-uD-PNG"/>
+                            <constraint firstItem="qfe-rE-rHb" firstAttribute="centerY" secondItem="q35-dF-3f1" secondAttribute="centerY" id="fLh-wT-gEI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ncU-dk-nmd"/>
                     </view>
                     <navigationItem key="navigationItem" id="Gxo-or-zYE"/>
                     <connections>
+                        <outlet property="changeProfilePhotoButton" destination="nmE-ik-lHW" id="fWh-z9-sH6"/>
                         <outlet property="deleteAccountButton" destination="2rU-Sx-3VR" id="4rw-fe-tgB"/>
                         <outlet property="editEmailTextField" destination="Rnj-K9-z82" id="dAz-ih-b4y"/>
                         <outlet property="editNameTextField" destination="qeM-nn-cEj" id="24v-Yx-RPO"/>
@@ -313,6 +325,7 @@
                         <outlet property="editUsernameTextField" destination="Y5f-g5-fx3" id="Ned-nH-1gm"/>
                         <outlet property="nameLabel" destination="4pM-Qe-ClI" id="i3k-rX-46v"/>
                         <outlet property="saveChangesButton" destination="YHW-q1-0LS" id="SuT-5Q-n1q"/>
+                        <outlet property="spinner" destination="qfe-rE-rHb" id="0RM-et-5F5"/>
                         <outlet property="usernameLabel" destination="Jju-x7-Wbd" id="TI5-YC-k0I"/>
                     </connections>
                 </viewController>
