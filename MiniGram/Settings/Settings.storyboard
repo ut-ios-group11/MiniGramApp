@@ -152,26 +152,60 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="biK-bL-Xa2">
-                                <rect key="frame" x="24" y="68" width="366" height="66"/>
+                                <rect key="frame" x="24" y="68" width="366" height="197"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEd-qg-Lbp">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Password Error Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gc4-9j-BTP">
+                                                <rect key="frame" x="4" y="4" width="358" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="gc4-9j-BTP" firstAttribute="leading" secondItem="XEd-qg-Lbp" secondAttribute="leading" constant="4" id="4p7-14-6ZU"/>
+                                            <constraint firstAttribute="trailing" secondItem="gc4-9j-BTP" secondAttribute="trailing" constant="4" id="gmR-VX-Uhx"/>
+                                            <constraint firstAttribute="bottom" secondItem="gc4-9j-BTP" secondAttribute="bottom" constant="4" id="hq2-4E-bgz"/>
+                                            <constraint firstItem="gc4-9j-BTP" firstAttribute="top" secondItem="XEd-qg-Lbp" secondAttribute="top" constant="4" id="lsm-mt-Xie"/>
+                                        </constraints>
+                                    </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kvk-Vu-0uG">
-                                        <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
+                                        <rect key="frame" x="0.0" y="82" width="366" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ex-1X-LvU">
-                                        <rect key="frame" x="0.0" y="49" width="366" height="17"/>
+                                        <rect key="frame" x="0.0" y="131" width="366" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3C3-et-DyH">
+                                        <rect key="frame" x="0.0" y="180" width="366" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="q2D-Wh-ZKN">
+                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <color key="backgroundColor" name="flippedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="3X5-Aa-SXH"/>
+                                    <constraint firstAttribute="height" constant="40" id="Bs4-k0-UGC"/>
+                                </constraints>
+                                <color key="color" name="flippedColorComplement"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="biK-bL-Xa2" firstAttribute="leading" secondItem="gn1-hz-0pR" secondAttribute="leading" constant="24" id="1xg-Ij-rv9"/>
                             <constraint firstItem="gn1-hz-0pR" firstAttribute="trailing" secondItem="biK-bL-Xa2" secondAttribute="trailing" constant="24" id="9QA-Ho-hVr"/>
                             <constraint firstItem="biK-bL-Xa2" firstAttribute="top" secondItem="gn1-hz-0pR" secondAttribute="top" constant="24" id="BLL-li-tik"/>
+                            <constraint firstItem="q2D-Wh-ZKN" firstAttribute="centerX" secondItem="gZV-ox-MK0" secondAttribute="centerX" id="NRA-bB-zgD"/>
+                            <constraint firstItem="q2D-Wh-ZKN" firstAttribute="centerY" secondItem="gZV-ox-MK0" secondAttribute="centerY" id="ZFV-y2-xuM"/>
                             <constraint firstItem="qid-Q1-OLt" firstAttribute="centerX" secondItem="gZV-ox-MK0" secondAttribute="centerX" id="bhA-JV-ncj"/>
                             <constraint firstItem="gn1-hz-0pR" firstAttribute="bottom" secondItem="qid-Q1-OLt" secondAttribute="bottom" constant="24" id="lxW-55-yMY"/>
                         </constraints>
@@ -179,9 +213,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Change Password" id="QUa-eT-XMj"/>
                     <connections>
+                        <outlet property="confirmNewPasswordTextField" destination="3C3-et-DyH" id="WFx-dA-EYD"/>
+                        <outlet property="errorLabel" destination="gc4-9j-BTP" id="uin-Z4-Z9g"/>
+                        <outlet property="errorView" destination="XEd-qg-Lbp" id="h1E-04-9ln"/>
                         <outlet property="newPasswordTextField" destination="4ex-1X-LvU" id="O60-b9-lek"/>
                         <outlet property="oldPasswordTextField" destination="Kvk-Vu-0uG" id="UPJ-8u-nsL"/>
                         <outlet property="saveChangesButton" destination="qid-Q1-OLt" id="cxv-Hi-ShI"/>
+                        <outlet property="spinner" destination="q2D-Wh-ZKN" id="5cx-So-THa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CAD-4J-gt1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
