@@ -89,7 +89,7 @@ class Fire {
     func downloadImage(at ref: FireStorageCollection, id: String, OnError: @escaping (Error) -> Void, onComplete: @escaping (UIImage) -> Void) {
         let storageRef = Storage.storage().reference().child(ref.rawValue).child(id + ".jpeg")
         
-        storageRef.getData(maxSize: 1*1024*1024) { (data, error) in
+        storageRef.getData(maxSize: 3*1024*1024) { (data, error) in
             if let error = error {
                 LogManager.logError(error)
                 OnError(error)
