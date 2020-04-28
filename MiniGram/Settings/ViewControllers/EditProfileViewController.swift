@@ -80,7 +80,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         LogManager.logInfo("Completed image picker")
-        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        if let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             Database.shared.updateProfilePhoto(image: pickedImage, onError: { (error) in
                 LogManager.logError(error)
             }) {
