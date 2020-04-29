@@ -19,7 +19,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         performSegue(withIdentifier: commentSegueIdentifier, sender: self)
     }
     
-    @IBOutlet weak var noFollowersLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [GenericPost]()
@@ -41,11 +40,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidAppear(_ animated: Bool) {
         // display no followers message
-        if posts.count == 0 {
-             noFollowersLabel.isHidden = false
-        } else {
-             noFollowersLabel.isHidden = true
-        }
     }
     
     func reloadData() {
@@ -54,10 +48,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        posts.count
+        if posts.count < 1 {
+            return 1
+        }
+        
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if posts.count == 0 {
+            return tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
+        }
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? HomeFeedTableViewCell else {
                 return UITableViewCell()
         }
@@ -65,11 +67,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.likeButton.isSelected = false
         cell.postImage.image = post.image ?? UIImage(named: "placeholder")
         post.downloadImageIfMissing {
-            tableView.reloadRows(at: [indexPath], with: .fade)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         cell.userImage.image = post.userImage ?? UIImage(named: "placeholder")
         post.downloadUserImageIfMissing {
-            tableView.reloadRows(at: [indexPath], with: .fade)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         cell.userImage.round()
         cell.username.text = post.userName

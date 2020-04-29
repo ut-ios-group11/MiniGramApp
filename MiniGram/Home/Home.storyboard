@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="609" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i7M-Bu-OrD">
-                                <rect key="frame" x="0.0" y="34" width="414" height="779"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="609" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i7M-Bu-OrD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="609" id="ScB-fX-9bQ" customClass="HomeFeedTableViewCell" customModule="MiniGram" customModuleProvider="target">
@@ -146,14 +146,42 @@
                                             <outlet property="username" destination="3fn-wc-g5p" id="eiH-Tg-8iM"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="emptyCell" id="q95-dc-F5A" customClass="HomeFeedTableViewCell" customModule="MiniGram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="637" width="414" height="609"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q95-dc-F5A" id="gbF-S6-fRe">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="609"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LW7-YV-FDf">
+                                                    <rect key="frame" x="8" y="8" width="398" height="418.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list.bullet.below.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EAr-wH-abd">
+                                                            <rect key="frame" x="0.0" y="1.5" width="398" height="395.5"/>
+                                                            <color key="tintColor" name="flippedColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="EAr-wH-abd" secondAttribute="height" id="qbQ-NG-Kvg"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="No posts to show" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMN-T7-z2s">
+                                                            <rect key="frame" x="0.0" y="398" width="398" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <color key="textColor" name="flippedColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LW7-YV-FDf" firstAttribute="leading" secondItem="gbF-S6-fRe" secondAttribute="leading" constant="8" id="3eX-DM-biK"/>
+                                                <constraint firstItem="LW7-YV-FDf" firstAttribute="top" secondItem="gbF-S6-fRe" secondAttribute="top" constant="8" id="E1d-QG-Uj7"/>
+                                                <constraint firstAttribute="trailing" secondItem="LW7-YV-FDf" secondAttribute="trailing" constant="8" id="au3-1E-cm9"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LW7-YV-FDf" secondAttribute="bottom" constant="8" id="zbl-eH-iYH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You aren't following any users!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bh1-C2-eQb">
-                                <rect key="frame" x="91.5" y="438" width="231.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -161,8 +189,6 @@
                             <constraint firstItem="i7M-Bu-OrD" firstAttribute="top" secondItem="gtU-Tq-kAS" secondAttribute="top" id="Dg3-g8-30K"/>
                             <constraint firstItem="i7M-Bu-OrD" firstAttribute="bottom" secondItem="gtU-Tq-kAS" secondAttribute="bottom" id="O6k-3p-ZVu"/>
                             <constraint firstItem="i7M-Bu-OrD" firstAttribute="leading" secondItem="gtU-Tq-kAS" secondAttribute="leading" id="fV9-c7-D4v"/>
-                            <constraint firstItem="bh1-C2-eQb" firstAttribute="centerX" secondItem="d9Y-P6-7JF" secondAttribute="centerX" id="hCn-32-oxz"/>
-                            <constraint firstItem="bh1-C2-eQb" firstAttribute="centerY" secondItem="d9Y-P6-7JF" secondAttribute="centerY" id="lWP-k5-O9Q"/>
                             <constraint firstItem="gtU-Tq-kAS" firstAttribute="trailing" secondItem="i7M-Bu-OrD" secondAttribute="trailing" id="yuc-jG-aJY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gtU-Tq-kAS"/>
@@ -170,14 +196,13 @@
                     <navigationItem key="navigationItem" id="3fJ-e3-cPv"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="noFollowersLabel" destination="bh1-C2-eQb" id="ibL-7x-yKQ"/>
                         <outlet property="tableView" destination="i7M-Bu-OrD" id="hf5-im-8tu"/>
                         <segue destination="eQn-if-ChN" kind="show" identifier="commentSegue" id="Sd6-MM-SNz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVp-lY-fr3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862" y="94"/>
+            <point key="canvasLocation" x="860.86956521739137" y="93.75"/>
         </scene>
         <!--Comment-->
         <scene sceneID="ccu-Zt-ANi">
@@ -212,6 +237,7 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="110"/>
+        <image name="list.bullet.below.rectangle" catalog="system" width="128" height="112"/>
         <namedColor name="flippedColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
