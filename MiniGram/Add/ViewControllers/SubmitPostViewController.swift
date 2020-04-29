@@ -15,16 +15,27 @@ class SubmitPostViewController: UIViewController {
     @IBOutlet weak var captionField: UITextField!
     @IBOutlet weak var captionFieldConstraint: NSLayoutConstraint!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     @IBAction func submitButton(_ sender: Any) {
-        guard let user = UserData.shared.getDatabaseUser() else { return }
+        submitButton.isUserInteractionEnabled = false
+        spinner.startAnimating()
+        guard let user = UserData.shared.getDatabaseUser() else {
+            submitButton.isUserInteractionEnabled = true
+            spinner.stopAnimating()
+            return
+        }
         let post = GenericPost(id: "", userId: user.id, userName: user.userName!, likes: [String](), desc: captionField.text!, date: Timestamp(), image: nil)
         Database.shared.createPost(image: imageView.image!, post: post, onError: { (Error) in
             LogManager.logError(Error)
+            self.spinner.stopAnimating()
+            self.submitButton.isUserInteractionEnabled = true
         }) {
             self.tabBarController?.selectedIndex = 0
             self.navigationController?.popToRootViewController(animated: false)
             LogManager.logInfo("Sucessfully created post")
+            self.spinner.stopAnimating()
+            self.submitButton.isUserInteractionEnabled = true
         }
     }
     
@@ -42,6 +53,8 @@ class SubmitPostViewController: UIViewController {
         self.imageView.image = self.image ?? UIImage(named: "placeholder")
         captionField.underlined()
         submitButton.roundCorners(4)
+        spinner.hidesWhenStopped = true
+        spinner.roundCorners(4)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

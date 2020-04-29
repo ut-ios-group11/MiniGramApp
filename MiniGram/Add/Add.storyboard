@@ -185,17 +185,28 @@
                                     <action selector="submitButton:" destination="hLw-cU-SVQ" eventType="touchUpInside" id="RQF-1C-gam"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Vmc-Hz-k75">
+                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <color key="backgroundColor" name="flippedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2Xd-m7-E1S"/>
+                                    <constraint firstAttribute="width" constant="40" id="7id-Nb-3mH"/>
+                                </constraints>
+                                <color key="color" name="flippedColorComplement"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="OM1-hp-xIH" firstAttribute="trailing" secondItem="v9M-Kq-yd7" secondAttribute="trailingMargin" id="BUv-5p-fch"/>
                             <constraint firstItem="ppG-10-qIJ" firstAttribute="bottom" secondItem="EHW-Yf-Tmo" secondAttribute="bottom" constant="76" id="H4C-Fk-jr7"/>
                             <constraint firstItem="EHW-Yf-Tmo" firstAttribute="leading" secondItem="ppG-10-qIJ" secondAttribute="leading" constant="20" id="HeL-uq-wpn"/>
+                            <constraint firstItem="Vmc-Hz-k75" firstAttribute="centerY" secondItem="v9M-Kq-yd7" secondAttribute="centerY" id="MhZ-zL-o83"/>
                             <constraint firstItem="iTt-UD-NRs" firstAttribute="centerX" secondItem="OM1-hp-xIH" secondAttribute="centerX" id="VnQ-SW-2zq"/>
                             <constraint firstItem="iTt-UD-NRs" firstAttribute="leading" secondItem="ppG-10-qIJ" secondAttribute="leading" id="WGo-ub-qfy"/>
                             <constraint firstItem="EHW-Yf-Tmo" firstAttribute="top" secondItem="OM1-hp-xIH" secondAttribute="bottom" constant="20" id="XWc-Vr-zxx"/>
                             <constraint firstItem="OM1-hp-xIH" firstAttribute="leading" secondItem="v9M-Kq-yd7" secondAttribute="leadingMargin" id="Yar-VL-P1q"/>
                             <constraint firstItem="OM1-hp-xIH" firstAttribute="top" secondItem="iTt-UD-NRs" secondAttribute="bottom" constant="20" id="bkL-FY-rtw"/>
+                            <constraint firstItem="Vmc-Hz-k75" firstAttribute="centerX" secondItem="v9M-Kq-yd7" secondAttribute="centerX" id="d3N-bN-UdD"/>
                             <constraint firstItem="OM1-hp-xIH" firstAttribute="centerX" secondItem="EHW-Yf-Tmo" secondAttribute="centerX" id="kEP-6R-DLJ"/>
                             <constraint firstItem="iTt-UD-NRs" firstAttribute="top" secondItem="ppG-10-qIJ" secondAttribute="top" id="oQ3-ke-X8D"/>
                         </constraints>
@@ -206,6 +217,7 @@
                         <outlet property="captionField" destination="OM1-hp-xIH" id="fp5-j4-lFD"/>
                         <outlet property="captionFieldConstraint" destination="H4C-Fk-jr7" id="Xe8-V2-vrN"/>
                         <outlet property="imageView" destination="iTt-UD-NRs" id="fMd-rK-ubY"/>
+                        <outlet property="spinner" destination="Vmc-Hz-k75" id="xgC-v1-5If"/>
                         <outlet property="submitButton" destination="EHW-Yf-Tmo" id="2KA-eM-SQr"/>
                         <segue destination="L8y-xd-gqo" kind="unwind" identifier="HomeSegue" unwindAction="prepareForUnwindWithSegue:" id="uHt-7x-AIw"/>
                     </connections>
@@ -1734,13 +1746,24 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="lfi-nH-4LF"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="9qI-Nh-0J0"/>
                             </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8GT-VT-fZp">
+                                <rect key="frame" x="187" y="1230" width="40" height="40"/>
+                                <color key="backgroundColor" name="flippedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="XTP-NR-zAn"/>
+                                    <constraint firstAttribute="width" constant="40" id="seI-8O-QL2"/>
+                                </constraints>
+                                <color key="color" name="flippedColorComplement"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="oAU-Nv-3fk" firstAttribute="bottom" secondItem="fUP-yh-EtA" secondAttribute="bottom" id="L2Z-x7-0d7"/>
                             <constraint firstItem="oAU-Nv-3fk" firstAttribute="leading" secondItem="fUP-yh-EtA" secondAttribute="leading" id="Rou-VZ-9Xn"/>
                             <constraint firstItem="oAU-Nv-3fk" firstAttribute="trailing" secondItem="fUP-yh-EtA" secondAttribute="trailing" id="ZGr-Gk-ee4"/>
+                            <constraint firstItem="8GT-VT-fZp" firstAttribute="centerY" secondItem="CiC-Oz-WyE" secondAttribute="centerY" id="gc2-Pa-4pM"/>
                             <constraint firstItem="oAU-Nv-3fk" firstAttribute="top" secondItem="fUP-yh-EtA" secondAttribute="top" id="ihx-qZ-CDA"/>
+                            <constraint firstItem="8GT-VT-fZp" firstAttribute="centerX" secondItem="CiC-Oz-WyE" secondAttribute="centerX" id="jwe-FR-4rb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fUP-yh-EtA"/>
                     </view>
@@ -1757,6 +1780,7 @@
                         <outlet property="nameField" destination="KzG-fN-TNX" id="waX-b9-51D"/>
                         <outlet property="powerField" destination="8TW-Yw-KtU" id="D10-DI-gUH"/>
                         <outlet property="saveField" destination="nTm-61-CK4" id="E8D-5r-thJ"/>
+                        <outlet property="spinner" destination="8GT-VT-fZp" id="3Ca-Ge-8fX"/>
                         <outlet property="strengthField" destination="nlq-Ce-D8h" id="D3v-8a-rqU"/>
                         <outlet property="toughnessField" destination="al7-AP-nr3" id="IJN-LD-IAE"/>
                         <outlet property="unitField" destination="I6h-4H-rSa" id="EEw-va-uYa"/>

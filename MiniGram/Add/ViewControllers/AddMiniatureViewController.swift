@@ -19,6 +19,7 @@ class AddMiniatureViewController: UIViewController {
     @IBOutlet weak var leadershipField: UITextField!
     @IBOutlet weak var saveField: UITextField!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     @IBAction func buttonPressed(sender: UIButton) {
         sender.isSelected = !sender.isSelected
@@ -30,8 +31,13 @@ class AddMiniatureViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: Any) {
-        
-        guard let user = UserData.shared.getDatabaseUser() else { return }
+        addButton.isUserInteractionEnabled = false
+        spinner.startAnimating()
+        guard let user = UserData.shared.getDatabaseUser() else {
+            addButton.isUserInteractionEnabled = true
+            spinner.stopAnimating()
+            return
+        }
         
         var unit = self.unitField.text ?? ""
         if unit == "" {
@@ -59,10 +65,12 @@ class AddMiniatureViewController: UIViewController {
         
         Database.shared.createMinature(image: self.image, miniature: newMiniature, onError: { (Error) in
             LogManager.logError(Error)
+            self.spinner.stopAnimating()
         }) {
             self.tabBarController?.selectedIndex = 0
             self.navigationController?.popToRootViewController(animated: false)
             LogManager.logInfo("Sucessfully created miniature")
+            self.spinner.stopAnimating()
         }
     }
     
@@ -101,6 +109,8 @@ class AddMiniatureViewController: UIViewController {
         self.leadershipField.underlined()
         self.saveField.underlined()
         self.addButton.roundCorners(4)
+        spinner.roundCorners(4)
+        spinner.hidesWhenStopped = true
     }
     
     func getSelectedButtons(start: Int, end: Int) -> [String] {
