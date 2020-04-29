@@ -129,6 +129,10 @@ class Database {
         Fire.shared.downloadImage(at: FireStorageCollection.Miniatures, id: id, OnError: onError, onComplete: onComplete)
     }
     
+    func downloadCommentImage(id: String, onError: @escaping (Error) -> Void, onComplete: @escaping (UIImage) -> Void) {
+        Fire.shared.downloadImage(at: FireStorageCollection.Users, id: id, OnError: onError, onComplete: onComplete)
+    }
+    
     // MARK: - Listener Methods
     
     func profilePostsListener(listenerId: String, userId: String, onComplete: @escaping ([GenericPost], [String], [GenericPost], String) -> Void) -> Listener {
@@ -154,6 +158,12 @@ class Database {
     func allUsersListener(listenerId: String, onComplete: @escaping ([GenericUser],[String],[GenericUser], String) -> Void) -> Listener {
         let query = Firestore.firestore().collection(FireCollection.Users.rawValue)
         let listenerRegistration = Fire.shared.listener(at: query, returning: GenericUser.self, onComplete: onComplete)
+        return Listener(id: listenerId, registration: listenerRegistration)
+    }
+    
+    func postCommentListener(postId: String, listenerId: String, onComplete: @escaping ([Comment],[String],[Comment], String) -> Void) -> Listener {
+        let query = Firestore.firestore().collection(FireCollection.Posts.rawValue).document(postId).collection(FireSubCollection.Comments.rawValue)
+        let listenerRegistration = Fire.shared.listener(at: query, returning: Comment.self, onComplete: onComplete)
         return Listener(id: listenerId, registration: listenerRegistration)
     }
     // MARK: - Check Methods

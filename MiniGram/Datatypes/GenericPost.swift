@@ -21,6 +21,9 @@ class GenericPost: FireInitable {
     var comments = [Comment]()
     var userImage: UIImage?
     
+    private var commentListener: Listener?
+    private var commentsRefreshFunction: (() -> Void)?
+    
     required init(doc: DocumentSnapshot) {
         id = doc.documentID
         userId = doc.get("userId") as? String ?? ""
@@ -109,6 +112,33 @@ class GenericPost: FireInitable {
         comments.append(comment)
     }
     
+    func startCommentListenerIfDoesntExits() {
+        if commentListener != nil {
+            return
+        }
+        commentListener = Database.shared.postCommentListener(postId: id, listenerId: "Comments", onComplete: commentListenerRead(add:remove:change:listenerId:))
+    }
+    
+    func commentListenerRead(add: [Comment], remove: [String], change: [Comment], listenerId: String) {
+        //add
+        for comment in add {
+            self.comments.append(comment)
+        }
+        //remove
+        for id in remove {
+            self.comments.removeAll(where: {$0.id == id})
+        }
+        //change
+        for comment in change {
+            self.comments.first(where: {$0.id == comment.id})?.update(with: comment)
+        }
+        commentsRefreshFunction?()
+    }
+    
+    func setCommentsRefreshFunction(_ function: (() -> Void)?) {
+        commentsRefreshFunction = function
+    }
+    
     func toDict() -> [String : Any] {
         return [
             "desc": desc,
@@ -117,6 +147,11 @@ class GenericPost: FireInitable {
             "userId": userId,
             "userName": userName
         ]
+    }
+    
+    deinit {
+        commentListener?.registration.remove()
+        commentsRefreshFunction = nil
     }
     
 }

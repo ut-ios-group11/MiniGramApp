@@ -19,6 +19,7 @@ enum FireCollection: String {
 }
 
 enum FireSubCollection: String {
+    case Comments
     case Placeholder //Change as we implement
 }
 

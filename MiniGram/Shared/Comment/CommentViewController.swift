@@ -45,11 +45,22 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         userImage.image = user?.image ?? UIImage(named: "placeholder")
-        tableView.reloadData()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         self.hideKeyboardWhenTappedAround()
         addCommentText.addBottomBorderWithColor()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        post?.setCommentsRefreshFunction(reloadData)
+        post?.startCommentListenerIfDoesntExits()
+        reloadData()
+    }
+    
+    func reloadData() {
+        tableView.reloadData()
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -83,11 +94,15 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as? CommentTableViewCell else {
                 return UITableViewCell()
         }
-        // must be fixed when we use database connection
-//        cell.commentUserImage = ???
-        cell.commentUsername.text = post?.comments[indexPath.row].userId
-        cell.commentText.text = post?.comments[indexPath.row].message
-        cell.commentUserImage.image = user?.image ?? UIImage(named: "placeholder")
+        guard let post = post else { return UITableViewCell()}
+        let comment = post.comments[indexPath.row]
+
+        cell.commentUsername.text = comment.userId
+        cell.commentText.text = comment.message
+        cell.commentUserImage.image = comment.image ?? UIImage(named: "placeholder")
+        comment.downloadImageIfMissing {
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
         return cell
     }
     
