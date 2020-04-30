@@ -56,6 +56,12 @@ class Database {
         }
     }
     
+    func createComment(postId: String, comment: Comment, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        let ref = Firestore.firestore().collection(FireCollection.Posts.rawValue).document(postId).collection(FireSubCollection.Comments.rawValue)
+        let data = comment.toDict()
+        Fire.shared.create(at: ref, data: data, onError: onError, onComplete: onComplete)
+    }
+    
     // MARK: - Update Methods
     
     func updateProfile(name: String? = nil, userName: String? = nil, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {

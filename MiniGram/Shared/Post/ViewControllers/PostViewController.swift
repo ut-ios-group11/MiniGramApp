@@ -19,6 +19,8 @@ class PostViewController: UIViewController {
     
     var post: GenericPost?
     let currentUser = UserData.shared.getDatabaseUser()
+    var commentSegueIdentifier = "commentSegue"
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +86,16 @@ class PostViewController: UIViewController {
                 })
                 self.refreshData()
             }
+        }
+    }
+    @IBAction func viewAllCommentsButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: commentSegueIdentifier, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == commentSegueIdentifier,
+            let nextVC = segue.destination as? CommentViewController {
+                nextVC.post = post
         }
     }
 }

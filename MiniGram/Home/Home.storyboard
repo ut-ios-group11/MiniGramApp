@@ -108,7 +108,7 @@
                                                                                         <constraint firstAttribute="height" constant="35" id="J9p-xY-bDr"/>
                                                                                     </constraints>
                                                                                     <state key="normal" title="View all comments">
-                                                                                        <color key="titleColor" name="flippedColor"/>
+                                                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     </state>
                                                                                     <connections>
                                                                                         <action selector="viewCommentsButtonPressed:" destination="ScB-fX-9bQ" eventType="touchUpInside" id="Jph-xB-gSj"/>
