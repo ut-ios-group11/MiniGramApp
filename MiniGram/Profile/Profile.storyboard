@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wHv-jo-Gb8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -29,7 +29,7 @@
                                                     <constraint firstAttribute="height" constant="24" id="Awe-gh-gao"/>
                                                     <constraint firstAttribute="width" constant="24" id="gyZ-Dx-Jgj"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="settings">
+                                                <state key="normal" title="Button" image="Settings">
                                                     <color key="titleColor" name="flippedColor"/>
                                                 </state>
                                                 <connections>
@@ -390,10 +390,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Settings" width="512" height="512"/>
         <image name="follow_selected" width="23" height="23"/>
         <image name="follow_unselected" width="22" height="23"/>
         <image name="person" catalog="system" width="128" height="117"/>
-        <image name="settings" width="512" height="512"/>
         <namedColor name="flippedColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
