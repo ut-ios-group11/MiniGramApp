@@ -105,7 +105,12 @@ extension MiniaturesTableViewController: UICollectionViewDelegate, UICollectionV
         let mini = array![indexPath.item]
         
         // Set the mini's image and download if missing
-        cell.miniaturesImageView.image = mini.image ?? UIImage(named: "placeholder")
+        if mini.image == nil {
+            cell.spinner.startAnimating()
+            cell.miniaturesImageView.image = UIImage(named: "placeholder")
+        } else {
+            cell.miniaturesImageView.image = mini.image
+        }
         mini.downloadImageIfMissing {
             collectionView.reloadItems(at: [indexPath])
         }

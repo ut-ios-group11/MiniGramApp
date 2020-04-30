@@ -79,7 +79,12 @@ extension GalleryViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let post = galleryPosts[indexPath.item]
-        cell.galleryImageView.image = galleryPosts[indexPath.item].image ?? UIImage(named: "placeholder")
+        if post.image == nil {
+            cell.spinner.startAnimating()
+            cell.galleryImageView.image = UIImage(named: "placeholder")
+        } else {
+            cell.galleryImageView.image = post.image
+        }
         post.downloadImageIfMissing {
             collectionView.reloadItems(at: [indexPath])
         }

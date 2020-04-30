@@ -12,6 +12,8 @@ class MiniaturesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var miniaturesImageView: UIImageView!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     func updateImage(image: UIImage?) {
         self.miniaturesImageView.image = image ?? UIImage(named: "placeholder")
     }
