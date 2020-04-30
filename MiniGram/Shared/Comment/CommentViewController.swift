@@ -16,6 +16,9 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var addCommentText: UITextView!
+    @IBOutlet weak var backgroundTextInput: UITextField!
+    
+    @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
     
     @IBAction func buttonPressedAddComment(_ sender: Any) {
         guard let post = post, let msg = addCommentText.text else {
@@ -47,8 +50,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        self.hideKeyboardWhenTappedAround()
-        addCommentText.addBottomBorderWithColor()
+        backgroundTextInput.underlined()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,27 +68,41 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.reloadData()
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= (keyboardSize.height + 15)
-            }
+    // MARK: Handle Keyboard
+    @objc func keyboardWillShow(sender: NSNotification) {
+        guard let keyboard = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
         }
+        
+        let keyboardSize = keyboard.height
+        
+        var safeArea = 0 as CGFloat
+        if #available(iOS 11.0, *) {
+            let window = UIApplication.shared.windows.first { $0.isKeyWindow }
+            let bottomPadding = window?.safeAreaInsets.bottom
+            safeArea = bottomPadding ?? 0
+        }
+        print(safeArea, keyboardSize)
+        viewBottomConstraint.constant = (2 * safeArea) - keyboardSize
+        
+        guard let keyboardAnimationDuration = sender.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else {
+            return
+        }
+        let duration: TimeInterval = keyboardAnimationDuration.doubleValue
+        
+        UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
     }
+    
+    @objc func keyboardWillHide(sender: NSNotification) {
 
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
+        let info = sender.userInfo!
+        guard let keyboardAnimationDuration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else {
+            return
         }
-    }
-    
-    func textFieldShouldReturn(textField:UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        let duration: TimeInterval = keyboardAnimationDuration.doubleValue
+        viewBottomConstraint.constant = 0
+        
+        UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
