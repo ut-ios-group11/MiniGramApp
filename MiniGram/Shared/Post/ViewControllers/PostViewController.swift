@@ -33,7 +33,6 @@ class PostViewController: UIViewController {
     func refreshData() {
         if let post = post {
             postImage.image = post.image ?? UIImage(named: "placeholder")
-            print("Number of likes: \(String(post.likes.count))")
             likesLabel.text = String(post.likes.count)
             descTextView.text = post.desc
             usernameLabel.text = post.userName
