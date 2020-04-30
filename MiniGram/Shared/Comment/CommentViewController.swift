@@ -13,40 +13,38 @@ import FirebaseFirestore
 
 class CommentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var explorePosts = [GenericPost]()
-
-    
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var userImage: UIImageView!
-    
     @IBOutlet weak var addCommentText: UITextView!
     
-    
     @IBAction func buttonPressedAddComment(_ sender: Any) {
-        if addCommentText.text != "" {
-            let newComment = Comment(id: "uhhh...1", userId: user?.userName ?? "placeholder", message: addCommentText.text!, date: Timestamp())
-            post?.addComment(comment: newComment)
-            addCommentText.text = ""
-            tableView.reloadData()
+        guard let post = post, let msg = addCommentText.text else {
+            return
+        }
+        guard let user = UserData.shared.getDatabaseUser(), let userName = user.userName else {
+            return
+        }
+        addCommentText.text = ""
+        let newComment = Comment(id: "", userId: user.id, userName: userName, message: msg, date: Timestamp())
+        Database.shared.createComment(postId: post.id, comment: newComment, onError: { (error) in
+            LogManager.logError(error)
+        }) {
+            LogManager.logInfo("Comment Created for post \(post.id)")
         }
     }
     
     var post: GenericPost?
-    var user: GenericUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        navigationController?.setNavigationBarHidden(false, animated: true)
-//        addCommentText.underlined()
-        explorePosts = UserData.shared.getExplorePosts()
         tableView.delegate = self
         tableView.dataSource = self
-        userImage.image = user?.image ?? UIImage(named: "placeholder")
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         self.hideKeyboardWhenTappedAround()
         addCommentText.addBottomBorderWithColor()
     }
@@ -60,6 +58,9 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func reloadData() {
+        let user = UserData.shared.getDatabaseUser()
+        userImage.image = user?.image ?? UIImage(named: "placeholder")
+        
         tableView.reloadData()
     }
     
@@ -97,7 +98,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         guard let post = post else { return UITableViewCell()}
         let comment = post.comments[indexPath.row]
 
-        cell.commentUsername.text = comment.userId
+        cell.commentUsername.text = comment.userName
         cell.commentText.text = comment.message
         cell.commentUserImage.image = comment.image ?? UIImage(named: "placeholder")
         comment.downloadImageIfMissing {
@@ -105,16 +106,5 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         return cell
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
