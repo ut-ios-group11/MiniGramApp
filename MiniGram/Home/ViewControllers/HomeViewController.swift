@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomeFeedPost {
     func viewComments(postId: String)
+    func viewProfile(postId: String)
 }
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeFeedPost {
@@ -19,11 +20,41 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         performSegue(withIdentifier: commentSegueIdentifier, sender: self)
     }
     
+    func viewProfile(postId: String) {
+        users = UserData.shared.getUserList()
+        var selectedPost: GenericPost?
+        for post in posts {
+            if post.id == postId {
+                selectedPost = post
+                break
+            }
+        }
+        if users.count == 0 {
+            LogManager.logError("Problem")
+        }
+        for user in users {
+            if user.id == selectedPost?.userId {
+                userToDisplay = user
+                break
+            }
+        }
+        if userToDisplay == nil {
+            LogManager.logError("No work")
+            return
+        }
+        performSegue(withIdentifier: "toProfile", sender: self)
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [GenericPost]()
+    var users = [GenericUser]()
     var commentSegueIdentifier = "commentSegue"
+    var profileSegueIdentifier = "toProfile"
     var seguePostId: String?
+    var segueUserPostId: String?
+    var userToDisplay: GenericUser?
+
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -74,7 +105,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         cell.userImage.round()
-        cell.username.text = post.userName
+        cell.username.setTitle(post.userName, for: .normal)
         cell.likeCount.text = String(post.likes.count)
         let user = UserData.shared.getDatabaseUser()
         if post.likes.contains(user?.id ?? "") {
@@ -93,6 +124,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 return GenericPost.id == seguePostId
             }) {
                 nextVC.post = post
+            }
+        }
+        
+        if let nav = segue.destination as? UINavigationController {
+            if let vc = nav.topViewController as? ProfileViewController {
+                userToDisplay?.startPostsListening()
+                userToDisplay?.startMiniatureListening()
+                vc.profileToDisplay = userToDisplay
             }
         }
     }

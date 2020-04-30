@@ -18,7 +18,7 @@ class HomeFeedTableViewCell: UITableViewCell {
     
     @IBOutlet weak var userImage: UIImageView!
     
-    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var username: UIButton!
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         // update UI and call function to record like in database
@@ -43,6 +43,11 @@ class HomeFeedTableViewCell: UITableViewCell {
             }
             likeCount.text = String(Int(likeCount.text!)! - 1)
         }
+    }
+    
+    @IBAction func usernameButtonPressed(_ sender: Any) {
+        // call function to segue to profile view
+        delegate?.viewProfile(postId: postId!)
     }
     
     @IBOutlet weak var likeButton: UIButton!
