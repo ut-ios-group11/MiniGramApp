@@ -69,9 +69,27 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7af-iP-6tY">
                                                             <rect key="frame" x="0.0" y="0.0" width="51" height="50"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wx6-ci-ZLn">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDW-1H-IDv">
                                                                     <rect key="frame" x="0.0" y="0.0" width="51" height="50"/>
-                                                                </imageView>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wx6-ci-ZLn">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="51" height="50"/>
+                                                                        </imageView>
+                                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="XxU-rT-clW">
+                                                                            <rect key="frame" x="7" y="6.5" width="37" height="37"/>
+                                                                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </activityIndicatorView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="XxU-rT-clW" firstAttribute="centerY" secondItem="uDW-1H-IDv" secondAttribute="centerY" id="8e7-mR-3bJ"/>
+                                                                        <constraint firstItem="XxU-rT-clW" firstAttribute="centerX" secondItem="uDW-1H-IDv" secondAttribute="centerX" id="Akm-uJ-PcH"/>
+                                                                        <constraint firstItem="Wx6-ci-ZLn" firstAttribute="top" secondItem="uDW-1H-IDv" secondAttribute="top" id="EHX-R2-3rt"/>
+                                                                        <constraint firstItem="Wx6-ci-ZLn" firstAttribute="leading" secondItem="uDW-1H-IDv" secondAttribute="leading" id="M7Z-fQ-IT5"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="Wx6-ci-ZLn" secondAttribute="bottom" id="XBD-wv-hAo"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="Wx6-ci-ZLn" secondAttribute="trailing" id="YB3-G4-StQ"/>
+                                                                    </constraints>
+                                                                </view>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
@@ -85,6 +103,7 @@
                                                 <size key="customSize" width="51" height="50"/>
                                                 <connections>
                                                     <outlet property="imageView" destination="Wx6-ci-ZLn" id="eZQ-XP-Ii7"/>
+                                                    <outlet property="spinner" destination="XxU-rT-clW" id="gLg-wq-kL7"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>

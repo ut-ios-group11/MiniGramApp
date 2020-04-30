@@ -245,7 +245,7 @@ class UserData {
         //add
         for post in add {
             self.homePosts.append(post)
-            post.downloadImageIfMissing()
+            //post.downloadImageIfMissing()
         }
         //remove
         for id in remove {
@@ -265,7 +265,7 @@ class UserData {
         //add
         for post in add {
             self.explorePosts.append(post)
-            post.downloadImageIfMissing()
+            //post.downloadImageIfMissing()
         }
         //remove
         for id in remove {

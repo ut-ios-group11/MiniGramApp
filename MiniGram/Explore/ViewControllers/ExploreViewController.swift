@@ -102,7 +102,12 @@ extension ExploreViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let post = explorePosts[indexPath.item]
-        cell.imageView.image = post.image ?? UIImage(named: "placeholder")
+        if post.image == nil {
+            cell.spinner.startAnimating()
+            cell.imageView.image = UIImage(named: "placeholder")
+        } else {
+            cell.imageView.image = post.image
+        }
         post.downloadImageIfMissing {
             collectionView.reloadItems(at: [indexPath])
         }
