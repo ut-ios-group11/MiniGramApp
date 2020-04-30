@@ -21,7 +21,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func viewProfile(postId: String) {
-        users = UserData.shared.getUserList()
+        let users = UserData.shared.getUserList()
         var selectedPost: GenericPost?
         for post in posts {
             if post.id == postId {
@@ -48,7 +48,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [GenericPost]()
-    var users = [GenericUser]()
     var commentSegueIdentifier = "commentSegue"
     var profileSegueIdentifier = "toProfile"
     var seguePostId: String?
