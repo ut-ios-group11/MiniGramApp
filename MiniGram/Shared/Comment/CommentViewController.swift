@@ -41,6 +41,8 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         
+        userImage.round()
+        
         navigationController?.setNavigationBarHidden(false, animated: true)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -100,6 +102,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
 
         cell.commentUsername.text = comment.userName
         cell.commentText.text = comment.message
+        cell.commentUserImage.round()
         cell.commentUserImage.image = comment.image ?? UIImage(named: "placeholder")
         comment.downloadImageIfMissing {
             tableView.reloadRows(at: [indexPath], with: .automatic)
