@@ -35,7 +35,7 @@ class UserData {
     private var homePosts = [GenericPost]()
     private var userList = [GenericUser]()
 
-    private func clearAllData() {
+    public func clearAllData() {
         user = nil
         databaseUser = nil
         userListener?.registration.remove()

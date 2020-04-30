@@ -13,42 +13,44 @@ import FirebaseFirestore
 
 class CommentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var explorePosts = [GenericPost]()
-
-    
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var userImage: UIImageView!
-    
     @IBOutlet weak var addCommentText: UITextView!
+    @IBOutlet weak var backgroundTextInput: UITextField!
     
+    @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
     
     @IBAction func buttonPressedAddComment(_ sender: Any) {
-        if addCommentText.text != "" {
-            let newComment = Comment(id: "uhhh...1", userId: user?.userName ?? "placeholder", message: addCommentText.text!, date: Timestamp())
-            post?.addComment(comment: newComment)
-            addCommentText.text = ""
-            tableView.reloadData()
+        guard let post = post, let msg = addCommentText.text else {
+            return
+        }
+        guard let user = UserData.shared.getDatabaseUser(), let userName = user.userName else {
+            return
+        }
+        addCommentText.text = ""
+        let newComment = Comment(id: "", userId: user.id, userName: userName, message: msg, date: Timestamp())
+        Database.shared.createComment(postId: post.id, comment: newComment, onError: { (error) in
+            LogManager.logError(error)
+        }) {
+            LogManager.logInfo("Comment Created for post \(post.id)")
         }
     }
     
     var post: GenericPost?
-    var user: GenericUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        navigationController?.setNavigationBarHidden(false, animated: true)
-//        addCommentText.underlined()
-        explorePosts = UserData.shared.getExplorePosts()
         tableView.delegate = self
         tableView.dataSource = self
-        userImage.image = user?.image ?? UIImage(named: "placeholder")
+        
+        userImage.round()
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        self.hideKeyboardWhenTappedAround()
-        addCommentText.addBottomBorderWithColor()
+        
+        backgroundTextInput.underlined()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,30 +62,47 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func reloadData() {
+        let user = UserData.shared.getDatabaseUser()
+        userImage.image = user?.image ?? UIImage(named: "placeholder")
+        
         tableView.reloadData()
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= (keyboardSize.height + 15)
-            }
+    // MARK: Handle Keyboard
+    @objc func keyboardWillShow(sender: NSNotification) {
+        guard let keyboard = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
         }
+        
+        let keyboardSize = keyboard.height
+        
+        var safeArea = 0 as CGFloat
+        if #available(iOS 11.0, *) {
+            let window = UIApplication.shared.windows.first { $0.isKeyWindow }
+            let bottomPadding = window?.safeAreaInsets.bottom
+            safeArea = bottomPadding ?? 0
+        }
+        print(safeArea, keyboardSize)
+        viewBottomConstraint.constant = (2 * safeArea) - keyboardSize
+        
+        guard let keyboardAnimationDuration = sender.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else {
+            return
+        }
+        let duration: TimeInterval = keyboardAnimationDuration.doubleValue
+        
+        UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
     }
+    
+    @objc func keyboardWillHide(sender: NSNotification) {
 
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
+        let info = sender.userInfo!
+        guard let keyboardAnimationDuration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else {
+            return
         }
-    }
-    
-    func textFieldShouldReturn(textField:UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        let duration: TimeInterval = keyboardAnimationDuration.doubleValue
+        viewBottomConstraint.constant = 0
+        
+        UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,24 +116,14 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         guard let post = post else { return UITableViewCell()}
         let comment = post.comments[indexPath.row]
 
-        cell.commentUsername.text = comment.userId
+        cell.commentUsername.text = comment.userName
         cell.commentText.text = comment.message
+        cell.commentUserImage.round()
         cell.commentUserImage.image = comment.image ?? UIImage(named: "placeholder")
         comment.downloadImageIfMissing {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         return cell
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

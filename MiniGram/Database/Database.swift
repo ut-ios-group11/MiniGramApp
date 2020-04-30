@@ -56,6 +56,12 @@ class Database {
         }
     }
     
+    func createComment(postId: String, comment: Comment, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        let ref = Firestore.firestore().collection(FireCollection.Posts.rawValue).document(postId).collection(FireSubCollection.Comments.rawValue)
+        let data = comment.toDict()
+        Fire.shared.create(at: ref, data: data, onError: onError, onComplete: onComplete)
+    }
+    
     // MARK: - Update Methods
     
     func updateProfile(name: String? = nil, userName: String? = nil, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
@@ -169,5 +175,13 @@ class Database {
     // MARK: - Check Methods
     
     // MARK: - Delete Methods
-    
+    func deleteAccount(password: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        FireAuth.shared.deleteUser(password: password, onError: onError) {
+            // Delete user object
+            guard let user = UserData.shared.getDatabaseUser() else { return }
+            let reference = Firestore.firestore().collection(FireCollection.Users.rawValue).document(user.id)
+            UserData.shared.clearAllData()
+            Fire.shared.delete(at: reference, onError: onError, onComplete: onComplete)
+        }
+    }
 }

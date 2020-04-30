@@ -12,6 +12,7 @@ import Firebase
 class Comment: FireInitable {
     var id: String
     var userId: String
+    var userName: String
     var message: String
     var date: Timestamp
     var image: UIImage?
@@ -19,6 +20,7 @@ class Comment: FireInitable {
     required init(doc: DocumentSnapshot) {
         id = doc.documentID
         userId = doc.get("userId") as? String ?? ""
+        userName = doc.get("userName") as? String ?? ""
         message = doc.get("message") as? String ?? ""
         date = doc.get("date") as? Timestamp ?? Timestamp()
     }
@@ -48,11 +50,21 @@ class Comment: FireInitable {
         }
     }
     
-    init(id: String, userId: String, message: String, date: Timestamp) {
+    init(id: String, userId: String, userName: String, message: String, date: Timestamp) {
         self.id = id
         self.userId = userId
+        self.userName = userName
         self.message = message
         self.date = date
+    }
+    
+    func toDict() -> [String : Any] {
+        return [
+            "userId": userId,
+            "userName": userName,
+            "message": message,
+            "date": date
+        ]
     }
 }
 
