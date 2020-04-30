@@ -65,13 +65,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         let post = posts[indexPath.row]
         cell.likeButton.isSelected = false
-        cell.postImage.image = post.image ?? UIImage(named: "placeholder")
+        
+        if post.image == nil {
+            cell.spinner.startAnimating()
+            cell.postImage.image = UIImage(named: "placeholder")
+        } else {
+            cell.postImage.image = post.image!
+        }
         post.downloadImageIfMissing {
-            tableView.reloadRows(at: [indexPath], with: .automatic)
+            tableView.reloadRows(at: [indexPath], with: .none)
         }
         cell.userImage.image = post.userImage ?? UIImage(named: "placeholder")
         post.downloadUserImageIfMissing {
-            tableView.reloadRows(at: [indexPath], with: .automatic)
+            tableView.reloadRows(at: [indexPath], with: .none)
         }
         cell.userImage.round()
         cell.username.text = post.userName

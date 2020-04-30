@@ -30,9 +30,26 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wn7-tp-NYx">
                                                     <rect key="frame" x="0.0" y="8" width="414" height="593"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2up-aE-TYH">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IwQ-gG-OeH">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="269.5"/>
-                                                        </imageView>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2up-aE-TYH">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="269.5"/>
+                                                                </imageView>
+                                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8yx-25-4u3">
+                                                                    <rect key="frame" x="197" y="124" width="20" height="20"/>
+                                                                </activityIndicatorView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="2up-aE-TYH" secondAttribute="trailing" id="1DB-pJ-zD1"/>
+                                                                <constraint firstItem="2up-aE-TYH" firstAttribute="top" secondItem="IwQ-gG-OeH" secondAttribute="top" id="2Ba-yd-4Ag"/>
+                                                                <constraint firstItem="8yx-25-4u3" firstAttribute="centerX" secondItem="IwQ-gG-OeH" secondAttribute="centerX" id="7d1-9i-hI3"/>
+                                                                <constraint firstAttribute="bottom" secondItem="2up-aE-TYH" secondAttribute="bottom" id="Fix-YK-4pP"/>
+                                                                <constraint firstItem="8yx-25-4u3" firstAttribute="centerY" secondItem="IwQ-gG-OeH" secondAttribute="centerY" id="Png-Dx-hEC"/>
+                                                                <constraint firstItem="2up-aE-TYH" firstAttribute="leading" secondItem="IwQ-gG-OeH" secondAttribute="leading" id="yz5-5r-XB1"/>
+                                                            </constraints>
+                                                        </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xoE-vb-nAS">
                                                             <rect key="frame" x="0.0" y="269.5" width="414" height="323.5"/>
                                                             <subviews>
@@ -142,6 +159,7 @@
                                             <outlet property="likeButton" destination="BhS-TE-SdA" id="S1d-9E-cir"/>
                                             <outlet property="likeCount" destination="BLs-HZ-eVQ" id="rys-IY-dey"/>
                                             <outlet property="postImage" destination="2up-aE-TYH" id="TDp-36-A94"/>
+                                            <outlet property="spinner" destination="8yx-25-4u3" id="qmF-fj-tBC"/>
                                             <outlet property="userImage" destination="FlN-1B-ADJ" id="JHh-Sa-2mf"/>
                                             <outlet property="username" destination="3fn-wc-g5p" id="eiH-Tg-8iM"/>
                                         </connections>

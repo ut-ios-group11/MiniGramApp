@@ -19,6 +19,7 @@ class HomeFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var userImage: UIImageView!
     
     @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         // update UI and call function to record like in database
