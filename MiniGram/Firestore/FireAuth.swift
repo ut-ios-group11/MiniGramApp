@@ -41,6 +41,35 @@ class FireAuth {
         }
     }
     
+    // MARK: Delete User
+    func deleteUser(password: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
+        guard let email = UserData.shared.getUserEmail() else {
+            onError(AuthError.MissingUserError)
+            return
+        }
+        
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        
+        if let currentUser = Auth.auth().currentUser {
+            currentUser.reauthenticate(with: credential) { (authResult, error) in
+                if let error = error {
+                    onError(error)
+                } else {
+                    currentUser.delete
+                        { error in
+                        if let error = error {
+                            onError(error)
+                        } else {
+                            onComplete()
+                        }
+                    }
+                }
+            }
+        } else {
+            onError(AuthError.MissingUserError)
+        }
+    }
+    
     // MARK: Sign In/Out Methods
     func signIn(login: String, pass: String, onError: @escaping (Error) -> Void, onComplete: @escaping (User) -> Void) {
         Auth.auth().signIn(withEmail: login, password: pass) { (result, error) in

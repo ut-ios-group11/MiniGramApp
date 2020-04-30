@@ -63,7 +63,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             return
         }
         nameLabel.text = user.name
-        usernameLabel.text = "@" + user.userName!
+        usernameLabel.text = "@" + (user.userName ?? "")
         editProfileImageView.image = user.image ?? UIImage(named: "placeholder")
         user.downloadImageIfMissing(onComplete: updateImage)
         editNameTextField.placeholder = user.name
@@ -170,6 +170,50 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         disableUserInteraction(true)
     }
     
+    @IBAction func deleteAccount(_ sender: Any) {
+        let controller = UIAlertController(
+            title: "Delete Account",
+            message: "Are you sure you want to delete your account? This action is not reversible and will delete all your data.",
+            preferredStyle: .alert)
+        controller.addAction(UIAlertAction(
+            title: "No",
+            style: .default,
+            handler: nil))
+        controller.addAction(UIAlertAction(
+            title: "Yes",
+            style: .destructive,
+            handler: {
+                (paramAction:UIAlertAction!) in
+                // TODO: Handle deletion of account here
+                // Need to delete user credentials,
+                // user object, and any reference to userid in
+                // following and likes arrays
+                let controller = UIAlertController(title: "Password Required", message: "Please enter your password to change your email.", preferredStyle: .alert)
+                controller.addTextField()
+                controller.textFields![0].isSecureTextEntry = true
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                controller.addAction(cancelAction)
+                
+                let submitAction = UIAlertAction(title: "Submit", style: .default) { (alertAction) in
+                    self.disableUserInteraction(false)
+                    let currentUser = UserData.shared.getDatabaseUser()
+                    Database.shared.deleteAccount(password: controller.textFields![0].text!, onError: { (error) in
+                        LogManager.logError(error)
+                        self.disableUserInteraction(true)
+                    }) {
+                        LogManager.logInfo("Successfully deleted account for user \(currentUser!.id)")
+                        if let vc = self.view.window?.rootViewController as? UINavigationController {
+                            vc.popToRootViewController(animated: true)
+                        }
+                        self.disableUserInteraction(true)
+                    }
+                }
+                controller.addAction(submitAction)
+                self.present(controller, animated: true)
+        }))
+        present(controller, animated: true, completion: nil)
+    }
+
     func styleTextFields() {
         editNameTextField.underlined()
         editUsernameTextField.underlined()
