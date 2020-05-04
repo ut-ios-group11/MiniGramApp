@@ -17,22 +17,39 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var addCommentText: UITextView!
     @IBOutlet weak var backgroundTextInput: UITextField!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var addCommentButton: UIButton!
     
     @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
     
     @IBAction func buttonPressedAddComment(_ sender: Any) {
+        addCommentButton.isUserInteractionEnabled = false
+        spinner.startAnimating()
         guard let post = post, let msg = addCommentText.text else {
+            addCommentButton.isUserInteractionEnabled = true
+            spinner.stopAnimating()
             return
         }
         guard let user = UserData.shared.getDatabaseUser(), let userName = user.userName else {
+            addCommentButton.isUserInteractionEnabled = true
+            spinner.stopAnimating()
+            return
+        }
+        if addCommentText.text == "" {
+            addCommentButton.isUserInteractionEnabled = true
+            spinner.stopAnimating()
             return
         }
         addCommentText.text = ""
         let newComment = Comment(id: "", userId: user.id, userName: userName, message: msg, date: Timestamp())
         Database.shared.createComment(postId: post.id, comment: newComment, onError: { (error) in
             LogManager.logError(error)
+            self.spinner.stopAnimating()
+            self.addCommentButton.isUserInteractionEnabled = true
         }) {
             LogManager.logInfo("Comment Created for post \(post.id)")
+            self.spinner.stopAnimating()
+            self.addCommentButton.isUserInteractionEnabled = true
         }
     }
     
@@ -51,6 +68,8 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         backgroundTextInput.underlined()
+        spinner.hidesWhenStopped = true
+        spinner.roundCorners(4)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,15 +133,21 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
                 return UITableViewCell()
         }
         guard let post = post else { return UITableViewCell()}
+        guard let user = UserData.shared.getDatabaseUser() else { return UITableViewCell() }
         let comment = post.comments[indexPath.row]
 
         cell.commentUsername.text = comment.userName
         cell.commentText.text = comment.message
         cell.commentUserImage.round()
-        cell.commentUserImage.image = comment.image ?? UIImage(named: "placeholder")
-        comment.downloadImageIfMissing {
-            tableView.reloadRows(at: [indexPath], with: .automatic)
+        if comment.userName == user.userName {
+            cell.commentUserImage.image = user.image
+        } else {
+            cell.commentUserImage.image = comment.image ?? UIImage(named: "placeholder")
+            comment.downloadImageIfMissing {
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
         }
+        
         return cell
     }
 

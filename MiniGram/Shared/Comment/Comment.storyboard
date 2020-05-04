@@ -139,19 +139,32 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="N6a-Wf-t35">
+                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <color key="backgroundColor" name="flippedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Roc-aJ-fsT"/>
+                                    <constraint firstAttribute="width" constant="40" id="p3Z-ZD-Utb"/>
+                                </constraints>
+                                <color key="color" name="flippedColorComplement"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="nYF-kp-HrO" firstAttribute="bottom" secondItem="kqs-ju-yxu" secondAttribute="bottom" id="3jx-8M-bGc"/>
                             <constraint firstItem="nYF-kp-HrO" firstAttribute="leading" secondItem="kqs-ju-yxu" secondAttribute="leading" id="MZS-84-9Tb"/>
                             <constraint firstItem="nYF-kp-HrO" firstAttribute="trailing" secondItem="kqs-ju-yxu" secondAttribute="trailing" id="c4q-lC-587"/>
+                            <constraint firstItem="N6a-Wf-t35" firstAttribute="centerY" secondItem="O82-dJ-Eoh" secondAttribute="centerY" id="ccq-s9-7ll"/>
                             <constraint firstItem="nYF-kp-HrO" firstAttribute="top" secondItem="kqs-ju-yxu" secondAttribute="top" id="tag-O7-KC7"/>
+                            <constraint firstItem="N6a-Wf-t35" firstAttribute="centerX" secondItem="O82-dJ-Eoh" secondAttribute="centerX" id="w41-Um-DiD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kqs-ju-yxu"/>
                     </view>
                     <connections>
+                        <outlet property="addCommentButton" destination="tAC-3N-bjz" id="xqh-Mz-mot"/>
                         <outlet property="addCommentText" destination="95L-cD-8f7" id="poq-ph-jwZ"/>
                         <outlet property="backgroundTextInput" destination="TpB-en-67y" id="lca-y7-rjC"/>
+                        <outlet property="spinner" destination="N6a-Wf-t35" id="JtQ-Ux-fGZ"/>
                         <outlet property="tableView" destination="zas-Vn-8oW" id="gjj-Zw-cPs"/>
                         <outlet property="userImage" destination="Pxg-qA-PAe" id="kP2-aI-Q5R"/>
                         <outlet property="viewBottomConstraint" destination="3jx-8M-bGc" id="1OC-6c-yCj"/>
@@ -165,6 +178,9 @@
     <resources>
         <namedColor name="flippedColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="flippedColorComplement">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
