@@ -25,6 +25,7 @@ class ChangePasswordViewController: UIViewController {
         styleButtons()
         errorView.roundCorners(4)
         spinner.hidesWhenStopped = true
+        spinner.roundCorners(4)
         hideError()
     }
     
