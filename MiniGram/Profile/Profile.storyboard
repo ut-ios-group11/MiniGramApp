@@ -29,7 +29,7 @@
                                                     <constraint firstAttribute="height" constant="24" id="Awe-gh-gao"/>
                                                     <constraint firstAttribute="width" constant="24" id="gyZ-Dx-Jgj"/>
                                                 </constraints>
-                                                <state key="normal" title="Button" image="Settings">
+                                                <state key="normal" title="Button" image="settingsIcon">
                                                     <color key="titleColor" name="flippedColor"/>
                                                 </state>
                                                 <connections>
@@ -209,7 +209,7 @@
                                     <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pictureCell" translatesAutoresizingMaskIntoConstraints="NO" id="X4V-Gl-07o" customClass="GalleryCollectionViewCell" customModule="MiniGram" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" reuseIdentifier="pictureCell" translatesAutoresizingMaskIntoConstraints="NO" id="X4V-Gl-07o" customClass="GalleryCollectionViewCell" customModule="MiniGram" customModuleProvider="target">
                                         <rect key="frame" x="107" y="0.0" width="200" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LH3-a3-3pM">
@@ -416,10 +416,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Settings" width="512" height="512"/>
         <image name="follow_selected" width="23" height="23"/>
         <image name="follow_unselected" width="22" height="23"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="settingsIcon" width="512" height="512"/>
         <namedColor name="flippedColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
