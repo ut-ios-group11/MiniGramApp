@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         FirebaseApp.configure()
+        
+        UIApplication.shared.applicationIconBadgeNumber = 0
         return true
     }
     
