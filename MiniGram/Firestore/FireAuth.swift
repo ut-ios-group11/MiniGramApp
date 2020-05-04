@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import FirebaseMessaging
 
 class FireAuth {
     private init() {}
@@ -81,14 +82,57 @@ class FireAuth {
                 onError(AuthError.MissingUserError)
                 return
             }
-            
+            self.updateFCMToken(at: FireCollection.Users, userId: user.uid)
             onComplete(user)
         }
     }
     
     func signOut(onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
         // Additional stuff before sign out like removing FCM tokens
+        if let token = Messaging.messaging().fcmToken, let userID = Auth.auth().currentUser?.uid {
+            self.removeFCMToken(at: .Users, userID: userID, token: token)
+        }
         signOutHelper(onError: onError, onComplete: onComplete)
+    }
+    
+    func signOutHelper(onError: ((Error) -> Void)? = nil, onComplete: @escaping () -> Void) {
+        do {
+            try Auth.auth().signOut()
+            onComplete()
+        } catch {
+            onError?(error)
+        }
+    }
+    
+    // MARK: FCM Token Methods
+    func updateFCMToken(at ref: FireCollection, userId: String, onError: ((Error) -> Void)? = nil, onComplete: (() -> Void)? = nil) {
+        if Messaging.messaging().fcmToken != nil {
+            let update = [
+                "fcmTokens": FieldValue.arrayUnion([Messaging.messaging().fcmToken!]),
+                "lastSignIn": Timestamp()
+            ]
+            let id = userId
+            Fire.shared.update(at: db.collection(ref.rawValue).document(id), data: update, onError: { error in
+                LogManager.logError(error)
+                onError?(error)
+            }, onComplete: {
+                onComplete?()
+            })
+        }
+
+    }
+
+    func removeFCMToken(at ref: FireCollection, userID: String, token: String, onError: ((Error) -> Void)? = nil, onComplete: (() -> Void)? = nil) {
+        let update = [
+            "fcmTokens": FieldValue.arrayRemove([token])
+        ]
+        let id = userID
+        Fire.shared.update(at: db.collection(ref.rawValue).document(id), data: update, onError: { (error) in
+            LogManager.logError(error)
+            onError?(error)
+        }, onComplete: {
+            onComplete?()
+        })
     }
     
     func updateEmail(newEmail: String, password: String, onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
@@ -145,12 +189,5 @@ class FireAuth {
         }
     }
     
-    func signOutHelper(onError: ((Error) -> Void)? = nil, onComplete: @escaping () -> Void) {
-        do {
-            try Auth.auth().signOut()
-            onComplete()
-        } catch {
-            onError?(error)
-        }
-    }
+    
 }
