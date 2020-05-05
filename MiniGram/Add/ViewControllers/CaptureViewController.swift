@@ -84,10 +84,14 @@ class CaptureViewController: UIViewController {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
             setupSuccessful = self.setupCaptureSession()
+            runCapture()
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted {
-                    self.setupSuccessful = self.setupCaptureSession()
+                    DispatchQueue.main.sync {
+                        self.setupSuccessful = self.setupCaptureSession()
+                        self.runCapture()
+                    }
                 }
             }
         case .denied:
@@ -97,8 +101,9 @@ class CaptureViewController: UIViewController {
         @unknown default:
             fatalError("Unknown authorization status!")
         }
-        
-        // Run capture
+    }
+    
+    func runCapture() {
         if self.setupSuccessful {
             self.captureButton.isHidden = false
             self.flashButton.isHidden = false
