@@ -47,13 +47,13 @@
 		F354DDC224088CBD00370C04 /* ExploreSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F354DDC124088CBD00370C04 /* ExploreSearchTableViewCell.swift */; };
 		F362F2AE241B19E90032FDEF /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F362F2AC241B19E90032FDEF /* Post.storyboard */; };
 		F362F2AF241B19E90032FDEF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F362F2AD241B19E90032FDEF /* PostViewController.swift */; };
-		F3ABF8482460C7DC000F4D4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3ABF8472460C7DC000F4D4D /* GoogleService-Info.plist */; };
 		F3C6E5C62446A3220050F9E2 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C6E5C52446A3220050F9E2 /* Theme.swift */; };
 		F3EBB67F23F455D9005AD08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB67E23F455D9005AD08D /* AppDelegate.swift */; };
 		F3EBB68123F455D9005AD08D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB68023F455D9005AD08D /* SceneDelegate.swift */; };
 		F3EBB68623F455D9005AD08D /* SignedIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB68423F455D9005AD08D /* SignedIn.storyboard */; };
 		F3EBB68823F455DB005AD08D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB68723F455DB005AD08D /* Assets.xcassets */; };
 		F3EBB68B23F455DB005AD08D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB68923F455DB005AD08D /* LaunchScreen.storyboard */; };
+		F3EBB69323F45AB1005AD08D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB69223F45AB1005AD08D /* GoogleService-Info.plist */; };
 		F3EBB69623F45B62005AD08D /* FireAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB69523F45B62005AD08D /* FireAuth.swift */; };
 		F3EBB69823F45C8A005AD08D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EBB69723F45C8A005AD08D /* Main.storyboard */; };
 		F3EBB69B23F45CCB005AD08D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EBB69A23F45CCB005AD08D /* Database.swift */; };
@@ -111,8 +111,6 @@
 		F354DDC124088CBD00370C04 /* ExploreSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSearchTableViewCell.swift; sourceTree = "<group>"; };
 		F362F2AC241B19E90032FDEF /* Post.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		F362F2AD241B19E90032FDEF /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		F3ABF8462460C5D9000F4D4D /* MiniGram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniGram.entitlements; sourceTree = "<group>"; };
-		F3ABF8472460C7DC000F4D4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3C6E5C52446A3220050F9E2 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F3EBB67B23F455D9005AD08D /* MiniGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EBB67E23F455D9005AD08D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +119,7 @@
 		F3EBB68723F455DB005AD08D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3EBB68A23F455DB005AD08D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3EBB68C23F455DB005AD08D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3EBB69223F45AB1005AD08D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3EBB69523F45B62005AD08D /* FireAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAuth.swift; sourceTree = "<group>"; };
 		F3EBB69723F45C8A005AD08D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F3EBB69A23F45CCB005AD08D /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -351,7 +350,6 @@
 		F3EBB67D23F455D9005AD08D /* MiniGram */ = {
 			isa = PBXGroup;
 			children = (
-				F3ABF8462460C5D9000F4D4D /* MiniGram.entitlements */,
 				9D94335C2448055C00345E37 /* AppIcon.png */,
 				9D422C78243647F70054FF65 /* Settings */,
 				F362F2AA241B19CB0032FDEF /* Shared */,
@@ -365,7 +363,7 @@
 				F3EBB69C23F4AC58005AD08D /* User */,
 				F3EBB69923F45CBE005AD08D /* Database */,
 				F3EBB69423F45B0B005AD08D /* Firestore */,
-				F3ABF8472460C7DC000F4D4D /* GoogleService-Info.plist */,
+				F3EBB69223F45AB1005AD08D /* GoogleService-Info.plist */,
 				F3EBB67E23F455D9005AD08D /* AppDelegate.swift */,
 				F3EBB68023F455D9005AD08D /* SceneDelegate.swift */,
 				F3EBB69723F45C8A005AD08D /* Main.storyboard */,
@@ -485,6 +483,7 @@
 			files = (
 				F354DDAE24073F8B00370C04 /* Explore.storyboard in Resources */,
 				F3EBB68B23F455DB005AD08D /* LaunchScreen.storyboard in Resources */,
+				F3EBB69323F45AB1005AD08D /* GoogleService-Info.plist in Resources */,
 				F354DDB024073F9500370C04 /* Home.storyboard in Resources */,
 				F362F2AE241B19E90032FDEF /* Post.storyboard in Resources */,
 				341C5D23242D43C900780FFD /* Comment.storyboard in Resources */,
@@ -492,7 +491,6 @@
 				F3EBB68823F455DB005AD08D /* Assets.xcassets in Resources */,
 				9D94335D2448055C00345E37 /* AppIcon.png in Resources */,
 				9D709C04244178F100611642 /* Miniature.storyboard in Resources */,
-				F3ABF8482460C7DC000F4D4D /* GoogleService-Info.plist in Resources */,
 				9D21DBD0240F38B1004BCC2C /* Assets.xcassets in Resources */,
 				F3EBB68623F455D9005AD08D /* SignedIn.storyboard in Resources */,
 				F354DDAC24073F7C00370C04 /* Profile.storyboard in Resources */,
@@ -736,7 +734,6 @@
 			baseConfigurationReference = 75364A4969C99C1C2A5B074B /* Pods-MiniGram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MiniGram/MiniGram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92T5YVZA7N;
 				INFOPLIST_FILE = MiniGram/Info.plist;
@@ -744,7 +741,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = KeeganBlack.minigramApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = JosephManahan.minigramApplication;
 				PRODUCT_NAME = MiniGram;
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;
@@ -757,7 +754,6 @@
 			baseConfigurationReference = E1995FBFF8CE42EBCF284E4B /* Pods-MiniGram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MiniGram/MiniGram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92T5YVZA7N;
 				INFOPLIST_FILE = MiniGram/Info.plist;
@@ -765,7 +761,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = KeeganBlack.minigramApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = JosephManahan.minigramApplication;
 				PRODUCT_NAME = MiniGram;
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;
