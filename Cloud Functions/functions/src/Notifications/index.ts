@@ -45,7 +45,7 @@ export function sendNotification(message, collection, uid) {
 }
 
 //Comment
-export function newComment(posterId, senderName) {
+export function newComment(posterId, senderName, commentMessage) {
     console.log(senderName, ' created a new comment for a post by', posterId)
 
     const message = {
@@ -57,7 +57,33 @@ export function newComment(posterId, senderName) {
                 "aps": {
                     "alert": {
                         "title": '',
-                        "body": `${ senderName } commented on your post`,
+                        "body": `${ senderName } commented: ${ commentMessage }`,
+                    },
+                    "badge": 1,
+                    "sound": 'default'
+                },
+            }
+        },
+        "token": ''
+    }
+    sendNotification(message,"Users",posterId)
+    return 0;
+}
+
+//Like
+export function newLike(posterId, senderName) {
+    console.log(senderName, ' like a post by', posterId)
+
+    const message = {
+        "apns": {
+            "headers": {
+                'apns-priority': '10'
+            },
+            "payload": {
+                "aps": {
+                    "alert": {
+                        "title": '',
+                        "body": `${ senderName } liked your post`,
                     },
                     "badge": 1,
                     "sound": 'default'
