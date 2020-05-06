@@ -70,7 +70,7 @@ class UserData {
     }
     
     public func tryAutoSignIn(onError: @escaping (Error) -> Void, onComplete: @escaping () -> Void) {
-        if let user = FireAuth.shared.isUserSignedIn() {
+        if let user = FireAuth.shared.autoSignIn() {
             self.user = user
             readUser(id: user.uid, onError: onError, onComplete: {
                 self.startListeners()

@@ -71,6 +71,14 @@ class FireAuth {
     }
     
     // MARK: Sign In/Out Methods
+    
+    func autoSignIn() -> User? {
+        if let user = Auth.auth().currentUser {
+            updateFCMToken(at: .Users, userId: user.uid)
+            return user
+        }
+        return nil
+    }
     func signIn(login: String, pass: String, onError: @escaping (Error) -> Void, onComplete: @escaping (User) -> Void) {
         Auth.auth().signIn(withEmail: login, password: pass) { (result, error) in
             guard error == nil else {
