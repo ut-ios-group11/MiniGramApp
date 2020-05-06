@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DvB-c2-wmB">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -79,7 +79,7 @@
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bas-fU-yx8">
-                                                                                <rect key="frame" x="0.0" y="35.333333333333343" width="338" height="149.66666666666666"/>
+                                                                                <rect key="frame" x="0.0" y="35.333333333333371" width="338" height="149.66666666666666"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </string>
                                                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -120,15 +120,12 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="c97-Bx-ZEP" firstAttribute="trailing" secondItem="Zxg-2I-jrn" secondAttribute="trailing" id="aEk-Kf-gDC"/>
-                                    <constraint firstItem="c97-Bx-ZEP" firstAttribute="top" secondItem="Zxg-2I-jrn" secondAttribute="top" id="eBs-yK-Edn"/>
-                                    <constraint firstAttribute="bottom" secondItem="c97-Bx-ZEP" secondAttribute="bottom" id="eYF-C1-cUh"/>
+                                    <constraint firstItem="c97-Bx-ZEP" firstAttribute="trailing" secondItem="rfN-pW-AXc" secondAttribute="trailing" id="aEk-Kf-gDC"/>
+                                    <constraint firstItem="c97-Bx-ZEP" firstAttribute="top" secondItem="rfN-pW-AXc" secondAttribute="top" id="eBs-yK-Edn"/>
                                     <constraint firstAttribute="trailing" secondItem="c97-Bx-ZEP" secondAttribute="trailing" id="eaS-NE-eLm"/>
-                                    <constraint firstItem="c97-Bx-ZEP" firstAttribute="leading" secondItem="Zxg-2I-jrn" secondAttribute="leading" id="fgp-9v-Brf"/>
-                                    <constraint firstItem="c97-Bx-ZEP" firstAttribute="bottom" secondItem="Zxg-2I-jrn" secondAttribute="bottom" id="qwP-S2-jax"/>
+                                    <constraint firstItem="c97-Bx-ZEP" firstAttribute="leading" secondItem="rfN-pW-AXc" secondAttribute="leading" id="fgp-9v-Brf"/>
+                                    <constraint firstItem="c97-Bx-ZEP" firstAttribute="bottom" secondItem="rfN-pW-AXc" secondAttribute="bottom" id="qwP-S2-jax"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="iNb-1b-ckn"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="Zxg-2I-jrn"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -138,7 +135,6 @@
                             <constraint firstItem="rfN-pW-AXc" firstAttribute="top" secondItem="xo2-XE-pS1" secondAttribute="top" id="7lw-4G-m5w"/>
                             <constraint firstItem="rfN-pW-AXc" firstAttribute="leading" secondItem="xo2-XE-pS1" secondAttribute="leading" id="7oa-6g-xx2"/>
                             <constraint firstAttribute="bottom" secondItem="rfN-pW-AXc" secondAttribute="bottom" id="KHt-ix-hff"/>
-                            <constraint firstItem="c97-Bx-ZEP" firstAttribute="height" secondItem="VXd-8l-BpE" secondAttribute="height" priority="250" id="ble-r0-pUQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xo2-XE-pS1"/>
                     </view>
