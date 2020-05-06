@@ -86,7 +86,11 @@ extension GalleryViewController: UICollectionViewDataSource {
             cell.galleryImageView.image = post.image
         }
         post.downloadImageIfMissing {
-            collectionView.reloadItems(at: [indexPath])
+            DispatchQueue.main.async {
+                if collectionView.indexPathIsValid(indexPath: indexPath) {
+                    collectionView.reloadItems(at: [indexPath])
+                }
+            }
         }
         return cell
     }

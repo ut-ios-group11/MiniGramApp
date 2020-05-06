@@ -112,7 +112,11 @@ extension MiniaturesTableViewController: UICollectionViewDelegate, UICollectionV
             cell.miniaturesImageView.image = mini.image
         }
         mini.downloadImageIfMissing {
-            collectionView.reloadItems(at: [indexPath])
+            DispatchQueue.main.async {
+                if collectionView.indexPathIsValid(indexPath: indexPath) {
+                    collectionView.reloadItems(at: [indexPath])
+                }
+            }
         }
         
         return cell
