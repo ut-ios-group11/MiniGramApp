@@ -116,7 +116,8 @@ class GenericUser: FireInitable {
         //add
         for post in add {
             //post.downloadImageIfMissing()
-            self.posts.append(post)
+            let index = self.posts.insertionIndexOf(post) { $0.date.dateValue() > $1.date.dateValue()}
+            self.posts.insert(post, at: index)
         }
         //remove
         for id in remove {
@@ -140,7 +141,8 @@ class GenericUser: FireInitable {
         //add
         for mini in add {
             //mini.downloadImageIfMissing()
-            self.minis.append(mini)
+            let index = self.minis.insertionIndexOf(mini) { $0.date.dateValue() > $1.date.dateValue()}
+            self.minis.insert(mini, at: index)
         }
         //remove
         for id in remove {

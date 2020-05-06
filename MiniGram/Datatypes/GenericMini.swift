@@ -13,7 +13,7 @@ class GenericMini: FireInitable {
     
     var id: String
     var userId: String?
-    var date: Timestamp?
+    var date: Timestamp
     
     var unit: String?
     var name: String?

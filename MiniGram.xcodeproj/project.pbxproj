@@ -741,7 +741,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JosephManahan.minigramApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = KeeganBlack.minigramApplication;
 				PRODUCT_NAME = MiniGram;
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;
@@ -761,7 +761,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JosephManahan.minigramApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = KeeganBlack.minigramApplication;
 				PRODUCT_NAME = MiniGram;
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;
