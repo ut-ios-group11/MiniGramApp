@@ -10,7 +10,7 @@ import UIKit
 
 class PostViewController: UIViewController {
     
-    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var usernameButton: UIButton!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
@@ -20,6 +20,8 @@ class PostViewController: UIViewController {
     var post: GenericPost?
     let currentUser = UserData.shared.getDatabaseUser()
     var commentSegueIdentifier = "commentSegue"
+    var posts = [GenericPost]()
+    var userToDisplay: GenericUser?
 
     
     override func viewDidLoad() {
@@ -35,7 +37,7 @@ class PostViewController: UIViewController {
             postImage.image = post.image ?? UIImage(named: "placeholder")
             likesLabel.text = String(post.likes.count)
             descTextView.text = post.desc
-            usernameLabel.text = post.userName
+            usernameButton.setTitle(post.userName, for: .normal)
             
             // Set the profile image for the user who posted 
             userImage.image = post.userImage ?? UIImage(named: "placeholder")
@@ -91,10 +93,49 @@ class PostViewController: UIViewController {
         performSegue(withIdentifier: commentSegueIdentifier, sender: self)
     }
     
+    @IBAction func usernamePressed(_ sender: Any) {
+        viewProfile(postId: post!.id)
+    }
+    
+    func viewProfile(postId: String) {
+        let users = UserData.shared.getUserList()
+        posts = UserData.shared.getExplorePosts()
+        posts.append(contentsOf: UserData.shared.getHomePosts())
+        var selectedPost: GenericPost?
+        for post in posts {
+            if post.id == postId {
+                selectedPost = post
+                break
+            }
+        }
+        if users.count == 0 {
+            LogManager.logError("Problem")
+        }
+        for user in users {
+            if user.id == selectedPost?.userId {
+                userToDisplay = user
+                break
+            }
+        }
+        if userToDisplay == nil {
+            LogManager.logError("No work")
+            return
+        }
+        performSegue(withIdentifier: "toProfile", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == commentSegueIdentifier,
             let nextVC = segue.destination as? CommentViewController {
                 nextVC.post = post
+        }
+        
+        if let nav = segue.destination as? UINavigationController {
+            if let vc = nav.topViewController as? ProfileViewController {
+                userToDisplay?.startPostsListening()
+                userToDisplay?.startMiniatureListening()
+                vc.profileToDisplay = userToDisplay
+            }
         }
     }
 }
