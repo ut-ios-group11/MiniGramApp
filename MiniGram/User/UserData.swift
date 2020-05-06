@@ -244,8 +244,9 @@ class UserData {
     private func handleHomePosts(add: [GenericPost], remove: [String], change: [GenericPost], id: String) {
         //add
         for post in add {
-            self.homePosts.append(post)
-            //post.downloadImageIfMissing()
+            //self.homePosts.append(post)
+            let index = self.homePosts.insertionIndexOf(post) { $0.date.dateValue() > $1.date.dateValue()}
+            self.homePosts.insert(post, at: index)
         }
         //remove
         for id in remove {
@@ -264,7 +265,8 @@ class UserData {
     private func handleExplorePosts(add: [GenericPost], remove: [String], change: [GenericPost], id: String) {
         //add
         for post in add {
-            self.explorePosts.append(post)
+            let index = self.explorePosts.insertionIndexOf(post) { $0.date.dateValue() > $1.date.dateValue()}
+            self.explorePosts.insert(post, at: index)
             //post.downloadImageIfMissing()
         }
         //remove
