@@ -26,16 +26,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="unp-gU-EbJ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="552"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="unp-gU-EbJ" secondAttribute="height" multiplier="1:1" id="IIa-ja-Qw8"/>
+                                                            <constraint firstAttribute="width" secondItem="unp-gU-EbJ" secondAttribute="height" multiplier="3:4" id="IIa-ja-Qw8"/>
                                                         </constraints>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEf-1W-Cg1">
-                                                        <rect key="frame" x="0.0" y="414" width="414" height="438"/>
+                                                        <rect key="frame" x="0.0" y="552" width="414" height="300"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vOp-PA-E1n">
-                                                                <rect key="frame" x="8" y="8" width="398" height="422"/>
+                                                                <rect key="frame" x="8" y="8" width="398" height="284"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Bc3-bo-twt">
                                                                         <rect key="frame" x="0.0" y="2" width="40" height="36.666666666666671"/>
@@ -79,7 +79,7 @@
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bas-fU-yx8">
-                                                                                <rect key="frame" x="0.0" y="35.333333333333314" width="338" height="149.66666666666666"/>
+                                                                                <rect key="frame" x="0.0" y="35.333333333333343" width="338" height="149.66666666666666"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </string>
                                                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
