@@ -107,3 +107,9 @@ extension Array {
         return lo // not found, would be inserted at position lo
     }
 }
+
+extension UICollectionView {
+    func indexPathIsValid(indexPath: IndexPath) -> Bool {
+        return indexPath.section < numberOfSections && indexPath.row < numberOfItems(inSection: indexPath.section)
+    }
+}
