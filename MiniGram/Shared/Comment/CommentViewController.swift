@@ -144,8 +144,14 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         } else {
             cell.commentUserImage.image = comment.image ?? UIImage(named: "placeholder")
             comment.downloadImageIfMissing {
-                tableView.reloadRows(at: [indexPath], with: .automatic)
+                DispatchQueue.main.async {
+                    if tableView.hasRowAtIndexPath(indexPath: indexPath) {
+                        tableView.reloadRows(at: [indexPath], with: .none)
+                    }
+                }
+
             }
+            
         }
         
         return cell

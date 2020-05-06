@@ -122,7 +122,9 @@ class GenericPost: FireInitable {
     func commentListenerRead(add: [Comment], remove: [String], change: [Comment], listenerId: String) {
         //add
         for comment in add {
-            self.comments.append(comment)
+            //self.comments.append(comment)
+            let index = self.comments.insertionIndexOf(comment) { $0.date.dateValue() < $1.date.dateValue()}
+            self.comments.insert(comment, at: index)
         }
         //remove
         for id in remove {
